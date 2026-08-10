@@ -376,6 +376,9 @@ string[start:stop]
 * start = starting index, included.
 * stop = ending position, not included.
 * The actual last included index is **stop - 1**.
+* start < stop  → output
+* start > stop  → ''
+
 
 ### Example
 
@@ -642,6 +645,23 @@ Pto
 
 Here, Python takes every second character.
 
+---
+### Slicing Direction Rule
+
+Normal slicing:
+
+- `start < stop` → output
+- `start > stop` → `''`
+
+Step slicing with a positive step (`+1`):
+
+- `start < stop` → output
+- `start > stop` → `''`
+
+Step slicing with a negative step (`-1`):
+
+- `start > stop` → output
+- `start < stop` → `''`
 ---
 
 ## Reverse a String
