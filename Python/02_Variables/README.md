@@ -1342,27 +1342,3 @@ In this topic, I learned:
 * Best practices for naming variables
 
 ---
-
-# Practice
-
-I practice variables using Python programs and examples.
-
-Example practice file:
-
-```text
-variables.py
-```
-
-I use this file to practice concepts such as:
-
-* Creating variables
-* Assigning values
-* Reassigning values
-* Multiple assignment
-* Unpacking
-* Swapping variables
-* Using variables in calculations
-* Using `type()`
-* Using `id()`
-* Deleting variables
-* Working with functions and variables
