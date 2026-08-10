@@ -512,6 +512,35 @@ Output:
 ytho
 ytho
 ```
+---
+
+# Using Positive and Negative Indexes Together in Slicing
+
+Negative indexes can be mentally converted to their equivalent positive indexes to understand the direction of slicing.
+
+With the default step `(+1)`:
+
+- If `start < stop` → characters are returned.
+- If `start > stop` → empty string (`''`) is returned.
+
+### Examples
+
+    text[4:10]     # works
+    text[10:4]     # ''
+
+### Negative Index Example
+
+If `-4` is equivalent to positive index `6`:
+
+    text[-4:10]    # same direction as 6:10
+    text[-4:2]     # same direction as 6:2 → ''
+
+If `-4` is used as the stop index:
+
+    text[2:-4]     # same as text[2:6] → works
+    text[10:-4]    # same as text[10:6] → ''
+
+> Note: Python does not actually convert the negative index into a positive index. We can do this mentally to understand the slicing direction easily.
 
 ---
 
