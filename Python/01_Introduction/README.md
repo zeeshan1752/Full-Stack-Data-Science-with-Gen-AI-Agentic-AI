@@ -1289,46 +1289,6 @@ Correct:
 print("Hello")
 ```
 
----
-
-# Simple Python Development Setup
-
-For normal Python programming:
-
-```text
-Python
-   ↓
-VS Code
-   ↓
-Python Extension
-   ↓
-Pylance
-```
-
-For Data Science and Machine Learning:
-
-```text
-Python
-   ↓
-VS Code
-   ↓
-Python + Pylance + Jupyter
-   ↓
-.ipynb files
-```
-
-Another option:
-
-```text
-Anaconda
-   ↓
-Jupyter Notebook / JupyterLab
-   ↓
-Data Science Practice
-```
-
----
-
 # Practice
 
 ## 1. Print Your Name
