@@ -110,6 +110,92 @@ Triple quotes are useful when:
 
 ---
 
+# String Concatenation
+
+String concatenation means **joining two or more strings together**.
+
+The `+` operator is used to concatenate strings.
+
+### Syntax
+
+```python
+string1 + string2
+```
+Example
+
+```python
+first_name = "Zeeshan"
+last_name = "Jamshed"
+
+full_name = first_name + " " + last_name
+
+print(full_name)
+```
+
+Output:
+
+```text
+Zeeshan Khan
+```
+
+Here, `" "` is used to add a space between the two strings.
+
+### Another Example
+
+```python
+first_name = "Hello"
+last_name = "Python"
+
+print(first_name + " " + last_name)
+```
+
+Output:
+
+```text
+Hello Python
+```
+
+### Important
+
+We can concatenate strings using the `+` operator.
+
+```python
+name = "Python"
+version = "3"
+
+print(name + version)
+```
+
+Output:
+
+```text
+Python3
+```
+
+We cannot directly concatenate a string with an integer.
+
+```python
+age = 21
+
+print("Age: " + age)
+```
+
+This gives a `TypeError`.
+
+We can convert the integer into a string using `str()`.
+
+```python
+age = 21
+
+print("Age: " + str(age))
+```
+
+Output:
+
+```text
+Age: 21
+```
+
 # String Index
 
 Every character in a string has a position called an **index**.
@@ -586,5 +672,11 @@ Here:
 28. A negative step moves from right to left.
 29. `[::-1]` is commonly used to reverse a string.
 30. Strings are immutable, so individual characters of a string cannot be changed directly.
+31. String concatenation means joining two or more strings together.
+32. The `+` operator is used for string concatenation.
+33. A space can be added while concatenating by using `" "`.
+34. A string cannot be directly concatenated with an integer or another different data type.
+35. The `str()` function can be used to convert another data type into a string before concatenation.
+36. Concatenating a string with an incompatible data type directly can give a `TypeError`.
 
 ---
