@@ -662,6 +662,8 @@ Step slicing with a negative step (`-1`):
 
 - `start > stop` → output
 - `start < stop` → `''`
+- In the negative step, the last value is `stop + 1`.
+
 ---
 
 ## Reverse a String
