@@ -6,15 +6,32 @@ A **list** is a built-in Python data structure used to store multiple values in 
 
 Lists are:
 
-- Ordered
-- Mutable
-- Allow duplicate values
-- Can store different data types
-- Can contain other lists
+* Ordered
+* Mutable
+* Allow duplicate values
+* Can store different data types
+* Can contain other lists
 
 Example:
 
-numbers = `[10, 20, 30, 40]`
+```python
+numbers = [10, 20, 30, 40]
+```
+
+---
+
+# Important Properties of Lists
+
+| Property             | List    |
+| -------------------- | ------- |
+| Ordered              | Yes     |
+| Mutable              | Yes     |
+| Duplicates           | Allowed |
+| Indexing             | Yes     |
+| Negative Indexing    | Yes     |
+| Slicing              | Yes     |
+| Different Data Types | Yes     |
+| Nested Lists         | Yes     |
 
 ---
 
@@ -22,7 +39,7 @@ numbers = `[10, 20, 30, 40]`
 
 ```python
 list_name = [value1, value2, value3]
-````
+```
 
 Example:
 
@@ -191,7 +208,7 @@ Output:
 [10, 30, 50]
 ```
 
-### Reverse a List
+### Reverse a List Using Slicing
 
 ```python
 print(numbers[::-1])
@@ -251,6 +268,26 @@ matrix[1][2] → 6
 ---
 
 # List Methods
+
+## Common List Methods
+
+| Method      | Purpose                                |
+| ----------- | -------------------------------------- |
+| `append()`  | Adds one element at the end            |
+| `extend()`  | Adds multiple elements                 |
+| `insert()`  | Adds an element at a specific position |
+| `remove()`  | Removes the first matching value       |
+| `pop()`     | Removes and returns an element         |
+| `clear()`   | Removes all elements                   |
+| `count()`   | Counts occurrences of a value          |
+| `index()`   | Finds the index of a value             |
+| `copy()`    | Creates a copy of the list             |
+| `sort()`    | Sorts the list                         |
+| `reverse()` | Reverses the list                      |
+
+> **Note:** `del` is included here for learning purposes because it is commonly used with lists, but technically `del` is **not a list method**. It is a Python keyword used to delete objects, elements, slices, or variables.
+
+---
 
 ## 1. append()
 
@@ -342,9 +379,9 @@ Result:
 
 ## 3. insert()
 
-- `insert()` adds an element at a specific index.
+`insert()` adds an element at a specific index.
 
-- `insert()`adds the new value at the specified index and shifts the existing elements at that index and after it one position to the right `(+1)`.
+It adds the new value at the specified index and shifts the existing elements at that index and after it one position to the right (`+1`).
 
 ### Syntax
 
@@ -372,9 +409,9 @@ Output:
 
 ## 4. remove()
 
-- `remove()` removes the first occurrence of a specified value.
+`remove()` removes the first occurrence of a specified value.
 
-- `remove(value)` removes the first occurrence of the specified value and then the elements after it shift one position to the left `(-1)`.
+`remove(value)` removes the first occurrence of the specified value, and the elements after it shift one position to the left (`-1`).
 
 ```python
 numbers = [10, 20, 30, 20]
@@ -456,9 +493,9 @@ Output:
 
 ## 7. del
 
-`del` is a Python keyword used to delete elements, slices, or the entire list.
+> **Important:** `del` is **not a list method**. It is a Python keyword used to delete elements, slices, or the entire list.
 
-### Delete an element
+### Delete an Element
 
 ```python
 numbers = [10, 20, 30]
@@ -474,7 +511,7 @@ Output:
 [10, 30]
 ```
 
-### Delete multiple elements
+### Delete Multiple Elements
 
 ```python
 numbers = [10, 20, 30, 40, 50]
@@ -490,7 +527,7 @@ Output:
 [10, 50]
 ```
 
-### Delete the entire list
+### Delete the Entire List
 
 ```python
 numbers = [10, 20, 30]
@@ -727,11 +764,318 @@ The number of variables must normally match the number of elements.
 
 ---
 
+# Looping and Built-in Functions with Lists
+
+## 1. Using `for` Loop with a List
+
+A `for` loop can be used to access each element of a list one by one.
+
+```python
+numbers = [10, 20, 30, 40]
+
+for value in numbers:
+    print(value)
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+---
+
+## 2. Using `for i in range()`
+
+`range()` can be used to loop through the **indexes** of a list.
+
+```python
+numbers = [10, 20, 30, 40]
+
+for i in range(len(numbers)):
+    print(numbers[i])
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+```
+
+Here:
+
+* `len(numbers)` → gives the number of elements.
+* `range(len(numbers))` → generates the indexes.
+* `numbers[i]` → accesses the element at that index.
+
+You can also use `range()` when you want to modify list elements:
+
+```python
+numbers = [10, 20, 30, 40]
+
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+
+print(numbers)
+```
+
+Output:
+
+```text
+[20, 40, 60, 80]
+```
+
+---
+
+## 3. Using `enumerate()`
+
+`enumerate()` is used when you want to get both the **index and value** while looping through a list.
+
+### Using `enumerate()` with Two Variables
+
+```python
+numbers = [10, 20, 30, 40]
+
+for i, value in enumerate(numbers):
+    print(i, value)
+```
+
+Output:
+
+```text
+0 10
+1 20
+2 30
+3 40
+```
+
+Here:
+
+* `i` → index
+* `value` → element at that index
+
+### Using `enumerate()` Directly
+
+You can also use `enumerate()` with only one variable:
+
+```python
+numbers = [10, 20, 30, 40]
+
+for i in enumerate(numbers):
+    print(i)
+```
+
+Output:
+
+```text
+(0, 10)
+(1, 20)
+(2, 30)
+(3, 40)
+```
+
+In this case, `i` contains a **tuple**:
+
+```text
+(index, value)
+```
+
+For example:
+
+```text
+i = (0, 10)
+i = (1, 20)
+i = (2, 30)
+i = (3, 40)
+```
+
+To access them separately:
+
+```python
+for i, value in enumerate(numbers):
+    print(i, value)
+```
+
+### `range()` vs `enumerate()`
+
+```text
+range()
+    → mainly used when you need the index
+
+enumerate()
+    → used when you need both index and value
+```
+
+Example:
+
+```python
+for i in range(len(numbers)):
+    print(i, numbers[i])
+```
+
+```python
+for i, value in enumerate(numbers):
+    print(i, value)
+```
+
+The `enumerate()` approach is generally cleaner when you need both the index and the value.
+
+---
+
+## 4. all()
+
+`all()` returns `True` if **all elements** in an iterable are truthy.
+
+```python
+numbers = [1, 2, 3, 4]
+
+print(all(numbers))
+```
+
+Output:
+
+```text
+True
+```
+
+Example with `0`:
+
+```python
+numbers = [1, 2, 0, 4]
+
+print(all(numbers))
+```
+
+Output:
+
+```text
+False
+```
+
+Because `0` is considered falsy.
+
+Example with Boolean values:
+
+```python
+values = [True, True, True]
+
+print(all(values))
+```
+
+Output:
+
+```text
+True
+```
+
+```python
+values = [True, False, True]
+
+print(all(values))
+```
+
+Output:
+
+```text
+False
+```
+
+### Important
+
+`all()` returns `False` if **even one element is falsy**.
+
+Common falsy values include:
+
+```text
+0
+False
+None
+""
+```
+
+---
+
+## 5. any()
+
+`any()` returns `True` if **at least one element** in an iterable is truthy.
+
+```python
+numbers = [0, 0, 5, 0]
+
+print(any(numbers))
+```
+
+Output:
+
+```text
+True
+```
+
+Because `5` is truthy.
+
+Example:
+
+```python
+numbers = [0, 0, 0, 0]
+
+print(any(numbers))
+```
+
+Output:
+
+```text
+False
+```
+
+Example with Boolean values:
+
+```python
+values = [False, False, True]
+
+print(any(values))
+```
+
+Output:
+
+```text
+True
+```
+
+### Important
+
+`any()` returns `True` if **at least one element is truthy**.
+
+---
+
+## `all()` vs `any()`
+
+| Function | Meaning                        | Example                 | Result  |
+| -------- | ------------------------------ | ----------------------- | ------- |
+| `all()`  | All elements must be truthy    | `[True, True, True]`    | `True`  |
+| `all()`  | Even one falsy element         | `[True, False, True]`   | `False` |
+| `any()`  | At least one element is truthy | `[False, False, True]`  | `True`  |
+| `any()`  | No element is truthy           | `[False, False, False]` | `False` |
+
+### Easy Way to Remember
+
+```text
+all() → ALL must be True
+any() → ANY one can be True
+```
+
+---
+
 # List Comprehension
 
 List comprehension provides a short way to create a new list from an existing sequence.
 
-### Basic Syntax
+## Basic Syntax
 
 ```python
 [expression for item in iterable]
@@ -753,7 +1097,7 @@ Output:
 [1, 4, 9, 16, 25]
 ```
 
-### With Condition
+## With Condition
 
 ```python
 numbers = [1, 2, 3, 4, 5, 6]
@@ -773,64 +1117,61 @@ List comprehension is especially useful in **Python programming and Data Science
 
 ---
 
-# Important Properties of Lists
-
-| Property             | List    |
-| -------------------- | ------- |
-| Ordered              | Yes     |
-| Mutable              | Yes     |
-| Duplicates           | Allowed |
-| Indexing             | Yes     |
-| Negative Indexing    | Yes     |
-| Slicing              | Yes     |
-| Different Data Types | Yes     |
-| Nested Lists         | Yes     |
-
----
-
-# Common List Methods
-
-| Method      | Purpose                                |
-| ----------- | -------------------------------------- |
-| `append()`  | Adds one element at the end            |
-| `extend()`  | Adds multiple elements                 |
-| `insert()`  | Adds an element at a specific position |
-| `remove()`  | Removes the first matching value       |
-| `pop()`     | Removes and returns an element         |
-| `clear()`   | Removes all elements                   |
-| `count()`   | Counts occurrences of a value          |
-| `index()`   | Finds the index of a value             |
-| `copy()`    | Creates a copy of the list             |
-| `sort()`    | Sorts the list                         |
-| `reverse()` | Reverses the list                      |
-
----
-
 # Quick Summary
 
 ```text
 List
 │
-├── Ordered
-├── Mutable
-├── Allows duplicates
-├── Supports indexing
-├── Supports negative indexing
-├── Supports slicing
-├── Supports nested lists
+├── Properties
+│   ├── Ordered
+│   ├── Mutable
+│   ├── Allows duplicates
+│   ├── Supports indexing
+│   ├── Supports negative indexing
+│   ├── Supports slicing
+│   ├── Supports different data types
+│   └── Supports nested lists
 │
-├── append()
-├── extend()
-├── insert()
-├── remove()
-├── pop()
-├── clear()
-├── del
-├── count()
-├── index()
-├── copy()
-├── sort()
-└── reverse()
+├── Basic Operations
+│   ├── Indexing
+│   ├── Negative Indexing
+│   ├── Slicing
+│   ├── Nested Indexing
+│   ├── Membership (in / not in)
+│   ├── Concatenation (+)
+│   ├── Repetition (*)
+│   └── Unpacking
+│
+├── List Methods
+│   ├── append()
+│   ├── extend()
+│   ├── insert()
+│   ├── remove()
+│   ├── pop()
+│   ├── clear()
+│   ├── count()
+│   ├── index()
+│   ├── copy()
+│   ├── sort()
+│   └── reverse()
+│
+├── List Keyword
+│   └── del
+│
+├── Looping
+│   ├── for loop
+│   ├── range()
+│   └── enumerate()
+│
+├── Built-in Functions
+│   ├── type()
+│   ├── len()
+│   ├── all()
+│   └── any()
+│
+└── List Comprehension
+    ├── Basic comprehension
+    └── Comprehension with condition
 ```
 
 A list is one of the most important Python data structures and is widely used in **Data Science, NumPy, Pandas, Machine Learning, and general Python programming**.
