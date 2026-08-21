@@ -40,10 +40,13 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Data Structures: Lists, Tuples, Sets, Dictionaries & Range](01_Python/12_Data_Structure)
 - [x] [Assignments & Practice](01_Python/13_Assignment_&_Practice)
 
-#### Advanced Python — In Progress
+#### Basic Python — In Progress
 
 - [ ] Conditional Statements
 - [ ] Loops
+
+#### Advanced Python — In Progress
+
 - [ ] Functions
 - [ ] List and Dictionary Comprehension
 - [ ] Functions and Lambda
