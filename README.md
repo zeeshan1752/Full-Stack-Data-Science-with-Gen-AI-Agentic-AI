@@ -23,23 +23,38 @@ This course covers different areas of Data Science, Machine Learning,
 Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Python
-- Python Basics
-- Variables and Data Types
-- Operators
-- Conditional Statements
-- Loops
-- Functions
-- Lists, Tuples, Sets and Dictionaries
-- List and Dictionary Comprehension
-- Functions and Lambda
-- Object-Oriented Programming
-- Decorators
-- Iterators and Generators
-- Exception Handling
-- File Handling
-- Modules and Packages
-- Regular Expressions
-- Pickling and Unpickling
+
+#### Completed
+
+- [x] [Introduction, Comments & Keywords](01_Python/01_Introduction)
+- [x] [Variables](01_Python/02_Variables)
+- [x] [Data Types](01_Python/03_DataTypes)
+- [x] [Strings, Indexing & Slicing](01_Python/04_String_Indexing_Slicing)
+- [x] [Type Casting](01_Python/05_Type_Casting)
+- [x] [Print Function](01_Python/06_Print_Function)
+- [x] [Operators & Bitwise Operators](01_Python/07_Operators)
+- [x] [Number System](01_Python/08_Number_System)
+- [x] [Swapping](01_Python/09_Swapping)
+- [x] [Modules](01_Python/10_Modules)
+- [x] [Input Function](01_Python/11_Input_Function)
+- [x] [Data Structures: Lists, Tuples, Sets, Dictionaries & Range](01_Python/12_Data_Structure)
+- [x] [Assignments & Practice](01_Python/13_Assignment_&_Practice)
+
+#### Upcoming
+
+- [ ] Conditional Statements
+- [ ] Loops
+- [ ] Functions
+- [ ] List and Dictionary Comprehension
+- [ ] Functions and Lambda
+- [ ] Object-Oriented Programming
+- [ ] Decorators
+- [ ] Iterators and Generators
+- [ ] Exception Handling
+- [ ] File Handling
+- [ ] Modules and Packages
+- [ ] Regular Expressions
+- [ ] Pickling and Unpickling
 
 ### Data Analysis
 - NumPy
