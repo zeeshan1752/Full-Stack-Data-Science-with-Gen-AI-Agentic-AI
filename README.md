@@ -9,11 +9,8 @@ keep my learning journey organized topic-wise.
 
 ## Current Learning Progress
 
-- **Current stage:** Python fundamentals
-- **Completed so far:** Introduction, variables, data types, strings, type casting, printing, operators, number systems, swapping, modules, input, and core data structures
-- **Practice completed:** Python assignments and practice questions
-- **Next topic:** Conditional statements
-
+- **Current stage:** Advanced Python
+- **Completed so far:** Python Fundamentals
 
 ---
 
@@ -40,7 +37,9 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Data Structures: Lists, Tuples, Sets, Dictionaries & Range](01_Python/12_Data_Structure)
 - [x] [Assignments & Practice](01_Python/13_Assignment_&_Practice)
 
-#### Upcoming
+### Advanced Python
+
+#### Ongoing
 
 - [ ] Conditional Statements
 - [ ] Loops
