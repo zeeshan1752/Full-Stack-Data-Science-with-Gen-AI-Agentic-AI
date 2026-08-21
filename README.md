@@ -6,6 +6,15 @@ This repository contains my learning, notes, practice, and projects from my
 I am using this repository to learn concepts, practice them with code, and
 keep my learning journey organized topic-wise.
 
+
+## Current Learning Progress
+
+- **Current stage:** Python fundamentals
+- **Completed so far:** Introduction, variables, data types, strings, type casting, printing, operators, number systems, swapping, modules, input, and core data structures
+- **Practice completed:** Python assignments and practice questions
+- **Next topic:** Conditional statements
+
+
 ---
 
 ## What Will I Learn?
