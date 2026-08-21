@@ -19,7 +19,7 @@ keep my learning journey organized topic-wise.
 This course covers different areas of Data Science, Machine Learning,
 Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
-### Python
+### Python Fundamentals
 
 #### Completed
 
