@@ -1828,4 +1828,3 @@ strip()   → removes characters from the ends
 - `join()` returns a string.
 - `strip()`, `lstrip()`, and `rstrip()` work on the ends of a string.
 - String methods generally return a new string instead of changing the original string.
-```
