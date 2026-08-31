@@ -534,8 +534,6 @@ Here:
 
 # 12. Multiline Plots
 
-![Output](images/multiline-plot.png)
-
 We can draw multiple lines on the same plot.
 
 ```python
@@ -2086,5 +2084,3 @@ In this guide, we learned:
 * Saving plots
 
 Matplotlib gives us the tools to convert numerical data into clear and meaningful visualizations.
-
-```
