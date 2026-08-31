@@ -60,9 +60,9 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 #### Ongoing
 
-- [ ] NumPy
+- [x] [NumPy](03_Data_Analysis/01_NumPy)
+- [x] [Matplotlib](03_Data_Analysis/02_Matplotlib)
 - [ ] Pandas
-- [ ] Matplotlib
 - [ ] Seaborn
 - [ ] SciPy
 - [ ] Statsmodels
