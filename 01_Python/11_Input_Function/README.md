@@ -320,6 +320,40 @@ Output:
 hELLO wORLD
 ```
 
+### `isupper()`
+
+Checks whether all alphabetic characters in the string are uppercase.
+
+Returns `True` or `False`.
+
+```python
+text = "HELLO"
+print(text.isupper())
+```
+
+Output:
+
+```text
+True
+```
+
+### `islower()`
+
+Checks whether all alphabetic characters in the string are lowercase.
+
+Returns `True` or `False`.
+
+```python
+text = "hello"
+print(text.islower())
+```
+
+Output:
+
+```text
+True
+```
+
 ---
 
 # 9. Removing Spaces
@@ -1142,18 +1176,19 @@ len(text)     # Length
 "Py" in "Python"     # Membership
 ```
 
-### String Methods
+### Case Methods
 
-```python
-text.upper()
-text.lower()
-text.strip()
-text.replace("a", "b")
-text.find("th")
-text.count("o")
-text.split()
-```
+| Method | Purpose |
+|---|---|
+| `upper()` | Converts to uppercase |
+| `lower()` | Converts to lowercase |
+| `capitalize()` | Capitalizes first character |
+| `title()` | Capitalizes each word |
+| `swapcase()` | Swaps uppercase and lowercase |
+| `isupper()` | Checks if string is uppercase |
+| `islower()` | Checks if string is lowercase |
 
+---
 ### Input
 
 ```python
