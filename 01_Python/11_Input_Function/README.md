@@ -1197,5 +1197,3 @@ join() → list/sequence to string
 
 map() → applies a function to multiple values
 ```
-
-This removes the repeated explanations from the two sets and keeps **`input()` after the core string concepts**, where it naturally connects with `split()`, `map()`, and string processing.
