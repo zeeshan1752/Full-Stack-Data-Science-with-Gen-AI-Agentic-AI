@@ -69,6 +69,15 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] Exploratory Data Analysis (EDA)
 - [ ] Data Cleaning and Data Visualization
 
+### Web Application Development
+
+- [x] Streamlit
+- [ ] Frontend Development
+- [ ] FastAPI
+- [ ] REST APIs
+- [ ] Flask
+- [ ] Gradio
+
 ### Mathematics & Statistics
 - Probability
 - Distributions
@@ -144,8 +153,6 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - Transformers
 - Transfer Learning
 
-The course also includes image processing and image classification.
-
 ### Natural Language Processing (NLP)
 - Text Cleaning
 - Tokenization
@@ -186,8 +193,6 @@ The course also includes image processing and image classification.
 - VAEs
 - Stable Diffusion
 
-The course includes hands-on work with text, image and multimodal models.
-
 ### LLMs
 - Large Language Models
 - Foundation Models
@@ -206,9 +211,6 @@ The course includes hands-on work with text, image and multimodal models.
 - LoRA
 - QLoRA
 
-The course also covers deploying LLM-based applications and fine-tuning
-models.
-
 ### Prompt Engineering
 - Introduction to Prompt Engineering
 - Prompt Structure
@@ -223,9 +225,6 @@ models.
 - Dynamic Structured Prompting (DSP)
 - LLM Settings and Configuration
 
-The course also includes hands-on prompt experiments and AI application
-building.
-
 ### Vector Databases & RAG
 - Vector Databases
 - Embeddings
@@ -238,9 +237,6 @@ building.
 - Qdrant
 - Retrieval-Augmented Generation (RAG)
 - AI Search Applications
-
-The syllabus includes building RAG and search applications using vector
-databases and LLMs.
 
 ### Agentic AI
 - Introduction to Agentic AI
@@ -256,9 +252,6 @@ databases and LLMs.
 - PhiData
 - Agentic AI with LLMs
 - AI Agent Deployment
-
-The course includes hands-on work such as building single agents,
-multi-agent research assistants and CrewAI workflows.
 
 ### MCP (Model Context Protocol)
 - Introduction to MCP
@@ -287,8 +280,6 @@ multi-agent research assistants and CrewAI workflows.
 - Kubeflow
 - Model Deployment
 - Cloud Deployment
-
-The course includes hands-on CI/CD and Docker-based ML deployment.
 
 ---
 
