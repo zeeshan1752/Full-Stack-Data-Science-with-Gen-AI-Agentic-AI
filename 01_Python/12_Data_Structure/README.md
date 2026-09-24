@@ -1,5 +1,3 @@
-# Data Structures — README
-
 ## Data Type vs Data Structure
 
 ### Data Type
