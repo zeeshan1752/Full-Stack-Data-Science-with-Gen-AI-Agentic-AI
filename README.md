@@ -44,11 +44,12 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 - [x] [Conditional Statements](02_Advanced_Python/01_Conditional_Statement)
 - [x] [Loops](02_Advanced_Python/02_Loops)
-- [x] Functions
 - [x] Comprehensions
-- [ ] Functions and Lambda
+- [x] Functions
+- [x] Recursion
+- [x] Lambda Function
+- [x] Decorators
 - [ ] Object-Oriented Programming
-- [ ] Decorators
 - [ ] Iterators and Generators
 - [ ] Exception Handling
 - [ ] File Handling
@@ -62,11 +63,11 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 - [x] [NumPy](03_Data_Analysis/01_NumPy)
 - [x] [Matplotlib](03_Data_Analysis/02_Matplotlib)
-- [ ] Pandas
-- [ ] Seaborn
+- [x] Pandas
+- [x] Seaborn
+- [ ] Exploratory Data Analysis (EDA)
 - [ ] SciPy
 - [ ] Statsmodels
-- [ ] Exploratory Data Analysis (EDA)
 - [ ] Data Cleaning and Data Visualization
 
 ### Web Application Development
