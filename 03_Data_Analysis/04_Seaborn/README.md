@@ -2,35 +2,7 @@
 
 Seaborn is a Python library built on Matplotlib that helps create statistical visualizations. This guide includes the code used to generate each chart, a short explanation, and its output image.
 
-## Folder Structure
-
-```text
-Seaborn/
-├── README.md
-├── seaborn_visualizations.py
-└── images/
-    ├── 01_histogram_kde.png
-    ├── 02_kde_plot.png
-    ├── 03_ecdf_plot.png
-    ├── 04_count_plot.png
-    ├── 05_bar_plot.png
-    ├── 06_box_plot.png
-    ├── 07_violin_plot.png
-    ├── 08_strip_plot.png
-    ├── 09_swarm_plot.png
-    ├── 10_scatter_plot.png
-    ├── 11_regression_plot.png
-    ├── 12_residual_plot.png
-    ├── 13_line_plot.png
-    ├── 14_joint_plot.png
-    ├── 15_pair_plot.png
-    ├── 16_correlation_heatmap.png
-    ├── 17_clustermap.png
-    ├── 18_relplot_facets.png
-    ├── 19_catplot.png
-    ├── 20_displot.png
-    └── 21_styled_scatter_plot.png
-```
+---
 
 ## 1. Installation
 
@@ -50,6 +22,8 @@ import matplotlib.pyplot as plt
 
 sns.set_theme(style="whitegrid")
 ```
+
+---
 
 ## 2. Create an Example Dataset
 
@@ -106,6 +80,8 @@ plt.show()
 | `multiple` | `"layer"`, `"dodge"`, `"stack"`, `"fill"` | Controls how distributions are arranged when comparing groups. |
 | `hue` | `None` or a column name, e.g. `"Department"` | Splits the data into groups and distinguishes them by color. |
 
+---
+
 ## 4. KDE Plot
 
 A Kernel Density Estimate (KDE) plot shows a smoothed estimate of where values are concentrated in a numeric distribution.
@@ -131,6 +107,8 @@ plt.show()
 | `multiple` | `"layer"`, `"stack"`, `"fill"` | Controls how grouped density curves are displayed. |
 | `common_norm` | `True`, `False` | Controls whether grouped densities are normalized together or separately. |
 
+---
+
 ## 5. ECDF Plot
 
 An empirical cumulative distribution function (ECDF) shows the proportion of observations that are less than or equal to each value.
@@ -154,6 +132,8 @@ plt.show()
 | `complementary` | `True`, `False` | Shows the complementary cumulative distribution when enabled. |
 | `hue` | `None` or a column name | Draws separate ECDF curves for groups. |
 | `weights` | Name of a weights column or `None` | Gives observations different contributions to the cumulative distribution. |
+
+---
 
 ## 6. Count Plot
 
@@ -186,6 +166,8 @@ plt.show()
 | `stat` | `"count"`, `"percent"`, `"probability"` (supported in recent Seaborn versions) | Changes counts to relative values where supported. |
 | `dodge` | `True`, `False` | Separates hue groups or lets them share a category position. |
 
+---
+
 ## 7. Bar Plot
 
 A bar plot compares a summary statistic, such as the mean score, across categories. By default, Seaborn displays the mean and an uncertainty interval.
@@ -213,6 +195,8 @@ plt.show()
 | `orient` | `"v"`, `"h"`, or `None` | Sets vertical or horizontal orientation, or lets Seaborn infer it. |
 | `dodge` | `True`, `False` | Separates bars for hue groups or places them together. |
 
+---
+
 ## 8. Box Plot
 
 A box plot summarizes a distribution using quartiles and whiskers. Points beyond the whiskers may be potential outliers and should be investigated.
@@ -239,6 +223,8 @@ plt.show()
 | `whis` | `1.5`, a number, or a percentile pair such as `(5, 95)` | Controls how whiskers are calculated. |
 | `width` | Number, e.g. `0.5`, `0.8` | Controls box width. |
 | `dodge` | `True`, `False` | Controls separation of hue-grouped boxes. |
+
+---
 
 ## 9. Violin Plot
 
@@ -268,6 +254,8 @@ plt.show()
 | `split` | `True`, `False` | Can draw hue groups on opposite sides of one violin when the data/design supports it. |
 | `dodge` | `True`, `False` | Separates hue-grouped violins. |
 
+---
+
 ## 10. Strip Plot
 
 A strip plot displays individual observations for each category. Jitter spreads points slightly to make overlapping observations easier to see.
@@ -294,6 +282,8 @@ plt.show()
 | `size` | Positive number, e.g. `4`, `6` | Sets marker size. |
 | `alpha` | Number from `0` to `1` | Controls marker transparency. |
 | `orient` | `"v"`, `"h"`, or `None` | Controls plot orientation. |
+
+---
 
 ## 11. Swarm Plot
 
@@ -322,6 +312,8 @@ plt.show()
 | `warn_thresh` | Number from `0` to `1` | Sets the crowding threshold that triggers a warning. |
 | `native_scale` | `True`, `False` | Preserves numeric/datetime category spacing when enabled in supported versions. |
 
+---
+
 ## 12. Scatter Plot
 
 A scatter plot displays the relationship between two numeric variables. The `hue` parameter uses color to distinguish departments.
@@ -349,6 +341,8 @@ plt.show()
 | `markers` | `True`, `False`, or a marker list/dictionary | Controls marker styles for style groups. |
 | `sizes` | Tuple such as `(20, 200)` or a mapping | Controls the marker-size range for numeric size mapping. |
 | `legend` | `True`, `False`, `"auto"`, `"brief"`, `"full"` | Controls legend display and detail. |
+
+---
 
 ## 13. Regression Plot
 
@@ -384,6 +378,8 @@ plt.show()
 | `scatter` | `True`, `False` | Shows or hides the data points. |
 | `robust` | `True`, `False` | Uses robust regression to reduce sensitivity to outliers. |
 
+---
+
 ## 14. Residual Plot
 
 A residual plot shows model errors against the predictor. Patterns in the residuals can suggest that a simple linear model does not fully describe the data.
@@ -409,6 +405,8 @@ plt.show()
 | `x_partial`, `y_partial` | Column names or `None` | Partial out other variables before plotting, where supported. |
 | `scatter` | `True`, `False` | Shows or hides individual points. |
 | `x`, `y` | Numeric column names | Selects the predictor and response variables used to calculate the residual plot. |
+
+---
 
 ## 15. Line Plot
 
@@ -440,6 +438,8 @@ plt.show()
 | `dashes` | `True`, `False`, or dash specification | Controls dashed line styles for groups. |
 | `sort` | `True`, `False` | Sorts x values before connecting points. |
 
+---
+
 ## 16. Joint Plot
 
 A joint plot combines a relationship plot with the distributions of both variables along the edges. The `kind="reg"` option adds a regression line.
@@ -462,6 +462,8 @@ plt.show()
 | `hue` | `None` or a column name | Colors observations by group for supported plot kinds. |
 | `marginal_ticks` | `True`, `False` | Controls ticks on marginal axes. |
 | `dropna` | `True`, `False` | Controls whether rows with missing x/y values are dropped. |
+
+---
 
 ## 17. Pair Plot
 
@@ -490,6 +492,8 @@ plt.show()
 | `corner` | `True`, `False` | Shows only the lower triangle when enabled. |
 | `palette` | Palette name, list, or dictionary | Chooses colors for hue groups. |
 | `plot_kws` | Dictionary | Passes additional options to off-diagonal plots. |
+
+---
 
 ## 18. Correlation Heatmap
 
@@ -521,6 +525,8 @@ plt.show()
 | `square` | `True`, `False` | Makes cells square when enabled. |
 | `mask` | Boolean matrix | Hides selected cells. |
 
+---
+
 ## 19. Clustermap
 
 A clustermap groups rows and columns with similar numeric patterns. Standardizing the columns helps compare variables with different scales.
@@ -548,6 +554,8 @@ plt.show()
 | `row_cluster`, `col_cluster` | `True`, `False` | Enables or disables clustering of rows and columns. |
 | `cmap` | Palette name, e.g. `"vlag"`, `"viridis"` | Chooses the heatmap color map. |
 | `figsize` | Tuple, e.g. `(8, 6)` | Sets the figure size. |
+
+---
 
 ## 20. Figure-Level `relplot()`
 
@@ -581,6 +589,8 @@ plt.show()
 | `height` | Positive number | Sets height of each facet in inches. |
 | `aspect` | Positive number | Sets each facet's width-to-height ratio. |
 
+---
+
 ## 21. Figure-Level `catplot()`
 
 `catplot()` is a flexible interface for categorical charts. Its `kind` parameter can be changed to `"box"`, `"violin"`, `"bar"`, or `"strip"`.
@@ -612,6 +622,8 @@ plt.show()
 | `aspect` | Positive number | Sets each facet's width-to-height ratio. |
 | `order` | List of category names | Sets the category order. |
 | `dodge` | `True`, `False` | Separates hue groups where the plot type supports it. |
+
+---
 
 ## 22. Figure-Level `displot()`
 
@@ -645,6 +657,8 @@ plt.show()
 | `height` | Positive number | Sets figure height in inches. |
 | `aspect` | Positive number | Sets figure width relative to height. |
 | `col`, `row` | Column names or `None` | Splits distributions into panels. |
+
+---
 
 ## 23. Styling with `hue`, `style`, and Palettes
 
@@ -720,3 +734,39 @@ The script creates the charts in the `images/` folder. Keep the `README.md` and 
 - Check data types and missing values before plotting.
 - Investigate potential outliers instead of removing them automatically.
 - Correlation and regression show association; they do not establish cause and effect.
+
+---
+
+## Points to Remember
+
+- Seaborn is a Python library used for statistical data visualization.
+- Seaborn is built on top of Matplotlib.
+- Import Seaborn using `import seaborn as sns`.
+- Import Pandas using `import pandas as pd` when working with DataFrames.
+- Most Seaborn functions work directly with Pandas DataFrames.
+- Use `data=df` to specify the DataFrame containing your data.
+- Use `x` and `y` to select the columns for the axes.
+- Use `hue` to differentiate categories using different colors.
+- Use `palette` to choose a color palette, such as `"viridis"`, `"Set2"`, or `"coolwarm"`.
+- Use `style` to represent categories with different marker styles in supported plots.
+- Use `size` to represent values through different marker sizes in supported plots.
+- Use `sns.set_theme()` to customize the overall appearance of Seaborn charts.
+- Use `plt.title()` to set the chart title and `plt.show()` to display the chart.
+- Use `figsize` in Matplotlib when you need to adjust the figure size.
+- Use `kde=True` in supported distribution plots to display a Kernel Density Estimate curve.
+- Use `bins` in histograms to control how data is divided into intervals.
+- Use `multiple="layer"`, `"stack"`, or `"dodge"` in supported distribution plots to change how groups are displayed.
+- Use `kind` in functions such as `sns.displot()` and `sns.catplot()` to select the type of plot.
+- Use `countplot()` to count observations in categories.
+- Use `barplot()` to visualize a statistical estimate for each category.
+- Use `boxplot()` to understand the median, quartiles, spread, and potential outliers.
+- Use `heatmap()` to visualize values in a matrix using colors.
+- Use `pairplot()` to explore relationships between multiple numerical variables.
+- Use `jointplot()` to visualize the relationship between two variables and their distributions.
+- Use `regplot()` to visualize a relationship with a fitted regression line.
+- Use `lmplot()` to explore regression relationships across groups.
+- Use `col` and `row` in supported figure-level functions to create separate plots for different categories.
+- Use `savefig()` from Matplotlib to save a visualization as an image.
+- Check the documentation for each function because available parameters and accepted values vary between plots.
+- Remember that `sns.*` functions belong to Seaborn, while `plt.*` functions generally belong to Matplotlib.
+- Choose the chart type according to your data and the relationship you want to understand.
