@@ -11,9 +11,9 @@ keep my learning journey organized topic-wise.
 
 ## Current Learning Progress
 
-- **Current stage:** Data Analysis
+- **Current stage:** Machine Learning
 - **Pending:** Advanced Python
-- **Completed so far:** Python Fundamentals
+- **Completed so far:** Python Fundamentals, Data Analysis, Web Application Development, Mathematics & Statistics, SQL & Databases
 
 ---
 
@@ -67,7 +67,7 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Matplotlib](03_Data_Analysis/02_Matplotlib)
 - [x] Pandas
 - [x] Seaborn
-- [ ] Exploratory Data Analysis (EDA)
+- [x] Exploratory Data Analysis (EDA)
 - [ ] SciPy
 - [ ] Statsmodels
 - [ ] Data Cleaning and Data Visualization
