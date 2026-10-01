@@ -12,6 +12,16 @@ NumPy is widely used in:
 
 ---
 
+## Importing Library
+
+Importing Numpy Library.
+
+```python
+import numpy as np
+```
+
+---
+
 ## 1. Introduction to NumPy
 
 ### What is NumPy?
@@ -307,7 +317,7 @@ int64
 | Property | Meaning |
 |---|---|
 | `ndim` | Number of dimensions |
-| `shape` | Number of rows and columns |
+| `shape` | Size of the array along each dimension (for example, rows and columns in a 2D array) |
 | `size` | Total number of elements |
 | `dtype` | Data type of elements |
 
@@ -585,6 +595,8 @@ print(arr.dtype)
 int64
 ```
 
+The displayed integer type can differ by platform and by how the array is created.
+
 ### Specifying Data Type
 
 We can specify the data type while creating the array.
@@ -705,6 +717,8 @@ print(arr > 20)
 ## 10. Broadcasting
 
 Broadcasting allows NumPy to perform operations between arrays of compatible shapes.
+
+For example, a scalar such as `5` can be applied to every element of an array. For two arrays, their dimensions must be compatible for broadcasting; otherwise, NumPy raises a `ValueError`.
 
 For example:
 
@@ -1037,7 +1051,7 @@ print(arr.flatten())
 
 ### `ravel()`
 
-Also converts an array into a 1D form.
+Also returns a 1D version of an array. It may return a view when possible, so changes can sometimes affect the original array.
 
 ```python
 print(arr.ravel())
@@ -1190,7 +1204,7 @@ print(np.searchsorted(arr, 25))
 
 ## 18. Random Numbers and Sampling
 
-NumPy provides functions for generating random values.
+NumPy provides functions for generating random values. The examples below use the familiar `np.random` functions. In newer code, `np.random.default_rng()` is also recommended for creating a random-number generator.
 
 ### `np.random.rand()`
 
@@ -1242,9 +1256,27 @@ print(np.random.choice(arr, 3))
 [20 50 10]
 ```
 
+### Modern Random Generator: `default_rng()`
+
+For new projects, NumPy recommends creating a random generator with `default_rng()`.
+
+```python
+rng = np.random.default_rng(10)
+
+print(rng.integers(1, 10, size=5))
+```
+
+**Output:**
+
+```text
+[7 9 2 2 8]
+```
+
+The exact output is reproducible for this example with the same NumPy generator implementation and seed.
+
 ### Random Seed
 
-A seed is used when we want the same random results every time.
+A seed makes pseudo-random results reproducible when the same code and compatible NumPy random API are used. For new code, you can use `np.random.default_rng(seed)`.
 
 ```python
 np.random.seed(10)
@@ -1573,7 +1605,7 @@ print(view_arr)
 
 ---
 
-## Choosing an Array Data Type
+## 24. Choosing an Array Data Type
 
 A NumPy array stores elements using a data type (`dtype`). NumPy can infer the type from the input values, or you can choose one explicitly.
 
@@ -1707,6 +1739,21 @@ NumPy is commonly used together with:
 | Check finite values | `np.isfinite()` |
 | Create copy | `.copy()` |
 | Create view | `.view()` |
+
+---
+
+## 27. Common Tips and Mistakes
+
+- Import NumPy using `import numpy as np`.
+- Remember that array indexes start at `0`.
+- In slicing, the stop index is excluded: `arr[1:4]` selects indexes `1`, `2`, and `3`.
+- Check `shape` before reshaping or combining arrays.
+- `reshape()` requires the new shape to contain the same total number of elements, unless a dimension is inferred with `-1`.
+- Use `&` and `|` for element-wise combinations of Boolean conditions, and put each condition in parentheses.
+- Use `np.isnan()` to check for missing numeric values represented by `NaN`; do not compare a value directly with `np.nan`.
+- Use `.copy()` when you need an independent copy of an array.
+- Use `axis=0` for column-wise aggregation and `axis=1` for row-wise aggregation in a 2D array.
+- For new random-number code, consider `np.random.default_rng(seed)`.
 
 ---
 
