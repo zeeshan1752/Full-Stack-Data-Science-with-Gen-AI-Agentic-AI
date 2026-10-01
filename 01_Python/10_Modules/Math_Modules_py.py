@@ -35,11 +35,4 @@ print(floor(4.8))
 print(ceil(4.2))
 
 
-# from math import *
-
-from math import *
-
-print(sqrt(25))
-print(pow(2, 3))
-print(floor(4.8))
-print(ceil(4.2))
+# Avoid `from math import *`: explicit imports make each name's source clear.

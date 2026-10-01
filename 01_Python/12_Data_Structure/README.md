@@ -23,10 +23,10 @@ Here, `21` is an **integer (`int`) data type**.
 
 ### Data Structure
 
-A **data structure** is a collection of data types organized and stored in a particular way.
+A **data structure** organizes values or records so they can be accessed and updated in a useful way. Different structures may hold one type or several types of values.
 
 ```text
-Data Structure → Collection of data types
+Data Structure → Organized collection of values
 ```
 
 Example:
@@ -117,10 +117,10 @@ Rows × Columns
 
 ## Tensor
 
-A **tensor** is a collection of matrices and can represent data in more than two dimensions.
+A **tensor** is a general term for a multidimensional array-like structure. Scalars, vectors, and matrices are tensors with zero, one, and two dimensions.
 
 ```text
-Tensor → Collection of matrices
+Tensor → Multidimensional array
 ```
 
 Example:
@@ -160,10 +160,10 @@ torch.Size([2, 2, 2])
 
 ## Table
 
-A **table** is a collection of matrices used to organize data into rows and columns.
+A **table** organizes records into rows and fields into columns. A DataFrame is one common software representation of tabular data.
 
 ```text
-Table → Collection of matrices
+Table → Rows and columns of related values
 ```
 
 Example:
