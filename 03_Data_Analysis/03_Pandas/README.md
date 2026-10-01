@@ -19,10 +19,22 @@ Pandas is commonly used for:
 - Reshaping data
 - Working with dates and time
 - Preparing data for Machine Learning
-- Data visualization
+
+
+## Topics Covered
+
+- **Basics:** installation, importing Pandas, Series, DataFrames, creating data, and common attributes.
+- **Inspecting and importing data:** `head()`, `tail()`, `sample()`, `info()`, `describe()`, CSV and Excel parameter tables, JSON, and SQL.
+- **Selecting and changing data:** columns, rows, `loc[]`, `iloc[]`, `at[]`, `iat[]`, Boolean filtering, adding, updating, renaming, inserting, and removing data.
+- **Indexes and sorting:** setting, resetting, reindexing, sorting, and removing duplicate data.
+- **Cleaning data:** missing values, replacing values, data types, numeric conversion, and string operations.
+- **Analysis:** arithmetic, comparisons, descriptive statistics, unique values, ranking, sampling, and applying functions.
+- **Grouping and combining:** `groupby()`, aggregation, transformation, filtering, `concat()`, `merge()`, and `join()`.
+- **Reshaping:** `pivot()`, `pivot_table()`, `melt()`, and `explode()`.
+- **Dates and time series:** date conversion, date ranges, date components, formatting, resampling, rolling calculations, and cumulative operations.
+- **Practical data work:** large files, Parquet, NumPy integration, `get_dummies()`, data cleaning, data analysis, and preparing data for Machine Learning.
 
 ---
-
 # 1. Introduction to Pandas
 
 ## What is Pandas?
@@ -96,6 +108,12 @@ import pandas as pd
 print(pd.__version__)
 ```
 
+Output:
+
+```text
+3.x.x  # Depends on your installed Pandas version
+```
+
 ---
 
 # 4. Pandas Data Structures
@@ -154,6 +172,15 @@ data = pd.Series(
 print(data)
 ```
 
+Output:
+
+```text
+a    10
+b    20
+c    30
+dtype: int64
+```
+
 ---
 
 ## Accessing Series Values
@@ -162,10 +189,22 @@ print(data)
 print(data["a"])
 ```
 
+Output:
+
+```text
+10
+```
+
 Using position:
 
 ```python
 print(data.iloc[0])
+```
+
+Output:
+
+```text
+10
 ```
 
 ---
@@ -182,6 +221,15 @@ data = {
 series = pd.Series(data)
 
 print(series)
+```
+
+Output:
+
+```text
+Maths     90
+Python    95
+DBMS      88
+dtype: int64
 ```
 
 ---
@@ -208,6 +256,15 @@ data = {
 df = pd.DataFrame(data)
 
 print(df)
+```
+
+Output:
+
+```text
+    Name  Age  Marks
+0   Aman   21     85
+1   Riya   22     90
+2  Rahul   20     78
 ```
 
 ---
@@ -254,6 +311,14 @@ df = pd.DataFrame(
 print(df)
 ```
 
+Output:
+
+```text
+   Name  Age
+0  Aman   21
+1  Riya   22
+```
+
 ---
 
 ## From List of Dictionaries
@@ -269,6 +334,14 @@ df = pd.DataFrame(data)
 print(df)
 ```
 
+Output:
+
+```text
+   Name  Age
+0  Aman   21
+1  Riya   22
+```
+
 ---
 
 ## Creating an Empty DataFrame
@@ -277,6 +350,14 @@ print(df)
 df = pd.DataFrame()
 
 print(df)
+```
+
+Output:
+
+```text
+Empty DataFrame
+Columns: []
+Index: []
 ```
 
 ---
@@ -334,6 +415,19 @@ print(df.shape)
 print(df.columns)
 print(df.index)
 print(df.dtypes)
+```
+
+Output:
+
+```text
+(6, 4)
+Index(['Name', 'Age', 'Marks', 'City'], dtype='object')
+RangeIndex(start=0, stop=6, step=1)
+Name     object
+Age       int64
+Marks     int64
+City     object
+dtype: object
 ```
 
 ---
@@ -521,143 +615,104 @@ max    23.000000  95.000000
 
 The actual display also contains quartiles and standard deviation. The important idea is that `describe()` gives a quick statistical summary of numeric columns.
 
-# 10. Reading Data
+### Important Parameter Options
 
-Pandas can read data from many sources.
+| Method / parameter | Common values | Effect |
+|---|---|---|
+| `head(n)` / `tail(n)` | `n=5`, `n=10`, any non-negative integer | Number of first or last rows to return; default is `5`. |
+| `sample(n=...)` | `n=1`, `n=2`, any valid row count | Number of randomly selected rows. |
+| `sample(frac=...)` | `frac=0.1`, `frac=0.5`, `frac=1` | Selects a fraction of rows instead of a fixed count. |
+| `sample(random_state=...)` | An integer such as `42` | Makes random sampling reproducible. |
+| `describe(include=...)` | `"all"`, `"number"`, or a data type | Controls which columns are summarized. |
 
-Common functions include:
+# 10. Reading CSV Files
+
+Use `pd.read_csv()` to load a CSV file. Refer to the parameters below instead of memorising separate examples.
+
+| Parameter | Use |
+|---|---|
+| `sep` | Specify the delimiter, such as `","`, `";"`, or `"	"`. |
+| `header` | Choose the row containing column names; use `None` when there is no header. |
+| `names` | Provide column names manually. |
+| `usecols` | Read only selected columns. |
+| `index_col` | Set a column as the DataFrame index. |
+| `dtype` | Set data types for columns. |
+| `na_values` | Treat selected values as missing values. |
+| `nrows` | Read only a specified number of rows. |
+| `skiprows` | Skip selected rows. |
+| `chunksize` | Read a large file in smaller chunks. |
 
 ```python
-pd.read_csv()
-pd.read_excel()
-pd.read_json()
-pd.read_html()
-pd.read_sql()
+df = pd.read_csv("data.csv", usecols=["Name", "Age"])
+print(df.head())
 ```
 
-Pandas also supports many other storage formats such as Parquet, Feather, HDF5 and others.
+Output depends on the contents of `data.csv`.
 
 ---
 
-# 11. Reading CSV Files
+# 11. Writing CSV Files
 
-CSV stands for **Comma-Separated Values**.
+Use `df.to_csv()` to save a DataFrame as a CSV file.
 
-Example:
-
-```python
-data = pd.read_csv("data.csv")
-
-print(data)
-```
-
----
-
-## Reading CSV with a Different Separator
+| Parameter | Use |
+|---|---|
+| `index` | Include or exclude the row index; use `False` to exclude it. |
+| `columns` | Save only selected columns. |
+| `sep` | Choose the delimiter used in the file. |
+| `header` | Include column names or provide custom names. |
+| `na_rep` | Choose text to write for missing values. |
+| `encoding` | Set the file encoding, commonly `"utf-8"`. |
 
 ```python
-data = pd.read_csv(
-    "data.csv",
-    sep=";"
-)
-```
-
----
-
-## Reading Selected Columns
-
-```python
-data = pd.read_csv(
-    "data.csv",
-    usecols=["Name", "Age"]
-)
-```
-
----
-
-## Reading CSV with Index Column
-
-```python
-data = pd.read_csv(
-    "data.csv",
-    index_col="Name"
-)
+df.to_csv("output.csv", index=False)
 ```
 
 ---
 
-## Handling Missing Values While Reading
+# 12. Reading Excel Files
+
+Use `pd.read_excel()` to load an Excel workbook.
+
+| Parameter | Use |
+|---|---|
+| `sheet_name` | Select a sheet by name or position; use `None` to read all sheets. |
+| `usecols` | Read only selected columns. |
+| `header` | Choose the row containing column names; use `None` if there is no header. |
+| `skiprows` | Skip rows at the beginning or selected row positions. |
+| `dtype` | Set data types for columns where supported. |
+| `nrows` | Limit the number of rows to read. |
 
 ```python
-data = pd.read_csv(
-    "data.csv",
-    na_values=["NA", "N/A", "?"]
-)
+df = pd.read_excel("data.xlsx", sheet_name="Sheet1")
+print(df.head())
 ```
+
+Output depends on the contents of `data.xlsx`.
 
 ---
 
-# 12. Writing CSV Files
+# 13. Writing Excel Files
 
-Use:
+Use `df.to_excel()` to save a DataFrame as an Excel file.
+
+| Parameter | Use |
+|---|---|
+| `sheet_name` | Choose the worksheet name. |
+| `index` | Include or exclude the DataFrame index. |
+| `columns` | Save only selected columns. |
+| `header` | Include or customise column names. |
+| `na_rep` | Choose text to write for missing values. |
 
 ```python
-df.to_csv("output.csv")
+df.to_excel("output.xlsx", sheet_name="Data", index=False)
 ```
 
-To avoid writing the index:
-
-```python
-df.to_csv(
-    "output.csv",
-    index=False
-)
-```
+To write multiple sheets, use `pd.ExcelWriter()`.
 
 ---
 
-# 13. Reading Excel Files
-
-Pandas can read Excel files using:
-
-```python
-df = pd.read_excel("data.xlsx")
-```
-
-We can specify a sheet:
-
-```python
-df = pd.read_excel(
-    "data.xlsx",
-    sheet_name="Sheet1"
-)
-```
-
----
-
-# 14. Writing Excel Files
-
-```python
-df.to_excel(
-    "output.xlsx",
-    index=False
-)
-```
-
-Multiple sheets can be written using `ExcelWriter`.
-
-```python
-with pd.ExcelWriter("output.xlsx") as writer:
-    df.to_excel(
-        writer,
-        sheet_name="Data",
-        index=False
-    )
-```
-
----
-
-# 15. Reading JSON
+# 14. Reading JSON
 
 JSON data can be read using:
 
@@ -665,6 +720,12 @@ JSON data can be read using:
 df = pd.read_json("data.json")
 
 print(df)
+```
+
+Output:
+
+```text
+Output depends on the contents of data.json.
 ```
 
 ---
@@ -677,19 +738,7 @@ df.to_json("output.json")
 
 ---
 
-# 16. Reading HTML Tables
-
-Pandas can extract tables from HTML pages.
-
-```python
-tables = pd.read_html("https://example.com")
-```
-
-This returns a list of DataFrames.
-
----
-
-# 17. Reading SQL Data
+# 15. Reading SQL Data
 
 Pandas can work with SQL databases.
 
@@ -704,7 +753,7 @@ df = pd.read_sql(
 
 ---
 
-# 18. Selecting Columns
+# 16. Selecting Columns
 
 Select one column:
 
@@ -720,7 +769,16 @@ df[["Name", "Age"]]
 
 ---
 
-# 19. Selecting Rows
+### Important Selection Notes
+
+| Syntax | Result |
+|---|---|
+| `df["Name"]` | Returns one column as a Series. |
+| `df[["Name", "Age"]]` | Returns selected columns as a DataFrame. |
+| `df.loc[:, ["Name", "Age"]]` | Selects columns by their labels. |
+| `df.iloc[:, 0:2]` | Selects columns by integer positions; the stop position is excluded. |
+
+# 17. Selecting Rows
 
 Rows can be selected using:
 
@@ -730,7 +788,7 @@ Rows can be selected using:
 
 ---
 
-# 20. `loc[]`
+# 18. `loc[]`
 
 `loc[]` is used mainly for label-based selection.
 
@@ -789,7 +847,7 @@ Aman
 
 `loc[]` mainly works with **labels**.
 
-# 21. `iloc[]`
+# 19. `iloc[]`
 
 `iloc[]` is used for position-based selection.
 
@@ -847,7 +905,7 @@ Output:
 
 `iloc[]` mainly works with **integer positions**.
 
-# 22. `at[]` and `iat[]`
+# 20. `at[]` and `iat[]`
 
 `at[]` is used for fast access to a single value by label.
 
@@ -878,7 +936,7 @@ Aman
 
 `at[]` uses labels, while `iat[]` uses positions. Both are useful when accessing one value.
 
-# 23. Boolean Indexing
+# 21. Boolean Indexing
 
 Boolean indexing is used to filter data.
 
@@ -886,6 +944,15 @@ Boolean indexing is used to filter data.
 result = df[df["Age"] > 20]
 
 print(result)
+```
+
+Output:
+
+```text
+    Name  Age  Marks   City
+1   Riya   22     92  Delhi
+3  Arjun   23     95  Delhi
+4   Sara   22     76  Mumbai
 ```
 
 Multiple conditions:
@@ -926,7 +993,17 @@ Output:
 
 The condition `df["Marks"] > 80` creates `True`/`False` values, and Pandas keeps only the rows where the result is `True`.
 
-# 24. `isin()`
+### Important Boolean Indexing Notes
+
+| Operator / method | Effect |
+|---|---|
+| `&` | Combines conditions with AND; put each condition in parentheses. |
+| `|` | Combines conditions with OR; put each condition in parentheses. |
+| `~` | Reverses a Boolean condition. |
+| `.isin([...])` | Checks whether values match any value in a collection. |
+| `.between(left, right)` | Checks whether values fall within a range; `inclusive` controls boundary handling. |
+
+# 22. `isin()`
 
 `isin()` checks whether values belong to a given collection.
 
@@ -956,7 +1033,7 @@ Output:
 
 `isin()` checks whether each value belongs to the given list.
 
-# 25. `query()`
+# 23. `query()`
 
 The `query()` method can be used to filter rows.
 
@@ -991,7 +1068,7 @@ Output:
 
 `query()` lets us write the filtering condition as a readable string.
 
-# 26. Adding Columns
+# 24. Adding Columns
 
 A new column can be added directly.
 
@@ -1027,7 +1104,7 @@ Output:
 
 A new column is created by assigning values to `df["Column_Name"]`.
 
-# 27. Updating Columns
+# 25. Updating Columns
 
 ```python
 df["Age"] = df["Age"] + 1
@@ -1055,7 +1132,7 @@ Output:
 
 Every value in the `Age` column is increased by `1`.
 
-# 28. Renaming Columns
+# 26. Renaming Columns
 
 Rename selected columns:
 
@@ -1097,7 +1174,7 @@ Output:
 
 Only the column name changes; the data remains the same.
 
-# 29. Removing Columns
+# 27. Removing Columns
 
 Remove one column:
 
@@ -1144,7 +1221,7 @@ Output:
 
 `axis=1` or `columns=[...]` means we are removing **columns**.
 
-# 30. Removing Rows
+# 28. Removing Rows
 
 Remove a row by index:
 
@@ -1177,7 +1254,7 @@ Output:
 
 Row `0` is removed and the remaining index labels are kept.
 
-# 31. Inserting Columns
+# 29. Inserting Columns
 
 A column can be inserted at a specific position.
 
@@ -1215,7 +1292,7 @@ Output:
 
 `insert(position, name, values)` places a column at a specific position.
 
-# 32. Reindexing
+# 30. Reindexing
 
 `reindex()` changes the index or column order.
 
@@ -1235,23 +1312,7 @@ df = df.reindex(
 
 ---
 
-# 33. Indexing
-
-Every Series and DataFrame has an index.
-
-```python
-print(df.index)
-```
-
-Set a column as index:
-
-```python
-df = df.set_index("Name")
-```
-
----
-
-# 34. Resetting Index
+# 31. Resetting Index
 
 ```python
 df = df.reset_index()
@@ -1265,7 +1326,7 @@ df = df.reset_index(drop=True)
 
 ---
 
-# 35. Sorting Data
+# 32. Sorting Data
 
 Sort by one column:
 
@@ -1314,23 +1375,17 @@ Output:
 
 `ascending=False` means highest values come first.
 
-# 36. Sorting by Index
+### Important Parameter Options
 
-```python
-df.sort_index()
-```
+| Parameter | Common values | Effect |
+|---|---|---|
+| `by` | A column name or list of column names | Specifies which column(s) to sort by. |
+| `ascending` | `True`, `False`, or a list of booleans | Sorts low-to-high or high-to-low. |
+| `na_position` | `"last"`, `"first"` | Places missing values at the end or beginning. |
+| `kind` | `"stable"`, `"mergesort"`, `"quicksort"`, `"heapsort"` where supported | Chooses the sorting algorithm. |
+| `ignore_index` | `True`, `False` | Resets the result index when enabled. |
 
-Descending:
-
-```python
-df.sort_index(
-    ascending=False
-)
-```
-
----
-
-# 37. Duplicate Data
+# 33. Duplicate Data
 
 Check duplicates:
 
@@ -1375,7 +1430,7 @@ dtype: bool
 
 The third row is a duplicate of the first row, so it returns `True`.
 
-# 38. Missing Data
+# 34. Missing Data
 
 Missing values are common in real-world datasets.
 
@@ -1388,7 +1443,7 @@ Pandas can represent missing values using values such as:
 
 ---
 
-# 39. Detecting Missing Values
+# 35. Detecting Missing Values
 
 ```python
 df.isna()
@@ -1434,7 +1489,15 @@ dtype: int64
 
 The `Marks` column contains one missing value.
 
-# 40. Dropping Missing Values
+### Important Missing-Value Options
+
+| Method / parameter | Common values | Effect |
+|---|---|---|
+| `isna()` / `isnull()` | No required parameter | Marks missing values as `True`. |
+| `notna()` / `notnull()` | No required parameter | Marks non-missing values as `True`. |
+| `sum()` after `isna()` | `df.isna().sum()` | Counts missing values in each column. |
+
+# 36. Dropping Missing Values
 
 Remove rows containing missing values:
 
@@ -1470,7 +1533,16 @@ Output:
 
 The row containing the missing value is removed.
 
-# 41. Filling Missing Values
+### Important Parameter Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `axis` | `0` / `"index"`, `1` / `"columns"` | Checks rows or columns for missing values. |
+| `how` | `"any"`, `"all"` | Drops a row/column if any or all selected values are missing. |
+| `subset` | A list of column names | Checks missing values only in selected columns. |
+| `thresh` | An integer | Requires at least this many non-missing values to keep a row/column. |
+
+# 37. Filling Missing Values
 
 Fill missing values with zero:
 
@@ -1522,7 +1594,16 @@ Output:
 
 `fillna(0)` replaces missing values with `0`.
 
-# 42. Replacing Values
+### Important Parameter Options
+
+| Parameter / method | Common values | Effect |
+|---|---|---|
+| `value` in `fillna()` | `0`, `"Unknown"`, a dictionary | Replaces missing values with a fixed value or per-column values. |
+| `method` in older examples | `"ffill"`, `"bfill"` | Forward-fills or backward-fills missing values; current code can use `.ffill()` or `.bfill()`. |
+| `limit` | A positive integer | Limits how many consecutive missing values are filled. |
+| `inplace` | `True`, `False` where supported | Requests mutation of the existing object instead of returning a new result. |
+
+# 38. Replacing Values
 
 ```python
 df["Gender"] = df["Gender"].replace(
@@ -1558,7 +1639,7 @@ Output:
 2    Male
 ```
 
-# 43. Data Types
+# 39. Data Types
 
 Check data types:
 
@@ -1594,7 +1675,7 @@ dtype: object
 
 `dtypes` tells us the type of data stored in each column.
 
-# 44. Changing Data Types
+# 40. Changing Data Types
 
 Use `astype()`:
 
@@ -1634,7 +1715,7 @@ dtype: object
 
 The values change from strings to integers.
 
-# 45. Numeric Conversion
+# 41. Numeric Conversion
 
 `to_numeric()` converts values to numeric data.
 
@@ -1674,7 +1755,7 @@ Output:
 
 Because `"abc"` is not numeric, `errors="coerce"` converts it to `NaN`.
 
-# 46. String Data
+# 42. String Data
 
 Pandas provides vectorized string operations through `.str`.
 
@@ -1721,7 +1802,7 @@ Name: Name, dtype: object
 
 `.str` lets us apply string operations to an entire Series.
 
-# 47. String Methods
+# 43. String Methods
 
 Some commonly used methods are:
 
@@ -1767,7 +1848,7 @@ Name: Name, dtype: object
 Name: Name, dtype: int64
 ```
 
-# 48. Splitting Strings
+# 44. Splitting Strings
 
 ```python
 df["Full_Name"].str.split(" ")
@@ -1807,7 +1888,7 @@ Name: Full_Name, dtype: object
 
 The first expression creates lists; `.str[0]` gets the first item from each list.
 
-# 49. String Matching
+# 45. String Matching
 
 Check whether text contains a value:
 
@@ -1837,7 +1918,7 @@ Output:
 
 `str.contains()` returns rows where the text contains the specified value.
 
-# 50. Extracting Text
+# 46. Extracting Text
 
 Regular expressions can be used with `.str.extract()`.
 
@@ -1849,7 +1930,7 @@ df["Email"].str.extract(
 
 ---
 
-# 51. Vectorized Operations
+# 47. Vectorized Operations
 
 Pandas performs many operations directly on columns.
 
@@ -1888,7 +1969,7 @@ Output:
 
 Pandas performs the operation on the whole columns without writing a loop.
 
-# 52. Arithmetic Operations
+# 48. Arithmetic Operations
 
 ```python
 df["Marks"] + 5
@@ -1918,7 +1999,7 @@ Name: Marks, dtype: int64
 
 The same idea works with `-`, `*`, and `/`.
 
-# 53. Comparison Operations
+# 49. Comparison Operations
 
 ```python
 df["Marks"] > 80
@@ -1948,7 +2029,7 @@ Name: Marks, dtype: bool
 
 The result is a Boolean Series that can be used for filtering.
 
-# 54. Descriptive Statistics
+# 50. Descriptive Statistics
 
 Common functions include:
 
@@ -1982,7 +2063,7 @@ Minimum: 76
 Maximum: 95
 ```
 
-# 55. `value_counts()`
+# 51. `value_counts()`
 
 Counts unique values.
 
@@ -2017,7 +2098,17 @@ Name: count, dtype: int64
 
 It counts how many times each unique value appears.
 
-# 56. `unique()` and `nunique()`
+### Important Parameter Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `normalize` | `True`, `False` | Returns proportions instead of raw counts when `True`. |
+| `sort` | `True`, `False` | Sorts results by frequency when `True`. |
+| `ascending` | `True`, `False` | Controls the order of the counts. |
+| `dropna` | `True`, `False` | Includes or excludes missing values from the counts. |
+| `bins` | An integer or bin edges | Groups numeric values into intervals before counting. |
+
+# 52. `unique()` and `nunique()`
 
 Get unique values:
 
@@ -2048,38 +2139,7 @@ Output:
 
 `unique()` returns the unique values, while `nunique()` returns their count.
 
-# 57. `idxmax()` and `idxmin()`
-
-Find the index of the maximum value:
-
-```python
-df["Marks"].idxmax()
-```
-
-Find the index of the minimum value:
-
-```python
-df["Marks"].idxmin()
-```
-
----
-### Example: `idxmax()` and `idxmin()`
-
-```python
-print(df["Marks"].idxmax())
-print(df["Marks"].idxmin())
-```
-
-Output:
-
-```text
-4
-5
-```
-
-Index `4` contains the highest marks (`95`), while index `5` contains the lowest (`76`).
-
-# 58. Applying Functions
+# 53. Applying Functions
 
 `apply()` can apply a function to values.
 
@@ -2102,7 +2162,7 @@ df["Marks"] = df["Marks"].apply(
 
 ---
 
-# 59. `map()`
+# 54. `map()`
 
 `map()` can transform values in a Series.
 
@@ -2142,23 +2202,7 @@ Output:
 2     C    Average
 ```
 
-# 60. `applymap()` / Element-wise Operations
-
-For element-wise transformations across a DataFrame, use the current pandas element-wise APIs appropriate to the installed version.
-
-Example:
-
-```python
-df.map(
-    lambda x: x
-)
-```
-
-Always check the installed Pandas version when working with APIs that have changed between releases.
-
----
-
-# 61. GroupBy
+# 55. GroupBy
 
 `groupby()` follows the idea of:
 
@@ -2198,7 +2242,17 @@ Name: Marks, dtype: float64
 
 The rows are grouped by city, and then the average marks are calculated for each group.
 
-# 62. GroupBy Multiple Columns
+### Important GroupBy Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `by` | A column name or list of columns | Defines the groups. |
+| `as_index` | `True`, `False` | Uses group keys as the index or keeps them as columns in supported aggregations. |
+| `sort` | `True`, `False` | Sorts group keys or keeps their observed order. |
+| `dropna` | `True`, `False` | Controls whether missing group keys are excluded. |
+| `observed` | `True`, `False` | Controls whether categorical grouping includes only observed categories; defaults can vary by Pandas version. |
+
+# 56. GroupBy Multiple Columns
 
 ```python
 result = df.groupby(
@@ -2234,7 +2288,7 @@ IT          F         48000.0
 Name: Salary, dtype: float64
 ```
 
-# 63. GroupBy Aggregation
+# 57. GroupBy Aggregation
 
 Common aggregation functions include:
 
@@ -2276,20 +2330,7 @@ Mumbai    82.0   88   76
 
 One `groupby()` can calculate several statistics at the same time.
 
-# 64. Named Aggregation
-
-```python
-result = df.groupby(
-    "Department"
-).agg(
-    Average_Salary=("Salary", "mean"),
-    Maximum_Salary=("Salary", "max")
-)
-```
-
----
-
-# 65. GroupBy `transform()`
+# 58. GroupBy `transform()`
 
 `transform()` returns results aligned with the original DataFrame.
 
@@ -2329,35 +2370,7 @@ Output:
 
 Unlike `groupby().mean()`, `transform()` returns values aligned with the original rows.
 
-# 66. GroupBy `filter()`
-
-Groups can be filtered based on a condition.
-
-```python
-result = df.groupby(
-    "Department"
-).filter(
-    lambda group: len(group) > 2
-)
-```
-
----
-
-# 67. GroupBy `apply()`
-
-A custom function can be applied to each group.
-
-```python
-result = df.groupby(
-    "Department"
-).apply(
-    lambda group: group["Salary"].mean()
-)
-```
-
----
-
-# 68. Combining DataFrames
+# 59. Combining DataFrames
 
 Pandas provides several methods for combining datasets:
 
@@ -2369,7 +2382,7 @@ Pandas provides several methods for combining datasets:
 
 ---
 
-# 69. `concat()`
+# 60. `concat()`
 
 Concatenate DataFrames vertically:
 
@@ -2424,7 +2437,17 @@ Output:
 
 `concat()` combines DataFrames along rows or columns.
 
-# 70. `merge()`
+### Important Parameter Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `axis` | `0`, `1` | Combines along rows or columns. |
+| `ignore_index` | `True`, `False` | Creates a new sequential index along the concatenation axis. |
+| `join` | `"outer"`, `"inner"` | Keeps all or only shared labels on the other axis. |
+| `keys` | A list of labels | Adds an outer index level to identify each input object. |
+| `verify_integrity` | `True`, `False` | Checks for duplicate labels on the concatenation axis. |
+
+# 61. `merge()`
 
 `merge()` combines DataFrames using common keys.
 
@@ -2465,7 +2488,18 @@ Output:
 
 `merge()` combines data using a common key.
 
-# 71. Types of Merge
+### Important Parameter Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `how` | `"inner"`, `"left"`, `"right"`, `"outer"`, `"cross"` | Chooses the join type. |
+| `on` | A column name or list of names | Uses matching column(s) present in both DataFrames as keys. |
+| `left_on` / `right_on` | Column names | Uses differently named key columns from each DataFrame. |
+| `suffixes` | A pair such as `("_x", "_y")` | Distinguishes overlapping non-key column names. |
+| `indicator` | `True`, `False`, or a column name | Adds a column showing whether each row came from the left, right, or both inputs. |
+| `validate` | `"one_to_one"`, `"one_to_many"`, `"many_to_one"`, `"many_to_many"` | Checks the expected relationship between merge keys. |
+
+# 62. Types of Merge
 
 ## Inner Join
 
@@ -2513,7 +2547,7 @@ pd.merge(
 
 ---
 
-# 72. Merge on Different Column Names
+# 63. Merge on Different Column Names
 
 ```python
 pd.merge(
@@ -2526,7 +2560,7 @@ pd.merge(
 
 ---
 
-# 73. `join()`
+# 64. `join()`
 
 `join()` is useful for combining DataFrames using their indexes.
 
@@ -2562,17 +2596,7 @@ Output:
 
 `join()` is commonly used when the DataFrames are aligned by their indexes.
 
-# 74. Comparing DataFrames
-
-Pandas provides `compare()` for finding differences.
-
-```python
-df1.compare(df2)
-```
-
----
-
-# 75. Reshaping Data
+# 65. Reshaping Data
 
 Reshaping changes the structure of a DataFrame.
 
@@ -2581,16 +2605,11 @@ Important functions include:
 * `pivot()`
 * `pivot_table()`
 * `melt()`
-* `stack()`
-* `unstack()`
 * `explode()`
-* `crosstab()`
-* `cut()`
-* `factorize()`
 
 ---
 
-# 76. `pivot()`
+# 66. `pivot()`
 
 ```python
 result = df.pivot(
@@ -2632,7 +2651,7 @@ Date
 
 `pivot()` changes the shape of the data without aggregating duplicate combinations.
 
-# 77. `pivot_table()`
+# 67. `pivot_table()`
 
 `pivot_table()` can aggregate duplicate combinations.
 
@@ -2671,7 +2690,18 @@ Mumbai    330
 
 `pivot_table()` is useful when duplicate combinations need to be aggregated.
 
-# 78. `melt()`
+### Important Parameter Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `values` | A column name or list | Selects values to aggregate. |
+| `index` | A column name or list | Defines row groups. |
+| `columns` | A column name or list | Defines column groups. |
+| `aggfunc` | `"mean"`, `"sum"`, `"count"`, `"min"`, `"max"`, or a function | Chooses how duplicate combinations are aggregated. |
+| `fill_value` | `0` or another value | Replaces missing cells in the resulting table. |
+| `margins` | `True`, `False` | Adds row/column totals when enabled. |
+
+# 68. `melt()`
 
 `melt()` converts wide data into long format.
 
@@ -2714,23 +2744,17 @@ Output:
 
 `melt()` changes **wide data into long data**.
 
-# 79. `stack()` and `unstack()`
+### Important Parameter Options
 
-`stack()` moves columns into the index.
+| Parameter | Common values | Effect |
+|---|---|---|
+| `id_vars` | A column name or list | Columns kept as identifier columns. |
+| `value_vars` | A column name or list | Columns to unpivot; if omitted, all non-identifier columns are used. |
+| `var_name` | A string | Names the column that stores original column names. |
+| `value_name` | A string | Names the column that stores the values. |
+| `ignore_index` | `True`, `False` | Controls whether the result gets a new sequential index. |
 
-```python
-result = df.stack()
-```
-
-`unstack()` moves an index level into columns.
-
-```python
-result = df.unstack()
-```
-
----
-
-# 80. `explode()`
+# 69. `explode()`
 
 `explode()` converts list-like values into separate rows.
 
@@ -2748,6 +2772,16 @@ df = pd.DataFrame({
 result = df.explode("Skills")
 
 print(result)
+```
+
+Output:
+
+```text
+   Name  Skills
+0  Aman  Python
+0  Aman     SQL
+1  Riya    Java
+1  Riya  Python
 ```
 
 ---
@@ -2775,208 +2809,7 @@ Output:
 
 Each item in a list becomes a separate row.
 
-# 81. `crosstab()`
-
-`crosstab()` creates a frequency table.
-
-```python
-result = pd.crosstab(
-    df["Gender"],
-    df["Department"]
-)
-```
-
----
-### Example: `crosstab()`
-
-```python
-result = pd.crosstab(df["City"], df["Age"])
-print(result)
-```
-
-Output:
-
-```text
-Age      20  21  22  23
-City
-Delhi     0   0   1   1
-Lucknow   1   1   0   0
-Mumbai    0   1   1   0
-```
-
-`crosstab()` creates a frequency table showing how often combinations occur.
-
-# 82. `cut()`
-
-`cut()` converts numerical values into intervals.
-
-```python
-df["Age_Group"] = pd.cut(
-    df["Age"],
-    bins=[0, 18, 30, 50, 100]
-)
-```
-
----
-### Example: `cut()`
-
-```python
-data = pd.DataFrame({"Age": [17, 21, 35, 60]})
-
-data["Age_Group"] = pd.cut(
-    data["Age"],
-    bins=[0, 18, 30, 50, 100]
-)
-
-print(data)
-```
-
-Output:
-
-```text
-   Age    Age_Group
-0   17    (0, 18]
-1   21   (18, 30]
-2   35   (30, 50]
-3   60  (50, 100]
-```
-
-`cut()` converts continuous numeric values into intervals.
-
-# 83. `qcut()`
-
-`qcut()` divides data into quantiles.
-
-```python
-df["Group"] = pd.qcut(
-    df["Marks"],
-    4
-)
-```
-
----
-### Example: `qcut()`
-
-```python
-data = pd.DataFrame({
-    "Marks": [40, 50, 60, 70, 80, 90, 100, 30]
-})
-
-data["Group"] = pd.qcut(data["Marks"], 4)
-print(data)
-```
-
-Output:
-
-```text
-   Marks          Group
-0     40   (29.999, 47.5]
-1     50     (47.5, 65.0]
-2     60     (47.5, 65.0]
-3     70     (65.0, 77.5]
-4     80    (77.5, 92.5]
-5     90    (77.5, 92.5]
-6    100   (92.5, 100.0]
-7     30   (29.999, 47.5]
-```
-
-The exact interval representation can vary slightly with Pandas versions, but the idea is to divide values into quantile-based groups.
-
-# 84. `factorize()`
-
-`factorize()` converts values into integer codes.
-
-```python
-codes, uniques = pd.factorize(
-    df["City"]
-)
-```
-
----
-### Example: `factorize()`
-
-```python
-codes, uniques = pd.factorize(df["City"])
-
-print(codes)
-print(uniques)
-```
-
-Output:
-
-```text
-[0 1 0 2 1 2]
-Index(['Lucknow', 'Delhi', 'Mumbai'], dtype='object')
-```
-
-Each unique category receives an integer code.
-
-# 85. Categorical Data
-
-Categorical data is useful when a column contains a limited number of repeated categories.
-
-Example:
-
-```python
-df["Department"] = df[
-    "Department"
-].astype("category")
-```
-
-Check categories:
-
-```python
-df["Department"].cat.categories
-```
-
----
-
-# 86. Working with Categories
-
-Add categories:
-
-```python
-df["Department"] = (
-    df["Department"]
-    .cat.add_categories(["Other"])
-)
-```
-
-Rename categories:
-
-```python
-df["Department"] = (
-    df["Department"]
-    .cat.rename_categories({
-        "CSE": "Computer Science"
-    })
-)
-```
-
----
-
-# 87. Ordered Categories
-
-```python
-from pandas.api.types import CategoricalDtype
-
-dtype = CategoricalDtype(
-    categories=[
-        "Low",
-        "Medium",
-        "High"
-    ],
-    ordered=True
-)
-
-df["Priority"] = df[
-    "Priority"
-].astype(dtype)
-```
-
----
-
-# 88. Working with Dates
+# 70. Working with Dates
 
 Pandas provides `to_datetime()` for converting values into datetime objects.
 
@@ -3013,7 +2846,16 @@ dtype: object
 
 After conversion, Pandas can use datetime-specific operations.
 
-# 89. Creating Date Ranges
+### Important `to_datetime()` Options
+
+| Parameter | Common values | Effect |
+|---|---|---|
+| `format` | A format such as `"%Y-%m-%d"` | Specifies the expected date format. |
+| `errors` | `"raise"`, `"coerce"`, `"ignore"` where supported | Raises errors, converts invalid values to `NaT`, or handles invalid values according to the selected option. |
+| `dayfirst` | `True`, `False` | Prefers day-first interpretation for ambiguous dates. |
+| `utc` | `True`, `False` | Converts parsed timestamps to UTC when enabled. |
+
+# 71. Creating Date Ranges
 
 ```python
 dates = pd.date_range(
@@ -3022,6 +2864,16 @@ dates = pd.date_range(
 )
 
 print(dates)
+```
+
+Output:
+
+```text
+DatetimeIndex(['2026-01-01', '2026-01-02', '2026-01-03',
+               '2026-01-04', '2026-01-05', '2026-01-06',
+               '2026-01-07', '2026-01-08', '2026-01-09',
+               '2026-01-10'],
+              dtype='datetime64[ns]', freq='D')
 ```
 
 ---
@@ -3044,7 +2896,7 @@ DatetimeIndex(['2026-01-01', '2026-01-02', '2026-01-03',
               dtype='datetime64[ns]', freq='D')
 ```
 
-# 90. Date Components
+# 72. Date Components
 
 After converting a column to datetime, use `.dt`.
 
@@ -3094,7 +2946,7 @@ Name: Date, dtype: int32
 
 `.dt` gives access to date and time components.
 
-# 91. Date Formatting
+# 73. Date Formatting
 
 ```python
 df["Date"].dt.strftime(
@@ -3119,19 +2971,7 @@ dtype: object
 
 `strftime()` converts datetime values into the requested text format.
 
-# 92. Time Series
-
-Pandas provides strong support for time-series data.
-
-A datetime column can be used as an index:
-
-```python
-df = df.set_index("Date")
-```
-
----
-
-# 93. Resampling
+# 74. Resampling
 
 Resampling changes the frequency of time-series data.
 
@@ -3155,62 +2995,16 @@ Always check the offset alias supported by your installed Pandas version.
 
 ---
 
-# 94. Time Zones
+### Important Resampling Options
 
-Pandas supports timezone-aware datetime values.
+| Parameter | Common values | Effect |
+|---|---|---|
+| Frequency | `"D"`, `"W"`, `"ME"`, `"h"`, `"min"` | Chooses the target time interval; use frequency aliases supported by your Pandas version. |
+| `closed` | `"left"`, `"right"` | Chooses which side of each time interval is included. |
+| `label` | `"left"`, `"right"` | Chooses which interval edge labels the result. |
+| `origin` | `"start_day"`, `"start"`, `"epoch"` or a timestamp where supported | Controls how bins are anchored. |
 
-Example:
-
-```python
-dates = pd.to_datetime(
-    ["2026-01-01 10:00"]
-)
-
-dates = dates.tz_localize(
-    "Asia/Kolkata"
-)
-```
-
----
-
-# 95. Timedelta
-
-A `Timedelta` represents a duration.
-
-```python
-duration = pd.Timedelta(
-    days=5
-)
-
-print(duration)
-```
-
-Difference between dates:
-
-```python
-df["Duration"] = (
-    df["End_Date"] -
-    df["Start_Date"]
-)
-```
-
----
-### Example: `Timedelta`
-
-```python
-duration = pd.Timedelta(days=5)
-print(duration)
-```
-
-Output:
-
-```text
-5 days 00:00:00
-```
-
-A `Timedelta` represents a duration rather than a calendar date.
-
-# 96. Rolling Window
+# 75. Rolling Window
 
 Rolling operations calculate values over a moving window.
 
@@ -3250,58 +3044,16 @@ Output:
 
 The first two rows do not have 3 values yet, so their rolling average is `NaN`.
 
-# 97. Expanding Window
+### Important Rolling-Window Options
 
-An expanding window uses all observations available up to the current row.
+| Parameter | Common values | Effect |
+|---|---|---|
+| `window` | An integer such as `3`, or a time offset such as `"7D"` | Defines the number of observations or time span in each window. |
+| `min_periods` | An integer | Sets the minimum valid observations required for a result. |
+| `center` | `True`, `False` | Labels results at the center of the window or at its right edge. |
+| `closed` | `"right"`, `"left"`, `"both"`, `"neither"` where supported | Controls the included window endpoints. |
 
-```python
-df["Cumulative_Average"] = (
-    df["Sales"]
-    .expanding()
-    .mean()
-)
-```
-
----
-### Example: Expanding Average
-
-```python
-data = pd.DataFrame({
-    "Sales": [10, 20, 30, 40]
-})
-
-data["Average"] = data["Sales"].expanding().mean()
-
-print(data)
-```
-
-Output:
-
-```text
-   Sales  Average
-0     10     10.0
-1     20     15.0
-2     30     20.0
-3     40     25.0
-```
-
-The calculation uses all values available up to the current row.
-
-# 98. Exponentially Weighted Window
-
-An exponentially weighted calculation gives more weight to recent observations.
-
-```python
-df["EWMA"] = (
-    df["Sales"]
-    .ewm(span=3)
-    .mean()
-)
-```
-
----
-
-# 99. Cumulative Operations
+# 76. Cumulative Operations
 
 Cumulative sum:
 
@@ -3348,7 +3100,7 @@ dtype: int64
 
 Each result contains the running total up to that position.
 
-# 100. Ranking
+# 77. Ranking
 
 ```python
 df["Rank"] = df[
@@ -3379,7 +3131,7 @@ Name: Marks, dtype: float64
 
 Higher marks receive a better rank when `ascending=False`.
 
-# 101. Sampling
+# 78. Sampling
 
 Random sample of rows:
 
@@ -3397,45 +3149,7 @@ df.sample(
 
 ---
 
-# 102. Memory Usage
-
-Check DataFrame memory usage:
-
-```python
-df.memory_usage(
-    deep=True
-)
-```
-
-Total memory:
-
-```python
-df.memory_usage(
-    deep=True
-).sum()
-```
-
----
-### Example: Memory Usage
-
-```python
-print(df.memory_usage(deep=True))
-```
-
-Output will look similar to:
-
-```text
-Index    ...
-Name     ...
-Age      ...
-Marks    ...
-City     ...
-dtype: int64
-```
-
-The exact byte values depend on the Python/Pandas environment, but the method shows how much memory each column uses.
-
-# 103. Copying Data
+# 79. Copying Data
 
 Create an independent copy:
 
@@ -3447,254 +3161,7 @@ This is useful when we want to modify a DataFrame without changing the original 
 
 ---
 
-# 104. Views and Copy-on-Write
-
-Pandas has behaviour around views, copies and assignment.
-
-A safe and clear approach when creating an independent DataFrame is:
-
-```python
-new_df = df.copy()
-```
-
-Modern Pandas also uses **Copy-on-Write** mechanisms. Code that relies on accidental view behaviour should be avoided.
-
----
-
-# 105. MultiIndex
-
-A MultiIndex allows multiple levels of indexes.
-
-Example:
-
-```python
-df = df.set_index(
-    ["Department", "Name"]
-)
-```
-
-Accessing a level:
-
-```python
-df.index
-```
-
----
-### Example: MultiIndex
-
-```python
-data = pd.DataFrame({
-    "Department": ["CSE", "CSE", "IT"],
-    "Name": ["Aman", "Riya", "Rahul"],
-    "Marks": [85, 92, 78]
-})
-
-data = data.set_index(["Department", "Name"])
-print(data)
-```
-
-Output:
-
-```text
-                    Marks
-Department Name
-CSE        Aman        85
-           Riya        92
-IT         Rahul       78
-```
-
-Two columns are now used together as a hierarchical index.
-
-# 106. MultiIndex Selection
-
-```python
-df.loc[
-    ("CSE", "Aman")
-]
-```
-
-MultiIndex is useful for hierarchical data.
-
----
-
-# 107. Duplicate Labels
-
-Pandas indexes can contain duplicate labels.
-
-Check duplicate index values:
-
-```python
-df.index.duplicated()
-```
-
-Duplicate column labels can also be checked using:
-
-```python
-df.columns.duplicated()
-```
-
----
-
-# 108. Nullable Data Types
-
-Pandas provides nullable data types for values such as integers and booleans.
-
-Example:
-
-```python
-df["Age"] = df[
-    "Age"
-].astype("Int64")
-```
-
-Nullable boolean:
-
-```python
-df["Active"] = df[
-    "Active"
-].astype("boolean")
-```
-
----
-### Example: Nullable Integer
-
-```python
-data = pd.Series([21, None, 23], dtype="Int64")
-
-print(data)
-print(data.dtype)
-```
-
-Output:
-
-```text
-0      21
-1    <NA>
-2      23
-dtype: Int64
-Int64
-```
-
-The capital `I` in `Int64` represents Pandas' nullable integer type.
-
-# 109. Pandas Plotting
-
-Pandas can create plots using Matplotlib.
-
-Example:
-
-```python
-df["Sales"].plot()
-
-import matplotlib.pyplot as plt
-
-plt.show()
-```
-
-Bar chart:
-
-```python
-df.plot(
-    x="Month",
-    y="Sales",
-    kind="bar"
-)
-```
-
-Common plot types include:
-
-* Line
-* Bar
-* Barh
-* Histogram
-* Box
-* Area
-* Pie
-* Scatter
-
----
-
-# 110. Styling DataFrames
-
-Pandas provides the `Styler` object for displaying formatted tables.
-
-Example:
-
-```python
-df.style
-```
-
-Format values:
-
-```python
-df.style.format(
-    {
-        "Salary": "₹{:,.0f}"
-    }
-)
-```
-
----
-
-# 111. Conditional Styling
-
-Example:
-
-```python
-df.style.highlight_max()
-```
-
-Highlight minimum:
-
-```python
-df.style.highlight_min()
-```
-
----
-
-# 112. Exporting Styled Data
-
-Styled DataFrames can also be exported to supported formats.
-
-Example:
-
-```python
-styled = df.style.highlight_max()
-```
-
-The final export method depends on the required output format.
-
----
-
-# 113. Evaluation with `eval()`
-
-Pandas provides expression evaluation tools for some DataFrame operations.
-
-Example:
-
-```python
-df.eval(
-    "Total = Maths + Python"
-)
-```
-
----
-
-# 114. Querying with `query()`
-
-Example:
-
-```python
-result = df.query(
-    "Marks > 80"
-)
-```
-
-This can make some filtering expressions easier to read.
-
----
-
-# 115. Reading Large Datasets
+# 80. Reading Large Datasets
 
 Large files may not fit comfortably into memory.
 
@@ -3708,64 +3175,31 @@ for chunk in pd.read_csv(
     print(chunk.shape)
 ```
 
+Output:
+
+```text
+Example output (one line per chunk):
+(10000, 8)
+(10000, 8)
+...
+The final chunk may contain fewer rows. The output depends on the file.
+```
+
 This allows data to be processed in smaller portions.
 
 ---
 
-# 116. Selecting Required Columns
+### Important Large-File Options
 
-When working with large data, reading only required columns can reduce unnecessary memory usage.
+| Parameter | Common values | Effect |
+|---|---|---|
+| `usecols` | A list of required column names | Reduces memory use by loading only selected columns. |
+| `chunksize` | An integer such as `10000` | Returns an iterator that reads a file in chunks. |
+| `nrows` | A positive integer | Limits the number of rows read. |
+| `dtype` | A type or dictionary of types | Helps avoid unnecessarily large or incorrect data types. |
+| `low_memory` | `True`, `False` for `read_csv()` | Controls internal parsing behavior; it does not replace chunked reading for genuinely large files. |
 
-```python
-df = pd.read_csv(
-    "large_file.csv",
-    usecols=["Name", "Age", "Marks"]
-)
-```
-
----
-
-# 117. Efficient Data Types
-
-Choosing suitable data types can reduce memory usage.
-
-For example:
-
-```python
-df["Age"] = df[
-    "Age"
-].astype("Int64")
-```
-
-Categorical columns can also reduce memory usage when the number of unique values is small:
-
-```python
-df["City"] = df[
-    "City"
-].astype("category")
-```
-
----
-
-# 118. Sparse Data
-
-Pandas supports sparse data structures for datasets containing many repeated or missing values.
-
-Example:
-
-```python
-sparse = pd.arrays.SparseArray(
-    [0, 0, 1, 0, 0]
-)
-
-print(sparse)
-```
-
-Sparse data can be useful when most values are empty or zero.
-
----
-
-# 119. Parquet Files
+# 81. Parquet Files
 
 Parquet is a column-oriented storage format.
 
@@ -3787,85 +3221,7 @@ df.to_parquet(
 
 ---
 
-# 120. Feather Files
-
-Read:
-
-```python
-df = pd.read_feather(
-    "data.feather"
-)
-```
-
-Write:
-
-```python
-df.to_feather(
-    "output.feather"
-)
-```
-
----
-
-# 121. Pickle
-
-Pandas objects can be serialized using Pickle.
-
-Write:
-
-```python
-df.to_pickle(
-    "data.pkl"
-)
-```
-
-Read:
-
-```python
-df = pd.read_pickle(
-    "data.pkl"
-)
-```
-
-Only load pickle files from trusted sources.
-
----
-
-# 122. HDF5
-
-Pandas can work with HDF5 files when the required HDF5/PyTables dependencies are available.
-
-Write:
-
-```python
-df.to_hdf(
-    "data.h5",
-    key="data"
-)
-```
-
-Read:
-
-```python
-df = pd.read_hdf(
-    "data.h5",
-    key="data"
-)
-```
-
----
-
-# 123. Clipboard
-
-Pandas can read tabular data from the system clipboard in supported environments.
-
-```python
-df = pd.read_clipboard()
-```
-
----
-
-# 124. Working with NumPy
+# 82. Working with NumPy
 
 Pandas works closely with NumPy.
 
@@ -3885,6 +3241,14 @@ df = pd.DataFrame(data)
 print(df)
 ```
 
+Output:
+
+```text
+    0   1
+0  10  20
+1  30  40
+```
+
 Convert DataFrame to NumPy:
 
 ```python
@@ -3893,132 +3257,7 @@ array = df.to_numpy()
 
 ---
 
-# 125. DataFrame to Dictionary
-
-```python
-data = df.to_dict()
-```
-
-Other orientations can be used:
-
-```python
-df.to_dict(
-    orient="records"
-)
-```
-
----
-### Example: DataFrame to Dictionary
-
-```python
-data = df[["Name", "Marks"]].head(2)
-print(data.to_dict(orient="records"))
-```
-
-Output:
-
-```text
-[{'Name': 'Aman', 'Marks': 85}, {'Name': 'Riya', 'Marks': 92}]
-```
-
-`orient="records"` creates a list containing one dictionary for each row.
-
-# 126. DataFrame to List
-
-```python
-data = df.values.tolist()
-```
-
-A NumPy-based approach is:
-
-```python
-data = df.to_numpy().tolist()
-```
-
----
-### Example: DataFrame to List
-
-```python
-data = df[["Name", "Marks"]].head(2)
-print(data.to_numpy().tolist())
-```
-
-Output:
-
-```text
-[['Aman', 85], ['Riya', 92]]
-```
-
-# 127. DataFrame to CSV String
-
-```python
-csv_data = df.to_csv(
-    index=False
-)
-
-print(csv_data)
-```
-
----
-### Example: DataFrame to CSV String
-
-```python
-data = df[["Name", "Marks"]].head(2)
-
-csv_data = data.to_csv(index=False)
-print(csv_data)
-```
-
-Output:
-
-```text
-Name,Marks
-Aman,85
-Riya,92
-```
-
-Instead of saving to a file, `to_csv()` can return the CSV content as a string.
-
-# 128. `get()` Method
-
-`get()` can safely retrieve a column.
-
-```python
-column = df.get(
-    "Name"
-)
-```
-
-A default value can be supplied:
-
-```python
-column = df.get(
-    "Address",
-    "Not Available"
-)
-```
-
----
-### Example: `get()`
-
-```python
-print(df.get("Name").head(2))
-print(df.get("Address", "Not Available"))
-```
-
-Output:
-
-```text
-0    Aman
-1    Riya
-Name: Name, dtype: object
-
-Not Available
-```
-
-`get()` is useful when a column may not exist because a default value can be supplied.
-
-# 129. Conditional Replacement with `where()`
+# 83. Conditional Replacement with `where()`
 
 `where()` keeps values where a condition is true and replaces other values.
 
@@ -4051,40 +3290,7 @@ Name: Marks, dtype: int64
 
 Values meeting the condition are kept; other values become `0`.
 
-# 130. `mask()`
-
-`mask()` is the opposite style of conditional replacement.
-
-```python
-result = df["Marks"].mask(
-    df["Marks"] < 40,
-    0
-)
-```
-
----
-### Example: `mask()`
-
-```python
-result = df["Marks"].mask(df["Marks"] < 80, 0)
-print(result)
-```
-
-Output:
-
-```text
-0    85
-1    92
-2     0
-3    88
-4    95
-5     0
-Name: Marks, dtype: int64
-```
-
-Here, values matching the condition (`Marks < 80`) are replaced.
-
-# 131. Checking Conditions with `any()` and `all()`
+# 84. Checking Conditions with `any()` and `all()`
 
 Check whether any value satisfies a condition:
 
@@ -4100,25 +3306,19 @@ Check whether all values satisfy a condition:
 
 ---
 
-# 132. `where()` with DataFrame
-
-Conditions can also be applied to an entire DataFrame.
-
-```python
-result = df.where(
-    df > 0
-)
-```
-
----
-
-# 133. Working with Rows
+# 85. Working with Rows
 
 Iterating over rows is possible using:
 
 ```python
 for index, row in df.iterrows():
     print(index, row)
+```
+
+Output:
+
+```text
+Each row is printed with its index and Series values. Exact output depends on df.
 ```
 
 Another method:
@@ -4128,11 +3328,17 @@ for row in df.itertuples():
     print(row)
 ```
 
+Output:
+
+```text
+Each row is printed as a named tuple. Exact output depends on df.
+```
+
 For most data transformations, vectorized operations are preferred over row-by-row loops.
 
 ---
 
-# 134. Applying Functions Row-wise
+# 86. Applying Functions Row-wise
 
 ```python
 df["Total"] = df.apply(
@@ -4177,86 +3383,7 @@ Output:
 
 `axis=1` means the function receives one row at a time.
 
-# 135. Working with Index Alignment
-
-Pandas aligns Series and DataFrames using their labels.
-
-Example:
-
-```python
-s1 = pd.Series(
-    [10, 20],
-    index=["A", "B"]
-)
-
-s2 = pd.Series(
-    [30, 40],
-    index=["B", "C"]
-)
-
-print(s1 + s2)
-```
-
-The result is aligned using the index labels.
-
----
-
-# 136. Mathematical Operations with Alignment
-
-```python
-df["Total"] = (
-    df["Maths"] +
-    df["Python"]
-)
-```
-
-Pandas aligns values based on labels rather than only relying on their physical position.
-
----
-
-# 137. `combine_first()`
-
-`combine_first()` can use non-missing values from another object.
-
-```python
-result = df1.combine_first(
-    df2
-)
-```
-
----
-
-# 138. `merge_ordered()`
-
-`merge_ordered()` is useful for combining ordered data.
-
-```python
-result = pd.merge_ordered(
-    df1,
-    df2,
-    on="Date"
-)
-```
-
----
-
-# 139. `merge_asof()`
-
-`merge_asof()` performs a nearest-key style merge, commonly useful with ordered time-series data.
-
-```python
-result = pd.merge_asof(
-    df1,
-    df2,
-    on="Time"
-)
-```
-
-The input data should be appropriately sorted for the operation.
-
----
-
-# 140. Creating Dummy Variables
+# 87. Creating Dummy Variables
 
 Categorical values can be converted into indicator columns using:
 
@@ -4296,64 +3423,17 @@ Output:
 
 Each category becomes a separate indicator column.
 
-# 141. One-Hot Encoding
+### Important `get_dummies()` Options
 
-One-hot encoding creates separate columns for categories.
+| Parameter | Common values | Effect |
+|---|---|---|
+| `columns` | A list of column names | Encodes only the selected columns. |
+| `prefix` | A string or dictionary | Adds prefixes to generated column names. |
+| `drop_first` | `True`, `False` | Drops the first category column when enabled. |
+| `dummy_na` | `True`, `False` | Creates a separate indicator for missing values when enabled. |
+| `dtype` | Commonly `bool`, `int`, or another supported dtype | Sets the type of generated indicator columns. |
 
-Example:
-
-```text
-Gender
-Male
-Female
-Male
-```
-
-can become:
-
-```text
-Female  Male
-0       1
-1       0
-0       1
-```
-
-This is commonly used while preparing categorical data for Machine Learning.
-
----
-### Example: One-Hot Encoding
-
-```text
-Original:
-
-Gender
-Male
-Female
-Male
-
-After encoding:
-
-   Female  Male
-0   False  True
-1    True  False
-2   False  True
-```
-
-The categorical values are represented using separate columns.
-
-# 142. `from_dummies()`
-
-Indicator columns can be converted back to categorical representation using:
-
-```python
-pd.from_dummies(
-    dummy_data
-)
-```
-
----
-
-# 143. Practical Data Cleaning Workflow
+# 88. Practical Data Cleaning Workflow
 
 A common Pandas data cleaning workflow is:
 
@@ -4383,7 +3463,7 @@ Export Data
 
 ---
 
-# 144. Practical Example
+# 89. Practical Example
 
 The following four-row example demonstrates a small, self-contained analysis.
 
@@ -4419,6 +3499,16 @@ print(result)
 print(df.sort_values("Marks", ascending=False))
 ```
 
+Output:
+
+```text
+   Name  Age  Marks     City
+1  Riya   22     92    Delhi
+3  Neha   21     88   Mumbai
+0  Aman   21     85  Lucknow
+2  Rahul  20     78  Lucknow
+```
+
 ```text
    Name  Age  Marks     City
 1  Riya   22     92    Delhi
@@ -4434,6 +3524,17 @@ print(df["Marks"].mean())
 print(df.groupby("City")["Marks"].mean())
 ```
 
+Output:
+
+```text
+86.0
+City
+Delhi      92.0
+Lucknow    81.5
+Mumbai     88.0
+Name: Marks, dtype: float64
+```
+
 ```text
 85.75
 City
@@ -4442,143 +3543,9 @@ Lucknow     81.5
 Mumbai      88.0
 Name: Marks, dtype: float64
 ```
-
-# 145. Practical Data Analysis Workflow
-
-Pandas is often used with:
-
-```text
-Python
-   ↓
-NumPy
-   ↓
-Pandas
-   ↓
-Matplotlib / Seaborn
-   ↓
-Machine Learning
-```
-
-Pandas is commonly used as the data preparation and analysis layer before visualization or Machine Learning.
-
 ---
 
-# 146. Commonly Used Pandas Functions
-
-```python
-pd.Series()
-pd.DataFrame()
-
-pd.read_csv()
-pd.read_excel()
-pd.read_json()
-pd.read_html()
-pd.read_sql()
-
-pd.concat()
-pd.merge()
-pd.crosstab()
-pd.pivot_table()
-
-pd.to_datetime()
-pd.to_numeric()
-pd.cut()
-pd.qcut()
-pd.factorize()
-pd.get_dummies()
-```
-
----
-
-# 147. Common DataFrame Methods
-
-```python
-df.head()
-df.tail()
-df.info()
-df.describe()
-df.shape
-df.columns
-df.index
-df.dtypes
-
-df.loc[]
-df.iloc[]
-df.at[]
-df.iat[]
-
-df.sort_values()
-df.sort_index()
-
-df.drop()
-df.dropna()
-df.fillna()
-df.replace()
-
-df.rename()
-df.reset_index()
-df.set_index()
-
-df.drop_duplicates()
-df.value_counts()
-df.apply()
-df.map()
-df.groupby()
-
-df.pivot()
-df.melt()
-df.stack()
-df.unstack()
-df.explode()
-
-df.join()
-df.compare()
-
-df.sample()
-df.copy()
-df.memory_usage()
-```
-
----
-
-# 148. Important Pandas Concepts
-
-The important concepts to remember are:
-
-* Series
-* DataFrame
-* Index
-* Columns
-* Data Types
-* Selection
-* Boolean Indexing
-* Missing Data
-* Duplicate Data
-* Sorting
-* Filtering
-* GroupBy
-* Aggregation
-* Merge
-* Join
-* Concatenation
-* Reshaping
-* Pivot Tables
-* Text Processing
-* Categorical Data
-* DateTime
-* Time Series
-* Timedelta
-* Rolling Windows
-* Expanding Windows
-* MultiIndex
-* Data Visualization
-* File Input/Output
-* Performance
-* Memory Management
-
----
-
-# 149. Pandas and Machine Learning
+# 90. Pandas and Machine Learning
 
 Pandas is frequently used before training a Machine Learning model.
 
@@ -4620,7 +3587,7 @@ y = df[
 
 ---
 
-# 150. Best Practices
+# 91. Best Practices
 
 Some useful Pandas practices are:
 
@@ -4641,7 +3608,7 @@ Some useful Pandas practices are:
 
 ---
 
-# 151. Performance Considerations
+# 92. Performance Considerations
 
 For large datasets:
 
@@ -4657,146 +3624,3 @@ For large datasets:
 For very large datasets, other tools may be more suitable depending on the workload.
 
 ---
-
-# 152. Pandas with Matplotlib
-
-Pandas can directly create visualizations using Matplotlib.
-
-Example:
-
-```python
-import matplotlib.pyplot as plt
-
-df.plot(
-    x="Month",
-    y="Sales",
-    kind="line"
-)
-
-plt.show()
-```
-
----
-
-# 153. Pandas with NumPy
-
-Pandas and NumPy are commonly used together.
-
-```python
-import numpy as np
-import pandas as pd
-
-data = np.arange(1, 11)
-
-df = pd.DataFrame({
-    "Numbers": data
-})
-
-print(df)
-```
-
----
-
-# 154. Summary
-
-Pandas is one of the most important Python libraries for data analysis.
-
-In this guide, we covered:
-
-* Introduction to Pandas
-* Installation
-* Importing Pandas
-* Series
-* DataFrame
-* Creating DataFrames
-* DataFrame attributes
-* Viewing data
-* CSV files
-* Excel files
-* JSON files
-* HTML tables
-* SQL data
-* Selecting rows and columns
-* `loc[]`
-* `iloc[]`
-* `at[]`
-* `iat[]`
-* Boolean indexing
-* `isin()`
-* `query()`
-* Adding columns
-* Updating columns
-* Renaming columns
-* Dropping rows and columns
-* Reindexing
-* Setting and resetting index
-* Sorting
-* Duplicate data
-* Missing data
-* Filling missing values
-* Replacing values
-* Data types
-* Numeric conversion
-* String operations
-* Vectorized operations
-* Descriptive statistics
-* `value_counts()`
-* `unique()`
-* `nunique()`
-* `apply()`
-* `map()`
-* GroupBy
-* Aggregation
-* Transformation
-* Filtering groups
-* Concatenation
-* Merge
-* Join
-* Comparing DataFrames
-* Pivot
-* Pivot table
-* Melt
-* Stack and unstack
-* Explode
-* Crosstab
-* Cut and qcut
-* Factorize
-* Categorical data
-* Date and time
-* Time series
-* Resampling
-* Time zones
-* Timedelta
-* Rolling windows
-* Expanding windows
-* Exponentially weighted windows
-* Cumulative operations
-* Ranking
-* Sampling
-* Memory usage
-* Copying
-* Copy-on-Write
-* MultiIndex
-* Duplicate labels
-* Nullable data types
-* Pandas plotting
-* DataFrame styling
-* `eval()`
-* Large dataset handling
-* Sparse data
-* Parquet
-* Feather
-* Pickle
-* HDF5
-* Clipboard
-* NumPy integration
-* Conditional operations
-* SQL-style merging
-* One-hot encoding
-* Data cleaning
-* Data analysis workflow
-* Machine Learning data preparation
-* Performance considerations
-* Best practices
-
-Pandas provides the tools required to load, clean, transform, analyse and prepare structured data for visualization and Machine Learning.
