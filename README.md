@@ -6,6 +6,8 @@ This repository contains my learning, notes, practice, and projects from my
 I am using this repository to learn concepts, practice them with code, and
 keep my learning journey organized topic-wise.
 
+> This is my course learning log. The checklist below records learning progress; finished, end-to-end portfolio projects will live in a separate repository.
+
 
 ## Current Learning Progress
 
@@ -286,90 +288,37 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ## Repository Structure
 
-I am organizing this repository **topic-wise**.
-
-Each topic has its own folder.
-
-Inside each folder:
-
-- `README.md` → My notes for that topic
-- `.py` / `.ipynb` / other files → My practice and examples
-- Project files → Projects related to that topic
-
-For example:
+This repository is organized by learning topic:
 
 ```text
-FSDS-with-Gen-AI-and-Agentic-AI/
-│
-├── Python/
-│   ├── README.md
-│   ├── variables.py
-│   ├── data_types.py
-│   ├── list.py
-│   ├── tuple.py
-│   └── set.py
-│
-├── NumPy/
-│   ├── README.md
-│   └── practice.py
-│
-├── Pandas/
-│   ├── README.md
-│   └── practice.py
-│
-├── Statistics/
-│   ├── README.md
-│   └── practice.py
-│
-├── SQL/
-│   ├── README.md
-│   └── queries.sql
-│
-├── Machine-Learning/
-│   ├── README.md
-│   └── practice.py
-│
-├── Deep-Learning/
-│   ├── README.md
-│   └── practice.py
-│
-├── NLP/
-│   ├── README.md
-│   └── practice.py
-│
-├── Computer-Vision/
-│   ├── README.md
-│   └── practice.py
-│
-├── Generative-AI/
-│   ├── README.md
-│   └── practice.py
-│
-├── LLM/
-│   ├── README.md
-│   └── practice.py
-│
-├── Prompt-Engineering/
-│   ├── README.md
-│   └── practice.py
-│
-├── Vector-Database/
-│   ├── README.md
-│   └── practice.py
-│
-├── Agentic-AI/
-│   ├── README.md
-│   └── practice.py
-│
-├── MCP/
-│   ├── README.md
-│   └── practice.py
-│
-└── MLOps/
-    ├── README.md
-    └── ...
-
+.
+├── 01_Python/
+├── 02_Advanced_Python/
+├── 03_Data_Analysis/
+├── README.md
+├── NOTEBOOK_GUIDE.md
+├── SOURCES.md
+├── requirements.txt
+└── .gitignore
 ```
+
+## Setup and Run Notebooks
+
+Use Python 3.12 or newer. From the repository root:
+
+```bash
+python -m venv .venv
+```
+
+Activate the environment, then install the pinned dependencies:
+
+```powershell
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+jupyter lab
+```
+
+The notebooks use repository-relative paths and fixed sample input so they do not depend on one computer or pause for keyboard input. See [NOTEBOOK_GUIDE.md](NOTEBOOK_GUIDE.md) for run instructions and conventions.
 
 ## How I Use This Repository
 
@@ -384,18 +333,18 @@ For every topic I learn:
 
 ### Example
 
-If I am learning **Lists in Python**:
+If I am learning **Lists in Python**, I keep notes, notebooks, and scripts together in the existing topic folder:
 
 ```text
-Python/
-└── Lists/
-    ├── README.md
-    └── list.py
+01_Python/
+└── 12_Data_Structure/
+    └── 01_List/
+        ├── README.md
+        ├── List.ipynb
+        └── List_py.py
 ```
 
-`README.md` contains my **notes and explanation**.
-
-`list.py` contains my **practice code**.
+The README contains concept notes, the notebook contains guided practice, and the Python file contains standalone examples.
 
 ---
 

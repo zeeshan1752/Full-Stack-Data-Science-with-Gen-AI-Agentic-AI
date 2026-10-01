@@ -1,6 +1,7 @@
 # Pandas Introduction and Importing Pandas
 
 import pandas as pd
+from pathlib import Path
 
 print(pd.__version__)
 
@@ -161,14 +162,14 @@ print(df["Marks"].median())
 
 # Reading a CSV File
 
-df = pd.read_csv("students.csv")
+df = pd.read_csv(Path(__file__).with_name("students.csv"))
 
 print(df)
 
 
 # Writing DataFrame to CSV
 
-df.to_csv("students_output.csv", index=False)
+df.to_csv(Path(__file__).with_name("students_output.csv"), index=False)
 
 
 # GroupBy

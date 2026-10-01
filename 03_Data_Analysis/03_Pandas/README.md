@@ -996,7 +996,7 @@ Output:
 A new column can be added directly.
 
 ```python
-df["Salary"] = [25000, 30000, 28000]
+df["Salary"] = 30000
 ```
 
 Column based on another column:
@@ -1073,7 +1073,8 @@ Rename all columns:
 df.columns = [
     "Student_Name",
     "Age",
-    "Marks"
+    "Marks",
+    "City"
 ]
 ```
 
@@ -1183,8 +1184,8 @@ A column can be inserted at a specific position.
 ```python
 df.insert(
     1,
-    "City",
-    ["Delhi", "Lucknow", "Mumbai"]
+    "Country",
+    ["India"] * len(df)
 )
 ```
 
@@ -4384,7 +4385,7 @@ Export Data
 
 # 144. Practical Example
 
-Suppose we have student data:
+The following four-row example demonstrates a small, self-contained analysis.
 
 ```python
 import pandas as pd
@@ -4393,120 +4394,54 @@ data = {
     "Name": ["Aman", "Riya", "Rahul", "Neha"],
     "Age": [21, 22, 20, 21],
     "Marks": [85, 92, 78, 88],
-    "City": [
-        "Lucknow",
-        "Delhi",
-        "Lucknow",
-        "Mumbai"
-    ]
+    "City": ["Lucknow", "Delhi", "Lucknow", "Mumbai"],
 }
-
 df = pd.DataFrame(data)
-
-print(df)
 ```
 
----
-
-## Filtering Students
+## Filter students scoring above 80
 
 ```python
-result = df[
-    df["Marks"] > 80
-]
-
+result = df[df["Marks"] > 80]
 print(result)
 ```
 
----
-
-### Example Output
-
 ```text
-    Name  Age  Marks     City
-0   Aman   21     85  Lucknow
-1   Riya   22     92    Delhi
-3   Neha   21     88   Mumbai
-4  Arjun   23     95    Delhi
+   Name  Age  Marks     City
+0  Aman   21     85  Lucknow
+1  Riya   22     92    Delhi
+3  Neha   21     88   Mumbai
 ```
 
-Only students with marks greater than `80` are included.
-
-## Sorting Students
+## Sort by marks
 
 ```python
-result = df.sort_values(
-    "Marks",
-    ascending=False
-)
-
-print(result)
+print(df.sort_values("Marks", ascending=False))
 ```
-
----
-
-### Example Output
 
 ```text
-    Name  Age  Marks     City
-4  Arjun   23     95    Delhi
-1   Riya   22     92    Delhi
-3   Neha   21     88   Mumbai
-0   Aman   21     85  Lucknow
-2  Rahul   20     78  Lucknow
-5   Sara   22     76  Mumbai
+   Name  Age  Marks     City
+1  Riya   22     92    Delhi
+3  Neha   21     88   Mumbai
+0  Aman   21     85  Lucknow
+2  Rahul  20     78  Lucknow
 ```
 
-## Average Marks
+## Average and city-level summary
 
 ```python
-average = df["Marks"].mean()
-
-print(average)
+print(df["Marks"].mean())
+print(df.groupby("City")["Marks"].mean())
 ```
-
----
-
-### Example Output
 
 ```text
-85.66666666666667
+85.75
+City
+Delhi       92.0
+Lucknow     81.5
+Mumbai      88.0
+Name: Marks, dtype: float64
 ```
-
-## City-wise Average Marks
-
-```python
-result = df.groupby(
-    "City"
-)["Marks"].mean()
-
-print(result)
-```
-
----
-### Example: Complete Small Analysis
-
-Using the student DataFrame above:
-
-```python
-print("Average marks:", df["Marks"].mean())
-print()
-print(df[df["Marks"] > 80])
-```
-
-Output:
-
-```text
-Average marks: 85.66666666666667
-
-    Name  Age  Marks     City
-0   Aman   21     85  Lucknow
-1   Riya   22     92    Delhi
-3   Neha   21     88   Mumbai
-4  Arjun   23     95    Delhi
-```
-
-This shows the typical pattern: **create/load data → inspect → filter → calculate**.
 
 # 145. Practical Data Analysis Workflow
 

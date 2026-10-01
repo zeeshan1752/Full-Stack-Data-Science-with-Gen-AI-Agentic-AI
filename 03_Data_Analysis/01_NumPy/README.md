@@ -138,7 +138,12 @@ print(arr)
 A two-dimensional array contains rows and columns.
 
 ```python
-print(arr)
+arr_2d = np.array([
+    [10, 20],
+    [30, 40],
+])
+
+print(arr_2d)
 ```
 
 **Output:**
@@ -829,13 +834,13 @@ print(np.var(marks))
 **Output:**
 
 ```text
-465
+390
 78.0
 80.0
 65
 90
-8.717797887081348
-76.0
+9.273618495495704
+86.0
 ```
 
 ### Common Statistical Functions
@@ -1568,55 +1573,19 @@ print(view_arr)
 
 ---
 
-## Parameter Tuning and Hyperparameter Tuning
+## Choosing an Array Data Type
 
-### Parameter Tuning
-
-When NumPy uses the default data type automatically.
-
-**Example:**
+A NumPy array stores elements using a data type (`dtype`). NumPy can infer the type from the input values, or you can choose one explicitly.
 
 ```python
-import numpy as np
-
 arr = np.array([10, 20, 30])
-
 print(arr.dtype)
-````
 
-**Output:**
-
-```text
-int64
+float_arr = np.array([10, 20, 30], dtype=float)
+print(float_arr.dtype)
 ```
 
-### Hyperparameter Tuning
-
-When the user explicitly changes the data type using the `dtype` parameter.
-
-**Example:**
-
-```python
-import numpy as np
-
-arr = np.array([10, 20, 30], dtype=float)
-
-print(arr.dtype)
-```
-
-**Output:**
-
-```text
-float64
-```
-
-### Easy Difference
-
-**Default data type selected by NumPy → Parameter**
-
-**Data type explicitly changed by the user → Hyperparameter**
-
-> **Note:** This is a simplified terminology used in this NumPy context. In standard machine learning terminology, parameters are values learned by the model, while hyperparameters are settings chosen by the user.
+The `dtype` argument controls how array values are represented. It is not, by itself, a machine-learning parameter or hyperparameter.
 
 ---
 
@@ -1770,6 +1739,6 @@ The main concepts covered are:
 21. Set operations
 22. Handling missing and special values
 23. Copy and view
-24. Parameters and hyperparameters tuning
+24. Choosing an array data type
 25. NumPy in Data Analysis
 26. Quick reference

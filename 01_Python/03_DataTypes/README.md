@@ -36,7 +36,7 @@ age = 21
 marks = 95
 temperature = -5
 count = 0
-````
+```
 
 ### Checking the Type
 
