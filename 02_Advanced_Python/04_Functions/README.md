@@ -1689,74 +1689,59 @@ Output:
 None
 ```
 
-## 41. Quick Summary
+# Python Functions — Points to Remember
 
-```text
-def
-    → Used to define a function
+## 1. Function Basics
 
-()
-    → Used for parameters/calling a function
+| Term | Meaning |
+|---|---|
+| `def` | Used to define a function. |
+| `()` | Used to define parameters or call a function. |
+| `return` | Sends a value back from a function. |
+| **Docstring** | Describes what a function does. |
 
-return
-    → Sends a value back from a function
+## 2. Arguments and Parameters
 
-Actual Arguments
-    → Values passed during function call
+| Term | Meaning |
+|---|---|
+| **Actual Arguments** | Values passed during a function call. |
+| **Formal Parameters** | Variables that receive values in a function definition. |
+| **Positional Arguments** | Values matched according to their position. |
+| **Keyword Arguments** | Values matched using parameter names. |
+| **Default Arguments** | Parameters that have default values. |
+| **Keyword-only Parameter** | A parameter that must be passed using its parameter name. |
+| `*args` | Accepts multiple positional arguments and stores them as a tuple. |
+| `**kwargs` | Accepts multiple keyword arguments and stores them as a dictionary. |
 
-Formal Parameters
-    → Variables receiving values in function definition
+## 3. Variables and Scope
 
-Positional Arguments
-    → Values are matched according to position
+| Term | Meaning |
+|---|---|
+| **Local Variable** | Available within its local scope. |
+| **Global Variable** | Defined outside functions. |
+| `global` | Used to modify a global variable inside a function. |
+| `globals()` | Returns the global symbol table as a dictionary. |
+| `nonlocal` | Used to modify a variable from an enclosing scope. |
+| **LEGB Rule** | The order Python follows when looking up a name: Local → Enclosing → Global → Built-in. |
 
-Keyword Arguments
-    → Values are matched using parameter names
+## 4. Other Important Concepts
 
-Default Arguments
-    → Parameters with default values
+| Term | Meaning |
+|---|---|
+| **Mutable** | Can be changed after creation. |
+| **Immutable** | Cannot be changed after creation. |
+| **Recursion** | A function calling itself. |
+| **Function as an Object** | A function can be assigned to a variable, passed as an argument, or returned from another function. |
 
-*args
-    → Multiple positional arguments
-    → Stored as a tuple
+## Quick Revision
 
-**kwargs
-    → Multiple keyword arguments
-    → Stored as a dictionary
-
-Local Variable
-    → Available within its local scope
-
-Global Variable
-    → Defined outside functions
-
-global
-    → Used to modify a global variable inside a function
-
-globals()
-    → Returns the global symbol table as a dictionary
-
-LEGB
-    → Local → Enclosing → Global → Built-in
-
-nonlocal
-    → Used to modify a variable from an enclosing scope
-
-Mutable
-    → Can be changed after creation
-
-Immutable
-    → Cannot be changed after creation
-
-Recursion
-    → A function calling itself
-
-Keyword-only parameter
-    → Must be passed using its parameter name
-
-Function as an object
-    → Can be assigned to a variable, passed, or returned
-
-Docstring
-    → Describes what a function does
-```
+- `def` → Define a function
+- `return` → Return a value
+- `*args` → Multiple positional arguments (tuple)
+- `**kwargs` → Multiple keyword arguments (dictionary)
+- `global` → Refer to or modify a global variable
+- `nonlocal` → Refer to or modify a variable in an enclosing scope
+- `globals()` → Access the global symbol table
+- `LEGB` → Local → Enclosing → Global → Built-in
+- Recursion → A function calling itself
+- Docstring → Describe a function
