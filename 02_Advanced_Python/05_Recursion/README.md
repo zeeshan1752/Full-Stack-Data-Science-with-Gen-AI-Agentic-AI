@@ -1176,35 +1176,17 @@ def factorial(n):
 
 ## 37. Important Rules to Remember
 
-```text
-1. Identify the base case.
-2. Make sure the base case is reachable.
-3. Make the problem smaller in every recursive call.
-4. Return the recursive result when required.
-5. Understand the call stack.
-6. Consider time complexity.
-7. Consider space complexity.
-8. Check the recursion limit when recursion may become deep.
-9. Do not increase the limit just to hide an infinite-recursion bug.
-10. Use iteration when recursion does not provide a clear advantage.
-```
+### Recursion Checklist
 
-A simple way to remember recursion:
+1. **Identify the base case.** — Define when the recursion should stop.
+2. **Ensure the base case is reachable.** — Every valid execution path should eventually reach it.
+3. **Make the problem smaller.** — Each recursive call should move toward the base case.
+4. **Return the recursive result when required.** — Pass the result back to the previous call.
+5. **Understand the call stack.** — Each recursive call creates a new stack frame.
+6. **Consider time complexity.** — Analyze how the number of operations grows.
+7. **Consider space complexity.** — Account for memory used by recursive calls.
+8. **Check the recursion limit.** — Be careful when recursion becomes deeply nested.
+9. **Do not increase the recursion limit to hide a bug.** — Fix infinite or excessively deep recursion instead.
+10. **Prefer iteration when appropriate.** — Use loops when recursion offers no clear advantage.
 
-```text
-Problem
-   ↓
-Smaller Problem
-   ↓
-Smaller Problem
-   ↓
-Base Case
-   ↓
-Return
-   ↑
-Return
-   ↑
-Return
-   ↑
-Final Answer
-```
+**Remember:** Recursion breaks a problem into smaller problems until it reaches the base case. Then, the results return through the call stack to produce the final answer.
