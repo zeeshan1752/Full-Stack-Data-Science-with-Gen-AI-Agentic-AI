@@ -65,12 +65,12 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 - [x] [NumPy](03_Data_Analysis/01_NumPy)
 - [x] [Matplotlib](03_Data_Analysis/02_Matplotlib)
-- [x] Pandas
-- [x] Seaborn
-- [x] Exploratory Data Analysis (EDA)
+- [x] [Pandas](03_Data_Analysis/03_Pandas)
+- [x] [Seaborn](03_Data_Analysis/04_Seaborn)
+- [x] [Exploratory Data Analysis (EDA)](03_Data_Analysis/05_Exploratory_Data_Analysis_(EDA))
+- [ ] Data Cleaning and Data Visualization
 - [ ] SciPy
 - [ ] Statsmodels
-- [ ] Data Cleaning and Data Visualization
 
 ### Web Application Development
 
@@ -82,18 +82,18 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] Gradio
 
 ### Mathematics & Statistics
-- Probability
-- Distributions
-- Linear Algebra
-- Calculus
-- Descriptive Statistics
-- Inferential Statistics
-- Correlation and Regression
-- Hypothesis Testing
-- ANOVA
-- Chi-Square Test
-- Bias and Variance
-- Other statistical concepts used in Machine Learning
+- [ ] Probability
+- [ ] Distributions
+- [ ] Linear Algebra
+- [ ] Calculus
+- [ ] Descriptive Statistics
+- [ ] Inferential Statistics
+- [ ] Correlation and Regression
+- [ ] Hypothesis Testing
+- [ ] ANOVA
+- [ ] Chi-Square Test
+- [ ] Bias and Variance
+- [ ] Other statistical concepts used in Machine Learning
 
 ### SQL & Databases
 - DBMS and RDBMS
