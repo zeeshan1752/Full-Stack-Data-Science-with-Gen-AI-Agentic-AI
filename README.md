@@ -46,11 +46,11 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 - [x] [Conditional Statements](02_Advanced_Python/01_Conditional_Statement)
 - [x] [Loops](02_Advanced_Python/02_Loops)
-- [x] Comprehensions
-- [x] Functions
-- [x] Recursion
-- [x] Lambda Function
-- [x] Decorators
+- [x] [Comprehensions](02_Advanced_Python/03_Comprehensions)
+- [x] [Functions](02_Advanced_Python/04_Functions)
+- [x] [Recursion](02_Advanced_Python/05_Recursion)
+- [x] [Lambda Function](02_Advanced_Python/06_Lambda_Function)
+- [x] [Decorators](02_Advanced_Python/07_Decorators)
 - [ ] Object-Oriented Programming
 - [ ] Iterators and Generators
 - [ ] Exception Handling
@@ -68,7 +68,7 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Pandas](03_Data_Analysis/03_Pandas)
 - [x] [Seaborn](03_Data_Analysis/04_Seaborn)
 - [x] [Exploratory Data Analysis (EDA)](03_Data_Analysis/05_Exploratory_Data_Analysis_(EDA))
-- [ ] Data Cleaning and Data Visualization
+- [x] [Data Cleaning and Data Visualization Advance](03_Data_Analysis/06_Data_Cleaning_and_Visualization_Advance)
 - [ ] SciPy
 - [ ] Statsmodels
 
