@@ -767,92 +767,87 @@ Use a normal function when:
 - `reduce()` is imported from `functools`.
 - `map()`, `filter()`, and `reduce()` can work with both normal functions and lambda functions.
 
-# 14. Useful Edge Cases
+## 14. Useful Edge Cases
 
-These examples show sorting in reverse order, filtering when no items match, `map()` with different iterable lengths, and `reduce()` with an empty list.
+These examples cover reverse sorting, filtering when no items match, `map()` with different iterable lengths, and `reduce()` with an empty list.
+
+### 1. Sorting in Reverse Order
 
 ```python
 words = ["Python", "AI", "Programming", "Data"]
+
 print(sorted(words, key=lambda word: len(word), reverse=True))
 ```
 
-Output:
+**Output:**
 
 ```text
 ['Programming', 'Python', 'Data', 'AI']
 ```
 
-Output:
-```text
-['Programming', 'Python', 'Data', 'AI']
-```
+**Explanation:** `key=lambda word: len(word)` sorts words by length. `reverse=True` sorts them from longest to shortest.
 
-`reverse=True` reverses the order produced by the sorting key.
+### 2. Filtering When No Items Match
 
 ```python
 numbers = [1, 3, 5, 7]
+
 print(list(filter(lambda x: x % 2 == 0, numbers)))
 ```
 
-Output:
+**Output:**
 
 ```text
 []
 ```
 
-Output:
-```text
-[]
-```
+**Explanation:** All numbers are odd, so none satisfies the even-number condition. Therefore, `filter()` returns an empty list.
 
-An empty list means no items matched the condition.
+### 3. Using `map()` with Different Iterable Lengths
 
 ```python
 a = [1, 2, 3, 4]
 b = [10, 20]
+
 print(list(map(lambda x, y: x + y, a, b)))
 ```
 
-Output:
+**Output:**
 
 ```text
 [11, 22]
 ```
 
-Output:
-```text
-[11, 22]
-```
+**Explanation:** When `map()` receives multiple iterables, it stops when the shortest iterable is exhausted. Here, only two pairs are available:
 
-When `map()` receives multiple iterables, it stops when the shortest iterable is exhausted.
+- `1 + 10 = 11`
+- `2 + 20 = 22`
+
+### 4. Using `reduce()` with an Empty List
 
 ```python
 from functools import reduce
+
 empty_numbers = []
+
 print(reduce(lambda a, b: a + b, empty_numbers, 0))
 ```
 
-Output:
+**Output:**
 
 ```text
 0
 ```
 
-Output:
-```text
-0
-```
-
-The initial value makes this `reduce()` call work even when the iterable is empty. Without an initial value, `reduce()` raises `TypeError` for an empty iterable.
-
+**Explanation:** The initial value `0` allows `reduce()` to return a result even when the iterable is empty. Without an initial value, `reduce()` raises a `TypeError` for an empty iterable.
 
 ## Important Notes
 
-- A lambda function contains one expression, not multiple statements.
-- The expression's result is returned automatically.
+- A `lambda` function contains a single expression, not multiple statements.
+- The result of a lambda expression is returned automatically.
 - `map()` transforms items, while `filter()` selects items based on a condition.
-- `reduce()` combines items into one result and should be imported from `functools`.
-- `reduce(function, [])` raises `TypeError` if no initial value is supplied. Provide an initial value when an empty iterable is possible.
-- `sorted(numbers)` is sufficient to sort ordinary numbers; `key=lambda x: x` is valid but redundant.
-- When `map()` receives multiple iterables, it stops at the shortest iterable.
-- Prefer `def` when a function needs several statements or a descriptive reusable name.
+- `reduce()` combines items into a single result and must be imported from `functools`.
+- Use an initial value with `reduce()` when the iterable might be empty.
+- `sorted(numbers)` is sufficient for sorting ordinary numbers in ascending order. Using `key=lambda x: x` is valid but unnecessary.
+- When `map()` receives multiple iterables, it stops at the shortest one.
+- Prefer `def` when a function needs multiple statements or a descriptive, reusable name.
