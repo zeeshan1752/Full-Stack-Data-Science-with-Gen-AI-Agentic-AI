@@ -1,0 +1,21 @@
+Employee ID, Employee Name ,Department,Age,Experience,Salary,Join Date,Performance Rating,Email
+101, Aisha Khan ,IT,25.0,2,45000,2022-01-10,4,aisha@example.com
+102,Rahul Sharma,hr,,4,52000,2021/03/15,3,rahul@example.com
+103,neha verma,Finance,29.0,5,61000,2020-07-01,4,neha@example.com
+104,Imran Ali,IT,34.0,10,85000,2018-11-21,5,imran@example.com
+105,Priya Singh,Sales,27.0,3,48000,2023-02-01,3,priya@example.com
+106,Kabir Das,HR,31.0,7,,2020-04-10,4,kabir@example.com
+107,Sara Khan,sales,28.0,4,50000,2022-08-19,3,sara@example.com
+108,Rohan Mehta,Finance,42.0,16,120000,2015-06-30,5,rohan@example.com
+109,Zoya Ahmed,IT,26.0,2,47000,2023-01-05,4,zoya@example.com
+110,Arjun Rao,Marketing,37.0,11,98000,2017-09-12,5,arjun@example.com
+111,Maya Joshi,HR,,6,56000,2021-12-02,3,maya@example.com
+112,Farhan Ali,IT,30.0,8,78000,2019-05-25,4,farhan@example.com
+113,Ishita Sen,Sales,24.0,1,42000,2024-01-15,3,ishita@example.com
+114,Dev Patel,Marketing,33.0,9,92000,2018-03-20,4,dev@example.com
+115,Nida Khan,Finance,39.0,14,110000,2014-07-11,5,nida@example.com
+115,Nida Khan,Finance,39.0,14,110000,2014-07-11,5,nida@example.com
+117,Vikram Shah,IT,150.0,5,65000,2022-06-01,2,vikram@example.com
+118,Anaya Roy,Sales,28.0,3,49000,2023-04-16,4,anaya@example.com
+119,Omar Siddiqui,HR,35.0,12,87000,2016-10-10,4,omar@example.com
+120,Tara Nair,Marketing,32.0,7,76000,2020-08-08,3,tara@example.com

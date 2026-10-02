@@ -1,0 +1,20 @@
+employee_id,employee_name,department,age,experience,salary,join_date,performance_rating,email,email_valid,join_year,experience_band
+101,Aisha Khan,It,25.0,2,45000.0,2022-01-10,4,aisha@example.com,True,2022.0,0-2
+102,Rahul Sharma,Hr,30.5,4,52000.0,,3,rahul@example.com,True,,3-5
+103,Neha Verma,Finance,29.0,5,61000.0,2020-07-01,4,neha@example.com,True,2020.0,3-5
+104,Imran Ali,It,34.0,10,85000.0,2018-11-21,5,imran@example.com,True,2018.0,6-10
+105,Priya Singh,Sales,27.0,3,48000.0,2023-02-01,3,priya@example.com,True,2023.0,3-5
+106,Kabir Das,Hr,31.0,7,63000.0,2020-04-10,4,kabir@example.com,True,2020.0,6-10
+107,Sara Khan,Sales,28.0,4,50000.0,2022-08-19,3,sara@example.com,True,2022.0,3-5
+108,Rohan Mehta,Finance,42.0,16,120000.0,2015-06-30,5,rohan@example.com,True,2015.0,10+
+109,Zoya Ahmed,It,26.0,2,47000.0,2023-01-05,4,zoya@example.com,True,2023.0,0-2
+110,Arjun Rao,Marketing,37.0,11,98000.0,2017-09-12,5,arjun@example.com,True,2017.0,10+
+111,Maya Joshi,Hr,30.5,6,56000.0,2021-12-02,3,maya@example.com,True,2021.0,6-10
+112,Farhan Ali,It,30.0,8,78000.0,2019-05-25,4,farhan@example.com,True,2019.0,6-10
+113,Ishita Sen,Sales,24.0,1,42000.0,2024-01-15,3,ishita@example.com,True,2024.0,0-2
+114,Dev Patel,Marketing,33.0,9,92000.0,2018-03-20,4,dev@example.com,True,2018.0,6-10
+115,Nida Khan,Finance,39.0,14,110000.0,2014-07-11,5,nida@example.com,True,2014.0,10+
+117,Vikram Shah,It,30.5,5,65000.0,2022-06-01,2,vikram@example.com,True,2022.0,3-5
+118,Anaya Roy,Sales,28.0,3,49000.0,2023-04-16,4,anaya@example.com,True,2023.0,3-5
+119,Omar Siddiqui,Hr,35.0,12,87000.0,2016-10-10,4,omar@example.com,True,2016.0,10+
+120,Tara Nair,Marketing,32.0,7,76000.0,2020-08-08,3,tara@example.com,True,2020.0,6-10
