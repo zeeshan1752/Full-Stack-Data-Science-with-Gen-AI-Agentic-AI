@@ -81,6 +81,18 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] Flask
 - [ ] Gradio
 
+### SQL & Databases
+- [ ] DBMS and RDBMS
+- [ ] SQL
+- [ ] MySQL
+- [ ] SQL Commands
+- [ ] CRUD Operations
+- [ ] Constraints
+- [ ] Joins
+- [ ] SQL Clauses
+- [ ] Aggregate Functions
+- [ ] SQL vs NoSQL
+
 ### Mathematics & Statistics
 - [ ] Probability
 - [ ] Distributions
@@ -94,18 +106,6 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] Chi-Square Test
 - [ ] Bias and Variance
 - [ ] Other statistical concepts used in Machine Learning
-
-### SQL & Databases
-- DBMS and RDBMS
-- SQL
-- MySQL
-- SQL Commands
-- CRUD Operations
-- Constraints
-- Joins
-- SQL Clauses
-- Aggregate Functions
-- SQL vs NoSQL
 
 ### Machine Learning
 - Introduction to Machine Learning
