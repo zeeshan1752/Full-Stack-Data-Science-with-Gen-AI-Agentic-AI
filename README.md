@@ -51,9 +51,9 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Recursion](02_Advanced_Python/05_Recursion)
 - [x] [Lambda Function](02_Advanced_Python/06_Lambda_Function)
 - [x] [Decorators](02_Advanced_Python/07_Decorators)
+- [x] [Exception Handling](02_Advanced_Python/08_Exception_Handling)
 - [ ] Object-Oriented Programming
 - [ ] Iterators and Generators
-- [ ] Exception Handling
 - [ ] File Handling
 - [ ] Modules and Packages
 - [ ] Regular Expressions
