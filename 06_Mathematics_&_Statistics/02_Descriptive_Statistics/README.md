@@ -81,7 +81,7 @@ The **mean** is the arithmetic average of a dataset.
 
 For a dataset: **x₁, x₂, x₃, ..., xₙ**
 
-the arithmetic mean is:
+The arithmetic mean is:
 
 **Formula:** **x̄ = Σx / n**
 
@@ -96,8 +96,6 @@ where:
 For example, consider the dataset **10, 20, 30, 40, 50**.
 
 The sum is **150**.
-
-Number of observations:
 
 There are **5 observations**.
 
