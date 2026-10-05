@@ -74,12 +74,12 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Web Application Development
 
-- [x] Streamlit
+- [x] [Streamlit](04_Web_Application_Development/01_Streamlit)
+- [x] [Gradio](04_Web_Application_Development/02_Gradio)
 - [ ] Frontend Development
 - [ ] FastAPI
 - [ ] REST APIs
 - [ ] Flask
-- [ ] Gradio
 
 ### SQL & Databases
 - [ ] DBMS and RDBMS
