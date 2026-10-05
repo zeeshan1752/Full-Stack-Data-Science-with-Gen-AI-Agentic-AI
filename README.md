@@ -94,18 +94,21 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] SQL vs NoSQL
 
 ### Mathematics & Statistics
-- [ ] Probability
-- [ ] Distributions
-- [ ] Linear Algebra
-- [ ] Calculus
-- [ ] Descriptive Statistics
-- [ ] Inferential Statistics
-- [ ] Correlation and Regression
-- [ ] Hypothesis Testing
-- [ ] ANOVA
-- [ ] Chi-Square Test
-- [ ] Bias and Variance
-- [ ] Other statistical concepts used in Machine Learning
+- [x] Statistics Fundamentals
+- [x] Descriptive Statistics
+- [x] Probability
+- [x] Probability Distributions
+- [x] Inferential Statistics
+- [x] Hypothesis Testing
+- [x] ANOVA
+- [x] Chi-Square Test
+- [x] Correlation
+- [x] Regression
+- [x] Regression Model Evaluation
+- [x] Linear Algebra
+- [x] Calculus
+- [x] Bias and Variance
+- [x] Statistics for Machine Learning
 
 ### Machine Learning
 - Introduction to Machine Learning
