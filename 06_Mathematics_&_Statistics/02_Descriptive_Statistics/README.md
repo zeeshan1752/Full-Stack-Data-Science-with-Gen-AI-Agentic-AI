@@ -694,18 +694,6 @@ Skewness describes the asymmetry of a distribution.
 
 A distribution with a longer right tail is positively skewed.
 
-```text
-Most observations → ███████████
-                    ███████
-                       ███
-                         ██
-                           █
-------------------------------→
-                         Right tail
-```
-
-Income data is often used as an intuitive example because a relatively small number of very high incomes can create a long right tail.
-
 ### Negative Skew
 
 A distribution with a longer left tail is negatively skewed.
@@ -713,6 +701,12 @@ A distribution with a longer left tail is negatively skewed.
 ### Symmetric Distribution
 
 A symmetric distribution has approximately balanced tails around its center.
+
+![Types of Skewness](https://assets.mbrenndoerfer.com/notebooks/2_probability_fundamentals_files/skewness-distribution-examples.png)
+
+*Source: Michael Brenndoerfer — Distributions with Different Skewness.*
+
+The image compares negative skewness, zero skewness (symmetric distribution), and positive skewness. A positive skew has a longer right tail, while a negative skew has a longer left tail.
 
 Skewness helps us understand whether the mean and median may differ substantially.
 
@@ -835,7 +829,7 @@ The correct choice depends on the shape and purpose of the analysis.
 
 A common workflow is:
 
-```text
+```
 Raw Dataset
     ↓
 Understand Variables
