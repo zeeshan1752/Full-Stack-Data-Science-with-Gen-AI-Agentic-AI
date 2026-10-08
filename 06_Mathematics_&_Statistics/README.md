@@ -775,15 +775,7 @@ Topics include:
 A useful conceptual relationship is:
 
 $$
-\boxed{
-\text{Total Prediction Error}
-=
-\text{Bias}^2
-+
-\text{Variance}
-+
-\text{Irreducible Error}
-}
+\boxed{\text{Total Prediction Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}}
 $$
 
 ## Where is it used?
