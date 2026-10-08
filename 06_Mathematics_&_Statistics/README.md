@@ -1107,26 +1107,35 @@ However, understanding these foundations makes it much easier to understand **wh
 
 The overall learning path can be viewed as:
 
-$$
-\boxed{
-\text{Python}
-\rightarrow
-\text{Mathematics \& Statistics}
-\rightarrow
-\text{Data Analysis}
-\rightarrow
-\text{Machine Learning}
-\rightarrow
-\text{Deep Learning}
-\rightarrow
-\text{Generative AI}
-\rightarrow
-\text{Agentic AI}
-}
-$$
+**Python**
+
+↓
+
+**Mathematics and Statistics**
+
+↓
+
+**Data Analysis**
+
+↓
+
+**Machine Learning**
+
+↓
+
+**Deep Learning**
+
+↓
+
+**Generative AI**
+
+↓
+
+**Agentic AI**
+
+This learning path moves from programming fundamentals to mathematical and statistical foundations, then into practical data analysis, machine learning, deep learning, and finally modern AI systems.
 
 The Mathematics and Statistics section provides the foundation between programming and practical machine learning.
-
 ---
 
 # 26. Final Perspective
