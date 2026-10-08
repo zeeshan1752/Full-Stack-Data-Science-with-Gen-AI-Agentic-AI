@@ -1,4 +1,4 @@
-# 04 — Probability Distributions
+# Probability Distributions
 
 A **probability distribution** describes how probabilities are assigned to the possible values of a random variable.
 
