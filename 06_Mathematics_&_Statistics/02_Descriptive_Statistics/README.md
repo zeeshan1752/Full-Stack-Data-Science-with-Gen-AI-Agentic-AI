@@ -1,4 +1,4 @@
-# 02 — Descriptive Statistics
+# Descriptive Statistics
 
 Descriptive statistics is the branch of statistics concerned with **organising, summarising, and presenting observed data** in a meaningful form.
 
