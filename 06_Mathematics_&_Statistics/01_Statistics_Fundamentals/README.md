@@ -1,4 +1,4 @@
-# 01 — Statistics Fundamentals
+# Statistics Fundamentals
 
 Statistics is the foundation for understanding data. Before applying machine learning algorithms or performing advanced data analysis, it is important to understand what the data represents, how it was collected, how it should be measured, and how conclusions can be drawn from it.
 
