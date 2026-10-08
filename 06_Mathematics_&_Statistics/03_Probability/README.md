@@ -1,4 +1,4 @@
-# 03 — Probability
+# Probability
 
 Probability is the mathematical language used to describe **uncertainty and randomness**.
 
