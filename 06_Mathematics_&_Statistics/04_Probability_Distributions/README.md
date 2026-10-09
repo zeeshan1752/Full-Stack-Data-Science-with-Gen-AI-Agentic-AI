@@ -29,17 +29,13 @@ A **random variable** is a numerical function that assigns a value to each outco
 
 A random variable is commonly represented by:
 
-$$
-X
-$$
+$X$
 
 For example, suppose a coin is tossed three times and $X$ represents the number of Heads.
 
 The possible values are:
 
-$$
-X\in\{0,1,2,3\}
-$$
+$X\in\{0,1,2,3\}$
 
 A probability distribution tells us the probability associated with each possible value of $X$.
 
@@ -54,15 +50,11 @@ For example:
 
 The probabilities must satisfy:
 
-$$
-P(X=x)\geq0
-$$
+$P(X=x)\geq0$
 
 and:
 
-$$
-\sum_xP(X=x)=1
-$$
+$\sum_xP(X=x)=1$
 
 A probability distribution therefore provides a complete probabilistic description of a random variable under the chosen model.
 
@@ -84,9 +76,7 @@ A discrete probability distribution assigns a probability to each possible value
 
 For a discrete random variable, the probability of a particular value can be positive:
 
-$$
-P(X=x)>0
-$$
+$P(X=x)>0$
 
 for some values of $x$.
 
@@ -109,17 +99,13 @@ For a continuous random variable, probability is assigned to intervals rather th
 
 Under the usual continuous probability model:
 
-$$
-P(X=x)=0
-$$
+$P(X=x)=0$
 
 for any single exact value $x$.
 
 However:
 
-$$
-P(a<X<b)
-$$
+$P(a<X<b)$
 
 can be positive.
 
@@ -147,23 +133,17 @@ The **probability mass function (PMF)** gives the probability that a discrete ra
 
 It is written as:
 
-$$
-p_X(x)=P(X=x)
-$$
+$p_X(x)=P(X=x)$
 
 A valid PMF must satisfy two conditions.
 
 ### Condition 1: Non-Negativity
 
-$$
-p_X(x)\geq0
-$$
+$p_X(x)\geq0$
 
 ### Condition 2: Total Probability
 
-$$
-\sum_xp_X(x)=1
-$$
+$\sum_xp_X(x)=1$
 
 ### Example
 
@@ -177,9 +157,7 @@ Suppose:
 
 Check the total:
 
-$$
-0.2+0.5+0.3=1
-$$
+$0.2+0.5+0.3=1$
 
 Therefore, the probabilities form a valid PMF.
 
@@ -191,29 +169,19 @@ A **probability density function (PDF)** describes the density of probability fo
 
 It is commonly written as:
 
-$$
-f_X(x)
-$$
+$f_X(x)$
 
 A valid PDF must satisfy:
 
-$$
-f_X(x)\geq0
-$$
+$f_X(x)\geq0$
 
 and:
 
-$$
-\int_{-\infty}^{\infty}f_X(x)\,dx=1
-$$
+$\int_{-\infty}^{\infty}f_X(x)\,dx=1$
 
 The probability that $X$ lies between $a$ and $b$ is:
 
-$$
-P(a\leq X\leq b)
-=
-\int_a^b f_X(x)\,dx
-$$
+$P(a\leq X\leq b) = \int_a^b f_X(x)\,dx$
 
 For continuous distributions, the probability corresponds to **area under the density curve**.
 
@@ -231,15 +199,11 @@ The total area under a valid density curve is 1, while the probability at any on
 
 Because a single point has zero width:
 
-$$
-P(X=a)=0
-$$
+$P(X=a)=0$
 
 and therefore:
 
-$$
-P(a<X<b)=P(a\leq X\leq b)
-$$
+$P(a<X<b)=P(a\leq X\leq b)$
 
 for a continuous random variable.
 
@@ -251,27 +215,19 @@ The **cumulative distribution function (CDF)** gives the probability that a rand
 
 It is written as:
 
-$$
-F_X(x)=P(X\leq x)
-$$
+$F_X(x)=P(X\leq x)$
 
 ### For a Discrete Random Variable
 
-$$
-F_X(x)=\sum_{t\leq x}P(X=t)
-$$
+$F_X(x)=\sum_{t\leq x}P(X=t)$
 
 ### For a Continuous Random Variable
 
-$$
-F_X(x)=\int_{-\infty}^{x}f_X(t)\,dt
-$$
+$F_X(x)=\int_{-\infty}^{x}f_X(t)\,dt$
 
 A CDF always satisfies:
 
-$$
-0\leq F_X(x)\leq1
-$$
+$0\leq F_X(x)\leq1$
 
 It is also non-decreasing.
 
@@ -287,45 +243,33 @@ The three concepts describe probability in different ways.
 
 Used for discrete random variables:
 
-$$
-P(X=x)
-$$
+$P(X=x)$
 
 ### PDF
 
 Used for continuous random variables:
 
-$$
-f_X(x)
-$$
+$f_X(x)$
 
 Probability over an interval is calculated using area:
 
-$$
-P(a<X<b)=\int_a^b f_X(x)\,dx
-$$
+$P(a<X<b)=\int_a^b f_X(x)\,dx$
 
 ### CDF
 
 Used for both discrete and continuous random variables:
 
-$$
-F_X(x)=P(X\leq x)
-$$
+$F_X(x)=P(X\leq x)$
 
 For a continuous distribution, the PDF and CDF are related by:
 
-$$
-f_X(x)=\frac{d}{dx}F_X(x)
-$$
+$f_X(x)=\frac{d}{dx}F_X(x)$
 
 when the derivative exists.
 
 The CDF can be recovered from the PDF using:
 
-$$
-F_X(x)=\int_{-\infty}^{x}f_X(t)\,dt
-$$
+$F_X(x)=\int_{-\infty}^{x}f_X(t)\,dt$
 
 ---
 
@@ -335,9 +279,7 @@ The expected value represents the theoretical long-run average.
 
 For a discrete random variable:
 
-$$
-E(X)=\sum_xxP(X=x)
-$$
+$E(X)=\sum_xxP(X=x)$
 
 ### Worked Example
 
@@ -351,19 +293,13 @@ Suppose:
 
 Then:
 
-$$
-E(X)=0(0.2)+1(0.5)+2(0.3)
-$$
+$E(X)=0(0.2)+1(0.5)+2(0.3)$
 
-$$
-E(X)=0+0.5+0.6
-$$
+$E(X)=0+0.5+0.6$
 
 Therefore:
 
-$$
-\boxed{E(X)=1.1}
-$$
+$\boxed{E(X)=1.1}$
 
 The expected value does not need to be one of the possible outcomes.
 
@@ -373,9 +309,7 @@ The expected value does not need to be one of the possible outcomes.
 
 For a continuous random variable:
 
-$$
-E(X)=\int_{-\infty}^{\infty}xf_X(x)\,dx
-$$
+$E(X)=\int_{-\infty}^{\infty}xf_X(x)\,dx$
 
 The function $xf_X(x)$ weights each possible value by its probability density.
 
@@ -389,27 +323,19 @@ Variance measures the spread of a random variable around its mean.
 
 The definition is:
 
-$$
-Var(X)=E[(X-\mu)^2]
-$$
+$Var(X)=E[(X-\mu)^2]$
 
 where:
 
-$$
-\mu=E(X)
-$$
+$\mu=E(X)$
 
 An equivalent formula is:
 
-$$
-\boxed{Var(X)=E(X^2)-[E(X)]^2}
-$$
+$\boxed{Var(X)=E(X^2)-[E(X)]^2}$
 
 The standard deviation is:
 
-$$
-SD(X)=\sqrt{Var(X)}
-$$
+$SD(X)=\sqrt{Var(X)}$
 
 A larger variance indicates greater dispersion under the same measurement scale.
 
@@ -426,93 +352,61 @@ The outcomes are often called:
 
 Let:
 
-$$
-X=
-\begin{cases}
-1 & \text{success}\\
-0 & \text{failure}
-\end{cases}
-$$
+$X= \begin{cases} 1 & \text{success}\\ 0 & \text{failure} \end{cases}$
 
 Let:
 
-$$
-P(X=1)=p
-$$
+$P(X=1)=p$
 
 Then:
 
-$$
-P(X=0)=1-p
-$$
+$P(X=0)=1-p$
 
 The PMF is:
 
-$$
-\boxed{
-P(X=x)=p^x(1-p)^{1-x}
-}
-$$
+$\boxed{ P(X=x)=p^x(1-p)^{1-x} }$
 
 for:
 
-$$
-x\in\{0,1\}
-$$
+$x\in\{0,1\}$
 
 ### Mean
 
 The expected value is:
 
-$$
-\boxed{E(X)=p}
-$$
+$\boxed{E(X)=p}$
 
 ### Variance
 
 The variance is:
 
-$$
-\boxed{Var(X)=p(1-p)}
-$$
+$\boxed{Var(X)=p(1-p)}$
 
 ### Example
 
 Suppose a customer makes a purchase with probability:
 
-$$
-p=0.2
-$$
+$p=0.2$
 
 Then:
 
-$$
-P(X=1)=0.2
-$$
+$P(X=1)=0.2$
 
 and:
 
-$$
-P(X=0)=0.8
-$$
+$P(X=0)=0.8$
 
 The expected value is:
 
-$$
-E(X)=0.2
-$$
+$E(X)=0.2$
 
 and the variance is:
 
-$$
-Var(X)=0.2(0.8)
-$$
+$Var(X)=0.2(0.8)$
 
 Therefore:
 
-$$
-\boxed{Var(X)=0.16}
-$$
+$\boxed{Var(X)=0.16}$
 
 ---
 
@@ -528,25 +422,15 @@ Suppose:
 
 Then:
 
-$$
-X\sim Binomial(n,p)
-$$
+$X\sim Binomial(n,p)$
 
 The probability of exactly $x$ successes is:
 
-$$
-\boxed{
-P(X=x)=
-\binom{n}{x}
-p^x(1-p)^{n-x}
-}
-$$
+$\boxed{ P(X=x)= \binom{n}{x} p^x(1-p)^{n-x} }$
 
 where:
 
-$$
-x=0,1,2,\ldots,n
-$$
+$x=0,1,2,\ldots,n$
 
 ### Conditions for a Binomial Model
 
@@ -563,72 +447,47 @@ A fair coin is tossed 4 times. What is the probability of exactly 2 Heads?
 
 Here:
 
-$$
-n=4
-$$
+$n=4$
 
-$$
-p=0.5
-$$
+$p=0.5$
 
-$$
-x=2
-$$
+$x=2$
 
 Apply the formula:
 
-$$
-P(X=2)=
-\binom{4}{2}(0.5)^2(0.5)^2
-$$
+$P(X=2)= \binom{4}{2}(0.5)^2(0.5)^2$
 
 Since:
 
-$$
-\binom{4}{2}=6
-$$
+$\binom{4}{2}=6$
 
 we obtain:
 
-$$
-P(X=2)=6(0.25)(0.25)
-$$
+$P(X=2)=6(0.25)(0.25)$
 
-$$
-\boxed{P(X=2)=0.375}
-$$
+$\boxed{P(X=2)=0.375}$
 
 or:
 
-$$
-\boxed{37.5\%}
-$$
+$\boxed{37.5\%}$
 
 ### Mean
 
 For a Binomial random variable:
 
-$$
-\boxed{E(X)=np}
-$$
+$\boxed{E(X)=np}$
 
 ### Variance
 
-$$
-\boxed{Var(X)=np(1-p)}
-$$
+$\boxed{Var(X)=np(1-p)}$
 
 For $n=4$ and $p=0.5$:
 
-$$
-E(X)=4(0.5)=2
-$$
+$E(X)=4(0.5)=2$
 
 and:
 
-$$
-Var(X)=4(0.5)(0.5)=1
-$$
+$Var(X)=4(0.5)(0.5)=1$
 
 ---
 
@@ -638,21 +497,15 @@ The Binomial formula gives the probability of exactly $x$ successes.
 
 For an event such as "at least 3 successes":
 
-$$
-P(X\geq3)
-$$
+$P(X\geq3)$
 
 we can add the probabilities:
 
-$$
-P(X\geq3)=P(X=3)+P(X=4)+\cdots+P(X=n)
-$$
+$P(X\geq3)=P(X=3)+P(X=4)+\cdots+P(X=n)$
 
 Alternatively, use the complement:
 
-$$
-P(X\geq3)=1-P(X\leq2)
-$$
+$P(X\geq3)=1-P(X\leq2)$
 
 The complement approach can sometimes require fewer calculations.
 
@@ -664,44 +517,29 @@ The **Poisson distribution** models the number of events occurring within a fixe
 
 Let:
 
-$$
-X\sim Poisson(\lambda)
-$$
+$X\sim Poisson(\lambda)$
 
 where $\lambda$ represents the average number of events in the interval.
 
 The PMF is:
 
-$$
-\boxed{
-P(X=x)=
-\frac{e^{-\lambda}\lambda^x}{x!}
-}
-$$
+$\boxed{ P(X=x)= \frac{e^{-\lambda}\lambda^x}{x!} }$
 
 for:
 
-$$
-x=0,1,2,\ldots
-$$
+$x=0,1,2,\ldots$
 
 ### Mean
 
-$$
-\boxed{E(X)=\lambda}
-$$
+$\boxed{E(X)=\lambda}$
 
 ### Variance
 
-$$
-\boxed{Var(X)=\lambda}
-$$
+$\boxed{Var(X)=\lambda}$
 
 Thus, for a Poisson distribution:
 
-$$
-E(X)=Var(X)=\lambda
-$$
+$E(X)=Var(X)=\lambda$
 
 ### Worked Example
 
@@ -709,66 +547,43 @@ Suppose a support centre receives an average of 3 calls per minute.
 
 Let:
 
-$$
-\lambda=3
-$$
+$\lambda=3$
 
 What is the probability of receiving exactly 2 calls in one minute?
 
 Use:
 
-$$
-P(X=2)=
-\frac{e^{-3}3^2}{2!}
-$$
+$P(X=2)= \frac{e^{-3}3^2}{2!}$
 
 Since:
 
-$$
-3^2=9
-$$
+$3^2=9$
 
 and:
 
-$$
-2!=2
-$$
+$2!=2$
 
 we obtain:
 
-$$
-P(X=2)=
-\frac{9e^{-3}}{2}
-$$
+$P(X=2)= \frac{9e^{-3}}{2}$
 
 Using:
 
-$$
-e^{-3}\approx0.0498
-$$
+$e^{-3}\approx0.0498$
 
 we get:
 
-$$
-P(X=2)\approx
-\frac{9(0.0498)}{2}
-$$
+$P(X=2)\approx \frac{9(0.0498)}{2}$
 
-$$
-P(X=2)\approx0.224
-$$
+$P(X=2)\approx0.224$
 
 Therefore:
 
-$$
-\boxed{P(X=2)\approx0.224}
-$$
+$\boxed{P(X=2)\approx0.224}$
 
 or approximately:
 
-$$
-\boxed{22.4\%}
-$$
+$\boxed{22.4\%}$
 
 ---
 
@@ -783,57 +598,39 @@ Let:
 
 Then:
 
-$$
-P(X=x)=(1-p)^{x-1}p
-$$
+$P(X=x)=(1-p)^{x-1}p$
 
 for:
 
-$$
-x=1,2,3,\ldots
-$$
+$x=1,2,3,\ldots$
 
 ### Worked Example
 
 Suppose a trial has success probability:
 
-$$
-p=0.2
-$$
+$p=0.2$
 
 What is the probability that the first success occurs on the third trial?
 
 We need:
 
-$$
-P(X=3)
-$$
+$P(X=3)$
 
 Apply the formula:
 
-$$
-P(X=3)=(1-0.2)^2(0.2)
-$$
+$P(X=3)=(1-0.2)^2(0.2)$
 
-$$
-=(0.8)^2(0.2)
-$$
+$=(0.8)^2(0.2)$
 
-$$
-=0.64(0.2)
-$$
+$=0.64(0.2)$
 
 Therefore:
 
-$$
-\boxed{P(X=3)=0.128}
-$$
+$\boxed{P(X=3)=0.128}$
 
 or:
 
-$$
-\boxed{12.8\%}
-$$
+$\boxed{12.8\%}$
 
 ---
 
@@ -843,25 +640,17 @@ The Negative Binomial distribution generalises the Geometric distribution by con
 
 If $X$ is the number of trials required to obtain $r$ successes, then one common form is:
 
-$$
-P(X=x)=
-\binom{x-1}{r-1}
-p^r(1-p)^{x-r}
-$$
+$P(X=x)= \binom{x-1}{r-1} p^r(1-p)^{x-r}$
 
 where:
 
-$$
-x=r,r+1,\ldots
-$$
+$x=r,r+1,\ldots$
 
 The exact parameterisation can vary between textbooks and software libraries, so the definition of the random variable should always be checked.
 
 The Geometric distribution is a special case with:
 
-$$
-r=1
-$$
+$r=1$
 
 ---
 
@@ -878,15 +667,7 @@ Suppose:
 
 Then:
 
-$$
-P(X=x)=
-\frac{
-\binom{K}{x}
-\binom{N-K}{n-x}
-}{
-\binom{N}{n}
-}
-$$
+$P(X=x)= \frac{ \binom{K}{x} \binom{N-K}{n-x} }{ \binom{N}{n} }$
 
 The important feature is **sampling without replacement**.
 
@@ -903,63 +684,35 @@ What is the probability that exactly 2 are defective?
 
 Here:
 
-$$
-N=10
-$$
+$N=10$
 
-$$
-K=4
-$$
+$K=4$
 
-$$
-n=3
-$$
+$n=3$
 
-$$
-x=2
-$$
+$x=2$
 
 Therefore:
 
-$$
-P(X=2)=
-\frac{
-\binom{4}{2}
-\binom{6}{1}
-}{
-\binom{10}{3}
-}
-$$
+$P(X=2)= \frac{ \binom{4}{2} \binom{6}{1} }{ \binom{10}{3} }$
 
 Calculate:
 
-$$
-\binom{4}{2}=6
-$$
+$\binom{4}{2}=6$
 
-$$
-\binom{6}{1}=6
-$$
+$\binom{6}{1}=6$
 
-$$
-\binom{10}{3}=120
-$$
+$\binom{10}{3}=120$
 
 Therefore:
 
-$$
-P(X=2)=\frac{36}{120}
-$$
+$P(X=2)=\frac{36}{120}$
 
-$$
-\boxed{P(X=2)=0.3}
-$$
+$\boxed{P(X=2)=0.3}$
 
 or:
 
-$$
-\boxed{30\%}
-$$
+$\boxed{30\%}$
 
 ---
 
@@ -969,68 +722,43 @@ The **continuous Uniform distribution** assigns equal density across an interval
 
 If:
 
-$$
-X\sim Uniform(a,b)
-$$
+$X\sim Uniform(a,b)$
 
 then its PDF is:
 
-$$
-f(x)=
-\begin{cases}
-\frac{1}{b-a} & a\leq x\leq b\\
-0 & \text{otherwise}
-\end{cases}
-$$
+$f(x)= \begin{cases} \frac{1}{b-a} & a\leq x\leq b\\ 0 & \text{otherwise} \end{cases}$
 
 The graph is rectangular because the density is constant throughout the interval.
 
 ### Mean
 
-$$
-\boxed{E(X)=\frac{a+b}{2}}
-$$
+$\boxed{E(X)=\frac{a+b}{2}}$
 
 ### Variance
 
-$$
-\boxed{Var(X)=\frac{(b-a)^2}{12}}
-$$
+$\boxed{Var(X)=\frac{(b-a)^2}{12}}$
 
 ### Worked Example
 
 Suppose:
 
-$$
-X\sim Uniform(0,10)
-$$
+$X\sim Uniform(0,10)$
 
 The probability that $X$ lies between 2 and 6 is the length of the required interval divided by the total interval length:
 
-$$
-P(2\leq X\leq6)=
-\frac{6-2}{10-0}
-$$
+$P(2\leq X\leq6)= \frac{6-2}{10-0}$
 
-$$
-=\frac{4}{10}
-$$
+$=\frac{4}{10}$
 
 Therefore:
 
-$$
-\boxed{P(2\leq X\leq6)=0.4}
-$$
+$\boxed{P(2\leq X\leq6)=0.4}$
 
 The mean is:
 
-$$
-E(X)=\frac{0+10}{2}
-$$
+$E(X)=\frac{0+10}{2}$
 
-$$
-\boxed{E(X)=5}
-$$
+$\boxed{E(X)=5}$
 
 ---
 
@@ -1042,9 +770,7 @@ It is symmetric and bell-shaped.
 
 A Normal random variable is commonly written as:
 
-$$
-X\sim N(\mu,\sigma^2)
-$$
+$X\sim N(\mu,\sigma^2)$
 
 where:
 
@@ -1054,27 +780,17 @@ where:
 
 Its PDF is:
 
-$$
-\boxed{
-f(x)=
-\frac{1}{\sigma\sqrt{2\pi}}
-e^{-\frac{(x-\mu)^2}{2\sigma^2}}
-}
-$$
+$\boxed{ f(x)= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}} }$
 
 for:
 
-$$
--\infty<x<\infty
-$$
+$-\infty<x<\infty$
 
 ### Important Properties
 
 For a Normal distribution:
 
-$$
-\text{Mean}=\text{Median}=\text{Mode}=\mu
-$$
+$\text{Mean}=\text{Median}=\text{Mode}=\mu$
 
 The distribution is symmetric around $\mu$.
 
@@ -1092,29 +808,19 @@ This is commonly called the **68–95–99.7 rule**.
 
 The **Standard Normal distribution** has:
 
-$$
-\mu=0
-$$
+$\mu=0$
 
 and:
 
-$$
-\sigma=1
-$$
+$\sigma=1$
 
 It is commonly represented by:
 
-$$
-Z\sim N(0,1)
-$$
+$Z\sim N(0,1)$
 
 A general Normal variable can be standardised using the **z-score**:
 
-$$
-\boxed{
-Z=\frac{X-\mu}{\sigma}
-}
-$$
+$\boxed{ Z=\frac{X-\mu}{\sigma} }$
 
 The z-score tells us how many standard deviations an observation lies above or below the mean.
 
@@ -1122,33 +828,21 @@ The z-score tells us how many standard deviations an observation lies above or b
 
 Suppose:
 
-$$
-X=70
-$$
+$X=70$
 
-$$
-\mu=60
-$$
+$\mu=60$
 
-$$
-\sigma=5
-$$
+$\sigma=5$
 
 Then:
 
-$$
-Z=\frac{70-60}{5}
-$$
+$Z=\frac{70-60}{5}$
 
-$$
-Z=\frac{10}{5}
-$$
+$Z=\frac{10}{5}$
 
 Therefore:
 
-$$
-\boxed{Z=2}
-$$
+$\boxed{Z=2}$
 
 The observation is 2 standard deviations above the mean.
 
@@ -1160,25 +854,19 @@ For an approximately Normal distribution:
 
 ### Within 1 Standard Deviation
 
-$$
-\mu-\sigma \leq X\leq\mu+\sigma
-$$
+$\mu-\sigma \leq X\leq\mu+\sigma$
 
 contains approximately 68% of observations.
 
 ### Within 2 Standard Deviations
 
-$$
-\mu-2\sigma \leq X\leq\mu+2\sigma
-$$
+$\mu-2\sigma \leq X\leq\mu+2\sigma$
 
 contains approximately 95%.
 
 ### Within 3 Standard Deviations
 
-$$
-\mu-3\sigma \leq X\leq\mu+3\sigma
-$$
+$\mu-3\sigma \leq X\leq\mu+3\sigma$
 
 contains approximately 99.7%.
 
@@ -1186,33 +874,23 @@ contains approximately 99.7%.
 
 Suppose:
 
-$$
-\mu=100
-$$
+$\mu=100$
 
 and:
 
-$$
-\sigma=10
-$$
+$\sigma=10$
 
 Approximately 95% of observations lie between:
 
-$$
-100-2(10)
-$$
+$100-2(10)$
 
 and:
 
-$$
-100+2(10)
-$$
+$100+2(10)$
 
 Therefore:
 
-$$
-\boxed{80\leq X\leq120}
-$$
+$\boxed{80\leq X\leq120}$
 
 ---
 
@@ -1222,41 +900,25 @@ The **Exponential distribution** is commonly used to model waiting time until an
 
 Let:
 
-$$
-X\sim Exponential(\lambda)
-$$
+$X\sim Exponential(\lambda)$
 
 where $\lambda>0$ is the rate parameter.
 
 Its PDF is:
 
-$$
-f(x)=
-\begin{cases}
-\lambda e^{-\lambda x} & x\geq0\\
-0 & x<0
-\end{cases}
-$$
+$f(x)= \begin{cases} \lambda e^{-\lambda x} & x\geq0\\ 0 & x<0 \end{cases}$
 
 ### Mean
 
-$$
-\boxed{E(X)=\frac{1}{\lambda}}
-$$
+$\boxed{E(X)=\frac{1}{\lambda}}$
 
 ### Variance
 
-$$
-\boxed{Var(X)=\frac{1}{\lambda^2}}
-$$
+$\boxed{Var(X)=\frac{1}{\lambda^2}}$
 
 ### CDF
 
-$$
-\boxed{
-F(x)=1-e^{-\lambda x}
-}
-$$
+$\boxed{ F(x)=1-e^{-\lambda x} }$
 
 for $x\geq0$.
 
@@ -1266,57 +928,39 @@ Suppose the average waiting time is 5 minutes.
 
 Then:
 
-$$
-E(X)=5
-$$
+$E(X)=5$
 
 Since:
 
-$$
-E(X)=\frac{1}{\lambda}
-$$
+$E(X)=\frac{1}{\lambda}$
 
 we have:
 
-$$
-\lambda=\frac{1}{5}=0.2
-$$
+$\lambda=\frac{1}{5}=0.2$
 
 What is the probability that the waiting time is less than 3 minutes?
 
 Use the CDF:
 
-$$
-P(X\leq3)=1-e^{-0.2(3)}
-$$
+$P(X\leq3)=1-e^{-0.2(3)}$
 
-$$
-=1-e^{-0.6}
-$$
+$=1-e^{-0.6}$
 
 Using:
 
-$$
-e^{-0.6}\approx0.5488
-$$
+$e^{-0.6}\approx0.5488$
 
 we get:
 
-$$
-P(X\leq3)\approx1-0.5488
-$$
+$P(X\leq3)\approx1-0.5488$
 
 Therefore:
 
-$$
-\boxed{P(X\leq3)\approx0.4512}
-$$
+$\boxed{P(X\leq3)\approx0.4512}$
 
 or approximately:
 
-$$
-\boxed{45.12\%}
-$$
+$\boxed{45.12\%}$
 
 ---
 
@@ -1326,9 +970,7 @@ The Exponential distribution has an important property called **memorylessness**
 
 For $s,t\geq0$:
 
-$$
-P(X>s+t\mid X>s)=P(X>t)
-$$
+$P(X>s+t\mid X>s)=P(X>t)$
 
 This means that, given the process has already lasted for $s$ units of time, the additional waiting time has the same distribution as a fresh waiting time under the model.
 
@@ -1363,17 +1005,13 @@ The Poisson and Exponential distributions are closely related when modelling a P
 
 If events occur at rate $\lambda$:
 
-$$
-N(t)\sim Poisson(\lambda t)
-$$
+$N(t)\sim Poisson(\lambda t)$
 
 for the number of events in time $t$.
 
 The waiting time to the next event can be modelled as:
 
-$$
-X\sim Exponential(\lambda)
-$$
+$X\sim Exponential(\lambda)$
 
 under the standard Poisson-process assumptions.
 
@@ -1383,33 +1021,23 @@ under the standard Poisson-process assumptions.
 
 The z-score transformation:
 
-$$
-Z=\frac{X-\mu}{\sigma}
-$$
+$Z=\frac{X-\mu}{\sigma}$
 
 converts a Normal random variable into the standard scale.
 
 Suppose:
 
-$$
-X\sim N(50,10^2)
-$$
+$X\sim N(50,10^2)$
 
 and:
 
-$$
-X=70
-$$
+$X=70$
 
 Then:
 
-$$
-Z=\frac{70-50}{10}
-$$
+$Z=\frac{70-50}{10}$
 
-$$
-\boxed{Z=2}
-$$
+$\boxed{Z=2}$
 
 This means the value is two standard deviations above the mean.
 
@@ -1427,15 +1055,11 @@ Probability distributions become easier to manipulate when we know the standard 
 
 For constants $a$ and $b$:
 
-$$
-E(aX+b)=aE(X)+b
-$$
+$E(aX+b)=aE(X)+b$
 
 For variance:
 
-$$
-Var(aX+b)=a^2Var(X)
-$$
+$Var(aX+b)=a^2Var(X)$
 
 Adding a constant changes the location but does not change the variance.
 
@@ -1447,33 +1071,21 @@ Multiplying a random variable by $a$ multiplies its standard deviation by $|a|$ 
 
 If $X$ and $Y$ are independent:
 
-$$
-E(X+Y)=E(X)+E(Y)
-$$
+$E(X+Y)=E(X)+E(Y)$
 
 and:
 
-$$
-Var(X+Y)=Var(X)+Var(Y)
-$$
+$Var(X+Y)=Var(X)+Var(Y)$
 
 More generally, for independent random variables:
 
-$$
-Var\left(\sum_{i=1}^{n}X_i\right)
-=
-\sum_{i=1}^{n}Var(X_i)
-$$
+$Var\left(\sum_{i=1}^{n}X_i\right) = \sum_{i=1}^{n}Var(X_i)$
 
 Independence is important for the simple variance addition rule.
 
 Without independence:
 
-$$
-Var(X+Y)
-=
-Var(X)+Var(Y)+2Cov(X,Y)
-$$
+$Var(X+Y) = Var(X)+Var(Y)+2Cov(X,Y)$
 
 ---
 
@@ -1481,17 +1093,13 @@ $$
 
 If $Y$ represents another random variable or conditioning variable, the law of total expectation states:
 
-$$
-E(X)=E[E(X\mid Y)]
-$$
+$E(X)=E[E(X\mid Y)]$
 
 This means that the overall expected value can be obtained by averaging conditional expected values.
 
 For a discrete $Y$:
 
-$$
-E(X)=\sum_yE(X\mid Y=y)P(Y=y)
-$$
+$E(X)=\sum_yE(X\mid Y=y)P(Y=y)$
 
 This is useful when a random variable behaves differently across different groups or conditions.
 
@@ -1510,37 +1118,23 @@ Suppose independent observations have:
 
 For a sample of size $n$, the sample mean is:
 
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i
-$$
+$\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$
 
 Its mean is:
 
-$$
-E(\bar{X})=\mu
-$$
+$E(\bar{X})=\mu$
 
 and its variance is:
 
-$$
-Var(\bar{X})=\frac{\sigma^2}{n}
-$$
+$Var(\bar{X})=\frac{\sigma^2}{n}$
 
 Therefore, its standard deviation is:
 
-$$
-\boxed{
-SE(\bar{X})=\frac{\sigma}{\sqrt{n}}
-}
-$$
+$\boxed{ SE(\bar{X})=\frac{\sigma}{\sqrt{n}} }$
 
 Under the CLT, the standardised sample mean becomes approximately standard Normal for sufficiently large samples under suitable assumptions:
 
-$$
-Z=
-\frac{\bar{X}-\mu}
-{\sigma/\sqrt{n}}
-$$
+$Z= \frac{\bar{X}-\mu} {\sigma/\sqrt{n}}$
 
 The exact quality of the Normal approximation depends on the underlying distribution, sample size, dependence structure, and other conditions.
 
@@ -1550,47 +1144,31 @@ The exact quality of the Normal approximation depends on the underlying distribu
 
 Suppose a population has:
 
-$$
-\mu=100
-$$
+$\mu=100$
 
 and:
 
-$$
-\sigma=20
-$$
+$\sigma=20$
 
 A random sample of:
 
-$$
-n=100
-$$
+$n=100$
 
 observations is collected.
 
 The standard error of the sample mean is:
 
-$$
-SE(\bar{X})=
-\frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{X})= \frac{\sigma}{\sqrt{n}}$
 
 Substitute:
 
-$$
-SE(\bar{X})=
-\frac{20}{\sqrt{100}}
-$$
+$SE(\bar{X})= \frac{20}{\sqrt{100}}$
 
-$$
-=\frac{20}{10}
-$$
+$=\frac{20}{10}$
 
 Therefore:
 
-$$
-\boxed{SE(\bar{X})=2}
-$$
+$\boxed{SE(\bar{X})=2}$
 
 This means the sampling distribution of the mean has standard deviation 2 under the stated assumptions.
 
@@ -1665,17 +1243,13 @@ A PDF gives density for a continuous variable.
 
 For a continuous distribution:
 
-$$
-f(x)
-$$
+$f(x)$
 
 is a density, not generally the probability that $X=x$.
 
 The probability is obtained from area:
 
-$$
-P(a<X<b)=\int_a^b f(x)\,dx
-$$
+$P(a<X<b)=\int_a^b f(x)\,dx$
 
 ### Mistake 3: Forgetting the Conditions of a Binomial Model
 
@@ -1744,197 +1318,123 @@ The CLT concerns the distribution of a suitable sample statistic, especially the
 
 ### PMF
 
-$$
-p_X(x)=P(X=x)
-$$
+$p_X(x)=P(X=x)$
 
 ### CDF
 
-$$
-F_X(x)=P(X\leq x)
-$$
+$F_X(x)=P(X\leq x)$
 
 ### Continuous Probability
 
-$$
-P(a\leq X\leq b)
-=
-\int_a^b f_X(x)\,dx
-$$
+$P(a\leq X\leq b) = \int_a^b f_X(x)\,dx$
 
 ### Expected Value — Discrete
 
-$$
-E(X)=\sum_xxP(X=x)
-$$
+$E(X)=\sum_xxP(X=x)$
 
 ### Expected Value — Continuous
 
-$$
-E(X)=\int_{-\infty}^{\infty}xf_X(x)\,dx
-$$
+$E(X)=\int_{-\infty}^{\infty}xf_X(x)\,dx$
 
 ### Variance
 
-$$
-Var(X)=E[(X-E(X))^2]
-$$
+$Var(X)=E[(X-E(X))^2]$
 
 ### Alternative Variance Formula
 
-$$
-Var(X)=E(X^2)-[E(X)]^2
-$$
+$Var(X)=E(X^2)-[E(X)]^2$
 
 ### Bernoulli
 
-$$
-P(X=x)=p^x(1-p)^{1-x}
-$$
+$P(X=x)=p^x(1-p)^{1-x}$
 
 ### Bernoulli Mean
 
-$$
-E(X)=p
-$$
+$E(X)=p$
 
 ### Bernoulli Variance
 
-$$
-Var(X)=p(1-p)
-$$
+$Var(X)=p(1-p)$
 
 ### Binomial
 
-$$
-P(X=x)=
-\binom{n}{x}p^x(1-p)^{n-x}
-$$
+$P(X=x)= \binom{n}{x}p^x(1-p)^{n-x}$
 
 ### Binomial Mean
 
-$$
-E(X)=np
-$$
+$E(X)=np$
 
 ### Binomial Variance
 
-$$
-Var(X)=np(1-p)
-$$
+$Var(X)=np(1-p)$
 
 ### Poisson
 
-$$
-P(X=x)=
-\frac{e^{-\lambda}\lambda^x}{x!}
-$$
+$P(X=x)= \frac{e^{-\lambda}\lambda^x}{x!}$
 
 ### Poisson Mean and Variance
 
-$$
-E(X)=Var(X)=\lambda
-$$
+$E(X)=Var(X)=\lambda$
 
 ### Geometric
 
-$$
-P(X=x)=(1-p)^{x-1}p
-$$
+$P(X=x)=(1-p)^{x-1}p$
 
 ### Negative Binomial
 
-$$
-P(X=x)=
-\binom{x-1}{r-1}
-p^r(1-p)^{x-r}
-$$
+$P(X=x)= \binom{x-1}{r-1} p^r(1-p)^{x-r}$
 
 ### Hypergeometric
 
-$$
-P(X=x)=
-\frac{
-\binom{K}{x}
-\binom{N-K}{n-x}
-}{
-\binom{N}{n}
-}
-$$
+$P(X=x)= \frac{ \binom{K}{x} \binom{N-K}{n-x} }{ \binom{N}{n} }$
 
 ### Uniform PDF
 
-$$
-f(x)=\frac{1}{b-a}
-$$
+$f(x)=\frac{1}{b-a}$
 
 for:
 
-$$
-a\leq x\leq b
-$$
+$a\leq x\leq b$
 
 ### Uniform Mean
 
-$$
-E(X)=\frac{a+b}{2}
-$$
+$E(X)=\frac{a+b}{2}$
 
 ### Uniform Variance
 
-$$
-Var(X)=\frac{(b-a)^2}{12}
-$$
+$Var(X)=\frac{(b-a)^2}{12}$
 
 ### Normal PDF
 
-$$
-f(x)=
-\frac{1}{\sigma\sqrt{2\pi}}
-e^{-\frac{(x-\mu)^2}{2\sigma^2}}
-$$
+$f(x)= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
 
 ### Z-Score
 
-$$
-Z=\frac{X-\mu}{\sigma}
-$$
+$Z=\frac{X-\mu}{\sigma}$
 
 ### Exponential PDF
 
-$$
-f(x)=\lambda e^{-\lambda x}
-$$
+$f(x)=\lambda e^{-\lambda x}$
 
 for:
 
-$$
-x\geq0
-$$
+$x\geq0$
 
 ### Exponential CDF
 
-$$
-F(x)=1-e^{-\lambda x}
-$$
+$F(x)=1-e^{-\lambda x}$
 
 ### Exponential Mean
 
-$$
-E(X)=\frac{1}{\lambda}
-$$
+$E(X)=\frac{1}{\lambda}$
 
 ### Exponential Variance
 
-$$
-Var(X)=\frac{1}{\lambda^2}
-$$
+$Var(X)=\frac{1}{\lambda^2}$
 
 ### Sample Mean Standard Error
 
-$$
-SE(\bar{X})=\frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{X})=\frac{\sigma}{\sqrt{n}}$
 
 ---
 
