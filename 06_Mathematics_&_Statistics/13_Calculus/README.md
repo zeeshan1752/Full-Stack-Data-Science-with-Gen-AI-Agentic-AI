@@ -60,9 +60,7 @@ A function describes a relationship between an input and an output.
 
 We commonly write:
 
-$$
-y=f(x)
-$$
+$y=f(x)$
 
 Here:
 
@@ -72,27 +70,19 @@ Here:
 
 For example:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 If:
 
-$$
-x=3
-$$
+$x=3$
 
 then:
 
-$$
-f(3)=3^2=9
-$$
+$f(3)=3^2=9$
 
 Therefore:
 
-$$
-\boxed{f(3)=9}
-$$
+$\boxed{f(3)=9}$
 
 ---
 
@@ -104,27 +94,19 @@ The **range** is the set of output values produced by the function.
 
 Consider:
 
-$$
-f(x)=\sqrt{x}
-$$
+$f(x)=\sqrt{x}$
 
 For real-valued outputs, we require:
 
-$$
-x\ge0
-$$
+$x\ge0$
 
 Therefore, the domain is:
 
-$$
-[0,\infty)
-$$
+$[0,\infty)$
 
 Since the square root is never negative, the range is also:
 
-$$
-[0,\infty)
-$$
+$[0,\infty)$
 
 ---
 
@@ -134,39 +116,27 @@ Some common functions are:
 
 ### Linear
 
-$$
-f(x)=mx+c
-$$
+$f(x)=mx+c$
 
 ### Quadratic
 
-$$
-f(x)=ax^2+bx+c
-$$
+$f(x)=ax^2+bx+c$
 
 ### Polynomial
 
-$$
-f(x)=a_nx^n+\cdots+a_1x+a_0
-$$
+$f(x)=a_nx^n+\cdots+a_1x+a_0$
 
 ### Exponential
 
-$$
-f(x)=a^x
-$$
+$f(x)=a^x$
 
 ### Logarithmic
 
-$$
-f(x)=\ln x
-$$
+$f(x)=\ln x$
 
 ### Trigonometric
 
-$$
-f(x)=\sin x,\quad \cos x,\quad \tan x
-$$
+$f(x)=\sin x,\quad \cos x,\quad \tan x$
 
 Different functions have different rates of change, which is why their derivatives are important.
 
@@ -178,9 +148,7 @@ A limit describes the value that a function approaches as its input approaches a
 
 We write:
 
-$$
-\lim_{x\to a}f(x)=L
-$$
+$\lim_{x\to a}f(x)=L$
 
 This means that as $x$ gets closer to $a$, the value of $f(x)$ gets closer to $L$.
 
@@ -192,33 +160,21 @@ The function does not necessarily need to be defined at $x=a$ for the limit to e
 
 Consider:
 
-$$
-f(x)=x+2
-$$
+$f(x)=x+2$
 
 Find:
 
-$$
-\lim_{x\to3}(x+2)
-$$
+$\lim_{x\to3}(x+2)$
 
 Since this is a continuous polynomial, direct substitution is valid:
 
-$$
-=3+2
-$$
+$=3+2$
 
-$$
-=5
-$$
+$=5$
 
 Therefore:
 
-$$
-\boxed{
-\lim_{x\to3}(x+2)=5
-}
-$$
+$\boxed{ \lim_{x\to3}(x+2)=5 }$
 
 ---
 
@@ -226,59 +182,35 @@ $$
 
 If:
 
-$$
-\lim_{x\to a}f(x)=L
-$$
+$\lim_{x\to a}f(x)=L$
 
 and:
 
-$$
-\lim_{x\to a}g(x)=M
-$$
+$\lim_{x\to a}g(x)=M$
 
 then:
 
 ### Sum
 
-$$
-\lim_{x\to a}[f(x)+g(x)]
-=
-L+M
-$$
+$\lim_{x\to a}[f(x)+g(x)] = L+M$
 
 ### Difference
 
-$$
-\lim_{x\to a}[f(x)-g(x)]
-=
-L-M
-$$
+$\lim_{x\to a}[f(x)-g(x)] = L-M$
 
 ### Constant multiplication
 
-$$
-\lim_{x\to a}cf(x)
-=
-cL
-$$
+$\lim_{x\to a}cf(x) = cL$
 
 ### Product
 
-$$
-\lim_{x\to a}f(x)g(x)
-=
-LM
-$$
+$\lim_{x\to a}f(x)g(x) = LM$
 
 ### Quotient
 
 Provided $M\ne0$:
 
-$$
-\lim_{x\to a}\frac{f(x)}{g(x)}
-=
-\frac{L}{M}
-$$
+$\lim_{x\to a}\frac{f(x)}{g(x)} = \frac{L}{M}$
 
 ---
 
@@ -286,54 +218,31 @@ $$
 
 Consider:
 
-$$
-\lim_{x\to2}
-\frac{x^2-4}{x-2}
-$$
+$\lim_{x\to2} \frac{x^2-4}{x-2}$
 
 Direct substitution gives:
 
-$$
-\frac{2^2-4}{2-2}
-=
-\frac{0}{0}
-$$
+$\frac{2^2-4}{2-2} = \frac{0}{0}$
 
 This is an indeterminate form.
 
 Factor the numerator:
 
-$$
-x^2-4=(x-2)(x+2)
-$$
+$x^2-4=(x-2)(x+2)$
 
 Therefore:
 
-$$
-\frac{x^2-4}{x-2}
-=
-x+2
-$$
+$\frac{x^2-4}{x-2} = x+2$
 
 for $x\ne2$.
 
 Now take the limit:
 
-$$
-\lim_{x\to2}(x+2)
-=
-4
-$$
+$\lim_{x\to2}(x+2) = 4$
 
 Hence:
 
-$$
-\boxed{
-\lim_{x\to2}
-\frac{x^2-4}{x-2}
-=4
-}
-$$
+$\boxed{ \lim_{x\to2} \frac{x^2-4}{x-2} =4 }$
 
 ---
 
@@ -341,29 +250,19 @@ $$
 
 A right-hand limit is written:
 
-$$
-\lim_{x\to a^+}f(x)
-$$
+$\lim_{x\to a^+}f(x)$
 
 and describes what happens as $x$ approaches $a$ from values greater than $a$.
 
 A left-hand limit is:
 
-$$
-\lim_{x\to a^-}f(x)
-$$
+$\lim_{x\to a^-}f(x)$
 
 and describes what happens from values smaller than $a$.
 
 A two-sided limit exists only when the two one-sided limits agree:
 
-$$
-\boxed{
-\lim_{x\to a^-}f(x)
-=
-\lim_{x\to a^+}f(x)
-}
-$$
+$\boxed{ \lim_{x\to a^-}f(x) = \lim_{x\to a^+}f(x) }$
 
 ---
 
@@ -373,23 +272,15 @@ Sometimes a function grows without bound as $x$ approaches a value.
 
 For example:
 
-$$
-f(x)=\frac{1}{x^2}
-$$
+$f(x)=\frac{1}{x^2}$
 
 As $x\to0$:
 
-$$
-\frac{1}{x^2}\to\infty
-$$
+$\frac{1}{x^2}\to\infty$
 
 We write:
 
-$$
-\boxed{
-\lim_{x\to0}\frac{1}{x^2}=\infty
-}
-$$
+$\boxed{ \lim_{x\to0}\frac{1}{x^2}=\infty }$
 
 This describes unbounded behaviour rather than a finite limit.
 
@@ -401,29 +292,19 @@ A limit can also describe what happens as $x$ becomes very large.
 
 Consider:
 
-$$
-f(x)=\frac{1}{x}
-$$
+$f(x)=\frac{1}{x}$
 
 As:
 
-$$
-x\to\infty
-$$
+$x\to\infty$
 
 we have:
 
-$$
-\frac{1}{x}\to0
-$$
+$\frac{1}{x}\to0$
 
 Therefore:
 
-$$
-\boxed{
-\lim_{x\to\infty}\frac{1}{x}=0
-}
-$$
+$\boxed{ \lim_{x\to\infty}\frac{1}{x}=0 }$
 
 ---
 
@@ -437,11 +318,7 @@ A function is continuous at $x=a$ when:
 
 Therefore:
 
-$$
-\boxed{
-\lim_{x\to a}f(x)=f(a)
-}
-$$
+$\boxed{ \lim_{x\to a}f(x)=f(a) }$
 
 A continuous function has no break, jump, or hole at the point being considered.
 
@@ -451,33 +328,23 @@ A continuous function has no break, jump, or hole at the point being considered.
 
 Consider:
 
-$$
-f(x)=x^2+1
-$$
+$f(x)=x^2+1$
 
 At:
 
-$$
-x=2
-$$
+$x=2$
 
 we have:
 
-$$
-f(2)=2^2+1=5
-$$
+$f(2)=2^2+1=5$
 
 and:
 
-$$
-\lim_{x\to2}(x^2+1)=5
-$$
+$\lim_{x\to2}(x^2+1)=5$
 
 Therefore:
 
-$$
-\lim_{x\to2}f(x)=f(2)
-$$
+$\lim_{x\to2}f(x)=f(2)$
 
 Hence the function is continuous at $x=2$.
 
@@ -489,32 +356,21 @@ The derivative measures the instantaneous rate of change of a function.
 
 The derivative of $f(x)$ at $x$ is defined by:
 
-$$
-f'(x)
-=
-\lim_{h\to0}
-\frac{f(x+h)-f(x)}{h}
-$$
+$f'(x) = \lim_{h\to0} \frac{f(x+h)-f(x)}{h}$
 
 This is called the **limit definition of the derivative**.
 
 The derivative can also be written as:
 
-$$
-\frac{df}{dx}
-$$
+$\frac{df}{dx}$
 
 or:
 
-$$
-\frac{dy}{dx}
-$$
+$\frac{dy}{dx}$
 
 when:
 
-$$
-y=f(x)
-$$
+$y=f(x)$
 
 ---
 
@@ -522,25 +378,19 @@ $$
 
 Suppose:
 
-$$
-s(t)
-$$
+$s(t)$
 
 represents position as a function of time.
 
 Then:
 
-$$
-s'(t)
-$$
+$s'(t)$
 
 represents instantaneous velocity.
 
 If:
 
-$$
-v(t)=s'(t)
-$$
+$v(t)=s'(t)$
 
 then velocity tells us how quickly position is changing at a particular instant.
 
@@ -552,61 +402,35 @@ The same mathematical idea applies to any differentiable quantity that changes w
 
 Consider:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 Using:
 
-$$
-f'(x)
-=
-\lim_{h\to0}
-\frac{f(x+h)-f(x)}{h}
-$$
+$f'(x) = \lim_{h\to0} \frac{f(x+h)-f(x)}{h}$
 
 we first calculate:
 
-$$
-f(x+h)=(x+h)^2
-$$
+$f(x+h)=(x+h)^2$
 
 Therefore:
 
-$$
-f'(x)
-=
-\lim_{h\to0}
-\frac{(x+h)^2-x^2}{h}
-$$
+$f'(x) = \lim_{h\to0} \frac{(x+h)^2-x^2}{h}$
 
 Expand:
 
-$$
-(x+h)^2=x^2+2xh+h^2
-$$
+$(x+h)^2=x^2+2xh+h^2$
 
 So:
 
-$$
-f'(x)
-=
-\lim_{h\to0}
-\frac{2xh+h^2}{h}
-$$
+$f'(x) = \lim_{h\to0} \frac{2xh+h^2}{h}$
 
 For $h\ne0$:
 
-$$
-=
-\lim_{h\to0}(2x+h)
-$$
+$= \lim_{h\to0}(2x+h)$
 
 Therefore:
 
-$$
-\boxed{f'(x)=2x}
-$$
+$\boxed{f'(x)=2x}$
 
 ---
 
@@ -616,37 +440,27 @@ The derivative gives the slope of the tangent line to a curve.
 
 For:
 
-$$
-y=f(x)
-$$
+$y=f(x)$
 
 the slope at $x=a$ is:
 
-$$
-f'(a)
-$$
+$f'(a)$
 
 If:
 
-$$
-f'(a)>0
-$$
+$f'(a)>0$
 
 the function is increasing locally.
 
 If:
 
-$$
-f'(a)<0
-$$
+$f'(a)<0$
 
 the function is decreasing locally.
 
 If:
 
-$$
-f'(a)=0
-$$
+$f'(a)=0$
 
 the tangent is horizontal.
 
@@ -656,69 +470,47 @@ the tangent is horizontal.
 
 The tangent line to:
 
-$$
-y=f(x)
-$$
+$y=f(x)$
 
 at:
 
-$$
-x=a
-$$
+$x=a$
 
 is:
 
-$$
-y-f(a)=f'(a)(x-a)
-$$
+$y-f(a)=f'(a)(x-a)$
 
 For:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 at:
 
-$$
-x=2
-$$
+$x=2$
 
 we have:
 
-$$
-f(2)=4
-$$
+$f(2)=4$
 
 and:
 
-$$
-f'(x)=2x
-$$
+$f'(x)=2x$
 
 so:
 
-$$
-f'(2)=4
-$$
+$f'(2)=4$
 
 Therefore:
 
-$$
-y-4=4(x-2)
-$$
+$y-4=4(x-2)$
 
 Simplifying:
 
-$$
-y=4x-4
-$$
+$y=4x-4$
 
 Hence:
 
-$$
-\boxed{y=4x-4}
-$$
+$\boxed{y=4x-4}$
 
 is the tangent line.
 
@@ -730,27 +522,19 @@ is the tangent line.
 
 If:
 
-$$
-f(x)=c
-$$
+$f(x)=c$
 
 then:
 
-$$
-\boxed{f'(x)=0}
-$$
+$\boxed{f'(x)=0}$
 
 Example:
 
-$$
-f(x)=7
-$$
+$f(x)=7$
 
 Therefore:
 
-$$
-f'(x)=0
-$$
+$f'(x)=0$
 
 ---
 
@@ -758,35 +542,23 @@ $$
 
 If:
 
-$$
-f(x)=x^n
-$$
+$f(x)=x^n$
 
 then:
 
-$$
-\boxed{
-\frac{d}{dx}x^n=nx^{n-1}
-}
-$$
+$\boxed{ \frac{d}{dx}x^n=nx^{n-1} }$
 
 Example:
 
-$$
-f(x)=x^5
-$$
+$f(x)=x^5$
 
 Then:
 
-$$
-f'(x)=5x^4
-$$
+$f'(x)=5x^4$
 
 Therefore:
 
-$$
-\boxed{f'(x)=5x^4}
-$$
+$\boxed{f'(x)=5x^4}$
 
 ---
 
@@ -794,35 +566,21 @@ $$
 
 If:
 
-$$
-f(x)=cf(x)
-$$
+$f(x)=cf(x)$
 
 more precisely, if the function is $c\,g(x)$, then:
 
-$$
-\boxed{
-\frac{d}{dx}[cg(x)]
-=
-cg'(x)
-}
-$$
+$\boxed{ \frac{d}{dx}[cg(x)] = cg'(x) }$
 
 Example:
 
-$$
-f(x)=4x^3
-$$
+$f(x)=4x^3$
 
 Then:
 
-$$
-f'(x)=4(3x^2)
-$$
+$f'(x)=4(3x^2)$
 
-$$
-\boxed{f'(x)=12x^2}
-$$
+$\boxed{f'(x)=12x^2}$
 
 ---
 
@@ -830,43 +588,27 @@ $$
 
 For:
 
-$$
-f(x)=g(x)+h(x)
-$$
+$f(x)=g(x)+h(x)$
 
 the derivative is:
 
-$$
-\boxed{
-f'(x)=g'(x)+h'(x)
-}
-$$
+$\boxed{ f'(x)=g'(x)+h'(x) }$
 
 Similarly:
 
-$$
-\frac{d}{dx}[g(x)-h(x)]
-=
-g'(x)-h'(x)
-$$
+$\frac{d}{dx}[g(x)-h(x)] = g'(x)-h'(x)$
 
 Example:
 
-$$
-f(x)=x^3+2x^2-5x+4
-$$
+$f(x)=x^3+2x^2-5x+4$
 
 Differentiate each term:
 
-$$
-f'(x)=3x^2+4x-5
-$$
+$f'(x)=3x^2+4x-5$
 
 Therefore:
 
-$$
-\boxed{f'(x)=3x^2+4x-5}
-$$
+$\boxed{f'(x)=3x^2+4x-5}$
 
 ---
 
@@ -874,63 +616,39 @@ $$
 
 If:
 
-$$
-f(x)=u(x)v(x)
-$$
+$f(x)=u(x)v(x)$
 
 then:
 
-$$
-\boxed{
-f'(x)=u'v+uv'
-}
-$$
+$\boxed{ f'(x)=u'v+uv' }$
 
 Consider:
 
-$$
-f(x)=x^2\sin x
-$$
+$f(x)=x^2\sin x$
 
 Let:
 
-$$
-u=x^2
-$$
+$u=x^2$
 
 and:
 
-$$
-v=\sin x
-$$
+$v=\sin x$
 
 Then:
 
-$$
-u'=2x
-$$
+$u'=2x$
 
 and:
 
-$$
-v'=\cos x
-$$
+$v'=\cos x$
 
 Therefore:
 
-$$
-f'(x)
-=
-(2x)\sin x+x^2\cos x
-$$
+$f'(x) = (2x)\sin x+x^2\cos x$
 
 Hence:
 
-$$
-\boxed{
-f'(x)=2x\sin x+x^2\cos x
-}
-$$
+$\boxed{ f'(x)=2x\sin x+x^2\cos x }$
 
 ---
 
@@ -938,63 +656,35 @@ $$
 
 If:
 
-$$
-f(x)=\frac{u(x)}{v(x)}
-$$
+$f(x)=\frac{u(x)}{v(x)}$
 
 then:
 
-$$
-\boxed{
-f'(x)
-=
-\frac{vu'-uv'}{v^2}
-}
-$$
+$\boxed{ f'(x) = \frac{vu'-uv'}{v^2} }$
 
 For example:
 
-$$
-f(x)=\frac{x^2}{x+1}
-$$
+$f(x)=\frac{x^2}{x+1}$
 
 Let:
 
-$$
-u=x^2,\quad v=x+1
-$$
+$u=x^2,\quad v=x+1$
 
 Then:
 
-$$
-u'=2x,\quad v'=1
-$$
+$u'=2x,\quad v'=1$
 
 Therefore:
 
-$$
-f'(x)
-=
-\frac{(x+1)(2x)-x^2(1)}
-{(x+1)^2}
-$$
+$f'(x) = \frac{(x+1)(2x)-x^2(1)} {(x+1)^2}$
 
 Expand:
 
-$$
-=
-\frac{2x^2+2x-x^2}
-{(x+1)^2}
-$$
+$= \frac{2x^2+2x-x^2} {(x+1)^2}$
 
 Thus:
 
-$$
-\boxed{
-f'(x)=
-\frac{x^2+2x}{(x+1)^2}
-}
-$$
+$\boxed{ f'(x)= \frac{x^2+2x}{(x+1)^2} }$
 
 ---
 
@@ -1004,67 +694,39 @@ The chain rule is used when one function is inside another.
 
 If:
 
-$$
-y=f(g(x))
-$$
+$y=f(g(x))$
 
 then:
 
-$$
-\boxed{
-\frac{dy}{dx}
-=
-f'(g(x))g'(x)
-}
-$$
+$\boxed{ \frac{dy}{dx} = f'(g(x))g'(x) }$
 
 Consider:
 
-$$
-y=(3x+1)^4
-$$
+$y=(3x+1)^4$
 
 Let:
 
-$$
-u=3x+1
-$$
+$u=3x+1$
 
 Then:
 
-$$
-y=u^4
-$$
+$y=u^4$
 
 Differentiate:
 
-$$
-\frac{dy}{du}=4u^3
-$$
+$\frac{dy}{du}=4u^3$
 
 and:
 
-$$
-\frac{du}{dx}=3
-$$
+$\frac{du}{dx}=3$
 
 Therefore:
 
-$$
-\frac{dy}{dx}
-=
-4u^3(3)
-$$
+$\frac{dy}{dx} = 4u^3(3)$
 
 Substitute:
 
-$$
-\boxed{
-\frac{dy}{dx}
-=
-12(3x+1)^3
-}
-$$
+$\boxed{ \frac{dy}{dx} = 12(3x+1)^3 }$
 
 ---
 
@@ -1072,51 +734,27 @@ $$
 
 ### Exponential
 
-$$
-\boxed{
-\frac{d}{dx}e^x=e^x
-}
-$$
+$\boxed{ \frac{d}{dx}e^x=e^x }$
 
 ### General exponential
 
-$$
-\boxed{
-\frac{d}{dx}a^x=a^x\ln a
-}
-$$
+$\boxed{ \frac{d}{dx}a^x=a^x\ln a }$
 
 ### Natural logarithm
 
-$$
-\boxed{
-\frac{d}{dx}\ln x=\frac{1}{x}
-}
-$$
+$\boxed{ \frac{d}{dx}\ln x=\frac{1}{x} }$
 
 ### Sine
 
-$$
-\boxed{
-\frac{d}{dx}\sin x=\cos x
-}
-$$
+$\boxed{ \frac{d}{dx}\sin x=\cos x }$
 
 ### Cosine
 
-$$
-\boxed{
-\frac{d}{dx}\cos x=-\sin x
-}
-$$
+$\boxed{ \frac{d}{dx}\cos x=-\sin x }$
 
 ### Tangent
 
-$$
-\boxed{
-\frac{d}{dx}\tan x=\sec^2x
-}
-$$
+$\boxed{ \frac{d}{dx}\tan x=\sec^2x }$
 
 ---
 
@@ -1124,31 +762,21 @@ $$
 
 Consider:
 
-$$
-f(x)=e^{2x}
-$$
+$f(x)=e^{2x}$
 
 Use the chain rule.
 
 The derivative of the outer function is:
 
-$$
-e^{2x}
-$$
+$e^{2x}$
 
 and the derivative of the inner function is:
 
-$$
-2
-$$
+$2$
 
 Therefore:
 
-$$
-\boxed{
-f'(x)=2e^{2x}
-}
-$$
+$\boxed{ f'(x)=2e^{2x} }$
 
 ---
 
@@ -1156,25 +784,15 @@ $$
 
 Consider:
 
-$$
-f(x)=\ln(3x+1)
-$$
+$f(x)=\ln(3x+1)$
 
 Using the chain rule:
 
-$$
-f'(x)
-=
-\frac{1}{3x+1}(3)
-$$
+$f'(x) = \frac{1}{3x+1}(3)$
 
 Therefore:
 
-$$
-\boxed{
-f'(x)=\frac{3}{3x+1}
-}
-$$
+$\boxed{ f'(x)=\frac{3}{3x+1} }$
 
 ---
 
@@ -1182,29 +800,17 @@ $$
 
 Important results include:
 
-$$
-\frac{d}{dx}\sin x=\cos x
-$$
+$\frac{d}{dx}\sin x=\cos x$
 
-$$
-\frac{d}{dx}\cos x=-\sin x
-$$
+$\frac{d}{dx}\cos x=-\sin x$
 
-$$
-\frac{d}{dx}\tan x=\sec^2x
-$$
+$\frac{d}{dx}\tan x=\sec^2x$
 
-$$
-\frac{d}{dx}\cot x=-\csc^2x
-$$
+$\frac{d}{dx}\cot x=-\csc^2x$
 
-$$
-\frac{d}{dx}\sec x=\sec x\tan x
-$$
+$\frac{d}{dx}\sec x=\sec x\tan x$
 
-$$
-\frac{d}{dx}\csc x=-\csc x\cot x
-$$
+$\frac{d}{dx}\csc x=-\csc x\cot x$
 
 These rules are frequently combined with the chain rule.
 
@@ -1216,59 +822,41 @@ The derivative can itself be differentiated.
 
 The first derivative is:
 
-$$
-f'(x)
-$$
+$f'(x)$
 
 The second derivative is:
 
-$$
-f''(x)
-$$
+$f''(x)$
 
 The third derivative is:
 
-$$
-f'''(x)
-$$
+$f'''(x)$
 
 and so on.
 
 Consider:
 
-$$
-f(x)=x^4
-$$
+$f(x)=x^4$
 
 First derivative:
 
-$$
-f'(x)=4x^3
-$$
+$f'(x)=4x^3$
 
 Second derivative:
 
-$$
-f''(x)=12x^2
-$$
+$f''(x)=12x^2$
 
 Third derivative:
 
-$$
-f'''(x)=24x
-$$
+$f'''(x)=24x$
 
 Fourth derivative:
 
-$$
-f^{(4)}(x)=24
-$$
+$f^{(4)}(x)=24$
 
 Therefore:
 
-$$
-\boxed{f^{(4)}(x)=24}
-$$
+$\boxed{f^{(4)}(x)=24}$
 
 ---
 
@@ -1278,29 +866,21 @@ The second derivative describes how the first derivative changes.
 
 For:
 
-$$
-f(x)
-$$
+$f(x)$
 
 the second derivative is:
 
-$$
-f''(x)
-$$
+$f''(x)$
 
 If:
 
-$$
-f''(x)>0
-$$
+$f''(x)>0$
 
 the function is locally **convex** or **concave upward**.
 
 If:
 
-$$
-f''(x)<0
-$$
+$f''(x)<0$
 
 the function is locally **concave downward**.
 
@@ -1310,43 +890,29 @@ the function is locally **concave downward**.
 
 A critical point can occur where:
 
-$$
-f'(x)=0
-$$
+$f'(x)=0$
 
 or where the derivative does not exist, provided the point belongs to the domain.
 
 Consider:
 
-$$
-f(x)=x^2-4x+3
-$$
+$f(x)=x^2-4x+3$
 
 Differentiate:
 
-$$
-f'(x)=2x-4
-$$
+$f'(x)=2x-4$
 
 Set the derivative equal to zero:
 
-$$
-2x-4=0
-$$
+$2x-4=0$
 
-$$
-2x=4
-$$
+$2x=4$
 
-$$
-x=2
-$$
+$x=2$
 
 Therefore:
 
-$$
-\boxed{x=2}
-$$
+$\boxed{x=2}$
 
 is a critical point.
 
@@ -1358,17 +924,13 @@ The first derivative can help classify a critical point.
 
 If the derivative changes:
 
-$$
-+\to-
-$$
+$+\to-$
 
 the function changes from increasing to decreasing, giving a local maximum.
 
 If the derivative changes:
 
-$$
--\to+
-$$
+$-\to+$
 
 the function changes from decreasing to increasing, giving a local minimum.
 
@@ -1378,33 +940,25 @@ the function changes from decreasing to increasing, giving a local minimum.
 
 At a critical point $x=c$ where:
 
-$$
-f'(c)=0
-$$
+$f'(c)=0$
 
 we can use the second derivative.
 
 If:
 
-$$
-f''(c)>0
-$$
+$f''(c)>0$
 
 then $c$ is a local minimum.
 
 If:
 
-$$
-f''(c)<0
-$$
+$f''(c)<0$
 
 then $c$ is a local maximum.
 
 If:
 
-$$
-f''(c)=0
-$$
+$f''(c)=0$
 
 the test is inconclusive.
 
@@ -1414,61 +968,41 @@ the test is inconclusive.
 
 Consider:
 
-$$
-f(x)=x^2-6x+5
-$$
+$f(x)=x^2-6x+5$
 
 We want to find its minimum.
 
 First derivative:
 
-$$
-f'(x)=2x-6
-$$
+$f'(x)=2x-6$
 
 Set equal to zero:
 
-$$
-2x-6=0
-$$
+$2x-6=0$
 
-$$
-x=3
-$$
+$x=3$
 
 Second derivative:
 
-$$
-f''(x)=2
-$$
+$f''(x)=2$
 
 Since:
 
-$$
-f''(3)=2>0
-$$
+$f''(3)=2>0$
 
 the point is a local minimum.
 
 Calculate the function value:
 
-$$
-f(3)=3^2-6(3)+5
-$$
+$f(3)=3^2-6(3)+5$
 
-$$
-=9-18+5
-$$
+$=9-18+5$
 
-$$
-=-4
-$$
+$=-4$
 
 Therefore:
 
-$$
-\boxed{\text{Minimum value}=-4\text{ at }x=3}
-$$
+$\boxed{\text{Minimum value}=-4\text{ at }x=3}$
 
 ---
 
@@ -1476,45 +1010,33 @@ $$
 
 A function is increasing over an interval when:
 
-$$
-f'(x)>0
-$$
+$f'(x)>0$
 
 throughout that interval.
 
 It is decreasing when:
 
-$$
-f'(x)<0
-$$
+$f'(x)<0$
 
 throughout the interval.
 
 For:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 we have:
 
-$$
-f'(x)=2x
-$$
+$f'(x)=2x$
 
 For $x>0$:
 
-$$
-2x>0
-$$
+$2x>0$
 
 so the function increases.
 
 For $x<0$:
 
-$$
-2x<0
-$$
+$2x<0$
 
 so the function decreases.
 
@@ -1524,33 +1046,23 @@ so the function decreases.
 
 A twice-differentiable function is locally convex when:
 
-$$
-f''(x)>0
-$$
+$f''(x)>0$
 
 and concave when:
 
-$$
-f''(x)<0
-$$
+$f''(x)<0$
 
 For:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 we have:
 
-$$
-f''(x)=2
-$$
+$f''(x)=2$
 
 Since:
 
-$$
-2>0
-$$
+$2>0$
 
 the function is convex everywhere.
 
@@ -1562,9 +1074,7 @@ An inflection point is a point where the concavity changes.
 
 A common candidate is where:
 
-$$
-f''(x)=0
-$$
+$f''(x)=0$
 
 or where $f''$ does not exist.
 
@@ -1572,49 +1082,35 @@ However, simply obtaining $f''(x)=0$ is not sufficient. The concavity must actua
 
 Consider:
 
-$$
-f(x)=x^3
-$$
+$f(x)=x^3$
 
 Then:
 
-$$
-f'(x)=3x^2
-$$
+$f'(x)=3x^2$
 
 and:
 
-$$
-f''(x)=6x
-$$
+$f''(x)=6x$
 
 At:
 
-$$
-x=0
-$$
+$x=0$
 
 the second derivative is zero.
 
 For $x<0$:
 
-$$
-f''(x)<0
-$$
+$f''(x)<0$
 
 For $x>0$:
 
-$$
-f''(x)>0
-$$
+$f''(x)>0$
 
 Therefore concavity changes at zero.
 
 Hence:
 
-$$
-\boxed{x=0}
-$$
+$\boxed{x=0}$
 
 is an inflection point.
 
@@ -1626,29 +1122,19 @@ Sometimes $y$ is not explicitly written as a function of $x$.
 
 Consider:
 
-$$
-x^2+y^2=25
-$$
+$x^2+y^2=25$
 
 Differentiate both sides with respect to $x$:
 
-$$
-2x+2y\frac{dy}{dx}=0
-$$
+$2x+2y\frac{dy}{dx}=0$
 
 Therefore:
 
-$$
-2y\frac{dy}{dx}=-2x
-$$
+$2y\frac{dy}{dx}=-2x$
 
 and:
 
-$$
-\boxed{
-\frac{dy}{dx}=-\frac{x}{y}
-}
-$$
+$\boxed{ \frac{dy}{dx}=-\frac{x}{y} }$
 
 ---
 
@@ -1658,43 +1144,25 @@ A function may depend on more than one variable.
 
 For example:
 
-$$
-f(x,y)=x^2+3xy+y^2
-$$
+$f(x,y)=x^2+3xy+y^2$
 
 A partial derivative with respect to $x$ treats $y$ as constant.
 
 Therefore:
 
-$$
-\frac{\partial f}{\partial x}
-=
-2x+3y
-$$
+$\frac{\partial f}{\partial x} = 2x+3y$
 
 Similarly:
 
-$$
-\frac{\partial f}{\partial y}
-=
-3x+2y
-$$
+$\frac{\partial f}{\partial y} = 3x+2y$
 
 Thus:
 
-$$
-\boxed{
-\frac{\partial f}{\partial x}=2x+3y
-}
-$$
+$\boxed{ \frac{\partial f}{\partial x}=2x+3y }$
 
 and:
 
-$$
-\boxed{
-\frac{\partial f}{\partial y}=3x+2y
-}
-$$
+$\boxed{ \frac{\partial f}{\partial y}=3x+2y }$
 
 ---
 
@@ -1702,45 +1170,27 @@ $$
 
 Let:
 
-$$
-f(x,y)=x^2y+4xy^2
-$$
+$f(x,y)=x^2y+4xy^2$
 
 ### Partial derivative with respect to $x$
 
 Treat $y$ as constant:
 
-$$
-\frac{\partial f}{\partial x}
-=
-2xy+4y^2
-$$
+$\frac{\partial f}{\partial x} = 2xy+4y^2$
 
 ### Partial derivative with respect to $y$
 
 Treat $x$ as constant:
 
-$$
-\frac{\partial f}{\partial y}
-=
-x^2+8xy
-$$
+$\frac{\partial f}{\partial y} = x^2+8xy$
 
 Therefore:
 
-$$
-\boxed{
-f_x=2xy+4y^2
-}
-$$
+$\boxed{ f_x=2xy+4y^2 }$
 
 and:
 
-$$
-\boxed{
-f_y=x^2+8xy
-}
-$$
+$\boxed{ f_y=x^2+8xy }$
 
 ---
 
@@ -1748,53 +1198,27 @@ $$
 
 For a scalar-valued function:
 
-$$
-f(x_1,x_2,\ldots,x_n)
-$$
+$f(x_1,x_2,\ldots,x_n)$
 
 the gradient is:
 
-$$
-\boxed{
-\nabla f
-=
-\begin{bmatrix}
-\frac{\partial f}{\partial x_1}\\
-\frac{\partial f}{\partial x_2}\\
-\vdots\\
-\frac{\partial f}{\partial x_n}
-\end{bmatrix}
-}
-$$
+$\boxed{ \nabla f = \begin{bmatrix} \frac{\partial f}{\partial x_1}\\ \frac{\partial f}{\partial x_2}\\ \vdots\\ \frac{\partial f}{\partial x_n} \end{bmatrix} }$
 
 For:
 
-$$
-f(x,y)=x^2+y^2
-$$
+$f(x,y)=x^2+y^2$
 
 we obtain:
 
-$$
-\frac{\partial f}{\partial x}=2x
-$$
+$\frac{\partial f}{\partial x}=2x$
 
 and:
 
-$$
-\frac{\partial f}{\partial y}=2y
-$$
+$\frac{\partial f}{\partial y}=2y$
 
 Therefore:
 
-$$
-\boxed{
-\nabla f=
-\begin{bmatrix}
-2x\\
-2y
-\end{bmatrix}}
-$$
+$\boxed{ \nabla f= \begin{bmatrix} 2x\\ 2y \end{bmatrix}}$
 
 ---
 
@@ -1804,9 +1228,7 @@ The gradient points in the direction of the greatest local increase of a differe
 
 Its magnitude:
 
-$$
-\|\nabla f\|
-$$
+$\|\nabla f\|$
 
 represents the maximum directional rate of change at that point.
 
@@ -1820,74 +1242,31 @@ Let $\mathbf{u}$ be a unit vector.
 
 The directional derivative of $f$ in direction $\mathbf{u}$ is:
 
-$$
-\boxed{
-D_{\mathbf{u}}f
-=
-\nabla f\cdot\mathbf{u}
-}
-$$
+$\boxed{ D_{\mathbf{u}}f = \nabla f\cdot\mathbf{u} }$
 
 Suppose:
 
-$$
-f(x,y)=x^2+y^2
-$$
+$f(x,y)=x^2+y^2$
 
 At $(1,2)$:
 
-$$
-\nabla f=
-\begin{bmatrix}
-2\\
-4
-\end{bmatrix}
-$$
+$\nabla f= \begin{bmatrix} 2\\ 4 \end{bmatrix}$
 
 Suppose the unit direction is:
 
-$$
-\mathbf{u}
-=
-\begin{bmatrix}
-\frac{3}{5}\\
-\frac{4}{5}
-\end{bmatrix}
-$$
+$\mathbf{u} = \begin{bmatrix} \frac{3}{5}\\ \frac{4}{5} \end{bmatrix}$
 
 Then:
 
-$$
-D_{\mathbf{u}}f
-=
-\begin{bmatrix}
-2\\
-4
-\end{bmatrix}
-\cdot
-\begin{bmatrix}
-3/5\\
-4/5
-\end{bmatrix}
-$$
+$D_{\mathbf{u}}f = \begin{bmatrix} 2\\ 4 \end{bmatrix} \cdot \begin{bmatrix} 3/5\\ 4/5 \end{bmatrix}$
 
-$$
-=
-\frac{6}{5}+\frac{16}{5}
-$$
+$= \frac{6}{5}+\frac{16}{5}$
 
-$$
-=
-\frac{22}{5}
-$$
+$= \frac{22}{5}$
 
 Therefore:
 
-$$
-\boxed{
-D_{\mathbf{u}}f=\frac{22}{5}=4.4
-}
-$$
+$\boxed{ D_{\mathbf{u}}f=\frac{22}{5}=4.4 }$
 
 ---
 
@@ -1897,61 +1276,29 @@ For a twice-differentiable function of several variables, the Hessian contains s
 
 For:
 
-$$
-f(x,y)
-$$
+$f(x,y)$
 
 the Hessian is:
 
-$$
-\boxed{
-H=
-\begin{bmatrix}
-\frac{\partial^2f}{\partial x^2}
-&
-\frac{\partial^2f}{\partial x\partial y}
-\\
-\frac{\partial^2f}{\partial y\partial x}
-&
-\frac{\partial^2f}{\partial y^2}
-\end{bmatrix}
-}
-$$
+$\boxed{ H= \begin{bmatrix} \frac{\partial^2f}{\partial x^2} & \frac{\partial^2f}{\partial x\partial y} \\ \frac{\partial^2f}{\partial y\partial x} & \frac{\partial^2f}{\partial y^2} \end{bmatrix} }$
 
 For:
 
-$$
-f(x,y)=x^2+3xy+y^2
-$$
+$f(x,y)=x^2+3xy+y^2$
 
 we have:
 
-$$
-f_{xx}=2
-$$
+$f_{xx}=2$
 
-$$
-f_{xy}=3
-$$
+$f_{xy}=3$
 
-$$
-f_{yx}=3
-$$
+$f_{yx}=3$
 
-$$
-f_{yy}=2
-$$
+$f_{yy}=2$
 
 Therefore:
 
-$$
-\boxed{
-H=
-\begin{bmatrix}
-2&3\\
-3&2
-\end{bmatrix}}
-$$
+$\boxed{ H= \begin{bmatrix} 2&3\\ 3&2 \end{bmatrix}}$
 
 ---
 
@@ -1961,43 +1308,25 @@ An indefinite integral represents a family of antiderivatives.
 
 If:
 
-$$
-F'(x)=f(x)
-$$
+$F'(x)=f(x)$
 
 then:
 
-$$
-\boxed{
-\int f(x)\,dx=F(x)+C
-}
-$$
+$\boxed{ \int f(x)\,dx=F(x)+C }$
 
 where $C$ is the constant of integration.
 
 For example:
 
-$$
-\int x^2\,dx
-$$
+$\int x^2\,dx$
 
 Using the power rule in reverse:
 
-$$
-\int x^2\,dx
-=
-\frac{x^3}{3}+C
-$$
+$\int x^2\,dx = \frac{x^3}{3}+C$
 
 Therefore:
 
-$$
-\boxed{
-\int x^2\,dx
-=
-\frac{x^3}{3}+C
-}
-$$
+$\boxed{ \int x^2\,dx = \frac{x^3}{3}+C }$
 
 ---
 
@@ -2005,59 +1334,31 @@ $$
 
 ### Constant
 
-$$
-\int c\,dx=cx+C
-$$
+$\int c\,dx=cx+C$
 
 ### Power rule
 
 For:
 
-$$
-n\ne-1
-$$
+$n\ne-1$
 
-$$
-\boxed{
-\int x^n\,dx
-=
-\frac{x^{n+1}}{n+1}+C
-}
-$$
+$\boxed{ \int x^n\,dx = \frac{x^{n+1}}{n+1}+C }$
 
 ### Exponential
 
-$$
-\boxed{
-\int e^x\,dx=e^x+C
-}
-$$
+$\boxed{ \int e^x\,dx=e^x+C }$
 
 ### Reciprocal
 
-$$
-\boxed{
-\int\frac{1}{x}\,dx
-=
-\ln|x|+C
-}
-$$
+$\boxed{ \int\frac{1}{x}\,dx = \ln|x|+C }$
 
 ### Sine
 
-$$
-\boxed{
-\int\sin x\,dx=-\cos x+C
-}
-$$
+$\boxed{ \int\sin x\,dx=-\cos x+C }$
 
 ### Cosine
 
-$$
-\boxed{
-\int\cos x\,dx=\sin x+C
-}
-$$
+$\boxed{ \int\cos x\,dx=\sin x+C }$
 
 ---
 
@@ -2067,46 +1368,27 @@ Substitution is useful when an integral contains a function and its derivative.
 
 Consider:
 
-$$
-\int 2x(x^2+1)^3\,dx
-$$
+$\int 2x(x^2+1)^3\,dx$
 
 Let:
 
-$$
-u=x^2+1
-$$
+$u=x^2+1$
 
 Then:
 
-$$
-du=2x\,dx
-$$
+$du=2x\,dx$
 
 Therefore:
 
-$$
-\int 2x(x^2+1)^3\,dx
-=
-\int u^3\,du
-$$
+$\int 2x(x^2+1)^3\,dx = \int u^3\,du$
 
 Integrate:
 
-$$
-=
-\frac{u^4}{4}+C
-$$
+$= \frac{u^4}{4}+C$
 
 Substitute back:
 
-$$
-\boxed{
-\int 2x(x^2+1)^3\,dx
-=
-\frac{(x^2+1)^4}{4}+C
-}
-$$
+$\boxed{ \int 2x(x^2+1)^3\,dx = \frac{(x^2+1)^4}{4}+C }$
 
 ---
 
@@ -2114,57 +1396,33 @@ $$
 
 A definite integral has limits:
 
-$$
-\int_a^b f(x)\,dx
-$$
+$\int_a^b f(x)\,dx$
 
 It produces a number rather than a family of functions.
 
 For:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 consider:
 
-$$
-\int_0^2 x^2\,dx
-$$
+$\int_0^2 x^2\,dx$
 
 An antiderivative is:
 
-$$
-F(x)=\frac{x^3}{3}
-$$
+$F(x)=\frac{x^3}{3}$
 
 Therefore:
 
-$$
-\int_0^2 x^2\,dx
-=
-\left[\frac{x^3}{3}\right]_0^2
-$$
+$\int_0^2 x^2\,dx = \left[\frac{x^3}{3}\right]_0^2$
 
-$$
-=
-\frac{2^3}{3}-\frac{0^3}{3}
-$$
+$= \frac{2^3}{3}-\frac{0^3}{3}$
 
-$$
-=
-\frac{8}{3}
-$$
+$= \frac{8}{3}$
 
 Thus:
 
-$$
-\boxed{
-\int_0^2 x^2\,dx
-=
-\frac{8}{3}
-}
-$$
+$\boxed{ \int_0^2 x^2\,dx = \frac{8}{3} }$
 
 ---
 
@@ -2172,40 +1430,25 @@ $$
 
 When $f(x)\ge0$ on $[a,b]$, the definite integral:
 
-$$
-\int_a^b f(x)\,dx
-$$
+$\int_a^b f(x)\,dx$
 
 represents the area under the curve and above the $x$-axis.
 
 For:
 
-$$
-f(x)=x
-$$
+$f(x)=x$
 
 from $0$ to $2$:
 
-$$
-\int_0^2 x\,dx
-=
-\left[\frac{x^2}{2}\right]_0^2
-$$
+$\int_0^2 x\,dx = \left[\frac{x^2}{2}\right]_0^2$
 
-$$
-=
-\frac{4}{2}
-$$
+$= \frac{4}{2}$
 
-$$
-=2
-$$
+$=2$
 
 Therefore:
 
-$$
-\boxed{\text{Area}=2}
-$$
+$\boxed{\text{Area}=2}$
 
 ---
 
@@ -2217,9 +1460,7 @@ Therefore, a definite integral represents **signed area**.
 
 For example:
 
-$$
-\int_{-1}^{1}x\,dx=0
-$$
+$\int_{-1}^{1}x\,dx=0$
 
 because the negative area on the left cancels the positive area on the right.
 
@@ -2233,27 +1474,17 @@ The Fundamental Theorem of Calculus connects differentiation and integration.
 
 If:
 
-$$
-F(x)=\int_a^x f(t)\,dt
-$$
+$F(x)=\int_a^x f(t)\,dt$
 
 and $f$ is continuous, then:
 
-$$
-\boxed{F'(x)=f(x)}
-$$
+$\boxed{F'(x)=f(x)}$
 
 This says that accumulation followed by differentiation returns the original rate.
 
 The second part states:
 
-$$
-\boxed{
-\int_a^b f(x)\,dx
-=
-F(b)-F(a)
-}
-$$
+$\boxed{ \int_a^b f(x)\,dx = F(b)-F(a) }$
 
 when $F'(x)=f(x)$.
 
@@ -2263,40 +1494,25 @@ when $F'(x)=f(x)$.
 
 Let:
 
-$$
-F(x)=\int_0^x t^2\,dt
-$$
+$F(x)=\int_0^x t^2\,dt$
 
 By the Fundamental Theorem of Calculus:
 
-$$
-F'(x)=x^2
-$$
+$F'(x)=x^2$
 
 We can verify this by evaluating the integral:
 
-$$
-F(x)
-=
-\left[\frac{t^3}{3}\right]_0^x
-$$
+$F(x) = \left[\frac{t^3}{3}\right]_0^x$
 
-$$
-=
-\frac{x^3}{3}
-$$
+$= \frac{x^3}{3}$
 
 Differentiate:
 
-$$
-F'(x)=x^2
-$$
+$F'(x)=x^2$
 
 Therefore:
 
-$$
-\boxed{F'(x)=x^2}
-$$
+$\boxed{F'(x)=x^2}$
 
 ---
 
@@ -2306,66 +1522,37 @@ Integration by parts follows from the product rule.
 
 The formula is:
 
-$$
-\boxed{
-\int u\,dv
-=
-uv-\int v\,du
-}
-$$
+$\boxed{ \int u\,dv = uv-\int v\,du }$
 
 Consider:
 
-$$
-\int x e^x\,dx
-$$
+$\int x e^x\,dx$
 
 Choose:
 
-$$
-u=x
-$$
+$u=x$
 
 and:
 
-$$
-dv=e^x\,dx
-$$
+$dv=e^x\,dx$
 
 Then:
 
-$$
-du=dx
-$$
+$du=dx$
 
 and:
 
-$$
-v=e^x
-$$
+$v=e^x$
 
 Therefore:
 
-$$
-\int xe^x\,dx
-=
-xe^x-\int e^x\,dx
-$$
+$\int xe^x\,dx = xe^x-\int e^x\,dx$
 
-$$
-=
-xe^x-e^x+C
-$$
+$= xe^x-e^x+C$
 
 Hence:
 
-$$
-\boxed{
-\int xe^x\,dx
-=
-e^x(x-1)+C
-}
-$$
+$\boxed{ \int xe^x\,dx = e^x(x-1)+C }$
 
 ---
 
@@ -2373,50 +1560,27 @@ $$
 
 The average value of a continuous function on $[a,b]$ is:
 
-$$
-\boxed{
-f_{\text{avg}}
-=
-\frac{1}{b-a}
-\int_a^b f(x)\,dx
-}
-$$
+$\boxed{ f_{\text{avg}} = \frac{1}{b-a} \int_a^b f(x)\,dx }$
 
 Consider:
 
-$$
-f(x)=x^2
-$$
+$f(x)=x^2$
 
 on $[0,2]$.
 
 We know:
 
-$$
-\int_0^2 x^2\,dx=\frac{8}{3}
-$$
+$\int_0^2 x^2\,dx=\frac{8}{3}$
 
 Therefore:
 
-$$
-f_{\text{avg}}
-=
-\frac{1}{2-0}
-\left(\frac{8}{3}\right)
-$$
+$f_{\text{avg}} = \frac{1}{2-0} \left(\frac{8}{3}\right)$
 
-$$
-=
-\frac{4}{3}
-$$
+$= \frac{4}{3}$
 
 Thus:
 
-$$
-\boxed{
-f_{\text{avg}}=\frac{4}{3}
-}
-$$
+$\boxed{ f_{\text{avg}}=\frac{4}{3} }$
 
 ---
 
@@ -2432,34 +1596,17 @@ Common methods include:
 
 The trapezoidal rule approximates:
 
-$$
-\int_a^b f(x)\,dx
-$$
+$\int_a^b f(x)\,dx$
 
 by replacing sections of the curve with trapezoids.
 
 For $n$ equally spaced intervals:
 
-$$
-\boxed{
-T_n
-=
-\frac{h}{2}
-\left[
-f(x_0)
-+
-2\sum_{i=1}^{n-1}f(x_i)
-+
-f(x_n)
-\right]
-}
-$$
+$\boxed{ T_n = \frac{h}{2} \left[ f(x_0) + 2\sum_{i=1}^{n-1}f(x_i) + f(x_n) \right] }$
 
 where:
 
-$$
-h=\frac{b-a}{n}
-$$
+$h=\frac{b-a}{n}$
 
 ---
 
@@ -2467,73 +1614,45 @@ $$
 
 Approximate:
 
-$$
-\int_0^2 x^2\,dx
-$$
+$\int_0^2 x^2\,dx$
 
 using two intervals.
 
 We have:
 
-$$
-n=2
-$$
+$n=2$
 
 and:
 
-$$
-h=\frac{2-0}{2}=1
-$$
+$h=\frac{2-0}{2}=1$
 
 The points are:
 
-$$
-x_0=0,\quad x_1=1,\quad x_2=2
-$$
+$x_0=0,\quad x_1=1,\quad x_2=2$
 
 Function values:
 
-$$
-f(0)=0
-$$
+$f(0)=0$
 
-$$
-f(1)=1
-$$
+$f(1)=1$
 
-$$
-f(2)=4
-$$
+$f(2)=4$
 
 Therefore:
 
-$$
-T_2
-=
-\frac{1}{2}
-[0+2(1)+4]
-$$
+$T_2 = \frac{1}{2} [0+2(1)+4]$
 
-$$
-=
-\frac{6}{2}
-$$
+$= \frac{6}{2}$
 
-$$
-=3
-$$
+$=3$
 
 The exact integral is:
 
-$$
-\frac{8}{3}\approx2.667
-$$
+$\frac{8}{3}\approx2.667$
 
 So the two-interval trapezoidal approximation is:
 
-$$
-\boxed{3}
-$$
+$\boxed{3}$
 
 ---
 
@@ -2553,13 +1672,7 @@ The Fundamental Theorem of Calculus connects the two operations.
 
 Conceptually:
 
-$$
-\boxed{
-\text{Derivative}
-\longleftrightarrow
-\text{Integral}
-}
-$$
+$\boxed{ \text{Derivative} \longleftrightarrow \text{Integral} }$
 
 They are not simply opposite operations in every practical situation, but under the appropriate conditions they are inverse processes.
 
@@ -2571,69 +1684,49 @@ They are not simply opposite operations in every practical situation, but under 
 
 For:
 
-$$
-x^5
-$$
+$x^5$
 
 the derivative is:
 
-$$
-5x^4
-$$
+$5x^4$
 
 not:
 
-$$
-x^4
-$$
+$x^4$
 
 ### Mistake 2: Forgetting the chain rule
 
 For:
 
-$$
-(3x+1)^4
-$$
+$(3x+1)^4$
 
 the derivative is:
 
-$$
-12(3x+1)^3
-$$
+$12(3x+1)^3$
 
 not simply:
 
-$$
-4(3x+1)^3
-$$
+$4(3x+1)^3$
 
 ### Mistake 3: Using the product rule incorrectly
 
 For:
 
-$$
-uv
-$$
+$uv$
 
 the derivative is:
 
-$$
-u'v+uv'
-$$
+$u'v+uv'$
 
 not:
 
-$$
-u'v'
-$$
+$u'v'$
 
 ### Mistake 4: Forgetting the integration constant
 
 An indefinite integral must contain:
 
-$$
-+C
-$$
+$+C$
 
 ### Mistake 5: Confusing derivative and partial derivative
 
@@ -2647,25 +1740,17 @@ For multivariable functions, the variable being differentiated with respect to m
 
 The correct formula is:
 
-$$
-\int x^n\,dx
-=
-\frac{x^{n+1}}{n+1}+C
-$$
+$\int x^n\,dx = \frac{x^{n+1}}{n+1}+C$
 
 for:
 
-$$
-n\ne-1
-$$
+$n\ne-1$
 
 ### Mistake 2: Forgetting absolute value
 
 The integral of $1/x$ is:
 
-$$
-\ln|x|+C
-$$
+$\ln|x|+C$
 
 ### Mistake 3: Confusing definite and indefinite integrals
 
@@ -2697,9 +1782,7 @@ print(derivative)
 
 The result is:
 
-$$
-\boxed{3x^2+4x-5}
-$$
+$\boxed{3x^2+4x-5}$
 
 ---
 
@@ -2715,9 +1798,7 @@ print(integral)
 
 The result is:
 
-$$
-\boxed{\frac{x^3}{3}}
-$$
+$\boxed{\frac{x^3}{3}}$
 
 SymPy may omit the arbitrary constant in its symbolic output because symbolic antiderivatives represent a family of functions.
 
@@ -2735,9 +1816,7 @@ print(area)
 
 The result is:
 
-$$
-\boxed{\frac{8}{3}}
-$$
+$\boxed{\frac{8}{3}}$
 
 ---
 
@@ -2753,9 +1832,7 @@ print(limit_value)
 
 The result is:
 
-$$
-\boxed{4}
-$$
+$\boxed{4}$
 
 ---
 
@@ -2775,19 +1852,11 @@ print("df/dy =", fy)
 
 The results are:
 
-$$
-\boxed{
-\frac{\partial f}{\partial x}=2x+3y
-}
-$$
+$\boxed{ \frac{\partial f}{\partial x}=2x+3y }$
 
 and:
 
-$$
-\boxed{
-\frac{\partial f}{\partial y}=3x+2y
-}
-$$
+$\boxed{ \frac{\partial f}{\partial y}=3x+2y }$
 
 ---
 
@@ -2797,14 +1866,7 @@ A derivative can also be approximated numerically using a small step.
 
 The central difference approximation is:
 
-$$
-\boxed{
-f'(x)
-\approx
-\frac{f(x+h)-f(x-h)}
-{2h}
-}
-$$
+$\boxed{ f'(x) \approx \frac{f(x+h)-f(x-h)} {2h} }$
 
 For sufficiently small $h$, this can provide a good approximation for a smooth function.
 
@@ -2824,21 +1886,15 @@ print(approx_derivative)
 
 The exact derivative is:
 
-$$
-f'(x)=2x
-$$
+$f'(x)=2x$
 
 so:
 
-$$
-f'(3)=6
-$$
+$f'(3)=6$
 
 The numerical result should be very close to:
 
-$$
-\boxed{6}
-$$
+$\boxed{6}$
 
 ---
 
@@ -2859,9 +1915,7 @@ print(area)
 
 The result approaches:
 
-$$
-\frac{8}{3}
-$$
+$\frac{8}{3}$
 
 as the number of points increases.
 
@@ -2871,69 +1925,49 @@ as the number of points increases.
 
 Consider:
 
-$$
-f(x)=x^3-3x^2+2
-$$
+$f(x)=x^3-3x^2+2$
 
 We will study its derivative and critical points.
 
 ### Step 1: Differentiate
 
-$$
-f'(x)=3x^2-6x
-$$
+$f'(x)=3x^2-6x$
 
 Factor:
 
-$$
-f'(x)=3x(x-2)
-$$
+$f'(x)=3x(x-2)$
 
 ### Step 2: Find critical points
 
 Set:
 
-$$
-f'(x)=0
-$$
+$f'(x)=0$
 
 Therefore:
 
-$$
-3x(x-2)=0
-$$
+$3x(x-2)=0$
 
 So:
 
-$$
-x=0
-$$
+$x=0$
 
 or:
 
-$$
-x=2
-$$
+$x=2$
 
 ### Step 3: Second derivative
 
-$$
-f''(x)=6x-6
-$$
+$f''(x)=6x-6$
 
 At $x=0$:
 
-$$
-f''(0)=-6<0
-$$
+$f''(0)=-6<0$
 
 Therefore $x=0$ is a local maximum.
 
 At $x=2$:
 
-$$
-f''(2)=12-6=6>0
-$$
+$f''(2)=12-6=6>0$
 
 Therefore $x=2$ is a local minimum.
 
@@ -2941,31 +1975,19 @@ Therefore $x=2$ is a local minimum.
 
 At $x=0$:
 
-$$
-f(0)=2
-$$
+$f(0)=2$
 
 At $x=2$:
 
-$$
-f(2)=8-12+2=-2
-$$
+$f(2)=8-12+2=-2$
 
 Therefore:
 
-$$
-\boxed{
-\text{Local maximum: }(0,2)
-}
-$$
+$\boxed{ \text{Local maximum: }(0,2) }$
 
 and:
 
-$$
-\boxed{
-\text{Local minimum: }(2,-2)
-}
-$$
+$\boxed{ \text{Local minimum: }(2,-2) }$
 
 ---
 
@@ -2973,170 +1995,91 @@ $$
 
 ## Limits
 
-$$
-\lim_{x\to a}f(x)=L
-$$
+$\lim_{x\to a}f(x)=L$
 
 ## Derivative definition
 
-$$
-f'(x)
-=
-\lim_{h\to0}
-\frac{f(x+h)-f(x)}{h}
-$$
+$f'(x) = \lim_{h\to0} \frac{f(x+h)-f(x)}{h}$
 
 ## Power rule
 
-$$
-\frac{d}{dx}x^n=nx^{n-1}
-$$
+$\frac{d}{dx}x^n=nx^{n-1}$
 
 ## Product rule
 
-$$
-(uv)'=u'v+uv'
-$$
+$(uv)'=u'v+uv'$
 
 ## Quotient rule
 
-$$
-\left(\frac{u}{v}\right)'
-=
-\frac{vu'-uv'}{v^2}
-$$
+$\left(\frac{u}{v}\right)' = \frac{vu'-uv'}{v^2}$
 
 ## Chain rule
 
-$$
-\frac{d}{dx}f(g(x))
-=
-f'(g(x))g'(x)
-$$
+$\frac{d}{dx}f(g(x)) = f'(g(x))g'(x)$
 
 ## Exponential derivative
 
-$$
-\frac{d}{dx}e^x=e^x
-$$
+$\frac{d}{dx}e^x=e^x$
 
 ## Logarithmic derivative
 
-$$
-\frac{d}{dx}\ln x=\frac{1}{x}
-$$
+$\frac{d}{dx}\ln x=\frac{1}{x}$
 
 ## Sine derivative
 
-$$
-\frac{d}{dx}\sin x=\cos x
-$$
+$\frac{d}{dx}\sin x=\cos x$
 
 ## Cosine derivative
 
-$$
-\frac{d}{dx}\cos x=-\sin x
-$$
+$\frac{d}{dx}\cos x=-\sin x$
 
 ## Gradient
 
-$$
-\nabla f
-=
-\begin{bmatrix}
-\partial f/\partial x_1\\
-\vdots\\
-\partial f/\partial x_n
-\end{bmatrix}
-$$
+$\nabla f = \begin{bmatrix} \partial f/\partial x_1\\ \vdots\\ \partial f/\partial x_n \end{bmatrix}$
 
 ## Directional derivative
 
-$$
-D_{\mathbf{u}}f
-=
-\nabla f\cdot\mathbf{u}
-$$
+$D_{\mathbf{u}}f = \nabla f\cdot\mathbf{u}$
 
 ## Indefinite integral
 
-$$
-\int f(x)\,dx=F(x)+C
-$$
+$\int f(x)\,dx=F(x)+C$
 
 ## Power integration rule
 
-$$
-\int x^n\,dx
-=
-\frac{x^{n+1}}{n+1}+C
-$$
+$\int x^n\,dx = \frac{x^{n+1}}{n+1}+C$
 
 for:
 
-$$
-n\ne-1
-$$
+$n\ne-1$
 
 ## Reciprocal integral
 
-$$
-\int\frac{1}{x}\,dx
-=
-\ln|x|+C
-$$
+$\int\frac{1}{x}\,dx = \ln|x|+C$
 
 ## Integration by parts
 
-$$
-\int u\,dv
-=
-uv-\int v\,du
-$$
+$\int u\,dv = uv-\int v\,du$
 
 ## Definite integral
 
-$$
-\int_a^b f(x)\,dx
-$$
+$\int_a^b f(x)\,dx$
 
 ## Fundamental Theorem of Calculus
 
-$$
-\int_a^b f(x)\,dx
-=
-F(b)-F(a)
-$$
+$\int_a^b f(x)\,dx = F(b)-F(a)$
 
 when:
 
-$$
-F'(x)=f(x)
-$$
+$F'(x)=f(x)$
 
 ## Average value
 
-$$
-f_{\mathrm{avg}}
-=
-\frac{1}{b-a}
-\int_a^b f(x)\,dx
-$$
+$f_{\mathrm{avg}} = \frac{1}{b-a} \int_a^b f(x)\,dx$
 
 ## Trapezoidal rule
 
-$$
-T_n
-=
-\frac{h}{2}
-\left[
-f(x_0)
-+
-2\sum_{i=1}^{n-1}f(x_i)
-+
-f(x_n)
-\right]
-$$
+$T_n = \frac{h}{2} \left[ f(x_0) + 2\sum_{i=1}^{n-1}f(x_i) + f(x_n) \right]$
 
 ---
 
@@ -3204,27 +2147,11 @@ Numerical methods provide approximations when exact symbolic calculations are di
 
 The central structure of calculus can be summarised as:
 
-$$
-\boxed{
-\text{Limits}
-\rightarrow
-\text{Derivatives}
-\rightarrow
-\text{Rates and Optimisation}
-}
-$$
+$\boxed{ \text{Limits} \rightarrow \text{Derivatives} \rightarrow \text{Rates and Optimisation} }$
 
 and:
 
-$$
-\boxed{
-\text{Antiderivatives}
-\rightarrow
-\text{Definite Integrals}
-\rightarrow
-\text{Accumulation}
-}
-$$
+$\boxed{ \text{Antiderivatives} \rightarrow \text{Definite Integrals} \rightarrow \text{Accumulation} }$
 
 Together, these ideas form the core calculus foundation for quantitative mathematics.
 
