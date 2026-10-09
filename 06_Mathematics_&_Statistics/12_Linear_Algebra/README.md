@@ -57,35 +57,19 @@ A **scalar** is a single number.
 
 For example:
 
-$$
-5
-$$
+$5$
 
 A **vector** is an ordered collection of numbers.
 
 For example:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 A **matrix** is a rectangular arrangement of numbers.
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-1&2&3\\
-4&5&6
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2&3\\ 4&5&6 \end{bmatrix}$
 
 ---
 
@@ -95,17 +79,11 @@ A scalar contains only one value.
 
 Examples:
 
-$$
-a=5
-$$
+$a=5$
 
-$$
-b=-2.5
-$$
+$b=-2.5$
 
-$$
-c=\frac{3}{4}
-$$
+$c=\frac{3}{4}$
 
 Scalars can be added, subtracted, multiplied, and divided according to ordinary arithmetic rules.
 
@@ -123,44 +101,23 @@ A vector is an ordered list of values.
 
 A column vector can be written as:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-x_1\\
-x_2\\
-\vdots\\
-x_n
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}$
 
 The vector has:
 
-$$
-n
-$$
+$n$
 
 components.
 
 For example:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-5\\
-7
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 3\\ 5\\ 7 \end{bmatrix}$
 
 has three components.
 
 Its dimension is:
 
-$$
-\boxed{3}
-$$
+$\boxed{3}$
 
 ---
 
@@ -168,39 +125,21 @@ $$
 
 A row vector is written horizontally:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-1&2&3
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 1&2&3 \end{bmatrix}$
 
 A column vector is written vertically:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-1\\
-2\\
-3
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}$
 
 They contain the same numerical values but have different shapes.
 
 The row vector has dimension:
 
-$$
-1\times3
-$$
+$1\times3$
 
 The column vector has dimension:
 
-$$
-3\times1
-$$
+$3\times1$
 
 Shape matters when performing matrix multiplication.
 
@@ -212,52 +151,19 @@ Two vectors can be added when they have the same dimension.
 
 Let:
 
-$$
-\mathbf{a}
-=
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$\mathbf{a} = \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{b}
-=
-\begin{bmatrix}
-1\\
-3\\
-5
-\end{bmatrix}
-$$
+$\mathbf{b} = \begin{bmatrix} 1\\ 3\\ 5 \end{bmatrix}$
 
 Then:
 
-$$
-\mathbf{a}+\mathbf{b}
-=
-\begin{bmatrix}
-2+1\\
-4+3\\
-6+5
-\end{bmatrix}
-$$
+$\mathbf{a}+\mathbf{b} = \begin{bmatrix} 2+1\\ 4+3\\ 6+5 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{
-\mathbf{a}+\mathbf{b}
-=
-\begin{bmatrix}
-3\\
-7\\
-11
-\end{bmatrix}}
-$$
+$\boxed{ \mathbf{a}+\mathbf{b} = \begin{bmatrix} 3\\ 7\\ 11 \end{bmatrix}}$
 
 Vector addition is performed component by component.
 
@@ -267,52 +173,19 @@ Vector addition is performed component by component.
 
 Using the same vectors:
 
-$$
-\mathbf{a}
-=
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$\mathbf{a} = \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{b}
-=
-\begin{bmatrix}
-1\\
-3\\
-5
-\end{bmatrix}
-$$
+$\mathbf{b} = \begin{bmatrix} 1\\ 3\\ 5 \end{bmatrix}$
 
 we obtain:
 
-$$
-\mathbf{a}-\mathbf{b}
-=
-\begin{bmatrix}
-2-1\\
-4-3\\
-6-5
-\end{bmatrix}
-$$
+$\mathbf{a}-\mathbf{b} = \begin{bmatrix} 2-1\\ 4-3\\ 6-5 \end{bmatrix}$
 
 Thus:
 
-$$
-\boxed{
-\mathbf{a}-\mathbf{b}
-=
-\begin{bmatrix}
-1\\
-1\\
-1
-\end{bmatrix}}
-$$
+$\boxed{ \mathbf{a}-\mathbf{b} = \begin{bmatrix} 1\\ 1\\ 1 \end{bmatrix}}$
 
 ---
 
@@ -320,59 +193,23 @@ $$
 
 Suppose:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 and the scalar is:
 
-$$
-c=3
-$$
+$c=3$
 
 Then:
 
-$$
-c\mathbf{x}
-=
-3
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$c\mathbf{x} = 3 \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 Multiply every component by 3:
 
-$$
-c\mathbf{x}
-=
-\begin{bmatrix}
-6\\
-12\\
-18
-\end{bmatrix}
-$$
+$c\mathbf{x} = \begin{bmatrix} 6\\ 12\\ 18 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{
-3\mathbf{x}
-=
-\begin{bmatrix}
-6\\
-12\\
-18
-\end{bmatrix}}
-$$
+$\boxed{ 3\mathbf{x} = \begin{bmatrix} 6\\ 12\\ 18 \end{bmatrix}}$
 
 ---
 
@@ -382,43 +219,15 @@ The zero vector contains only zeros.
 
 For a three-dimensional vector:
 
-$$
-\mathbf{0}
-=
-\begin{bmatrix}
-0\\
-0\\
-0
-\end{bmatrix}
-$$
+$\mathbf{0} = \begin{bmatrix} 0\\ 0\\ 0 \end{bmatrix}$
 
 It acts as the additive identity:
 
-$$
-\mathbf{x}+\mathbf{0}=\mathbf{x}
-$$
+$\mathbf{x}+\mathbf{0}=\mathbf{x}$
 
 For example:
 
-$$
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-+
-\begin{bmatrix}
-0\\
-0\\
-0
-\end{bmatrix}
-=
-\begin{bmatrix}
-2\\
-4\\
-6
-\end{bmatrix}
-$$
+$\begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix} + \begin{bmatrix} 0\\ 0\\ 0 \end{bmatrix} = \begin{bmatrix} 2\\ 4\\ 6 \end{bmatrix}$
 
 ---
 
@@ -426,58 +235,27 @@ $$
 
 The magnitude or Euclidean norm of:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-x_1\\
-x_2\\
-\vdots\\
-x_n
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} x_1\\ x_2\\ \vdots\\ x_n \end{bmatrix}$
 
 is:
 
-$$
-\|\mathbf{x}\|
-=
-\sqrt{x_1^2+x_2^2+\cdots+x_n^2}
-$$
+$\|\mathbf{x}\| = \sqrt{x_1^2+x_2^2+\cdots+x_n^2}$
 
 For:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 we have:
 
-$$
-\|\mathbf{x}\|
-=
-\sqrt{3^2+4^2}
-$$
+$\|\mathbf{x}\| = \sqrt{3^2+4^2}$
 
-$$
-=
-\sqrt{9+16}
-$$
+$= \sqrt{9+16}$
 
-$$
-=\sqrt{25}
-$$
+$=\sqrt{25}$
 
 Therefore:
 
-$$
-\boxed{\|\mathbf{x}\|=5}
-$$
+$\boxed{\|\mathbf{x}\|=5}$
 
 ---
 
@@ -485,58 +263,27 @@ $$
 
 A unit vector has magnitude:
 
-$$
-1
-$$
+$1$
 
 Given a non-zero vector $\mathbf{x}$, its unit vector in the same direction is:
 
-$$
-\hat{\mathbf{x}}
-=
-\frac{\mathbf{x}}{\|\mathbf{x}\|}
-$$
+$\hat{\mathbf{x}} = \frac{\mathbf{x}}{\|\mathbf{x}\|}$
 
 For:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 and:
 
-$$
-\|\mathbf{x}\|=5
-$$
+$\|\mathbf{x}\|=5$
 
 we obtain:
 
-$$
-\hat{\mathbf{x}}
-=
-\frac{1}{5}
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$\hat{\mathbf{x}} = \frac{1}{5} \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{
-\hat{\mathbf{x}}
-=
-\begin{bmatrix}
-0.6\\
-0.8
-\end{bmatrix}}
-$$
+$\boxed{ \hat{\mathbf{x}} = \begin{bmatrix} 0.6\\ 0.8 \end{bmatrix}}$
 
 ---
 
@@ -544,63 +291,29 @@ $$
 
 The Euclidean distance between vectors $\mathbf{x}$ and $\mathbf{y}$ is:
 
-$$
-d(\mathbf{x},\mathbf{y})
-=
-\|\mathbf{x}-\mathbf{y}\|
-$$
+$d(\mathbf{x},\mathbf{y}) = \|\mathbf{x}-\mathbf{y}\|$
 
 Suppose:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{y}
-=
-\begin{bmatrix}
-1\\
-1
-\end{bmatrix}
-$$
+$\mathbf{y} = \begin{bmatrix} 1\\ 1 \end{bmatrix}$
 
 Then:
 
-$$
-\mathbf{x}-\mathbf{y}
-=
-\begin{bmatrix}
-2\\
-3
-\end{bmatrix}
-$$
+$\mathbf{x}-\mathbf{y} = \begin{bmatrix} 2\\ 3 \end{bmatrix}$
 
 Therefore:
 
-$$
-d(\mathbf{x},\mathbf{y})
-=
-\sqrt{2^2+3^2}
-$$
+$d(\mathbf{x},\mathbf{y}) = \sqrt{2^2+3^2}$
 
-$$
-=
-\sqrt{13}
-$$
+$= \sqrt{13}$
 
 Thus:
 
-$$
-\boxed{d(\mathbf{x},\mathbf{y})=\sqrt{13}\approx3.606}
-$$
+$\boxed{d(\mathbf{x},\mathbf{y})=\sqrt{13}\approx3.606}$
 
 ---
 
@@ -608,53 +321,25 @@ $$
 
 The dot product of two vectors of the same dimension is:
 
-$$
-\mathbf{x}^{T}\mathbf{y}
-=
-\sum_{i=1}^{n}x_iy_i
-$$
+$\mathbf{x}^{T}\mathbf{y} = \sum_{i=1}^{n}x_iy_i$
 
 For:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-1\\
-2\\
-3
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 1\\ 2\\ 3 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{y}
-=
-\begin{bmatrix}
-4\\
-5\\
-6
-\end{bmatrix}
-$$
+$\mathbf{y} = \begin{bmatrix} 4\\ 5\\ 6 \end{bmatrix}$
 
 we calculate:
 
-$$
-\mathbf{x}^{T}\mathbf{y}
-=
-(1)(4)+(2)(5)+(3)(6)
-$$
+$\mathbf{x}^{T}\mathbf{y} = (1)(4)+(2)(5)+(3)(6)$
 
-$$
-=4+10+18
-$$
+$=4+10+18$
 
 Therefore:
 
-$$
-\boxed{\mathbf{x}^{T}\mathbf{y}=32}
-$$
+$\boxed{\mathbf{x}^{T}\mathbf{y}=32}$
 
 ---
 
@@ -662,24 +347,13 @@ $$
 
 The dot product can also be written as:
 
-$$
-\mathbf{x}^{T}\mathbf{y}
-=
-\|\mathbf{x}\|
-\|\mathbf{y}\|
-\cos\theta
-$$
+$\mathbf{x}^{T}\mathbf{y} = \|\mathbf{x}\| \|\mathbf{y}\| \cos\theta$
 
 where $\theta$ is the angle between the vectors.
 
 Therefore:
 
-$$
-\cos\theta
-=
-\frac{\mathbf{x}^{T}\mathbf{y}}
-{\|\mathbf{x}\|\|\mathbf{y}\|}
-$$
+$\cos\theta = \frac{\mathbf{x}^{T}\mathbf{y}} {\|\mathbf{x}\|\|\mathbf{y}\|}$
 
 This relationship connects algebraic multiplication with geometry.
 
@@ -691,53 +365,27 @@ Two non-zero vectors are orthogonal when their dot product is zero.
 
 Thus:
 
-$$
-\mathbf{x}^{T}\mathbf{y}=0
-$$
+$\mathbf{x}^{T}\mathbf{y}=0$
 
 Suppose:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-1\\
-2
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 1\\ 2 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{y}
-=
-\begin{bmatrix}
-2\\
--1
-\end{bmatrix}
-$$
+$\mathbf{y} = \begin{bmatrix} 2\\ -1 \end{bmatrix}$
 
 Then:
 
-$$
-\mathbf{x}^{T}\mathbf{y}
-=
-(1)(2)+(2)(-1)
-$$
+$\mathbf{x}^{T}\mathbf{y} = (1)(2)+(2)(-1)$
 
-$$
-=2-2
-$$
+$=2-2$
 
-$$
-=0
-$$
+$=0$
 
 Therefore:
 
-$$
-\boxed{\mathbf{x}\perp\mathbf{y}}
-$$
+$\boxed{\mathbf{x}\perp\mathbf{y}}$
 
 ---
 
@@ -747,13 +395,7 @@ A matrix is a rectangular arrangement of numbers.
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-1&2&3\\
-4&5&6
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2&3\\ 4&5&6 \end{bmatrix}$
 
 This matrix has:
 
@@ -762,9 +404,7 @@ This matrix has:
 
 Therefore, its order is:
 
-$$
-\boxed{2\times3}
-$$
+$\boxed{2\times3}$
 
 The first number represents rows and the second represents columns.
 
@@ -774,33 +414,21 @@ The first number represents rows and the second represents columns.
 
 For a matrix $A$, the element in row $i$ and column $j$ is written:
 
-$$
-a_{ij}
-$$
+$a_{ij}$
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-1&2&3\\
-4&5&6
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2&3\\ 4&5&6 \end{bmatrix}$
 
 we have:
 
-$$
-a_{12}=2
-$$
+$a_{12}=2$
 
 because it is in row 1, column 2.
 
 Similarly:
 
-$$
-a_{23}=6
-$$
+$a_{23}=6$
 
 ---
 
@@ -810,19 +438,11 @@ A matrix with the same number of rows and columns is called a **square matrix**.
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 has order:
 
-$$
-2\times2
-$$
+$2\times2$
 
 Therefore, it is a square matrix.
 
@@ -834,18 +454,11 @@ A matrix with one row is a row matrix.
 
 Example:
 
-$$
-A=
-\begin{bmatrix}
-1&2&3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2&3&4 \end{bmatrix}$
 
 Its order is:
 
-$$
-1\times4
-$$
+$1\times4$
 
 ---
 
@@ -855,21 +468,11 @@ A matrix with one column is a column matrix.
 
 Example:
 
-$$
-A=
-\begin{bmatrix}
-1\\
-2\\
-3\\
-4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1\\ 2\\ 3\\ 4 \end{bmatrix}$
 
 Its order is:
 
-$$
-4\times1
-$$
+$4\times1$
 
 ---
 
@@ -879,19 +482,11 @@ A zero matrix contains only zeros.
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-0&0\\
-0&0
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 0&0\\ 0&0 \end{bmatrix}$
 
 It is the additive identity for matrices:
 
-$$
-A+0=A
-$$
+$A+0=A$
 
 ---
 
@@ -901,20 +496,11 @@ The identity matrix contains 1s on the main diagonal and 0s elsewhere.
 
 For a $3\times3$ matrix:
 
-$$
-I=
-\begin{bmatrix}
-1&0&0\\
-0&1&0\\
-0&0&1
-\end{bmatrix}
-$$
+$I= \begin{bmatrix} 1&0&0\\ 0&1&0\\ 0&0&1 \end{bmatrix}$
 
 It satisfies:
 
-$$
-AI=IA=A
-$$
+$AI=IA=A$
 
 whenever the dimensions permit the multiplication.
 
@@ -928,14 +514,7 @@ A diagonal matrix has non-zero values only on the main diagonal.
 
 For example:
 
-$$
-D=
-\begin{bmatrix}
-2&0&0\\
-0&5&0\\
-0&0&7
-\end{bmatrix}
-$$
+$D= \begin{bmatrix} 2&0&0\\ 0&5&0\\ 0&0&7 \end{bmatrix}$
 
 This is a diagonal matrix.
 
@@ -949,45 +528,19 @@ Two matrices can be added only when they have the same dimensions.
 
 Let:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 and:
 
-$$
-B=
-\begin{bmatrix}
-5&6\\
-7&8
-\end{bmatrix}
-$$
+$B= \begin{bmatrix} 5&6\\ 7&8 \end{bmatrix}$
 
 Then:
 
-$$
-A+B
-=
-\begin{bmatrix}
-1+5&2+6\\
-3+7&4+8
-\end{bmatrix}
-$$
+$A+B = \begin{bmatrix} 1+5&2+6\\ 3+7&4+8 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{
-A+B=
-\begin{bmatrix}
-6&8\\
-10&12
-\end{bmatrix}}
-$$
+$\boxed{ A+B= \begin{bmatrix} 6&8\\ 10&12 \end{bmatrix}}$
 
 ---
 
@@ -995,25 +548,11 @@ $$
 
 Using the same matrices:
 
-$$
-A-B
-=
-\begin{bmatrix}
-1-5&2-6\\
-3-7&4-8
-\end{bmatrix}
-$$
+$A-B = \begin{bmatrix} 1-5&2-6\\ 3-7&4-8 \end{bmatrix}$
 
 Thus:
 
-$$
-\boxed{
-A-B=
-\begin{bmatrix}
--4&-4\\
--4&-4
-\end{bmatrix}}
-$$
+$\boxed{ A-B= \begin{bmatrix} -4&-4\\ -4&-4 \end{bmatrix}}$
 
 ---
 
@@ -1021,29 +560,15 @@ $$
 
 Let:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 and:
 
-$$
-c=3
-$$
+$c=3$
 
 Then:
 
-$$
-3A=
-\begin{bmatrix}
-3&6\\
-9&12
-\end{bmatrix}
-$$
+$3A= \begin{bmatrix} 3&6\\ 9&12 \end{bmatrix}$
 
 Every element is multiplied by the scalar.
 
@@ -1055,45 +580,31 @@ Matrix multiplication is different from element-by-element multiplication.
 
 Suppose:
 
-$$
-A
-$$
+$A$
 
 has dimensions:
 
-$$
-m\times n
-$$
+$m\times n$
 
 and:
 
-$$
-B
-$$
+$B$
 
 has dimensions:
 
-$$
-n\times p
-$$
+$n\times p$
 
 Then:
 
-$$
-AB
-$$
+$AB$
 
 has dimensions:
 
-$$
-m\times p
-$$
+$m\times p$
 
 The inner dimensions must match.
 
-$$
-\boxed{(m\times n)(n\times p)=m\times p}
-$$
+$\boxed{(m\times n)(n\times p)=m\times p}$
 
 ---
 
@@ -1101,76 +612,41 @@ $$
 
 Let:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 and:
 
-$$
-B=
-\begin{bmatrix}
-5&6\\
-7&8
-\end{bmatrix}
-$$
+$B= \begin{bmatrix} 5&6\\ 7&8 \end{bmatrix}$
 
 Calculate $AB$.
 
 The first element is:
 
-$$
-(1)(5)+(2)(7)
-$$
+$(1)(5)+(2)(7)$
 
-$$
-=5+14=19
-$$
+$=5+14=19$
 
 The second element is:
 
-$$
-(1)(6)+(2)(8)
-$$
+$(1)(6)+(2)(8)$
 
-$$
-=6+16=22
-$$
+$=6+16=22$
 
 The third element is:
 
-$$
-(3)(5)+(4)(7)
-$$
+$(3)(5)+(4)(7)$
 
-$$
-=15+28=43
-$$
+$=15+28=43$
 
 The fourth element is:
 
-$$
-(3)(6)+(4)(8)
-$$
+$(3)(6)+(4)(8)$
 
-$$
-=18+32=50
-$$
+$=18+32=50$
 
 Therefore:
 
-$$
-\boxed{
-AB=
-\begin{bmatrix}
-19&22\\
-43&50
-\end{bmatrix}}
-$$
+$\boxed{ AB= \begin{bmatrix} 19&22\\ 43&50 \end{bmatrix}}$
 
 ---
 
@@ -1178,15 +654,11 @@ $$
 
 In ordinary arithmetic:
 
-$$
-ab=ba
-$$
+$ab=ba$
 
 But for matrices:
 
-$$
-AB\ne BA
-$$
+$AB\ne BA$
 
 in general.
 
@@ -1194,9 +666,7 @@ The products may have different values or one product may exist while the other 
 
 Therefore:
 
-$$
-\boxed{AB\neq BA\text{ in general}}
-$$
+$\boxed{AB\neq BA\text{ in general}}$
 
 ---
 
@@ -1206,36 +676,19 @@ The transpose changes rows into columns.
 
 If:
 
-$$
-A=
-\begin{bmatrix}
-1&2&3\\
-4&5&6
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2&3\\ 4&5&6 \end{bmatrix}$
 
 then:
 
-$$
-A^T=
-\begin{bmatrix}
-1&4\\
-2&5\\
-3&6
-\end{bmatrix}
-$$
+$A^T= \begin{bmatrix} 1&4\\ 2&5\\ 3&6 \end{bmatrix}$
 
 The dimensions change from:
 
-$$
-2\times3
-$$
+$2\times3$
 
 to:
 
-$$
-3\times2
-$$
+$3\times2$
 
 ---
 
@@ -1243,21 +696,15 @@ $$
 
 Important properties include:
 
-$$
-(A^T)^T=A
-$$
+$(A^T)^T=A$
 
 and:
 
-$$
-(A+B)^T=A^T+B^T
-$$
+$(A+B)^T=A^T+B^T$
 
 For compatible matrices:
 
-$$
-(AB)^T=B^TA^T
-$$
+$(AB)^T=B^TA^T$
 
 Notice the order reversal in the product.
 
@@ -1267,35 +714,19 @@ Notice the order reversal in the product.
 
 A square matrix is symmetric if:
 
-$$
-A^T=A
-$$
+$A^T=A$
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-2&3\\
-3&5
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&3\\ 3&5 \end{bmatrix}$
 
 Its transpose is:
 
-$$
-A^T=
-\begin{bmatrix}
-2&3\\
-3&5
-\end{bmatrix}
-$$
+$A^T= \begin{bmatrix} 2&3\\ 3&5 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{A^T=A}
-$$
+$\boxed{A^T=A}$
 
 and $A$ is symmetric.
 
@@ -1305,55 +736,29 @@ and $A$ is symmetric.
 
 Consider:
 
-$$
-2x+y=5
-$$
+$2x+y=5$
 
 and:
 
-$$
-x-y=1
-$$
+$x-y=1$
 
 These equations can be represented using matrices.
 
 The coefficient matrix is:
 
-$$
-A=
-\begin{bmatrix}
-2&1\\
-1&-1
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&1\\ 1&-1 \end{bmatrix}$
 
 The variable vector is:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-x\\
-y
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} x\\ y \end{bmatrix}$
 
 The constant vector is:
 
-$$
-\mathbf{b}
-=
-\begin{bmatrix}
-5\\
-1
-\end{bmatrix}
-$$
+$\mathbf{b} = \begin{bmatrix} 5\\ 1 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{A\mathbf{x}=\mathbf{b}}
-$$
+$\boxed{A\mathbf{x}=\mathbf{b}}$
 
 ---
 
@@ -1361,57 +766,37 @@ $$
 
 Given:
 
-$$
-2x+y=5
-$$
+$2x+y=5$
 
 and:
 
-$$
-x-y=1
-$$
+$x-y=1$
 
 From the second equation:
 
-$$
-x=y+1
-$$
+$x=y+1$
 
 Substitute into the first equation:
 
-$$
-2(y+1)+y=5
-$$
+$2(y+1)+y=5$
 
-$$
-2y+2+y=5
-$$
+$2y+2+y=5$
 
-$$
-3y=3
-$$
+$3y=3$
 
 Therefore:
 
-$$
-y=1
-$$
+$y=1$
 
 Then:
 
-$$
-x=1+1
-$$
+$x=1+1$
 
-$$
-x=2
-$$
+$x=2$
 
 Hence:
 
-$$
-\boxed{x=2,\quad y=1}
-$$
+$\boxed{x=2,\quad y=1}$
 
 ---
 
@@ -1419,47 +804,25 @@ $$
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-a&b\\
-c&d
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} a&b\\ c&d \end{bmatrix}$
 
 the determinant is:
 
-$$
-\det(A)=ad-bc
-$$
+$\det(A)=ad-bc$
 
 Consider:
 
-$$
-A=
-\begin{bmatrix}
-2&3\\
-1&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&3\\ 1&4 \end{bmatrix}$
 
 Then:
 
-$$
-\det(A)
-=
-(2)(4)-(3)(1)
-$$
+$\det(A) = (2)(4)-(3)(1)$
 
-$$
-=8-3
-$$
+$=8-3$
 
 Therefore:
 
-$$
-\boxed{\det(A)=5}
-$$
+$\boxed{\det(A)=5}$
 
 ---
 
@@ -1469,17 +832,13 @@ The determinant provides important information about a square matrix.
 
 If:
 
-$$
-\det(A)=0
-$$
+$\det(A)=0$
 
 the matrix is **singular** and does not have an ordinary inverse.
 
 If:
 
-$$
-\det(A)\ne0
-$$
+$\det(A)\ne0$
 
 the matrix is **non-singular** and is invertible.
 
@@ -1491,39 +850,21 @@ For a two-dimensional transformation, the absolute value of the determinant also
 
 For a square matrix $A$, an inverse $A^{-1}$ satisfies:
 
-$$
-AA^{-1}=A^{-1}A=I
-$$
+$AA^{-1}=A^{-1}A=I$
 
 The inverse exists only when the matrix is invertible.
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-a&b\\
-c&d
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} a&b\\ c&d \end{bmatrix}$
 
 with:
 
-$$
-ad-bc\ne0
-$$
+$ad-bc\ne0$
 
 the inverse is:
 
-$$
-A^{-1}
-=
-\frac{1}{ad-bc}
-\begin{bmatrix}
-d&-b\\
--c&a
-\end{bmatrix}
-$$
+$A^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d&-b\\ -c&a \end{bmatrix}$
 
 ---
 
@@ -1531,43 +872,19 @@ $$
 
 Let:
 
-$$
-A=
-\begin{bmatrix}
-2&3\\
-1&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&3\\ 1&4 \end{bmatrix}$
 
 We already calculated:
 
-$$
-\det(A)=5
-$$
+$\det(A)=5$
 
 Therefore:
 
-$$
-A^{-1}
-=
-\frac{1}{5}
-\begin{bmatrix}
-4&-3\\
--1&2
-\end{bmatrix}
-$$
+$A^{-1} = \frac{1}{5} \begin{bmatrix} 4&-3\\ -1&2 \end{bmatrix}$
 
 Hence:
 
-$$
-\boxed{
-A^{-1}
-=
-\begin{bmatrix}
-0.8&-0.6\\
--0.2&0.4
-\end{bmatrix}}
-$$
+$\boxed{ A^{-1} = \begin{bmatrix} 0.8&-0.6\\ -0.2&0.4 \end{bmatrix}}$
 
 ---
 
@@ -1575,27 +892,19 @@ $$
 
 For:
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 if $A$ is invertible:
 
-$$
-A^{-1}A\mathbf{x}=A^{-1}\mathbf{b}
-$$
+$A^{-1}A\mathbf{x}=A^{-1}\mathbf{b}$
 
 Since:
 
-$$
-A^{-1}A=I
-$$
+$A^{-1}A=I$
 
 we obtain:
 
-$$
-\boxed{\mathbf{x}=A^{-1}\mathbf{b}}
-$$
+$\boxed{\mathbf{x}=A^{-1}\mathbf{b}}$
 
 This is a mathematical method for solving a linear system.
 
@@ -1609,22 +918,11 @@ The **rank** of a matrix is the maximum number of linearly independent rows or c
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-2&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 2&4 \end{bmatrix}$
 
 The second row is:
 
-$$
-2
-\begin{bmatrix}
-1&2
-\end{bmatrix}
-$$
+$2 \begin{bmatrix} 1&2 \end{bmatrix}$
 
 Therefore, the rows are linearly dependent.
 
@@ -1632,9 +930,7 @@ There is only one independent row.
 
 Hence:
 
-$$
-\boxed{\operatorname{rank}(A)=1}
-$$
+$\boxed{\operatorname{rank}(A)=1}$
 
 ---
 
@@ -1642,29 +938,21 @@ $$
 
 For an $m\times n$ matrix, the rank cannot exceed:
 
-$$
-\min(m,n)
-$$
+$\min(m,n)$
 
 A matrix has **full column rank** if:
 
-$$
-\operatorname{rank}(A)=n
-$$
+$\operatorname{rank}(A)=n$
 
 when it has $n$ columns.
 
 A square $n\times n$ matrix has full rank when:
 
-$$
-\operatorname{rank}(A)=n
-$$
+$\operatorname{rank}(A)=n$
 
 For a square matrix:
 
-$$
-\det(A)\ne0
-$$
+$\det(A)\ne0$
 
 is equivalent to full rank.
 
@@ -1674,48 +962,23 @@ is equivalent to full rank.
 
 A linear combination of vectors $\mathbf{v}_1,\mathbf{v}_2,\ldots,\mathbf{v}_k$ is:
 
-$$
-c_1\mathbf{v}_1+
-c_2\mathbf{v}_2+
-\cdots+
-c_k\mathbf{v}_k
-$$
+$c_1\mathbf{v}_1+ c_2\mathbf{v}_2+ \cdots+ c_k\mathbf{v}_k$
 
 where the $c_i$ values are scalars.
 
 For:
 
-$$
-\mathbf{v}_1=
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix}
-$$
+$\mathbf{v}_1= \begin{bmatrix} 1\\ 0 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{v}_2=
-\begin{bmatrix}
-0\\
-1
-\end{bmatrix}
-$$
+$\mathbf{v}_2= \begin{bmatrix} 0\\ 1 \end{bmatrix}$
 
 we can form:
 
-$$
-3\mathbf{v}_1+4\mathbf{v}_2
-$$
+$3\mathbf{v}_1+4\mathbf{v}_2$
 
-$$
-=
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$= \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 ---
 
@@ -1725,34 +988,15 @@ The **span** of a collection of vectors is the set of all linear combinations of
 
 The standard basis vectors:
 
-$$
-\mathbf{e}_1=
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix},
-\qquad
-\mathbf{e}_2=
-\begin{bmatrix}
-0\\
-1
-\end{bmatrix}
-$$
+$\mathbf{e}_1= \begin{bmatrix} 1\\ 0 \end{bmatrix}, \qquad \mathbf{e}_2= \begin{bmatrix} 0\\ 1 \end{bmatrix}$
 
 span $\mathbb{R}^2$ because every vector:
 
-$$
-\begin{bmatrix}
-x\\
-y
-\end{bmatrix}
-$$
+$\begin{bmatrix} x\\ y \end{bmatrix}$
 
 can be written as:
 
-$$
-x\mathbf{e}_1+y\mathbf{e}_2
-$$
+$x\mathbf{e}_1+y\mathbf{e}_2$
 
 ---
 
@@ -1760,20 +1004,11 @@ $$
 
 Vectors are linearly independent if the equation:
 
-$$
-c_1\mathbf{v}_1+
-c_2\mathbf{v}_2+
-\cdots+
-c_k\mathbf{v}_k
-=
-\mathbf{0}
-$$
+$c_1\mathbf{v}_1+ c_2\mathbf{v}_2+ \cdots+ c_k\mathbf{v}_k = \mathbf{0}$
 
 has only the trivial solution:
 
-$$
-c_1=c_2=\cdots=c_k=0
-$$
+$c_1=c_2=\cdots=c_k=0$
 
 If a non-zero combination produces the zero vector, the vectors are linearly dependent.
 
@@ -1783,37 +1018,21 @@ If a non-zero combination produces the zero vector, the vectors are linearly dep
 
 Let:
 
-$$
-\mathbf{v}_1=
-\begin{bmatrix}
-1\\
-2
-\end{bmatrix}
-$$
+$\mathbf{v}_1= \begin{bmatrix} 1\\ 2 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{v}_2=
-\begin{bmatrix}
-2\\
-4
-\end{bmatrix}
-$$
+$\mathbf{v}_2= \begin{bmatrix} 2\\ 4 \end{bmatrix}$
 
 We can write:
 
-$$
-\mathbf{v}_2=2\mathbf{v}_1
-$$
+$\mathbf{v}_2=2\mathbf{v}_1$
 
 Therefore, one vector is a scalar multiple of the other.
 
 Hence:
 
-$$
-\boxed{\mathbf{v}_1,\mathbf{v}_2\text{ are linearly dependent}}
-$$
+$\boxed{\mathbf{v}_1,\mathbf{v}_2\text{ are linearly dependent}}$
 
 ---
 
@@ -1826,28 +1045,7 @@ A basis of a vector space is a set of vectors that:
 
 The standard basis of $\mathbb{R}^3$ is:
 
-$$
-\mathbf{e}_1=
-\begin{bmatrix}
-1\\
-0\\
-0
-\end{bmatrix},
-\quad
-\mathbf{e}_2=
-\begin{bmatrix}
-0\\
-1\\
-0
-\end{bmatrix},
-\quad
-\mathbf{e}_3=
-\begin{bmatrix}
-0\\
-0\\
-1
-\end{bmatrix}
-$$
+$\mathbf{e}_1= \begin{bmatrix} 1\\ 0\\ 0 \end{bmatrix}, \quad \mathbf{e}_2= \begin{bmatrix} 0\\ 1\\ 0 \end{bmatrix}, \quad \mathbf{e}_3= \begin{bmatrix} 0\\ 0\\ 1 \end{bmatrix}$
 
 These vectors span $\mathbb{R}^3$ and are linearly independent.
 
@@ -1859,15 +1057,11 @@ The dimension of a vector space is the number of vectors in any basis of that sp
 
 Therefore:
 
-$$
-\dim(\mathbb{R}^2)=2
-$$
+$\dim(\mathbb{R}^2)=2$
 
 and:
 
-$$
-\dim(\mathbb{R}^3)=3
-$$
+$\dim(\mathbb{R}^3)=3$
 
 For a matrix, rank is related to the dimension of its column space and row space.
 
@@ -1879,15 +1073,11 @@ A vector space is a set of vectors that is closed under vector addition and scal
 
 Examples include:
 
-$$
-\mathbb{R}^2
-$$
+$\mathbb{R}^2$
 
 and:
 
-$$
-\mathbb{R}^3
-$$
+$\mathbb{R}^3$
 
 The important idea is that vectors in the space can be added together and multiplied by scalars without leaving the space.
 
@@ -1913,39 +1103,19 @@ The **column space** of a matrix is the span of its columns.
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-1&0\\
-0&1
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&0\\ 0&1 \end{bmatrix}$
 
 the columns are:
 
-$$
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix},
-\quad
-\begin{bmatrix}
-0\\
-1
-\end{bmatrix}
-$$
+$\begin{bmatrix} 1\\ 0 \end{bmatrix}, \quad \begin{bmatrix} 0\\ 1 \end{bmatrix}$
 
 These span:
 
-$$
-\mathbb{R}^2
-$$
+$\mathbb{R}^2$
 
 Therefore:
 
-$$
-\operatorname{Col}(A)=\mathbb{R}^2
-$$
+$\operatorname{Col}(A)=\mathbb{R}^2$
 
 ---
 
@@ -1953,84 +1123,35 @@ $$
 
 The **null space** of a matrix $A$ is the set of all vectors $\mathbf{x}$ satisfying:
 
-$$
-A\mathbf{x}=\mathbf{0}
-$$
+$A\mathbf{x}=\mathbf{0}$
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-2&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 2&4 \end{bmatrix}$
 
 we solve:
 
-$$
-A
-\begin{bmatrix}
-x\\
-y
-\end{bmatrix}
-=
-\begin{bmatrix}
-0\\
-0
-\end{bmatrix}
-$$
+$A \begin{bmatrix} x\\ y \end{bmatrix} = \begin{bmatrix} 0\\ 0 \end{bmatrix}$
 
 The first equation is:
 
-$$
-x+2y=0
-$$
+$x+2y=0$
 
 so:
 
-$$
-x=-2y
-$$
+$x=-2y$
 
 Let:
 
-$$
-y=t
-$$
+$y=t$
 
 Then:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
--2t\\
-t
-\end{bmatrix}
-=
-t
-\begin{bmatrix}
--2\\
-1
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} -2t\\ t \end{bmatrix} = t \begin{bmatrix} -2\\ 1 \end{bmatrix}$
 
 Therefore the null space is:
 
-$$
-\boxed{
-\operatorname{Null}(A)
-=
-\operatorname{span}
-\left\{
-\begin{bmatrix}
--2\\
-1
-\end{bmatrix}
-\right\}}
-$$
+$\boxed{ \operatorname{Null}(A) = \operatorname{span} \left\{ \begin{bmatrix} -2\\ 1 \end{bmatrix} \right\}}$
 
 ---
 
@@ -2038,15 +1159,7 @@ $$
 
 For a matrix $A$ with $n$ columns:
 
-$$
-\boxed{
-\operatorname{rank}(A)
-+
-\operatorname{nullity}(A)
-=
-n
-}
-$$
+$\boxed{ \operatorname{rank}(A) + \operatorname{nullity}(A) = n }$
 
 Here:
 
@@ -2056,21 +1169,15 @@ Here:
 
 For the previous $2\times2$ matrix:
 
-$$
-\operatorname{rank}(A)=1
-$$
+$\operatorname{rank}(A)=1$
 
 and:
 
-$$
-\operatorname{nullity}(A)=1
-$$
+$\operatorname{nullity}(A)=1$
 
 Therefore:
 
-$$
-1+1=2
-$$
+$1+1=2$
 
 which agrees with the number of columns.
 
@@ -2080,9 +1187,7 @@ which agrees with the number of columns.
 
 Two vectors are orthogonal when:
 
-$$
-\mathbf{x}^{T}\mathbf{y}=0
-$$
+$\mathbf{x}^{T}\mathbf{y}=0$
 
 Orthogonality is the higher-dimensional generalisation of perpendicular directions.
 
@@ -2093,14 +1198,7 @@ An orthonormal set contains vectors that are:
 
 Thus:
 
-$$
-\mathbf{q}_i^T\mathbf{q}_j
-=
-\begin{cases}
-1,&i=j\\
-0,&i\ne j
-\end{cases}
-$$
+$\mathbf{q}_i^T\mathbf{q}_j = \begin{cases} 1,&i=j\\ 0,&i\ne j \end{cases}$
 
 ---
 
@@ -2108,71 +1206,31 @@ $$
 
 The projection of $\mathbf{x}$ onto a non-zero vector $\mathbf{u}$ is:
 
-$$
-\operatorname{proj}_{\mathbf{u}}\mathbf{x}
-=
-\frac{\mathbf{x}^{T}\mathbf{u}}
-{\mathbf{u}^{T}\mathbf{u}}
-\mathbf{u}
-$$
+$\operatorname{proj}_{\mathbf{u}}\mathbf{x} = \frac{\mathbf{x}^{T}\mathbf{u}} {\mathbf{u}^{T}\mathbf{u}} \mathbf{u}$
 
 Consider:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-4
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 3\\ 4 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{u}
-=
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix}
-$$
+$\mathbf{u} = \begin{bmatrix} 1\\ 0 \end{bmatrix}$
 
 Then:
 
-$$
-\mathbf{x}^{T}\mathbf{u}=3
-$$
+$\mathbf{x}^{T}\mathbf{u}=3$
 
 and:
 
-$$
-\mathbf{u}^{T}\mathbf{u}=1
-$$
+$\mathbf{u}^{T}\mathbf{u}=1$
 
 Therefore:
 
-$$
-\operatorname{proj}_{\mathbf{u}}\mathbf{x}
-=
-3
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix}
-$$
+$\operatorname{proj}_{\mathbf{u}}\mathbf{x} = 3 \begin{bmatrix} 1\\ 0 \end{bmatrix}$
 
 Thus:
 
-$$
-\boxed{
-\operatorname{proj}_{\mathbf{u}}\mathbf{x}
-=
-\begin{bmatrix}
-3\\
-0
-\end{bmatrix}}
-$$
+$\boxed{ \operatorname{proj}_{\mathbf{u}}\mathbf{x} = \begin{bmatrix} 3\\ 0 \end{bmatrix}}$
 
 ---
 
@@ -2185,27 +1243,17 @@ A vector can be decomposed into:
 
 For a projection onto vector $\mathbf{u}$:
 
-$$
-\mathbf{x}
-=
-\operatorname{proj}_{\mathbf{u}}\mathbf{x}
-+
-\mathbf{r}
-$$
+$\mathbf{x} = \operatorname{proj}_{\mathbf{u}}\mathbf{x} + \mathbf{r}$
 
 where:
 
-$$
-\mathbf{r}
-$$
+$\mathbf{r}$
 
 is orthogonal to $\mathbf{u}$.
 
 Therefore:
 
-$$
-\mathbf{u}^{T}\mathbf{r}=0
-$$
+$\mathbf{u}^{T}\mathbf{r}=0$
 
 This idea is central to many least-squares and projection calculations.
 
@@ -2215,19 +1263,11 @@ This idea is central to many least-squares and projection calculations.
 
 A transformation $T$ is linear if:
 
-$$
-T(\mathbf{u}+\mathbf{v})
-=
-T(\mathbf{u})+T(\mathbf{v})
-$$
+$T(\mathbf{u}+\mathbf{v}) = T(\mathbf{u})+T(\mathbf{v})$
 
 and:
 
-$$
-T(c\mathbf{u})
-=
-cT(\mathbf{u})
-$$
+$T(c\mathbf{u}) = cT(\mathbf{u})$
 
 for vectors $\mathbf{u},\mathbf{v}$ and scalar $c$.
 
@@ -2235,9 +1275,7 @@ A matrix can represent a linear transformation.
 
 For example:
 
-$$
-T(\mathbf{x})=A\mathbf{x}
-$$
+$T(\mathbf{x})=A\mathbf{x}$
 
 ---
 
@@ -2245,47 +1283,17 @@ $$
 
 Let:
 
-$$
-A=
-\begin{bmatrix}
-2&0\\
-0&3
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&0\\ 0&3 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-1\\
-2
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 1\\ 2 \end{bmatrix}$
 
 Then:
 
-$$
-A\mathbf{x}
-=
-\begin{bmatrix}
-2&0\\
-0&3
-\end{bmatrix}
-\begin{bmatrix}
-1\\
-2
-\end{bmatrix}
-$$
+$A\mathbf{x} = \begin{bmatrix} 2&0\\ 0&3 \end{bmatrix} \begin{bmatrix} 1\\ 2 \end{bmatrix}$
 
-$$
-=
-\begin{bmatrix}
-2\\
-6
-\end{bmatrix}
-$$
+$= \begin{bmatrix} 2\\ 6 \end{bmatrix}$
 
 The transformation stretches the first coordinate by 2 and the second coordinate by 3.
 
@@ -2295,9 +1303,7 @@ The transformation stretches the first coordinate by 2 and the second coordinate
 
 For a square matrix $A$, a non-zero vector $\mathbf{v}$ is an eigenvector if:
 
-$$
-A\mathbf{v}=\lambda\mathbf{v}
-$$
+$A\mathbf{v}=\lambda\mathbf{v}$
 
 where:
 
@@ -2312,60 +1318,35 @@ The transformation changes the length and possibly the direction sign of an eige
 
 Eigenvalues satisfy:
 
-$$
-\det(A-\lambda I)=0
-$$
+$\det(A-\lambda I)=0$
 
 Consider:
 
-$$
-A=
-\begin{bmatrix}
-2&0\\
-0&3
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&0\\ 0&3 \end{bmatrix}$
 
 Then:
 
-$$
-A-\lambda I
-=
-\begin{bmatrix}
-2-\lambda&0\\
-0&3-\lambda
-\end{bmatrix}
-$$
+$A-\lambda I = \begin{bmatrix} 2-\lambda&0\\ 0&3-\lambda \end{bmatrix}$
 
 The determinant is:
 
-$$
-(2-\lambda)(3-\lambda)
-$$
+$(2-\lambda)(3-\lambda)$
 
 Set equal to zero:
 
-$$
-(2-\lambda)(3-\lambda)=0
-$$
+$(2-\lambda)(3-\lambda)=0$
 
 Therefore:
 
-$$
-\lambda=2
-$$
+$\lambda=2$
 
 or:
 
-$$
-\lambda=3
-$$
+$\lambda=3$
 
 Hence:
 
-$$
-\boxed{\lambda_1=2,\quad\lambda_2=3}
-$$
+$\boxed{\lambda_1=2,\quad\lambda_2=3}$
 
 ---
 
@@ -2373,57 +1354,27 @@ $$
 
 For:
 
-$$
-\lambda=2
-$$
+$\lambda=2$
 
 solve:
 
-$$
-(A-2I)\mathbf{v}=0
-$$
+$(A-2I)\mathbf{v}=0$
 
 We obtain:
 
-$$
-\begin{bmatrix}
-0&0\\
-0&1
-\end{bmatrix}
-\begin{bmatrix}
-v_1\\
-v_2
-\end{bmatrix}
-=
-\begin{bmatrix}
-0\\
-0
-\end{bmatrix}
-$$
+$\begin{bmatrix} 0&0\\ 0&1 \end{bmatrix} \begin{bmatrix} v_1\\ v_2 \end{bmatrix} = \begin{bmatrix} 0\\ 0 \end{bmatrix}$
 
 This gives:
 
-$$
-v_2=0
-$$
+$v_2=0$
 
 Choose:
 
-$$
-v_1=1
-$$
+$v_1=1$
 
 Then:
 
-$$
-\boxed{
-\mathbf{v}
-=
-\begin{bmatrix}
-1\\
-0
-\end{bmatrix}}
-$$
+$\boxed{ \mathbf{v} = \begin{bmatrix} 1\\ 0 \end{bmatrix}}$
 
 is an eigenvector associated with $\lambda=2$.
 
@@ -2435,9 +1386,7 @@ A matrix may be diagonalised when it has a sufficient number of linearly indepen
 
 The diagonalisation can be written:
 
-$$
-A=PDP^{-1}
-$$
+$A=PDP^{-1}$
 
 where:
 
@@ -2452,11 +1401,7 @@ Diagonal matrices are often easier to work with because their powers and many ot
 
 The **Singular Value Decomposition (SVD)** decomposes a matrix as:
 
-$$
-\boxed{
-A=U\Sigma V^T
-}
-$$
+$\boxed{ A=U\Sigma V^T }$
 
 where:
 
@@ -2466,17 +1411,11 @@ where:
 
 For an $m\times n$ matrix, the dimensions are:
 
-$$
-U:m\times m
-$$
+$U:m\times m$
 
-$$
-\Sigma:m\times n
-$$
+$\Sigma:m\times n$
 
-$$
-V:n\times n
-$$
+$V:n\times n$
 
 for the full SVD.
 
@@ -2488,27 +1427,19 @@ The singular values are non-negative.
 
 The singular values of $A$ are related to the eigenvalues of:
 
-$$
-A^TA
-$$
+$A^TA$
 
 If:
 
-$$
-\lambda_i
-$$
+$\lambda_i$
 
 is an eigenvalue of $A^TA$, then the corresponding singular value is:
 
-$$
-\sigma_i=\sqrt{\lambda_i}
-$$
+$\sigma_i=\sqrt{\lambda_i}$
 
 The singular values are usually arranged in descending order:
 
-$$
-\sigma_1\ge\sigma_2\ge\cdots\ge0
-$$
+$\sigma_1\ge\sigma_2\ge\cdots\ge0$
 
 ---
 
@@ -2516,48 +1447,23 @@ $$
 
 The Frobenius norm of a matrix is:
 
-$$
-\|A\|_F
-=
-\sqrt{
-\sum_{i=1}^{m}
-\sum_{j=1}^{n}
-a_{ij}^2
-}
-$$
+$\|A\|_F = \sqrt{ \sum_{i=1}^{m} \sum_{j=1}^{n} a_{ij}^2 }$
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 we obtain:
 
-$$
-\|A\|_F
-=
-\sqrt{1^2+2^2+3^2+4^2}
-$$
+$\|A\|_F = \sqrt{1^2+2^2+3^2+4^2}$
 
-$$
-=
-\sqrt{1+4+9+16}
-$$
+$= \sqrt{1+4+9+16}$
 
-$$
-=\sqrt{30}
-$$
+$=\sqrt{30}$
 
 Therefore:
 
-$$
-\boxed{\|A\|_F=\sqrt{30}}
-$$
+$\boxed{\|A\|_F=\sqrt{30}}$
 
 ---
 
@@ -2565,33 +1471,19 @@ $$
 
 For vectors:
 
-$$
-\mathbf{x},\mathbf{y}
-$$
+$\mathbf{x},\mathbf{y}$
 
 the Euclidean distance is:
 
-$$
-\|\mathbf{x}-\mathbf{y}\|_2
-$$
+$\|\mathbf{x}-\mathbf{y}\|_2$
 
 The Euclidean norm is:
 
-$$
-\|\mathbf{x}\|_2
-=
-\sqrt{\mathbf{x}^T\mathbf{x}}
-$$
+$\|\mathbf{x}\|_2 = \sqrt{\mathbf{x}^T\mathbf{x}}$
 
 Thus:
 
-$$
-\boxed{
-d(\mathbf{x},\mathbf{y})
-=
-\|\mathbf{x}-\mathbf{y}\|_2
-}
-$$
+$\boxed{ d(\mathbf{x},\mathbf{y}) = \|\mathbf{x}-\mathbf{y}\|_2 }$
 
 This gives a compact matrix notation for ordinary Euclidean distance.
 
@@ -2603,25 +1495,15 @@ The trace of a square matrix is the sum of its diagonal elements.
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-2&1\\
-3&5
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&1\\ 3&5 \end{bmatrix}$
 
 the trace is:
 
-$$
-\operatorname{tr}(A)=2+5
-$$
+$\operatorname{tr}(A)=2+5$
 
 Therefore:
 
-$$
-\boxed{\operatorname{tr}(A)=7}
-$$
+$\boxed{\operatorname{tr}(A)=7}$
 
 For a square matrix, the trace also equals the sum of its eigenvalues, counting algebraic multiplicity.
 
@@ -2631,43 +1513,25 @@ For a square matrix, the trace also equals the sum of its eigenvalues, counting 
 
 For a square matrix, the determinant equals the product of its eigenvalues:
 
-$$
-\boxed{
-\det(A)=\prod_i\lambda_i
-}
-$$
+$\boxed{ \det(A)=\prod_i\lambda_i }$
 
 The trace equals their sum:
 
-$$
-\boxed{
-\operatorname{tr}(A)=\sum_i\lambda_i
-}
-$$
+$\boxed{ \operatorname{tr}(A)=\sum_i\lambda_i }$
 
 For:
 
-$$
-A=
-\begin{bmatrix}
-2&0\\
-0&3
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&0\\ 0&3 \end{bmatrix}$
 
 the eigenvalues are 2 and 3.
 
 Therefore:
 
-$$
-\det(A)=2(3)=6
-$$
+$\det(A)=2(3)=6$
 
 and:
 
-$$
-\operatorname{tr}(A)=2+3=5
-$$
+$\operatorname{tr}(A)=2+3=5$
 
 ---
 
@@ -2675,29 +1539,21 @@ $$
 
 For an $n\times n$ matrix:
 
-$$
-\det(A)\ne0
-$$
+$\det(A)\ne0$
 
 if and only if:
 
-$$
-\operatorname{rank}(A)=n
-$$
+$\operatorname{rank}(A)=n$
 
 Such a matrix is full rank and invertible.
 
 If:
 
-$$
-\det(A)=0
-$$
+$\det(A)=0$
 
 then:
 
-$$
-\operatorname{rank}(A)<n
-$$
+$\operatorname{rank}(A)<n$
 
 and the matrix is singular.
 
@@ -2735,77 +1591,45 @@ Reduced row-echelon form goes further by making each pivot the only non-zero val
 
 Consider:
 
-$$
-x+y=5
-$$
+$x+y=5$
 
-$$
-2x+y=7
-$$
+$2x+y=7$
 
 The augmented matrix is:
 
-$$
-\left[
-\begin{array}{cc|c}
-1&1&5\\
-2&1&7
-\end{array}
-\right]
-$$
+$\left[ \begin{array}{cc|c} 1&1&5\\ 2&1&7 \end{array} \right]$
 
 Replace row 2 with:
 
-$$
-R_2\leftarrow R_2-2R_1
-$$
+$R_2\leftarrow R_2-2R_1$
 
 Then:
 
-$$
-\left[
-\begin{array}{cc|c}
-1&1&5\\
-0&-1&-3
-\end{array}
-\right]
-$$
+$\left[ \begin{array}{cc|c} 1&1&5\\ 0&-1&-3 \end{array} \right]$
 
 Thus:
 
-$$
--y=-3
-$$
+$-y=-3$
 
 so:
 
-$$
-y=3
-$$
+$y=3$
 
 Substitute into:
 
-$$
-x+y=5
-$$
+$x+y=5$
 
 to obtain:
 
-$$
-x+3=5
-$$
+$x+3=5$
 
 Therefore:
 
-$$
-x=2
-$$
+$x=2$
 
 Hence:
 
-$$
-\boxed{x=2,\quad y=3}
-$$
+$\boxed{x=2,\quad y=3}$
 
 ---
 
@@ -2822,15 +1646,11 @@ A consistent system may have:
 
 For example:
 
-$$
-x+y=2
-$$
+$x+y=2$
 
 and:
 
-$$
-2x+2y=4
-$$
+$2x+2y=4$
 
 represent the same line, so there are infinitely many solutions.
 
@@ -2840,15 +1660,11 @@ represent the same line, so there are infinitely many solutions.
 
 A homogeneous linear system has the form:
 
-$$
-A\mathbf{x}=\mathbf{0}
-$$
+$A\mathbf{x}=\mathbf{0}$
 
 It always has at least the trivial solution:
 
-$$
-\mathbf{x}=\mathbf{0}
-$$
+$\mathbf{x}=\mathbf{0}$
 
 If the matrix has a non-trivial null space, additional non-zero solutions also exist.
 
@@ -2858,9 +1674,7 @@ If the matrix has a non-trivial null space, additional non-zero solutions also e
 
 A symmetric matrix $A$ is positive definite if:
 
-$$
-\mathbf{x}^TA\mathbf{x}>0
-$$
+$\mathbf{x}^TA\mathbf{x}>0$
 
 for every non-zero vector $\mathbf{x}$.
 
@@ -2868,21 +1682,11 @@ Positive definite matrices have important properties, including strictly positiv
 
 For example:
 
-$$
-A=
-\begin{bmatrix}
-2&0\\
-0&3
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&0\\ 0&3 \end{bmatrix}$
 
 gives:
 
-$$
-\mathbf{x}^TA\mathbf{x}
-=
-2x_1^2+3x_2^2
-$$
+$\mathbf{x}^TA\mathbf{x} = 2x_1^2+3x_2^2$
 
 which is positive for every non-zero $\mathbf{x}$.
 
@@ -2894,28 +1698,15 @@ A covariance matrix is a square matrix describing pairwise covariance among vari
 
 For variables:
 
-$$
-X_1,X_2,\ldots,X_p
-$$
+$X_1,X_2,\ldots,X_p$
 
 the covariance matrix can be represented as:
 
-$$
-\Sigma=
-\begin{bmatrix}
-\operatorname{Var}(X_1)&\operatorname{Cov}(X_1,X_2)&\cdots\\
-\operatorname{Cov}(X_2,X_1)&\operatorname{Var}(X_2)&\cdots\\
-\vdots&\vdots&\ddots
-\end{bmatrix}
-$$
+$\Sigma= \begin{bmatrix} \operatorname{Var}(X_1)&\operatorname{Cov}(X_1,X_2)&\cdots\\ \operatorname{Cov}(X_2,X_1)&\operatorname{Var}(X_2)&\cdots\\ \vdots&\vdots&\ddots \end{bmatrix}$
 
 A covariance matrix is symmetric because:
 
-$$
-\operatorname{Cov}(X_i,X_j)
-=
-\operatorname{Cov}(X_j,X_i)
-$$
+$\operatorname{Cov}(X_i,X_j) = \operatorname{Cov}(X_j,X_i)$
 
 ---
 
@@ -2925,43 +1716,31 @@ Some important properties are:
 
 ### Associative multiplication
 
-$$
-(AB)C=A(BC)
-$$
+$(AB)C=A(BC)$
 
 when the products are defined.
 
 ### Distributive property
 
-$$
-A(B+C)=AB+AC
-$$
+$A(B+C)=AB+AC$
 
 and:
 
-$$
-(A+B)C=AC+BC
-$$
+$(A+B)C=AC+BC$
 
 ### Identity
 
-$$
-AI=IA=A
-$$
+$AI=IA=A$
 
 ### Transpose of product
 
-$$
-(AB)^T=B^TA^T
-$$
+$(AB)^T=B^TA^T$
 
 ### Inverse of product
 
 For invertible matrices:
 
-$$
-(AB)^{-1}=B^{-1}A^{-1}
-$$
+$(AB)^{-1}=B^{-1}A^{-1}$
 
 The order is reversed.
 
@@ -2981,17 +1760,13 @@ Matrix multiplication is not generally commutative.
 
 In general:
 
-$$
-A^T\ne A^{-1}
-$$
+$A^T\ne A^{-1}$
 
 ### Mistake 4: Calculating an inverse without checking invertibility
 
 An inverse exists only when:
 
-$$
-\det(A)\ne0
-$$
+$\det(A)\ne0$
 
 for a square matrix.
 
@@ -3079,9 +1854,7 @@ print(norm)
 
 The result is:
 
-$$
-\boxed{5}
-$$
+$\boxed{5}$
 
 ---
 
@@ -3149,9 +1922,7 @@ print(np.linalg.det(A))
 
 The determinant is:
 
-$$
-\boxed{5}
-$$
+$\boxed{5}$
 
 ---
 
@@ -3159,9 +1930,7 @@ $$
 
 Rather than explicitly calculating an inverse, NumPy can directly solve:
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 using:
 
@@ -3180,15 +1949,7 @@ print(x)
 
 The solution is:
 
-$$
-\boxed{
-\mathbf{x}
-=
-\begin{bmatrix}
-2\\
-1
-\end{bmatrix}}
-$$
+$\boxed{ \mathbf{x} = \begin{bmatrix} 2\\ 1 \end{bmatrix}}$
 
 ---
 
@@ -3207,9 +1968,7 @@ print(A_inverse)
 
 For numerical problems, direct linear-system solvers are generally preferred when the goal is only to solve:
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 rather than explicitly needing $A^{-1}$.
 
@@ -3232,9 +1991,7 @@ print(eigenvectors)
 
 The eigenvalues are:
 
-$$
-\boxed{2,\ 3}
-$$
+$\boxed{2,\ 3}$
 
 up to numerical representation and ordering.
 
@@ -3262,9 +2019,7 @@ print(VT)
 
 The decomposition follows:
 
-$$
-A=U\Sigma V^T
-$$
+$A=U\Sigma V^T$
 
 within numerical precision.
 
@@ -3274,109 +2029,49 @@ within numerical precision.
 
 Consider:
 
-$$
-A=
-\begin{bmatrix}
-2&1\\
-1&3
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 2&1\\ 1&3 \end{bmatrix}$
 
 ### Step 1: Determinant
 
-$$
-\det(A)
-=
-(2)(3)-(1)(1)
-$$
+$\det(A) = (2)(3)-(1)(1)$
 
-$$
-=6-1
-$$
+$=6-1$
 
-$$
-\boxed{\det(A)=5}
-$$
+$\boxed{\det(A)=5}$
 
 Since:
 
-$$
-\det(A)\ne0
-$$
+$\det(A)\ne0$
 
 the matrix is invertible.
 
 ### Step 2: Inverse
 
-$$
-A^{-1}
-=
-\frac{1}{5}
-\begin{bmatrix}
-3&-1\\
--1&2
-\end{bmatrix}
-$$
+$A^{-1} = \frac{1}{5} \begin{bmatrix} 3&-1\\ -1&2 \end{bmatrix}$
 
 ### Step 3: Solve
 
 Suppose:
 
-$$
-A\mathbf{x}
-=
-\begin{bmatrix}
-5\\
-7
-\end{bmatrix}
-$$
+$A\mathbf{x} = \begin{bmatrix} 5\\ 7 \end{bmatrix}$
 
 Then:
 
-$$
-\mathbf{x}=A^{-1}\mathbf{b}
-$$
+$\mathbf{x}=A^{-1}\mathbf{b}$
 
-$$
-=
-\frac{1}{5}
-\begin{bmatrix}
-3&-1\\
--1&2
-\end{bmatrix}
-\begin{bmatrix}
-5\\
-7
-\end{bmatrix}
-$$
+$= \frac{1}{5} \begin{bmatrix} 3&-1\\ -1&2 \end{bmatrix} \begin{bmatrix} 5\\ 7 \end{bmatrix}$
 
 First component:
 
-$$
-\frac{15-7}{5}
-=
-\frac{8}{5}
-$$
+$\frac{15-7}{5} = \frac{8}{5}$
 
 Second component:
 
-$$
-\frac{-5+14}{5}
-=
-\frac{9}{5}
-$$
+$\frac{-5+14}{5} = \frac{9}{5}$
 
 Therefore:
 
-$$
-\boxed{
-\mathbf{x}
-=
-\begin{bmatrix}
-1.6\\
-1.8
-\end{bmatrix}}
-$$
+$\boxed{ \mathbf{x} = \begin{bmatrix} 1.6\\ 1.8 \end{bmatrix}}$
 
 ---
 
@@ -3386,28 +2081,15 @@ A rectangular numerical dataset can be represented as a matrix.
 
 Suppose five observations have three numerical variables:
 
-$$
-X=
-\begin{bmatrix}
-x_{11}&x_{12}&x_{13}\\
-x_{21}&x_{22}&x_{23}\\
-x_{31}&x_{32}&x_{33}\\
-x_{41}&x_{42}&x_{43}\\
-x_{51}&x_{52}&x_{53}
-\end{bmatrix}
-$$
+$X= \begin{bmatrix} x_{11}&x_{12}&x_{13}\\ x_{21}&x_{22}&x_{23}\\ x_{31}&x_{32}&x_{33}\\ x_{41}&x_{42}&x_{43}\\ x_{51}&x_{52}&x_{53} \end{bmatrix}$
 
 The matrix has:
 
-$$
-5
-$$
+$5$
 
 rows and:
 
-$$
-3
-$$
+$3$
 
 columns.
 
@@ -3419,55 +2101,21 @@ Rows can represent observations and columns can represent variables, provided th
 
 Suppose:
 
-$$
-A=
-\begin{bmatrix}
-1&2\\
-3&4
-\end{bmatrix}
-$$
+$A= \begin{bmatrix} 1&2\\ 3&4 \end{bmatrix}$
 
 and:
 
-$$
-\mathbf{x}
-=
-\begin{bmatrix}
-5\\
-6
-\end{bmatrix}
-$$
+$\mathbf{x} = \begin{bmatrix} 5\\ 6 \end{bmatrix}$
 
 Then:
 
-$$
-A\mathbf{x}
-=
-\begin{bmatrix}
-1(5)+2(6)\\
-3(5)+4(6)
-\end{bmatrix}
-$$
+$A\mathbf{x} = \begin{bmatrix} 1(5)+2(6)\\ 3(5)+4(6) \end{bmatrix}$
 
-$$
-=
-\begin{bmatrix}
-5+12\\
-15+24
-\end{bmatrix}
-$$
+$= \begin{bmatrix} 5+12\\ 15+24 \end{bmatrix}$
 
 Therefore:
 
-$$
-\boxed{
-A\mathbf{x}
-=
-\begin{bmatrix}
-17\\
-39
-\end{bmatrix}}
-$$
+$\boxed{ A\mathbf{x} = \begin{bmatrix} 17\\ 39 \end{bmatrix}}$
 
 ---
 
@@ -3475,9 +2123,7 @@ $$
 
 A collection of linear equations can be written compactly as:
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 This notation replaces a long list of equations with three mathematical objects:
 
@@ -3493,142 +2139,79 @@ This representation is one of the main reasons matrices are so useful in quantit
 
 ### Vector norm
 
-$$
-\|\mathbf{x}\|_2
-=
-\sqrt{\sum_i x_i^2}
-$$
+$\|\mathbf{x}\|_2 = \sqrt{\sum_i x_i^2}$
 
 ### Euclidean distance
 
-$$
-d(\mathbf{x},\mathbf{y})
-=
-\|\mathbf{x}-\mathbf{y}\|_2
-$$
+$d(\mathbf{x},\mathbf{y}) = \|\mathbf{x}-\mathbf{y}\|_2$
 
 ### Dot product
 
-$$
-\mathbf{x}^T\mathbf{y}
-=
-\sum_i x_iy_i
-$$
+$\mathbf{x}^T\mathbf{y} = \sum_i x_iy_i$
 
 ### Angle between vectors
 
-$$
-\cos\theta
-=
-\frac{\mathbf{x}^T\mathbf{y}}
-{\|\mathbf{x}\|\|\mathbf{y}\|}
-$$
+$\cos\theta = \frac{\mathbf{x}^T\mathbf{y}} {\|\mathbf{x}\|\|\mathbf{y}\|}$
 
 ### Matrix multiplication dimensions
 
-$$
-(m\times n)(n\times p)=m\times p
-$$
+$(m\times n)(n\times p)=m\times p$
 
 ### Determinant of $2\times2$
 
-$$
-\det
-\begin{bmatrix}
-a&b\\
-c&d
-\end{bmatrix}
-=
-ad-bc
-$$
+$\det \begin{bmatrix} a&b\\ c&d \end{bmatrix} = ad-bc$
 
 ### Matrix inverse of $2\times2$
 
-$$
-A^{-1}
-=
-\frac{1}{ad-bc}
-\begin{bmatrix}
-d&-b\\
--c&a
-\end{bmatrix}
-$$
+$A^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d&-b\\ -c&a \end{bmatrix}$
 
 ### Matrix equation
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 ### Solution using inverse
 
-$$
-\mathbf{x}=A^{-1}\mathbf{b}
-$$
+$\mathbf{x}=A^{-1}\mathbf{b}$
 
 when $A^{-1}$ exists.
 
 ### Linear combination
 
-$$
-\sum_i c_i\mathbf{v}_i
-$$
+$\sum_i c_i\mathbf{v}_i$
 
 ### Rank-nullity theorem
 
-$$
-\operatorname{rank}(A)+\operatorname{nullity}(A)=n
-$$
+$\operatorname{rank}(A)+\operatorname{nullity}(A)=n$
 
 for a matrix with $n$ columns.
 
 ### Orthogonality
 
-$$
-\mathbf{x}^T\mathbf{y}=0
-$$
+$\mathbf{x}^T\mathbf{y}=0$
 
 ### Projection
 
-$$
-\operatorname{proj}_{\mathbf{u}}\mathbf{x}
-=
-\frac{\mathbf{x}^T\mathbf{u}}
-{\mathbf{u}^T\mathbf{u}}
-\mathbf{u}
-$$
+$\operatorname{proj}_{\mathbf{u}}\mathbf{x} = \frac{\mathbf{x}^T\mathbf{u}} {\mathbf{u}^T\mathbf{u}} \mathbf{u}$
 
 ### Eigenvalue equation
 
-$$
-A\mathbf{v}=\lambda\mathbf{v}
-$$
+$A\mathbf{v}=\lambda\mathbf{v}$
 
 ### Characteristic equation
 
-$$
-\det(A-\lambda I)=0
-$$
+$\det(A-\lambda I)=0$
 
 ### Diagonalisation
 
-$$
-A=PDP^{-1}
-$$
+$A=PDP^{-1}$
 
 ### SVD
 
-$$
-A=U\Sigma V^T
-$$
+$A=U\Sigma V^T$
 
 ### Frobenius norm
 
-$$
-\|A\|_F
-=
-\sqrt{\sum_i\sum_j a_{ij}^2}
-$$
+$\|A\|_F = \sqrt{\sum_i\sum_j a_{ij}^2}$
 
 ---
 
@@ -3704,9 +2287,7 @@ The dot product provides both an algebraic operation and a geometric interpretat
 
 Matrices can be added, multiplied, transposed, and, when appropriate, inverted. Systems of linear equations can be written compactly as:
 
-$$
-A\mathbf{x}=\mathbf{b}
-$$
+$A\mathbf{x}=\mathbf{b}$
 
 The determinant helps determine whether a square matrix is invertible. Rank describes the number of independent directions represented by a matrix, while the null space describes vectors mapped to zero.
 
@@ -3716,25 +2297,11 @@ Orthogonality and projection describe geometric relationships between vectors. E
 
 Finally, SVD provides a powerful matrix decomposition:
 
-$$
-A=U\Sigma V^T
-$$
+$A=U\Sigma V^T$
 
 The central idea is:
 
-$$
-\boxed{
-\text{Linear Algebra}
-=
-\text{Vectors}
-+
-\text{Matrices}
-+
-\text{Transformations}
-+
-\text{Structure}
-}
-$$
+$\boxed{ \text{Linear Algebra} = \text{Vectors} + \text{Matrices} + \text{Transformations} + \text{Structure} }$
 
 A strong understanding of these foundations makes later mathematical and computational topics much easier to understand.
 
