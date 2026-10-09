@@ -637,9 +637,7 @@ Suppose a list contains 10,000 customers and we need a sample of 1,000 customers
 
 The sampling interval can be calculated as:
 
-$$
-k = \frac{N}{n}
-$$
+$k = \frac{N}{n}$
 
 where:
 
@@ -649,9 +647,7 @@ where:
 
 Substituting:
 
-$$
-k = \frac{10000}{1000} = 10
-$$
+$k = \frac{10000}{1000} = 10$
 
 Therefore, after choosing a suitable random starting point, every 10th customer can be selected.
 
@@ -669,23 +665,15 @@ A stratified sample can preserve these proportions.
 
 If the total sample size is 1,000:
 
-$$
-n_{CSE} = 1000 \times 0.60 = 600
-$$
+$n_{CSE} = 1000 \times 0.60 = 600$
 
-$$
-n_{ECE} = 1000 \times 0.25 = 250
-$$
+$n_{ECE} = 1000 \times 0.25 = 250$
 
-$$
-n_{Mechanical} = 1000 \times 0.15 = 150
-$$
+$n_{Mechanical} = 1000 \times 0.15 = 150$
 
 Thus:
 
-$$
-\boxed{600 + 250 + 150 = 1000}
-$$
+$\boxed{600 + 250 + 150 = 1000}$
 
 Stratification is useful when important subgroups need appropriate representation.
 
@@ -751,21 +739,15 @@ This difference is called **sampling error**.
 
 Suppose the true population mean is:
 
-$$
-\mu = 50
-$$
+$\mu = 50$
 
 and a sample produces:
 
-$$
-\bar{x} = 48
-$$
+$\bar{x} = 48$
 
 The difference is:
 
-$$
-\bar{x} - \mu = 48 - 50 = -2
-$$
+$\bar{x} - \mu = 48 - 50 = -2$
 
 So the sample mean differs from the population mean by 2 units.
 
@@ -873,9 +855,7 @@ We can represent the frequencies as:
 
 The total frequency is:
 
-$$
-1 + 4 + 2 + 1 = 8
-$$
+$1 + 4 + 2 + 1 = 8$
 
 which equals the number of observations.
 
@@ -909,21 +889,15 @@ If:
 
 then:
 
-$$
-R = \frac{f}{n}
-$$
+$R = \frac{f}{n}$
 
 If a category occurs 20 times in 100 observations:
 
-$$
-R = \frac{20}{100} = 0.20
-$$
+$R = \frac{20}{100} = 0.20$
 
 As a percentage:
 
-$$
-0.20 \times 100 = 20\%
-$$
+$0.20 \times 100 = 20\%$
 
 Therefore, the category represents **20% of the observations**.
 
@@ -935,9 +909,7 @@ Statistical notation provides a compact language for describing data and calcula
 
 Suppose the observations are:
 
-$$
-x_1, x_2, x_3, \ldots, x_n
-$$
+$x_1, x_2, x_3, \ldots, x_n$
 
 where:
 
@@ -950,15 +922,11 @@ The symbol $\sum$ represents addition.
 
 For example:
 
-$$
-\sum_{i=1}^{n} x_i
-$$
+$\sum_{i=1}^{n} x_i$
 
 means:
 
-$$
-x_1 + x_2 + x_3 + \cdots + x_n
-$$
+$x_1 + x_2 + x_3 + \cdots + x_n$
 
 If the observations are:
 
@@ -968,23 +936,17 @@ If the observations are:
 
 then:
 
-$$
-\sum_{i=1}^{3}x_i = 10 + 20 + 30 = 60
-$$
+$\sum_{i=1}^{3}x_i = 10 + 20 + 30 = 60$
 
 ### Mean Notation
 
 The sample mean is written as:
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
 
 The population mean is written as:
 
-$$
-\mu = \frac{\sum_{i=1}^{N}x_i}{N}
-$$
+$\mu = \frac{\sum_{i=1}^{N}x_i}{N}$
 
 The difference in notation reminds us whether we are describing a sample or the entire population.
 
@@ -998,9 +960,7 @@ The arithmetic mean is obtained by adding all observations and dividing by the n
 
 For the sample:
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
 
 ### Worked Example
 
@@ -1012,27 +972,19 @@ Consider:
 
 Step 1: Add the values.
 
-$$
-10 + 20 + 30 + 40 + 50 = 150
-$$
+$10 + 20 + 30 + 40 + 50 = 150$
 
 Step 2: Count the observations.
 
-$$
-n = 5
-$$
+$n = 5$
 
 Step 3: Apply the formula.
 
-$$
-\bar{x} = \frac{150}{5}
-$$
+$\bar{x} = \frac{150}{5}$
 
 Therefore:
 
-$$
-\boxed{\bar{x} = 30}
-$$
+$\boxed{\bar{x} = 30}$
 
 The average value is **30**.
 
@@ -1044,9 +996,7 @@ Sometimes different observations have different importance or weights.
 
 The weighted mean is:
 
-$$
-\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}
-$$
+$\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
 
 where:
 
@@ -1065,39 +1015,25 @@ Suppose three components have scores and weights:
 
 First calculate weighted scores:
 
-$$
-80(2)=160
-$$
+$80(2)=160$
 
-$$
-70(3)=210
-$$
+$70(3)=210$
 
-$$
-90(5)=450
-$$
+$90(5)=450$
 
 Then:
 
-$$
-\sum w_i x_i = 160 + 210 + 450 = 820
-$$
+$\sum w_i x_i = 160 + 210 + 450 = 820$
 
 and:
 
-$$
-\sum w_i = 2 + 3 + 5 = 10
-$$
+$\sum w_i = 2 + 3 + 5 = 10$
 
 Therefore:
 
-$$
-\bar{x}_w = \frac{820}{10}
-$$
+$\bar{x}_w = \frac{820}{10}$
 
-$$
-\boxed{\bar{x}_w = 82}
-$$
+$\boxed{\bar{x}_w = 82}$
 
 ---
 
@@ -1105,9 +1041,7 @@ $$
 
 The **range** is the difference between the largest and smallest observations.
 
-$$
-R = x_{\max} - x_{\min}
-$$
+$R = x_{\max} - x_{\min}$
 
 For:
 
@@ -1117,23 +1051,15 @@ For:
 
 we have:
 
-$$
-x_{\max}=30
-$$
+$x_{\max}=30$
 
-$$
-x_{\min}=12
-$$
+$x_{\min}=12$
 
 Therefore:
 
-$$
-R = 30 - 12 = 18
-$$
+$R = 30 - 12 = 18$
 
-$$
-\boxed{R=18}
-$$
+$\boxed{R=18}$
 
 The range gives a simple measure of spread, but it depends only on the two extreme observations.
 
@@ -1143,23 +1069,15 @@ The range gives a simple measure of spread, but it depends only on the two extre
 
 A percentage expresses a part relative to a whole.
 
-$$
-P = \frac{\text{Part}}{\text{Whole}}\times100
-$$
+$P = \frac{\text{Part}}{\text{Whole}}\times100$
 
 Suppose 72 out of 90 students passed.
 
-$$
-P = \frac{72}{90}\times100
-$$
+$P = \frac{72}{90}\times100$
 
-$$
-P = 0.8\times100
-$$
+$P = 0.8\times100$
 
-$$
-\boxed{P=80\%}
-$$
+$\boxed{P=80\%}$
 
 ---
 
@@ -1167,21 +1085,15 @@ $$
 
 A proportion is the fraction of the whole represented by a particular part.
 
-$$
-p = \frac{x}{n}
-$$
+$p = \frac{x}{n}$
 
 For 72 successful outcomes out of 90:
 
-$$
-p = \frac{72}{90}=0.8
-$$
+$p = \frac{72}{90}=0.8$
 
 Thus the proportion is:
 
-$$
-\boxed{p=0.8}
-$$
+$\boxed{p=0.8}$
 
 and the corresponding percentage is 80%.
 
@@ -1245,9 +1157,7 @@ Studying all 10,000 students may require substantial time and resources, so the 
 
 The population is:
 
-$$
-N = 10000
-$$
+$N = 10000$
 
 Therefore, the population consists of all 10,000 students.
 
@@ -1255,9 +1165,7 @@ Therefore, the population consists of all 10,000 students.
 
 The university selects:
 
-$$
-n = 500
-$$
+$n = 500$
 
 students.
 
@@ -1275,27 +1183,19 @@ Because time can take decimal values, it is generally treated as a **continuous*
 
 Suppose the total study hours recorded across the 500 students is:
 
-$$
-\sum_{i=1}^{500}x_i = 1750
-$$
+$\sum_{i=1}^{500}x_i = 1750$
 
 The sample mean is:
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
 
 Substitute the values:
 
-$$
-\bar{x} = \frac{1750}{500}
-$$
+$\bar{x} = \frac{1750}{500}$
 
 Therefore:
 
-$$
-\boxed{\bar{x}=3.5\text{ hours}}
-$$
+$\boxed{\bar{x}=3.5\text{ hours}}$
 
 The average study time in the sample is **3.5 hours per day**.
 
@@ -1382,9 +1282,7 @@ Incorrect, incomplete, or poorly collected data can produce misleading statistic
 
 ### Sampling Interval
 
-$$
-k = \frac{N}{n}
-$$
+$k = \frac{N}{n}$
 
 where:
 
@@ -1394,9 +1292,7 @@ where:
 
 ### Relative Frequency
 
-$$
-R = \frac{f}{n}
-$$
+$R = \frac{f}{n}$
 
 where:
 
@@ -1405,39 +1301,27 @@ where:
 
 ### Sample Mean
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
 
 ### Population Mean
 
-$$
-\mu = \frac{\sum_{i=1}^{N}x_i}{N}
-$$
+$\mu = \frac{\sum_{i=1}^{N}x_i}{N}$
 
 ### Weighted Mean
 
-$$
-\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}
-$$
+$\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
 
 ### Range
 
-$$
-R = x_{\max}-x_{\min}
-$$
+$R = x_{\max}-x_{\min}$
 
 ### Proportion
 
-$$
-p = \frac{x}{n}
-$$
+$p = \frac{x}{n}$
 
 ### Percentage
 
-$$
-P = \frac{\text{Part}}{\text{Whole}}\times100
-$$
+$P = \frac{\text{Part}}{\text{Whole}}\times100$
 
 ---
 
