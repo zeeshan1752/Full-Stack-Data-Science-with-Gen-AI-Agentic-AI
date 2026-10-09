@@ -21,12 +21,7 @@ The three main applications covered in this chapter are:
 
 The calculations are based on:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2 = \sum \frac{(O-E)^2}{E}$
 
 where:
 
@@ -55,13 +50,9 @@ A **frequency** tells us how many observations fall into a category.
 
 The total sample size is:
 
-$$
-N=25+45+30
-$$
+$N=25+45+30$
 
-$$
-\boxed{N=100}
-$$
+$\boxed{N=100}$
 
 Chi-square methods work primarily with these frequency counts.
 
@@ -73,9 +64,7 @@ The **observed frequency**, denoted by $O$, is the actual number of observations
 
 For example, if 45 customers prefer card payment:
 
-$$
-O=45
-$$
+$O=45$
 
 Observed frequencies come directly from the collected data.
 
@@ -89,9 +78,7 @@ Expected frequencies are not necessarily whole numbers.
 
 For example:
 
-$$
-E=25.5
-$$
+$E=25.5$
 
 is perfectly valid as an expected frequency.
 
@@ -103,12 +90,7 @@ The chi-square statistic measures the difference between observed and expected f
 
 The general chi-square statistic is:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2 = \sum \frac{(O-E)^2}{E}$
 
 For each category:
 
@@ -125,43 +107,29 @@ A large difference between observed and expected frequencies produces a larger c
 
 Suppose:
 
-$$
-O=30
-$$
+$O=30$
 
 and:
 
-$$
-E=25
-$$
+$E=25$
 
 Then:
 
-$$
-O-E=30-25
-$$
+$O-E=30-25$
 
-$$
-=5
-$$
+$=5$
 
 Square the difference:
 
-$$
-(5)^2=25
-$$
+$(5)^2=25$
 
 Divide by expected frequency:
 
-$$
-\frac{25}{25}=1
-$$
+$\frac{25}{25}=1$
 
 Therefore, this category contributes:
 
-$$
-\boxed{1}
-$$
+$\boxed{1}$
 
 to the total chi-square statistic.
 
@@ -171,9 +139,7 @@ to the total chi-square statistic.
 
 The difference:
 
-$$
-O-E
-$$
+$O-E$
 
 can be positive or negative.
 
@@ -181,15 +147,11 @@ If we simply added these differences, positive and negative deviations could can
 
 Squaring makes every contribution nonnegative:
 
-$$
-(O-E)^2\ge0
-$$
+$(O-E)^2\ge0$
 
 Therefore:
 
-$$
-\chi^2\ge0
-$$
+$\chi^2\ge0$
 
 A value of zero occurs only when observed frequencies exactly equal expected frequencies in every category.
 
@@ -242,23 +204,15 @@ A sample can be tested to determine whether its observed category counts are con
 
 Suppose the expected category proportions are:
 
-$$
-p_1,\ p_2,\ldots,p_k
-$$
+$p_1,\ p_2,\ldots,p_k$
 
 The null hypothesis states:
 
-$$
-H_0:
-\text{The population category proportions follow the specified distribution}
-$$
+$H_0: \text{The population category proportions follow the specified distribution}$
 
 The alternative states:
 
-$$
-H_a:
-\text{The population category proportions do not follow the specified distribution}
-$$
+$H_a: \text{The population category proportions do not follow the specified distribution}$
 
 The null hypothesis defines the expected frequencies.
 
@@ -268,9 +222,7 @@ The null hypothesis defines the expected frequencies.
 
 If the total sample size is $N$ and the expected proportion for category $i$ is $p_i$, then:
 
-$$
-E_i=Np_i
-$$
+$E_i=Np_i$
 
 where:
 
@@ -284,9 +236,7 @@ where:
 
 Suppose:
 
-$$
-N=200
-$$
+$N=200$
 
 and the expected proportions are:
 
@@ -298,39 +248,25 @@ and the expected proportions are:
 
 For Category A:
 
-$$
-E_A=200(0.50)
-$$
+$E_A=200(0.50)$
 
-$$
-\boxed{E_A=100}
-$$
+$\boxed{E_A=100}$
 
 For Category B:
 
-$$
-E_B=200(0.30)
-$$
+$E_B=200(0.30)$
 
-$$
-\boxed{E_B=60}
-$$
+$\boxed{E_B=60}$
 
 For Category C:
 
-$$
-E_C=200(0.20)
-$$
+$E_C=200(0.20)$
 
-$$
-\boxed{E_C=40}
-$$
+$\boxed{E_C=40}$
 
 Check:
 
-$$
-100+60+40=200
-$$
+$100+60+40=200$
 
 The expected frequencies must add to the total sample size.
 
@@ -368,55 +304,31 @@ Expected frequencies are:
 
 For Product A:
 
-$$
-\frac{(90-100)^2}{100}
-$$
+$\frac{(90-100)^2}{100}$
 
-$$
-=
-\frac{100}{100}
-$$
+$= \frac{100}{100}$
 
-$$
-=1
-$$
+$=1$
 
 For Product B:
 
-$$
-\frac{(70-60)^2}{60}
-$$
+$\frac{(70-60)^2}{60}$
 
-$$
-=
-\frac{100}{60}
-$$
+$= \frac{100}{60}$
 
-$$
-\approx1.6667
-$$
+$\approx1.6667$
 
 For Product C:
 
-$$
-\frac{(40-40)^2}{40}
-$$
+$\frac{(40-40)^2}{40}$
 
-$$
-=0
-$$
+$=0$
 
 Therefore:
 
-$$
-\chi^2
-=
-1+1.6667+0
-$$
+$\chi^2 = 1+1.6667+0$
 
-$$
-\boxed{\chi^2\approx2.667}
-$$
+$\boxed{\chi^2\approx2.667}$
 
 ---
 
@@ -424,27 +336,19 @@ $$
 
 If there are $k$ categories and no parameters are estimated from the data, the degrees of freedom are:
 
-$$
-df=k-1
-$$
+$df=k-1$
 
 For three categories:
 
-$$
-df=3-1
-$$
+$df=3-1$
 
-$$
-\boxed{df=2}
-$$
+$\boxed{df=2}$
 
 When parameters are estimated from the same data, the degrees of freedom may need adjustment.
 
 A general form is:
 
-$$
-df=k-1-m
-$$
+$df=k-1-m$
 
 where $m$ is the number of independently estimated parameters used to determine the expected probabilities.
 
@@ -454,47 +358,33 @@ where $m$ is the number of independently estimated parameters used to determine 
 
 For the previous example:
 
-$$
-\chi^2\approx2.667
-$$
+$\chi^2\approx2.667$
 
 and:
 
-$$
-df=2
-$$
+$df=2$
 
 The p-value is obtained from the chi-square distribution.
 
 Using the chi-square survival probability:
 
-$$
-p=P(\chi^2_2\ge2.667)
-$$
+$p=P(\chi^2_2\ge2.667)$
 
 which is approximately:
 
-$$
-p\approx0.264
-$$
+$p\approx0.264$
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we have:
 
-$$
-0.264>0.05
-$$
+$0.264>0.05$
 
 Therefore:
 
-$$
-\boxed{\text{Fail to reject }H_0}
-$$
+$\boxed{\text{Fail to reject }H_0}$
 
 There is not sufficient statistical evidence that the observed product distribution differs from the specified expected distribution.
 
@@ -536,17 +426,11 @@ The cells contain observed frequencies.
 
 For a test of independence:
 
-$$
-H_0:
-\text{The two categorical variables are independent}
-$$
+$H_0: \text{The two categorical variables are independent}$
 
 and:
 
-$$
-H_a:
-\text{The two categorical variables are associated}
-$$
+$H_a: \text{The two categorical variables are associated}$
 
 Independence means that knowing the category of one variable does not provide information about the category of the other variable, under the population model.
 
@@ -556,15 +440,7 @@ Independence means that knowing the category of one variable does not provide in
 
 For each cell:
 
-$$
-E_{ij}
-=
-\frac{
-(\text{Row Total})(\text{Column Total})
-}{
-\text{Grand Total}
-}
-$$
+$E_{ij} = \frac{ (\text{Row Total})(\text{Column Total}) }{ \text{Grand Total} }$
 
 This is one of the most important formulas in the chi-square test of independence.
 
@@ -578,36 +454,23 @@ Using the previous table, consider the cell:
 
 The row total is:
 
-$$
-100
-$$
+$100$
 
 The Cash column total is:
 
-$$
-50
-$$
+$50$
 
 The grand total is:
 
-$$
-200
-$$
+$200$
 
 Therefore:
 
-$$
-E=
-\frac{100(50)}{200}
-$$
+$E= \frac{100(50)}{200}$
 
-$$
-=\frac{5000}{200}
-$$
+$=\frac{5000}{200}$
 
-$$
-\boxed{E=25}
-$$
+$\boxed{E=25}$
 
 The observed frequency was 20.
 
@@ -629,35 +492,23 @@ Expected frequencies:
 
 ### New–Cash
 
-$$
-E=\frac{100(50)}{200}=25
-$$
+$E=\frac{100(50)}{200}=25$
 
 ### New–Card
 
-$$
-E=\frac{100(70)}{200}=35
-$$
+$E=\frac{100(70)}{200}=35$
 
 ### New–UPI
 
-$$
-E=\frac{100(80)}{200}=40
-$$
+$E=\frac{100(80)}{200}=40$
 
 For Returning customers, the row total is also 100:
 
-$$
-E_{Returning,Cash}=25
-$$
+$E_{Returning,Cash}=25$
 
-$$
-E_{Returning,Card}=35
-$$
+$E_{Returning,Card}=35$
 
-$$
-E_{Returning,UPI}=40
-$$
+$E_{Returning,UPI}=40$
 
 Expected table:
 
@@ -672,76 +523,39 @@ Expected table:
 
 The statistic remains:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2 = \sum \frac{(O-E)^2}{E}$
 
 Calculate each cell contribution.
 
 For New–Cash:
 
-$$
-\frac{(20-25)^2}{25}
-=
-\frac{25}{25}
-=
-1
-$$
+$\frac{(20-25)^2}{25} = \frac{25}{25} = 1$
 
 For New–Card:
 
-$$
-\frac{(30-35)^2}{35}
-=
-\frac{25}{35}
-\approx0.7143
-$$
+$\frac{(30-35)^2}{35} = \frac{25}{35} \approx0.7143$
 
 For New–UPI:
 
-$$
-\frac{(50-40)^2}{40}
-=
-\frac{100}{40}
-=
-2.5
-$$
+$\frac{(50-40)^2}{40} = \frac{100}{40} = 2.5$
 
 For Returning–Cash:
 
-$$
-\frac{(30-25)^2}{25}
-=1
-$$
+$\frac{(30-25)^2}{25} =1$
 
 For Returning–Card:
 
-$$
-\frac{(40-35)^2}{35}
-\approx0.7143
-$$
+$\frac{(40-35)^2}{35} \approx0.7143$
 
 For Returning–UPI:
 
-$$
-\frac{(30-40)^2}{40}
-=2.5
-$$
+$\frac{(30-40)^2}{40} =2.5$
 
 Therefore:
 
-$$
-\chi^2
-=
-1+0.7143+2.5+1+0.7143+2.5
-$$
+$\chi^2 = 1+0.7143+2.5+1+0.7143+2.5$
 
-$$
-\boxed{\chi^2\approx8.4286}
-$$
+$\boxed{\chi^2\approx8.4286}$
 
 ---
 
@@ -754,23 +568,15 @@ For a contingency table with:
 
 the degrees of freedom are:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 For the 2 × 3 table:
 
-$$
-df=(2-1)(3-1)
-$$
+$df=(2-1)(3-1)$
 
-$$
-=1(2)
-$$
+$=1(2)$
 
-$$
-\boxed{df=2}
-$$
+$\boxed{df=2}$
 
 ---
 
@@ -778,39 +584,27 @@ $$
 
 Suppose the test produces:
 
-$$
-\chi^2=8.43
-$$
+$\chi^2=8.43$
 
 with:
 
-$$
-df=2
-$$
+$df=2$
 
 and:
 
-$$
-p\approx0.0148
-$$
+$p\approx0.0148$
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we have:
 
-$$
-0.0148<0.05
-$$
+$0.0148<0.05$
 
 Therefore:
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 There is sufficient statistical evidence of an association between customer type and preferred payment method.
 
@@ -851,17 +645,11 @@ We may ask whether the distribution of transport preference is the same across t
 
 The null hypothesis is:
 
-$$
-H_0:
-\text{The categorical distribution is the same across the groups}
-$$
+$H_0: \text{The categorical distribution is the same across the groups}$
 
 The alternative is:
 
-$$
-H_a:
-\text{At least one group has a different categorical distribution}
-$$
+$H_a: \text{At least one group has a different categorical distribution}$
 
 The calculation is the same general chi-square framework used for contingency tables.
 
@@ -899,11 +687,7 @@ A contingency table can be represented as:
 
 The expected frequency for cell $(i,j)$ is:
 
-$$
-E_{ij}
-=
-\frac{R_iC_j}{N}
-$$
+$E_{ij} = \frac{R_iC_j}{N}$
 
 ---
 
@@ -915,15 +699,11 @@ The chi-square statistic asks:
 
 If:
 
-$$
-O=E
-$$
+$O=E$
 
 then:
 
-$$
-\frac{(O-E)^2}{E}=0
-$$
+$\frac{(O-E)^2}{E}=0$
 
 No discrepancy is contributed.
 
@@ -937,11 +717,7 @@ Therefore, the total $\chi^2$ statistic measures the overall discrepancy between
 
 For each cell, we can calculate:
 
-$$
-Contribution_{ij}
-=
-\frac{(O_{ij}-E_{ij})^2}{E_{ij}}
-$$
+$Contribution_{ij} = \frac{(O_{ij}-E_{ij})^2}{E_{ij}}$
 
 A large contribution means that the cell contributes substantially to the overall chi-square statistic.
 
@@ -953,29 +729,15 @@ However, a large contribution does not by itself establish the overall test conc
 
 A useful diagnostic for contingency tables is the Pearson residual:
 
-$$
-r_{ij}
-=
-\frac{O_{ij}-E_{ij}}
-{\sqrt{E_{ij}}}
-$$
+$r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}}$
 
 The squared Pearson residual is:
 
-$$
-r_{ij}^2
-=
-\frac{(O_{ij}-E_{ij})^2}
-{E_{ij}}
-$$
+$r_{ij}^2 = \frac{(O_{ij}-E_{ij})^2} {E_{ij}}$
 
 Therefore, the chi-square statistic can be written as:
 
-$$
-\chi^2
-=
-\sum r_{ij}^2
-$$
+$\chi^2 = \sum r_{ij}^2$
 
 Large positive residuals indicate observed counts above expectation.
 
@@ -989,9 +751,7 @@ The chi-square approximation works best when expected frequencies are sufficient
 
 A commonly taught rule is that expected frequencies should generally not be too small, with many introductory treatments using:
 
-$$
-E\ge5
-$$
+$E\ge5$
 
 as a practical guideline.
 
@@ -1023,14 +783,7 @@ For a 2 × 2 contingency table, a continuity correction such as **Yates' correct
 
 The corrected statistic is:
 
-$$
-\chi^2_Y
-=
-\sum
-\frac{
-(|O-E|-0.5)^2
-}{E}
-$$
+$\chi^2_Y = \sum \frac{ (|O-E|-0.5)^2 }{E}$
 
 The correction reduces the discrepancy slightly.
 
@@ -1065,13 +818,7 @@ For a contingency table, a common effect-size measure is **Cramer's V**.
 
 For a table with $r$ rows and $c$ columns:
 
-$$
-V=
-\sqrt{
-\frac{\chi^2}
-{N\min(r-1,c-1)}
-}
-$$
+$V= \sqrt{ \frac{\chi^2} {N\min(r-1,c-1)} }$
 
 where:
 
@@ -1086,50 +833,27 @@ where:
 
 Suppose:
 
-$$
-\chi^2=8.4286
-$$
+$\chi^2=8.4286$
 
 for a 2 × 3 table with:
 
-$$
-N=200
-$$
+$N=200$
 
 Then:
 
-$$
-\min(r-1,c-1)
-=
-\min(1,2)
-=
-1
-$$
+$\min(r-1,c-1) = \min(1,2) = 1$
 
 Therefore:
 
-$$
-V=
-\sqrt{
-\frac{8.4286}
-{200(1)}
-}
-$$
+$V= \sqrt{ \frac{8.4286} {200(1)} }$
 
-$$
-=
-\sqrt{0.042143}
-$$
+$= \sqrt{0.042143}$
 
-$$
-\approx0.205
-$$
+$\approx0.205$
 
 Therefore:
 
-$$
-\boxed{V\approx0.205}
-$$
+$\boxed{V\approx0.205}$
 
 The size of an association should be interpreted using context rather than applying universal labels mechanically.
 
@@ -1139,20 +863,13 @@ The size of an association should be interpreted using context rather than apply
 
 For a 2 × 2 table, the **phi coefficient** can be written as:
 
-$$
-\phi=
-\sqrt{
-\frac{\chi^2}{N}
-}
-$$
+$\phi= \sqrt{ \frac{\chi^2}{N} }$
 
 For a 2 × 2 table, phi and Cramer's V are equivalent in magnitude.
 
 Phi can range from:
 
-$$
--1\le\phi\le1
-$$
+$-1\le\phi\le1$
 
 when interpreted as a signed association measure under appropriate coding, while the Cramer's V formulation is nonnegative.
 
@@ -1164,9 +881,7 @@ A chi-square test can be related to tests of proportions in certain 2 × 2 setti
 
 For a 2 × 2 table, the Pearson chi-square statistic and the corresponding two-sided two-proportion z-test are closely related:
 
-$$
-\chi^2=z^2
-$$
+$\chi^2=z^2$
 
 under the equivalent large-sample setup.
 
@@ -1178,23 +893,15 @@ This relationship helps connect categorical-data methods.
 
 Suppose a two-proportion test produces:
 
-$$
-z=2
-$$
+$z=2$
 
 Then:
 
-$$
-\chi^2=z^2
-$$
+$\chi^2=z^2$
 
-$$
-=2^2
-$$
+$=2^2$
 
-$$
-\boxed{\chi^2=4}
-$$
+$\boxed{\chi^2=4}$
 
 The corresponding two-sided tests lead to equivalent large-sample significance conclusions under the same setup.
 
@@ -1214,15 +921,9 @@ We want to test whether study method and pass/fail status are independent.
 
 Hypotheses:
 
-$$
-H_0:
-\text{Study method and outcome are independent}
-$$
+$H_0: \text{Study method and outcome are independent}$
 
-$$
-H_a:
-\text{Study method and outcome are associated}
-$$
+$H_a: \text{Study method and outcome are associated}$
 
 ---
 
@@ -1230,37 +931,23 @@ $$
 
 For Method A–Pass:
 
-$$
-E=
-\frac{100(120)}{200}
-$$
+$E= \frac{100(120)}{200}$
 
-$$
-=60
-$$
+$=60$
 
 For Method A–Fail:
 
-$$
-E=
-\frac{100(80)}{200}
-$$
+$E= \frac{100(80)}{200}$
 
-$$
-=40
-$$
+$=40$
 
 Because Method B also has a row total of 100:
 
-$$
-E_{B,Pass}=60
-$$
+$E_{B,Pass}=60$
 
 and:
 
-$$
-E_{B,Fail}=40
-$$
+$E_{B,Fail}=40$
 
 Expected table:
 
@@ -1277,57 +964,31 @@ Contributions:
 
 Method A–Pass:
 
-$$
-\frac{(70-60)^2}{60}
-=
-\frac{100}{60}
-\approx1.6667
-$$
+$\frac{(70-60)^2}{60} = \frac{100}{60} \approx1.6667$
 
 Method A–Fail:
 
-$$
-\frac{(30-40)^2}{40}
-=
-\frac{100}{40}
-=2.5
-$$
+$\frac{(30-40)^2}{40} = \frac{100}{40} =2.5$
 
 Method B–Pass:
 
-$$
-\frac{(50-60)^2}{60}
-\approx1.6667
-$$
+$\frac{(50-60)^2}{60} \approx1.6667$
 
 Method B–Fail:
 
-$$
-\frac{(50-40)^2}{40}
-=2.5
-$$
+$\frac{(50-40)^2}{40} =2.5$
 
 Therefore:
 
-$$
-\chi^2
-=
-1.6667+2.5+1.6667+2.5
-$$
+$\chi^2 = 1.6667+2.5+1.6667+2.5$
 
-$$
-\boxed{\chi^2\approx8.3334}
-$$
+$\boxed{\chi^2\approx8.3334}$
 
 Degrees of freedom:
 
-$$
-df=(2-1)(2-1)
-$$
+$df=(2-1)(2-1)$
 
-$$
-\boxed{df=1}
-$$
+$\boxed{df=1}$
 
 This would provide evidence of an association at the 5% level because the corresponding p-value is below 0.05.
 
@@ -1365,18 +1026,11 @@ The numerical calculations can be identical.
 
 For example, a 3 × 4 table can be analysed with the same:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2 = \sum \frac{(O-E)^2}{E}$
 
 and:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 The difference is how the data were sampled and how the question is phrased.
 
@@ -1454,9 +1108,7 @@ Therefore, ordinary chi-square formulas should not automatically be applied to c
 
 An expected frequency of zero creates a problem because:
 
-$$
-\frac{(O-E)^2}{E}
-$$
+$\frac{(O-E)^2}{E}$
 
 would involve division by zero.
 
@@ -1472,15 +1124,11 @@ Observed and expected frequencies represent counts or expected counts.
 
 Therefore:
 
-$$
-O\ge0
-$$
+$O\ge0$
 
 and:
 
-$$
-E\ge0
-$$
+$E\ge0$
 
 Negative frequencies are not meaningful.
 
@@ -1508,27 +1156,19 @@ Suppose two analyses produce:
 
 ### Analysis A
 
-$$
-p<0.001
-$$
+$p<0.001$
 
 with:
 
-$$
-V=0.08
-$$
+$V=0.08$
 
 ### Analysis B
 
-$$
-p=0.02
-$$
+$p=0.02$
 
 with:
 
-$$
-V=0.35
-$$
+$V=0.35$
 
 Analysis A may have stronger statistical evidence because of a larger sample, while Analysis B may show a stronger association.
 
@@ -1542,24 +1182,15 @@ After a significant chi-square test, cell-level residuals can help identify wher
 
 The Pearson residual is:
 
-$$
-r_{ij}
-=
-\frac{O_{ij}-E_{ij}}
-{\sqrt{E_{ij}}}
-$$
+$r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}}$
 
 A positive residual indicates:
 
-$$
-O_{ij}>E_{ij}
-$$
+$O_{ij}>E_{ij}$
 
 A negative residual indicates:
 
-$$
-O_{ij}<E_{ij}
-$$
+$O_{ij}<E_{ij}$
 
 Large absolute residuals identify cells that contribute substantially to the overall discrepancy.
 
@@ -1571,34 +1202,23 @@ Adjusted residuals may be used when making more formal cell-level interpretation
 
 Suppose:
 
-$$
-O=70
-$$
+$O=70$
 
 and:
 
-$$
-E=60
-$$
+$E=60$
 
 Then:
 
-$$
-O-E=10
-$$
+$O-E=10$
 
 The cell contains more observations than would be expected under the null model.
 
 The Pearson residual is:
 
-$$
-r=
-\frac{10}{\sqrt{60}}
-$$
+$r= \frac{10}{\sqrt{60}}$
 
-$$
-\approx1.291
-$$
+$\approx1.291$
 
 This suggests a positive contribution to the overall chi-square statistic.
 
@@ -1625,23 +1245,11 @@ Any follow-up testing should account for multiple comparisons.
 
 For a 2 × 2 table, the uncorrected Pearson statistic is:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2 = \sum \frac{(O-E)^2}{E}$
 
 A continuity-corrected version uses:
 
-$$
-\chi^2_Y
-=
-\sum
-\frac{
-(|O-E|-0.5)^2
-}{E}
-$$
+$\chi^2_Y = \sum \frac{ (|O-E|-0.5)^2 }{E}$
 
 The correction generally makes the test more conservative.
 
@@ -1668,21 +1276,15 @@ The chi-square distribution depends on degrees of freedom.
 
 For:
 
-$$
-df
-$$
+$df$
 
 degrees of freedom, we write:
 
-$$
-\chi^2_{df}
-$$
+$\chi^2_{df}$
 
 The distribution is nonnegative:
 
-$$
-\chi^2\ge0
-$$
+$\chi^2\ge0$
 
 It is generally right-skewed for small degrees of freedom and becomes more symmetric as degrees of freedom increase.
 
@@ -1696,17 +1298,13 @@ Degrees of freedom represent the number of independent pieces of information ava
 
 For goodness-of-fit with $k$ categories and fixed expected proportions:
 
-$$
-df=k-1
-$$
+$df=k-1$
 
 The reason is that once $k-1$ category counts are known, the final category is determined by the fixed total.
 
 For a contingency table:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 because row and column totals impose constraints.
 
@@ -1716,31 +1314,21 @@ because row and column totals impose constraints.
 
 Suppose a contingency table has:
 
-$$
-r=4
-$$
+$r=4$
 
 rows and:
 
-$$
-c=3
-$$
+$c=3$
 
 columns.
 
 Then:
 
-$$
-df=(4-1)(3-1)
-$$
+$df=(4-1)(3-1)$
 
-$$
-=3(2)
-$$
+$=3(2)$
 
-$$
-\boxed{df=6}
-$$
+$\boxed{df=6}$
 
 The chi-square statistic is compared with a chi-square distribution with 6 degrees of freedom.
 
@@ -1752,48 +1340,29 @@ Suppose a die is claimed to be fair.
 
 The categories are:
 
-$$
-1,2,3,4,5,6
-$$
+$1,2,3,4,5,6$
 
 The null hypothesis is:
 
-$$
-H_0:
-p_1=p_2=p_3=p_4=p_5=p_6=\frac16
-$$
+$H_0: p_1=p_2=p_3=p_4=p_5=p_6=\frac16$
 
 The alternative is:
 
-$$
-H_a:
-\text{The die does not follow the specified fair-die distribution}
-$$
+$H_a: \text{The die does not follow the specified fair-die distribution}$
 
 If 600 rolls are observed, the expected frequency for each face is:
 
-$$
-E=600\left(\frac16\right)
-$$
+$E=600\left(\frac16\right)$
 
-$$
-\boxed{E=100}
-$$
+$\boxed{E=100}$
 
 Observed counts can then be compared with 100 using:
 
-$$
-\chi^2
-=
-\sum_{i=1}^{6}
-\frac{(O_i-100)^2}{100}
-$$
+$\chi^2 = \sum_{i=1}^{6} \frac{(O_i-100)^2}{100}$
 
 Degrees of freedom:
 
-$$
-df=6-1=5
-$$
+$df=6-1=5$
 
 ---
 
@@ -1812,53 +1381,31 @@ Suppose the observed frequencies are:
 
 Each expected frequency is:
 
-$$
-E=100
-$$
+$E=100$
 
 Calculate contributions:
 
-$$
-\frac{(90-100)^2}{100}=1
-$$
+$\frac{(90-100)^2}{100}=1$
 
-$$
-\frac{(110-100)^2}{100}=1
-$$
+$\frac{(110-100)^2}{100}=1$
 
-$$
-\frac{(95-100)^2}{100}=0.25
-$$
+$\frac{(95-100)^2}{100}=0.25$
 
-$$
-\frac{(105-100)^2}{100}=0.25
-$$
+$\frac{(105-100)^2}{100}=0.25$
 
-$$
-\frac{(120-100)^2}{100}=4
-$$
+$\frac{(120-100)^2}{100}=4$
 
-$$
-\frac{(80-100)^2}{100}=4
-$$
+$\frac{(80-100)^2}{100}=4$
 
 Therefore:
 
-$$
-\chi^2
-=
-1+1+0.25+0.25+4+4
-$$
+$\chi^2 = 1+1+0.25+0.25+4+4$
 
-$$
-\boxed{\chi^2=10.5}
-$$
+$\boxed{\chi^2=10.5}$
 
 Degrees of freedom:
 
-$$
-df=5
-$$
+$df=5$
 
 The corresponding p-value can be obtained from the chi-square distribution.
 
@@ -1872,15 +1419,11 @@ For a contingency table:
 
 State:
 
-$$
-H_0:\text{variables are independent}
-$$
+$H_0:\text{variables are independent}$
 
 and:
 
-$$
-H_a:\text{variables are associated}
-$$
+$H_a:\text{variables are associated}$
 
 ### Step 2
 
@@ -1890,28 +1433,19 @@ Calculate row totals, column totals, and grand total.
 
 Calculate each expected frequency:
 
-$$
-E_{ij}=
-\frac{R_iC_j}{N}
-$$
+$E_{ij}= \frac{R_iC_j}{N}$
 
 ### Step 4
 
 Calculate:
 
-$$
-\chi^2=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2= \sum \frac{(O-E)^2}{E}$
 
 ### Step 5
 
 Calculate:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 ### Step 6
 
@@ -1939,20 +1473,13 @@ State the expected population proportions.
 
 Calculate expected frequencies:
 
-$$
-E_i=Np_i
-$$
+$E_i=Np_i$
 
 ### Step 3
 
 Calculate:
 
-$$
-\chi^2
-=
-\sum
-\frac{(O_i-E_i)^2}{E_i}
-$$
+$\chi^2 = \sum \frac{(O_i-E_i)^2}{E_i}$
 
 ### Step 4
 
@@ -1960,9 +1487,7 @@ Calculate degrees of freedom.
 
 For fixed expected proportions:
 
-$$
-df=k-1
-$$
+$df=k-1$
 
 ### Step 5
 
@@ -1996,9 +1521,7 @@ Expected counts can be decimals.
 
 For a contingency table:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 ### Mistake 5: Saying a significant independence test proves causation
 
@@ -2071,10 +1594,7 @@ This interpretation avoids saying that the expected distribution has been "prove
 1. Chi-square tests are primarily used with categorical frequency data.
 2. The basic statistic is:
 
-$$
-\chi^2=
-\sum\frac{(O-E)^2}{E}
-$$
+$\chi^2= \sum\frac{(O-E)^2}{E}$
 
 3. $O$ represents observed frequency.
 4. $E$ represents expected frequency.
@@ -2086,23 +1606,15 @@ $$
 10. Homogeneity tests compare categorical distributions across groups.
 11. For a goodness-of-fit test with fixed expected proportions:
 
-$$
-df=k-1
-$$
+$df=k-1$
 
 12. For a contingency table:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 13. For an independence test:
 
-$$
-E_{ij}
-=
-\frac{R_iC_j}{N}
-$$
+$E_{ij} = \frac{R_iC_j}{N}$
 
 14. A significant chi-square independence test indicates association, not causation.
 15. Small expected frequencies can make the ordinary chi-square approximation unreliable.
@@ -2123,102 +1635,45 @@ $$
 
 ## Chi-Square Statistic
 
-$$
-\boxed{
-\chi^2=
-\sum
-\frac{(O-E)^2}{E}
-}
-$$
+$\boxed{ \chi^2= \sum \frac{(O-E)^2}{E} }$
 
 ## Goodness-of-Fit Expected Frequency
 
-$$
-\boxed{
-E_i=Np_i
-}
-$$
+$\boxed{ E_i=Np_i }$
 
 ## Goodness-of-Fit Degrees of Freedom
 
-$$
-\boxed{
-df=k-1
-}
-$$
+$\boxed{ df=k-1 }$
 
 for fixed expected proportions.
 
 ## Contingency-Table Expected Frequency
 
-$$
-\boxed{
-E_{ij}
-=
-\frac{R_iC_j}{N}
-}
-$$
+$\boxed{ E_{ij} = \frac{R_iC_j}{N} }$
 
 ## Independence/Homogeneity Degrees of Freedom
 
-$$
-\boxed{
-df=(r-1)(c-1)
-}
-$$
+$\boxed{ df=(r-1)(c-1) }$
 
 ## Pearson Residual
 
-$$
-\boxed{
-r_{ij}
-=
-\frac{O_{ij}-E_{ij}}
-{\sqrt{E_{ij}}}
-}
-$$
+$\boxed{ r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}} }$
 
 ## Cramer's V
 
-$$
-\boxed{
-V=
-\sqrt{
-\frac{\chi^2}
-{N\min(r-1,c-1)}
-}
-}
-$$
+$\boxed{ V= \sqrt{ \frac{\chi^2} {N\min(r-1,c-1)} } }$
 
 ## Phi Coefficient for 2 × 2
 
-$$
-\boxed{
-\phi=
-\sqrt{
-\frac{\chi^2}{N}
-}
-}
-$$
+$\boxed{ \phi= \sqrt{ \frac{\chi^2}{N} } }$
 
 ## Yates' Corrected Statistic
 
-$$
-\boxed{
-\chi^2_Y
-=
-\sum
-\frac{(|O-E|-0.5)^2}{E}
-}
-$$
+$\boxed{ \chi^2_Y = \sum \frac{(|O-E|-0.5)^2}{E} }$
 
 ## Relationship for Equivalent 2 × 2 Large-Sample Tests
 
-$$
-\boxed{
-\chi^2=z^2
-}
-$$
+$\boxed{ \chi^2=z^2 }$
 
 ---
 
@@ -2228,11 +1683,7 @@ The chi-square family provides important methods for analysing categorical frequ
 
 The central calculation compares observed frequencies with expected frequencies:
 
-$$
-\chi^2=
-\sum
-\frac{(O-E)^2}{E}
-$$
+$\chi^2= \sum \frac{(O-E)^2}{E}$
 
 The **goodness-of-fit test** is used when one categorical variable is compared with a specified theoretical distribution.
 
@@ -2242,25 +1693,17 @@ The **test of homogeneity** examines whether different groups or populations hav
 
 For contingency tables, expected frequencies are calculated using:
 
-$$
-E_{ij}
-=
-\frac{R_iC_j}{N}
-$$
+$E_{ij} = \frac{R_iC_j}{N}$
 
 and degrees of freedom are:
 
-$$
-df=(r-1)(c-1)
-$$
+$df=(r-1)(c-1)$
 
 A large chi-square statistic indicates that observed frequencies differ substantially from those expected under the null hypothesis.
 
 The result is evaluated using the chi-square distribution. If:
 
-$$
-p\le\alpha
-$$
+$p\le\alpha$
 
 we reject the null hypothesis.
 
@@ -2270,25 +1713,7 @@ Small expected frequencies require special care. Exact procedures such as Fisher
 
 The complete logic can be summarised as:
 
-$$
-\boxed{
-\text{Categorical Data}
-\rightarrow
-\text{Observed Frequencies}
-\rightarrow
-\text{Expected Frequencies}
-\rightarrow
-\chi^2
-\rightarrow
-df
-\rightarrow
-p\text{-value}
-\rightarrow
-\text{Decision}
-\rightarrow
-\text{Interpretation}
-}
-$$
+$\boxed{ \text{Categorical Data} \rightarrow \text{Observed Frequencies} \rightarrow \text{Expected Frequencies} \rightarrow \chi^2 \rightarrow df \rightarrow p\text{-value} \rightarrow \text{Decision} \rightarrow \text{Interpretation} }$
 
 ---
 
