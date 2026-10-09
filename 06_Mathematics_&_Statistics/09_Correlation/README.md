@@ -47,9 +47,7 @@ Suppose we observe two variables, $X$ and $Y$, for the same set of observations.
 
 For each observation we have a pair:
 
-$$
-(x_i,y_i)
-$$
+$(x_i,y_i)$
 
 Correlation measures the extent to which changes in one variable are associated with changes in the other variable.
 
@@ -83,9 +81,7 @@ A paired observation means that each value of $X$ is naturally matched with a co
 
 For $n$ observations:
 
-$$
-(X,Y)=\{(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\}
-$$
+$(X,Y)=\{(x_1,y_1),(x_2,y_2),\ldots,(x_n,y_n)\}$
 
 For example:
 
@@ -113,9 +109,7 @@ A scatter plot is one of the most useful tools for examining correlation.
 
 Each observation is represented by a point:
 
-$$
-(x_i,y_i)
-$$
+$(x_i,y_i)$
 
 The horizontal axis usually represents $X$, and the vertical axis represents $Y$.
 
@@ -141,9 +135,7 @@ Correlation can have three broad directions.
 
 In a positive relationship:
 
-$$
-X\uparrow \Rightarrow Y\uparrow
-$$
+$X\uparrow \Rightarrow Y\uparrow$
 
 As $X$ increases, $Y$ tends to increase.
 
@@ -151,9 +143,7 @@ Examples include study time and marks, or temperature and cold-drink sales.
 
 The correlation coefficient is positive:
 
-$$
-r>0
-$$
+$r>0$
 
 ---
 
@@ -161,9 +151,7 @@ $$
 
 In a negative relationship:
 
-$$
-X\uparrow \Rightarrow Y\downarrow
-$$
+$X\uparrow \Rightarrow Y\downarrow$
 
 As $X$ increases, $Y$ tends to decrease.
 
@@ -171,9 +159,7 @@ Examples include price and quantity demanded, or speed and travel time for a fix
 
 The correlation coefficient is negative:
 
-$$
-r<0
-$$
+$r<0$
 
 ---
 
@@ -181,9 +167,7 @@ $$
 
 If there is no clear linear pattern, the correlation may be close to zero:
 
-$$
-r\approx0
-$$
+$r\approx0$
 
 However, this does **not** always mean that the variables are completely unrelated.
 
@@ -191,9 +175,7 @@ A strong nonlinear relationship can have a Pearson correlation close to zero.
 
 For example:
 
-$$
-Y=X^2
-$$
+$Y=X^2$
 
 can form a clear curved relationship while its linear correlation may be near zero in a symmetric dataset.
 
@@ -209,9 +191,7 @@ This is why the scatter plot is important.
 
 For Pearson correlation:
 
-$$
--1\le r\le1
-$$
+$-1\le r\le1$
 
 Values near $1$ indicate a strong positive linear relationship.
 
@@ -237,15 +217,11 @@ These boundaries are **guidelines, not universal laws**. The practical meaning d
 
 A perfect positive correlation occurs when all points lie exactly on an increasing straight line:
 
-$$
-r=1
-$$
+$r=1$
 
 A perfect negative correlation occurs when all points lie exactly on a decreasing straight line:
 
-$$
-r=-1
-$$
+$r=-1$
 
 A value of $r=1$ or $r=-1$ means perfect linear association in the observed data.
 
@@ -259,21 +235,15 @@ The most commonly used coefficient for measuring linear association between two 
 
 It is commonly represented by:
 
-$$
-r
-$$
+$r$
 
 For a sample:
 
-$$
--1\le r\le1
-$$
+$-1\le r\le1$
 
 For a population, the corresponding parameter is often written as:
 
-$$
-\rho
-$$
+$\rho$
 
 Thus:
 
@@ -290,11 +260,7 @@ Covariance describes whether two variables tend to move together.
 
 For a sample:
 
-$$
-s_{XY}
-=
-\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{n-1}
-$$
+$s_{XY} = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{n-1}$
 
 where:
 
@@ -311,9 +277,7 @@ where:
 
 Consider:
 
-$$
-(x_i-\bar{x})(y_i-\bar{y})
-$$
+$(x_i-\bar{x})(y_i-\bar{y})$
 
 | $x_i-\bar{x}$ | $y_i-\bar{y}$ | Product | Meaning |
 |---:|---:|---:|---|
@@ -341,13 +305,9 @@ Consider:
 
 ### Step 1: Calculate the means
 
-$$
-\bar{x}=\frac{1+2+3+4}{4}=2.5
-$$
+$\bar{x}=\frac{1+2+3+4}{4}=2.5$
 
-$$
-\bar{y}=\frac{2+4+5+8}{4}=4.75
-$$
+$\bar{y}=\frac{2+4+5+8}{4}=4.75$
 
 ### Step 2: Construct deviations
 
@@ -360,19 +320,13 @@ $$
 
 Sum:
 
-$$
-4.125+0.375+0.125+4.875=9.5
-$$
+$4.125+0.375+0.125+4.875=9.5$
 
 ### Step 3: Divide by $n-1$
 
-$$
-s_{XY}=\frac{9.5}{4-1}
-$$
+$s_{XY}=\frac{9.5}{4-1}$
 
-$$
-\boxed{s_{XY}\approx3.167}
-$$
+$\boxed{s_{XY}\approx3.167}$
 
 The positive covariance indicates that $X$ and $Y$ tend to increase together.
 
@@ -394,18 +348,11 @@ Pearson's correlation coefficient measures the strength and direction of the **l
 
 The sample formula is:
 
-$$
-r=
-\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
-{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2}
-\sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}
-$$
+$r= \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})} {\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2} \sqrt{\sum_{i=1}^{n}(y_i-\bar{y})^2}}$
 
 An equivalent form is:
 
-$$
-r=\frac{s_{XY}}{s_Xs_Y}
-$$
+$r=\frac{s_{XY}}{s_Xs_Y}$
 
 where $s_{XY}$ is covariance and $s_X,s_Y$ are the sample standard deviations.
 
@@ -417,9 +364,7 @@ Because covariance is divided by the product of the standard deviations, correla
 
 Suppose:
 
-$$
-r=0.85
-$$
+$r=0.85$
 
 This means there is a strong positive **linear** association.
 
@@ -432,9 +377,7 @@ It does not mean:
 
 Similarly:
 
-$$
-r=-0.72
-$$
+$r=-0.72$
 
 indicates a strong negative linear association.
 
@@ -453,9 +396,7 @@ Consider:
 
 We already have:
 
-$$
-\bar{x}=2.5,\qquad\bar{y}=4.75
-$$
+$\bar{x}=2.5,\qquad\bar{y}=4.75$
 
 | $X$ | $Y$ | $X-\bar{x}$ | $Y-\bar{y}$ | Product | $(X-\bar{x})^2$ | $(Y-\bar{y})^2$ |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -466,34 +407,21 @@ $$
 
 Therefore:
 
-$$
-\sum(X-\bar{x})(Y-\bar{y})=9.5
-$$
+$\sum(X-\bar{x})(Y-\bar{y})=9.5$
 
-$$
-\sum(X-\bar{x})^2=5
-$$
+$\sum(X-\bar{x})^2=5$
 
-$$
-\sum(Y-\bar{y})^2=18.75
-$$
+$\sum(Y-\bar{y})^2=18.75$
 
 Substitute:
 
-$$
-r=
-\frac{9.5}{\sqrt{5}\sqrt{18.75}}
-$$
+$r= \frac{9.5}{\sqrt{5}\sqrt{18.75}}$
 
-$$
-r=\frac{9.5}{\sqrt{93.75}}
-$$
+$r=\frac{9.5}{\sqrt{93.75}}$
 
 Therefore:
 
-$$
-\boxed{r\approx0.981}
-$$
+$\boxed{r\approx0.981}$
 
 The dataset shows a very strong positive linear association.
 
@@ -503,11 +431,7 @@ The dataset shows a very strong positive linear association.
 
 Pearson correlation can also be calculated using:
 
-$$
-r=
-\frac{n\sum xy-(\sum x)(\sum y)}
-{\sqrt{[n\sum x^2-(\sum x)^2][n\sum y^2-(\sum y)^2]}}
-$$
+$r= \frac{n\sum xy-(\sum x)(\sum y)} {\sqrt{[n\sum x^2-(\sum x)^2][n\sum y^2-(\sum y)^2]}}$
 
 This form can be useful when calculations are performed from summary totals.
 
@@ -519,21 +443,15 @@ The deviation-based formula is often easier to understand because it shows how c
 
 A z-score is:
 
-$$
-z_x=\frac{x-\bar{x}}{s_x}
-$$
+$z_x=\frac{x-\bar{x}}{s_x}$
 
 and:
 
-$$
-z_y=\frac{y-\bar{y}}{s_y}
-$$
+$z_y=\frac{y-\bar{y}}{s_y}$
 
 Then sample correlation can be expressed as:
 
-$$
-r=\frac{1}{n-1}\sum_{i=1}^{n}z_{x_i}z_{y_i}
-$$
+$r=\frac{1}{n-1}\sum_{i=1}^{n}z_{x_i}z_{y_i}$
 
 This shows that correlation is closely connected to the product of standardised deviations.
 
@@ -543,35 +461,23 @@ This shows that correlation is closely connected to the product of standardised 
 
 Consider the centered vectors:
 
-$$
-\mathbf{x}_c=(x_1-\bar{x},\ldots,x_n-\bar{x})
-$$
+$\mathbf{x}_c=(x_1-\bar{x},\ldots,x_n-\bar{x})$
 
 and:
 
-$$
-\mathbf{y}_c=(y_1-\bar{y},\ldots,y_n-\bar{y})
-$$
+$\mathbf{y}_c=(y_1-\bar{y},\ldots,y_n-\bar{y})$
 
 Pearson correlation is related to the cosine of the angle $\theta$ between these centered vectors:
 
-$$
-r=\cos(\theta)
-$$
+$r=\cos(\theta)$
 
 Therefore:
 
-$$
-\theta=0^\circ\Rightarrow r=1
-$$
+$\theta=0^\circ\Rightarrow r=1$
 
-$$
-\theta=90^\circ\Rightarrow r=0
-$$
+$\theta=90^\circ\Rightarrow r=0$
 
-$$
-\theta=180^\circ\Rightarrow r=-1
-$$
+$\theta=180^\circ\Rightarrow r=-1$
 
 ---
 
@@ -579,9 +485,7 @@ $$
 
 ### 19.1 Bounded
 
-$$
--1\le r\le1
-$$
+$-1\le r\le1$
 
 ### 19.2 Unitless
 
@@ -589,9 +493,7 @@ Correlation has no physical unit.
 
 ### 19.3 Symmetric
 
-$$
-r_{XY}=r_{YX}
-$$
+$r_{XY}=r_{YX}$
 
 ### 19.4 Measures Linear Association
 
@@ -609,29 +511,21 @@ Correlation is unchanged by positive changes of scale and location.
 
 Suppose:
 
-$$
-X'=a+bX
-$$
+$X'=a+bX$
 
 and:
 
-$$
-Y'=c+dY
-$$
+$Y'=c+dY$
 
 where $b>0$ and $d>0$.
 
 Then:
 
-$$
-r_{X'Y'}=r_{XY}
-$$
+$r_{X'Y'}=r_{XY}$
 
 If one variable is multiplied by a negative number, the direction reverses:
 
-$$
-r_{X,-Y}=-r_{XY}
-$$
+$r_{X,-Y}=-r_{XY}$
 
 ---
 
@@ -647,14 +541,7 @@ This does not prove that buying ice cream causes people to swim.
 
 A third variable such as temperature may influence both:
 
-$$
-\text{Temperature}
-\rightarrow
-\begin{cases}
-\text{Ice-cream sales}\\
-\text{Swimming activity}
-\end{cases}
-$$
+$\text{Temperature} \rightarrow \begin{cases} \text{Ice-cream sales}\\ \text{Swimming activity} \end{cases}$
 
 Temperature is a possible **confounding variable**.
 
@@ -664,9 +551,7 @@ Temperature is a possible **confounding variable**.
 
 A correlation of:
 
-$$
-r=0.80
-$$
+$r=0.80$
 
 indicates a strong positive linear association, but observations can still show substantial variation around the overall trend.
 
@@ -678,27 +563,19 @@ Correlation describes association; it is not itself a complete predictive model.
 
 The square of Pearson correlation is:
 
-$$
-R^2=r^2
-$$
+$R^2=r^2$
 
 For:
 
-$$
-r=0.80
-$$
+$r=0.80$
 
 we obtain:
 
-$$
-R^2=(0.80)^2=0.64
-$$
+$R^2=(0.80)^2=0.64$
 
 Therefore:
 
-$$
-\boxed{R^2=0.64}
-$$
+$\boxed{R^2=0.64}$
 
 In the simple linear regression setting, this is associated with 64% of the variation being accounted for by the fitted linear relationship.
 
@@ -730,9 +607,7 @@ Pearson correlation can fail to describe a strongly nonlinear relationship.
 
 For example:
 
-$$
-Y=X^2
-$$
+$Y=X^2$
 
 creates a U-shaped relationship.
 
@@ -767,9 +642,7 @@ Always examine the actual data rather than deciding correlation only from the nu
 
 It is commonly represented by:
 
-$$
-\rho_s
-$$
+$\rho_s$
 
 Spearman correlation measures the strength and direction of a **monotonic relationship**.
 
@@ -796,10 +669,7 @@ Spearman is useful when data are ordinal, rank-based, monotonic but nonlinear, o
 
 When there are no tied ranks:
 
-$$
-\rho_s=
-1-\frac{6\sum d_i^2}{n(n^2-1)}
-$$
+$\rho_s= 1-\frac{6\sum d_i^2}{n(n^2-1)}$
 
 where:
 
@@ -822,9 +692,7 @@ Suppose five students are ranked by two examinations.
 
 Calculate:
 
-$$
-d_i=R_{Xi}-R_{Yi}
-$$
+$d_i=R_{Xi}-R_{Yi}$
 
 | Student | $R_X$ | $R_Y$ | $d$ | $d^2$ |
 |---|---:|---:|---:|---:|
@@ -836,35 +704,21 @@ $$
 
 Therefore:
 
-$$
-\sum d_i^2=4
-$$
+$\sum d_i^2=4$
 
 and:
 
-$$
-n=5
-$$
+$n=5$
 
 Substitute:
 
-$$
-\rho_s=
-1-\frac{6(4)}{5(5^2-1)}
-$$
+$\rho_s= 1-\frac{6(4)}{5(5^2-1)}$
 
-$$
-\rho_s=
-1-\frac{24}{5(24)}
-$$
+$\rho_s= 1-\frac{24}{5(24)}$
 
-$$
-\rho_s=1-\frac{24}{120}
-$$
+$\rho_s=1-\frac{24}{120}$
 
-$$
-\boxed{\rho_s=0.80}
-$$
+$\boxed{\rho_s=0.80}$
 
 There is a strong positive monotonic association between the rankings.
 
@@ -878,9 +732,7 @@ When ties occur, observations receive **average ranks**.
 
 For example, if two observations occupy positions 2 and 3 and have the same value:
 
-$$
-\frac{2+3}{2}=2.5
-$$
+$\frac{2+3}{2}=2.5$
 
 In practice, statistical software handles tied ranks using the appropriate ranking procedure.
 
@@ -893,9 +745,7 @@ The general approach is:
 
 Thus:
 
-$$
-\rho_s=\operatorname{Corr}(\operatorname{rank}(X),\operatorname{rank}(Y))
-$$
+$\rho_s=\operatorname{Corr}(\operatorname{rank}(X),\operatorname{rank}(Y))$
 
 ---
 
@@ -907,9 +757,7 @@ A **monotonic relationship** means that the variables generally move in one dire
 
 For example:
 
-$$
-Y=\log(X)
-$$
+$Y=\log(X)$
 
 is nonlinear but increasing.
 
@@ -949,9 +797,7 @@ The choice should be based on the data and the question, not simply on which coe
 
 The relationship is:
 
-$$
-r=\frac{s_{XY}}{s_Xs_Y}
-$$
+$r=\frac{s_{XY}}{s_Xs_Y}$
 
 Correlation can therefore be viewed as **standardised covariance**.
 
@@ -977,15 +823,11 @@ A correlation matrix may look like:
 
 The diagonal values are always:
 
-$$
-1
-$$
+$1$
 
 The matrix is symmetric:
 
-$$
-r_{XY}=r_{YX}
-$$
+$r_{XY}=r_{YX}$
 
 ---
 
@@ -993,17 +835,13 @@ $$
 
 Suppose:
 
-$$
-r_{\text{Study Hours, Marks}}=0.78
-$$
+$r_{\text{Study Hours, Marks}}=0.78$
 
 This indicates a strong positive linear association.
 
 Suppose:
 
-$$
-r_{\text{Attendance, Marks}}=0.62
-$$
+$r_{\text{Attendance, Marks}}=0.62$
 
 This indicates a positive linear association.
 
@@ -1041,12 +879,7 @@ A **partial correlation** measures the association between two variables after s
 
 For three variables:
 
-$$
-r_{XY\cdot Z}
-=
-\frac{r_{XY}-r_{XZ}r_{YZ}}
-{\sqrt{(1-r_{XZ}^2)(1-r_{YZ}^2)}}
-$$
+$r_{XY\cdot Z} = \frac{r_{XY}-r_{XZ}r_{YZ}} {\sqrt{(1-r_{XZ}^2)(1-r_{YZ}^2)}}$
 
 This should be interpreted as an adjusted association, not proof of causation.
 
@@ -1058,29 +891,19 @@ We may test whether the population correlation differs from zero.
 
 The usual null hypothesis is:
 
-$$
-H_0:\rho=0
-$$
+$H_0:\rho=0$
 
 and the two-sided alternative is:
 
-$$
-H_1:\rho\ne0
-$$
+$H_1:\rho\ne0$
 
 For sample size $n$:
 
-$$
-t=
-\frac{r\sqrt{n-2}}
-{\sqrt{1-r^2}}
-$$
+$t= \frac{r\sqrt{n-2}} {\sqrt{1-r^2}}$
 
 with:
 
-$$
-df=n-2
-$$
+$df=n-2$
 
 under the standard assumptions for the Pearson correlation test.
 
@@ -1090,56 +913,31 @@ under the standard assumptions for the Pearson correlation test.
 
 Suppose:
 
-$$
-r=0.70,\qquad n=20
-$$
+$r=0.70,\qquad n=20$
 
 We test:
 
-$$
-H_0:\rho=0
-$$
+$H_0:\rho=0$
 
 against:
 
-$$
-H_1:\rho\ne0
-$$
+$H_1:\rho\ne0$
 
 ### Step 1: Calculate the test statistic
 
-$$
-t=
-\frac{0.70\sqrt{20-2}}
-{\sqrt{1-0.70^2}}
-$$
+$t= \frac{0.70\sqrt{20-2}} {\sqrt{1-0.70^2}}$
 
-$$
-t=
-\frac{0.70\sqrt{18}}
-{\sqrt{1-0.49}}
-$$
+$t= \frac{0.70\sqrt{18}} {\sqrt{1-0.49}}$
 
-$$
-t=
-\frac{0.70(4.243)}
-{\sqrt{0.51}}
-$$
+$t= \frac{0.70(4.243)} {\sqrt{0.51}}$
 
-$$
-t\approx
-\frac{2.970}{0.714}
-$$
+$t\approx \frac{2.970}{0.714}$
 
-$$
-\boxed{t\approx4.16}
-$$
+$\boxed{t\approx4.16}$
 
 Degrees of freedom:
 
-$$
-df=20-2=18
-$$
+$df=20-2=18$
 
 A statistical software package or $t$ distribution table can then be used to obtain the two-sided p-value.
 
@@ -1165,30 +963,19 @@ A confidence interval can quantify uncertainty around a population correlation.
 
 A common method uses **Fisher's z transformation**:
 
-$$
-z'=
-\frac{1}{2}
-\ln\left(\frac{1+r}{1-r}\right)
-$$
+$z'= \frac{1}{2} \ln\left(\frac{1+r}{1-r}\right)$
 
 Its approximate standard error is:
 
-$$
-SE_{z'}=\frac{1}{\sqrt{n-3}}
-$$
+$SE_{z'}=\frac{1}{\sqrt{n-3}}$
 
 An approximate confidence interval on the transformed scale is:
 
-$$
-z'\pm z_{\alpha/2}SE_{z'}
-$$
+$z'\pm z_{\alpha/2}SE_{z'}$
 
 The limits are then transformed back:
 
-$$
-r=
-\frac{e^{2z'}-1}{e^{2z'}+1}
-$$
+$r= \frac{e^{2z'}-1}{e^{2z'}+1}$
 
 ---
 
@@ -1230,9 +1017,7 @@ If two variables are independent, then under suitable finite-moment conditions t
 
 However:
 
-$$
-r=0
-$$
+$r=0$
 
 does not generally imply independence.
 
@@ -1240,15 +1025,11 @@ A nonlinear relationship can exist even when Pearson correlation is zero.
 
 Thus:
 
-$$
-\text{Independence}\Rightarrow\text{zero correlation}
-$$
+$\text{Independence}\Rightarrow\text{zero correlation}$
 
 under suitable conditions, but:
 
-$$
-\text{zero correlation}\nRightarrow\text{independence}
-$$
+$\text{zero correlation}\nRightarrow\text{independence}$
 
 in general.
 
@@ -1288,9 +1069,7 @@ Better:
 
 ### Mistake 2: Ignoring the sign
 
-$$
-r=-0.85
-$$
+$r=-0.85$
 
 is strong, but the direction is negative.
 
@@ -1324,9 +1103,7 @@ The appropriate coefficient depends on the variable types, pattern, and research
 
 Suppose:
 
-$$
-r=0.80
-$$
+$r=0.80$
 
 This tells us the strength and direction of linear association.
 
@@ -1334,9 +1111,7 @@ It does not tell us the rate at which $Y$ changes for a one-unit change in $X$.
 
 The slope belongs to a regression equation such as:
 
-$$
-\hat{Y}=a+bX
-$$
+$\hat{Y}=a+bX$
 
 Correlation and regression are related, but they answer different questions.
 
@@ -1346,21 +1121,15 @@ Correlation and regression are related, but they answer different questions.
 
 Study A:
 
-$$
-r=0.90
-$$
+$r=0.90$
 
 Study B:
 
-$$
-r=-0.90
-$$
+$r=-0.90$
 
 Both have the same strength:
 
-$$
-|r|=0.90
-$$
+$|r|=0.90$
 
 but opposite direction.
 
@@ -1438,21 +1207,9 @@ Suppose the following data record weekly study hours and marks:
 
 ### Step 1: Find the means
 
-$$
-\bar{x}
-=
-\frac{2+3+4+5+6+7}{6}
-=
-4.5
-$$
+$\bar{x} = \frac{2+3+4+5+6+7}{6} = 4.5$
 
-$$
-\bar{y}
-=
-\frac{45+50+54+61+65+70}{6}
-=
-57.5
-$$
+$\bar{y} = \frac{45+50+54+61+65+70}{6} = 57.5$
 
 ### Step 2: Calculate deviations
 
@@ -1467,31 +1224,19 @@ $$
 
 ### Step 3: Calculate cross-products
 
-$$
-\sum(X-\bar{x})(Y-\bar{y})=88.5
-$$
+$\sum(X-\bar{x})(Y-\bar{y})=88.5$
 
 ### Step 4: Calculate squared deviations
 
-$$
-\sum(X-\bar{x})^2=17.5
-$$
+$\sum(X-\bar{x})^2=17.5$
 
-$$
-\sum(Y-\bar{y})^2=445.5
-$$
+$\sum(Y-\bar{y})^2=445.5$
 
 ### Step 5: Calculate Pearson correlation
 
-$$
-r=
-\frac{88.5}
-{\sqrt{17.5}\sqrt{445.5}}
-$$
+$r= \frac{88.5} {\sqrt{17.5}\sqrt{445.5}}$
 
-$$
-\boxed{r\approx0.999}
-$$
+$\boxed{r\approx0.999}$
 
 ### Interpretation
 
@@ -1652,15 +1397,11 @@ A large sample generally gives more precise estimation, but a large sample does 
 
 Thus:
 
-$$
-\text{sample size}\ne\text{strength of correlation}
-$$
+$\text{sample size}\ne\text{strength of correlation}$
 
 and:
 
-$$
-\text{statistical significance}\ne\text{practical importance}
-$$
+$\text{statistical significance}\ne\text{practical importance}$
 
 ---
 
@@ -1668,9 +1409,7 @@ $$
 
 Suppose a dataset shows:
 
-$$
-r=0.75
-$$
+$r=0.75$
 
 between umbrellas sold and traffic accidents.
 
@@ -1678,14 +1417,7 @@ It would be incorrect to conclude that umbrellas cause accidents.
 
 Rain may influence both:
 
-$$
-\text{Rain}
-\rightarrow
-\begin{cases}
-\text{Umbrella sales}\\
-\text{Traffic accidents}
-\end{cases}
-$$
+$\text{Rain} \rightarrow \begin{cases} \text{Umbrella sales}\\ \text{Traffic accidents} \end{cases}$
 
 This is an example of a **confounding variable**.
 
@@ -1743,88 +1475,51 @@ Before finalising an analysis, ask:
 
 ### Sample covariance
 
-$$
-s_{XY}
-=
-\frac{\sum(X-\bar{X})(Y-\bar{Y})}{n-1}
-$$
+$s_{XY} = \frac{\sum(X-\bar{X})(Y-\bar{Y})}{n-1}$
 
 ### Pearson correlation
 
-$$
-r=
-\frac{\sum(X-\bar{X})(Y-\bar{Y})}
-{\sqrt{\sum(X-\bar{X})^2\sum(Y-\bar{Y})^2}}
-$$
+$r= \frac{\sum(X-\bar{X})(Y-\bar{Y})} {\sqrt{\sum(X-\bar{X})^2\sum(Y-\bar{Y})^2}}$
 
 ### Pearson correlation using covariance
 
-$$
-r=\frac{s_{XY}}{s_Xs_Y}
-$$
+$r=\frac{s_{XY}}{s_Xs_Y}$
 
 ### Shortcut Pearson formula
 
-$$
-r=
-\frac{n\sum xy-(\sum x)(\sum y)}
-{\sqrt{[n\sum x^2-(\sum x)^2][n\sum y^2-(\sum y)^2]}}
-$$
+$r= \frac{n\sum xy-(\sum x)(\sum y)} {\sqrt{[n\sum x^2-(\sum x)^2][n\sum y^2-(\sum y)^2]}}$
 
 ### Range
 
-$$
--1\le r\le1
-$$
+$-1\le r\le1$
 
 ### Coefficient of determination
 
-$$
-R^2=r^2
-$$
+$R^2=r^2$
 
 ### Spearman correlation without ties
 
-$$
-\rho_s=
-1-\frac{6\sum d_i^2}{n(n^2-1)}
-$$
+$\rho_s= 1-\frac{6\sum d_i^2}{n(n^2-1)}$
 
 ### Test statistic for Pearson correlation
 
-$$
-t=
-\frac{r\sqrt{n-2}}
-{\sqrt{1-r^2}}
-$$
+$t= \frac{r\sqrt{n-2}} {\sqrt{1-r^2}}$
 
 with:
 
-$$
-df=n-2
-$$
+$df=n-2$
 
 ### Fisher transformation
 
-$$
-z'=
-\frac12\ln\left(\frac{1+r}{1-r}\right)
-$$
+$z'= \frac12\ln\left(\frac{1+r}{1-r}\right)$
 
 ### Standard error on Fisher's z scale
 
-$$
-SE_{z'}=\frac{1}{\sqrt{n-3}}
-$$
+$SE_{z'}=\frac{1}{\sqrt{n-3}}$
 
 ### Partial correlation
 
-$$
-r_{XY\cdot Z}
-=
-\frac{r_{XY}-r_{XZ}r_{YZ}}
-{\sqrt{(1-r_{XZ}^2)(1-r_{YZ}^2)}}
-$$
+$r_{XY\cdot Z} = \frac{r_{XY}-r_{XZ}r_{YZ}} {\sqrt{(1-r_{XZ}^2)(1-r_{YZ}^2)}}$
 
 ---
 
@@ -1872,10 +1567,7 @@ Correlation provides a compact numerical description of how two variables move t
 
 The key starting point is **covariance**, which describes the direction of joint variation. Because covariance depends on measurement units, it is standardised to produce Pearson's correlation coefficient:
 
-$$
-r=
-\frac{s_{XY}}{s_Xs_Y}
-$$
+$r= \frac{s_{XY}}{s_Xs_Y}$
 
 Pearson's correlation lies between $-1$ and $1$. The sign gives direction, while the magnitude describes the strength of linear association.
 
@@ -1885,17 +1577,7 @@ Spearman's rank correlation provides an alternative when ranks or monotonic rela
 
 Correlation is related to covariance, standardisation, and statistical inference, but it is not causation. A sound analysis combines:
 
-$$
-\boxed{
-\text{Correct pairing}
-+
-\text{Visualisation}
-+
-\text{Appropriate coefficient}
-+
-\text{Careful interpretation}
-}
-$$
+$\boxed{ \text{Correct pairing} + \text{Visualisation} + \text{Appropriate coefficient} + \text{Careful interpretation} }$
 
 ---
 
