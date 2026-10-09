@@ -187,29 +187,21 @@ Take random samples of size $n$ and calculate the sample mean $\bar{x}$ for each
 
 The sampling distribution of $\bar{x}$ has:
 
-$$
-E(\bar{x}) = \mu
-$$
+$E(\bar{x}) = \mu$
 
 and
 
-$$
-SD(\bar{x}) = \frac{\sigma}{\sqrt{n}}
-$$
+$SD(\bar{x}) = \frac{\sigma}{\sqrt{n}}$
 
 The standard deviation of the sampling distribution of the sample mean is called the **standard error of the mean**.
 
 Therefore,
 
-$$
-SE(\bar{x}) = \frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{x}) = \frac{\sigma}{\sqrt{n}}$
 
 If $\sigma$ is unknown, it is commonly estimated using the sample standard deviation:
 
-$$
-SE(\bar{x}) = \frac{s}{\sqrt{n}}
-$$
+$SE(\bar{x}) = \frac{s}{\sqrt{n}}$
 
 where:
 
@@ -225,9 +217,7 @@ where:
 
 From
 
-$$
-SE(\bar{x}) = \frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{x}) = \frac{\sigma}{\sqrt{n}}$
 
 we can see that increasing $n$ decreases the standard error.
 
@@ -235,23 +225,15 @@ Suppose $\sigma = 12$.
 
 For $n=36$:
 
-$$
-SE = \frac{12}{\sqrt{36}}
-$$
+$SE = \frac{12}{\sqrt{36}}$
 
-$$
-SE = \frac{12}{6} = 2
-$$
+$SE = \frac{12}{6} = 2$
 
 For $n=144$:
 
-$$
-SE = \frac{12}{\sqrt{144}}
-$$
+$SE = \frac{12}{\sqrt{144}}$
 
-$$
-SE = \frac{12}{12} = 1
-$$
+$SE = \frac{12}{12} = 1$
 
 Therefore, increasing the sample size from 36 to 144 reduces the standard error from 2 to 1.
 
@@ -269,9 +251,7 @@ For example, $p$ may represent the proportion of customers who prefer a particul
 
 From a sample of size $n$, the sample proportion is:
 
-$$
-\hat{p} = \frac{x}{n}
-$$
+$\hat{p} = \frac{x}{n}$
 
 where:
 
@@ -281,23 +261,17 @@ where:
 
 The expected value is:
 
-$$
-E(\hat{p}) = p
-$$
+$E(\hat{p}) = p$
 
 The standard deviation of the sampling distribution is:
 
-$$
-SD(\hat{p}) = \sqrt{\frac{p(1-p)}{n}}
-$$
+$SD(\hat{p}) = \sqrt{\frac{p(1-p)}{n}}$
 
 This is the standard error when the population proportion is known.
 
 In practice, when $p$ is unknown, the standard error can be estimated using $\hat{p}$:
 
-$$
-SE(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-$$
+$SE(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
 
 ---
 
@@ -307,53 +281,31 @@ Suppose 120 out of 200 surveyed customers prefer Product A.
 
 Then:
 
-$$
-\hat{p} = \frac{120}{200}
-$$
+$\hat{p} = \frac{120}{200}$
 
-$$
-\hat{p}=0.60
-$$
+$\hat{p}=0.60$
 
 So the estimated proportion is:
 
-$$
-\boxed{\hat{p}=0.60}
-$$
+$\boxed{\hat{p}=0.60}$
 
 or 60%.
 
 Using the sample proportion to estimate the standard error:
 
-$$
-SE(\hat{p}) =
-\sqrt{\frac{0.60(1-0.60)}{200}}
-$$
+$SE(\hat{p}) = \sqrt{\frac{0.60(1-0.60)}{200}}$
 
-$$
-=
-\sqrt{\frac{0.60(0.40)}{200}}
-$$
+$= \sqrt{\frac{0.60(0.40)}{200}}$
 
-$$
-=
-\sqrt{\frac{0.24}{200}}
-$$
+$= \sqrt{\frac{0.24}{200}}$
 
-$$
-=
-\sqrt{0.0012}
-$$
+$= \sqrt{0.0012}$
 
-$$
-\approx 0.0346
-$$
+$\approx 0.0346$
 
 Therefore:
 
-$$
-\boxed{SE(\hat{p})\approx0.0346}
-$$
+$\boxed{SE(\hat{p})\approx0.0346}$
 
 The estimated sampling variability of the sample proportion is about 0.0346.
 
@@ -367,22 +319,15 @@ It is different from the standard deviation of individual observations.
 
 For a sample mean:
 
-$$
-SE(\bar{x})=\frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{x})=\frac{\sigma}{\sqrt{n}}$
 
 or, when $\sigma$ is unknown:
 
-$$
-SE(\bar{x})=\frac{s}{\sqrt{n}}
-$$
+$SE(\bar{x})=\frac{s}{\sqrt{n}}$
 
 For a sample proportion:
 
-$$
-SE(\hat{p}) =
-\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-$$
+$SE(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
 
 The standard error becomes smaller as the sample size becomes larger.
 
@@ -413,15 +358,11 @@ Suppose a sample of 100 students has an average study time of 4.8 hours per day.
 
 Then:
 
-$$
-\bar{x}=4.8
-$$
+$\bar{x}=4.8$
 
 The point estimate of the population mean study time is:
 
-$$
-\boxed{\hat{\mu}=4.8\text{ hours}}
-$$
+$\boxed{\hat{\mu}=4.8\text{ hours}}$
 
 The point estimate gives one best estimate, but it does not by itself show how uncertain the estimate is.
 
@@ -437,17 +378,13 @@ An **estimate** is the numerical value obtained after applying the estimator to 
 
 For example:
 
-$$
-\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i
-$$
+$\bar{X}=\frac{1}{n}\sum_{i=1}^{n}X_i$
 
 is an estimator of $\mu$.
 
 If a particular sample produces:
 
-$$
-\bar{x}=72.4
-$$
+$\bar{x}=72.4$
 
 then 72.4 is the estimate.
 
@@ -474,17 +411,13 @@ Three important properties are:
 
 An estimator $\hat{\theta}$ is unbiased for a parameter $\theta$ if:
 
-$$
-E(\hat{\theta})=\theta
-$$
+$E(\hat{\theta})=\theta$
 
 This means that over repeated samples, the estimator's average value equals the true parameter.
 
 For the sample mean:
 
-$$
-E(\bar{X})=\mu
-$$
+$E(\bar{X})=\mu$
 
 Therefore, the sample mean is an unbiased estimator of the population mean.
 
@@ -492,27 +425,17 @@ Therefore, the sample mean is an unbiased estimator of the population mean.
 
 Suppose an estimator produces values:
 
-$$
-8,\ 10,\ 12
-$$
+$8,\ 10,\ 12$
 
 with equal probability.
 
 Its expected value is:
 
-$$
-E(\hat{\theta})
-=
-\frac{8+10+12}{3}
-$$
+$E(\hat{\theta}) = \frac{8+10+12}{3}$
 
-$$
-=\frac{30}{3}
-$$
+$=\frac{30}{3}$
 
-$$
-=10
-$$
+$=10$
 
 If the true parameter is 10, the estimator is unbiased.
 
@@ -524,21 +447,15 @@ Unbiasedness does not mean that every individual estimate equals the true value.
 
 The bias of an estimator is:
 
-$$
-Bias(\hat{\theta})=E(\hat{\theta})-\theta
-$$
+$Bias(\hat{\theta})=E(\hat{\theta})-\theta$
 
 If:
 
-$$
-E(\hat{\theta})=\theta
-$$
+$E(\hat{\theta})=\theta$
 
 then:
 
-$$
-Bias(\hat{\theta})=0
-$$
+$Bias(\hat{\theta})=0$
 
 and the estimator is unbiased.
 
@@ -546,25 +463,17 @@ and the estimator is unbiased.
 
 Suppose:
 
-$$
-E(\hat{\theta})=52
-$$
+$E(\hat{\theta})=52$
 
 and:
 
-$$
-\theta=50
-$$
+$\theta=50$
 
 Then:
 
-$$
-Bias(\hat{\theta})=52-50
-$$
+$Bias(\hat{\theta})=52-50$
 
-$$
-\boxed{Bias=2}
-$$
+$\boxed{Bias=2}$
 
 The estimator has an upward bias of 2.
 
@@ -582,10 +491,7 @@ Informally:
 
 For an estimator $\hat{\theta}_n$:
 
-$$
-\hat{\theta}_n \rightarrow \theta
-\quad\text{as }n\rightarrow\infty
-$$
+$\hat{\theta}_n \rightarrow \theta \quad\text{as }n\rightarrow\infty$
 
 Consistency is different from unbiasedness.
 
@@ -599,15 +505,11 @@ When comparing unbiased estimators of the same parameter, an estimator with smal
 
 Suppose two unbiased estimators have:
 
-$$
-Var(\hat{\theta}_1)=4
-$$
+$Var(\hat{\theta}_1)=4$
 
 and
 
-$$
-Var(\hat{\theta}_2)=9
-$$
+$Var(\hat{\theta}_2)=9$
 
 Both have the same expected value, but estimator 1 has smaller variance.
 
@@ -623,15 +525,11 @@ A **confidence interval (CI)** is an interval estimate constructed from sample d
 
 Instead of reporting only one value such as:
 
-$$
-\bar{x}=72
-$$
+$\bar{x}=72$
 
 we may report:
 
-$$
-68 < \mu < 76
-$$
+$68 < \mu < 76$
 
 with a specified confidence level.
 
@@ -642,24 +540,15 @@ A confidence interval has two main parts:
 
 In general, a confidence interval is calculated as:
 
-$$
-\text{Confidence Interval} = \text{Point Estimate} \pm \text{Margin of Error}
-$$
+$\text{Confidence Interval} = \text{Point Estimate} \pm \text{Margin of Error}$
 
 For many common intervals, the margin of error is:
 
-$$
-\text{Margin of Error} = \text{Critical Value} \times \text{Standard Error}
-$$
+$\text{Margin of Error} = \text{Critical Value} \times \text{Standard Error}$
 
 Therefore:
 
-$$
-CI=
-\text{Estimate}
-\pm
-\text{Critical Value}\times SE
-$$
+$CI= \text{Estimate} \pm \text{Critical Value}\times SE$
 
 ---
 
@@ -701,18 +590,11 @@ Therefore, holding everything else constant, higher confidence produces a wider 
 
 If the population standard deviation $\sigma$ is known, a confidence interval for $\mu$ can be written as:
 
-$$
-\bar{x}
-\pm
-z^*\frac{\sigma}{\sqrt{n}}
-$$
+$\bar{x} \pm z^*\frac{\sigma}{\sqrt{n}}$
 
 Equivalently:
 
-$$
-CI=
-\bar{x}\pm z^*SE(\bar{x})
-$$
+$CI= \bar{x}\pm z^*SE(\bar{x})$
 
 where:
 
@@ -734,57 +616,37 @@ Suppose:
 
 For 95% confidence:
 
-$$
-z^*=1.96
-$$
+$z^*=1.96$
 
 First calculate the standard error:
 
-$$
-SE=\frac{\sigma}{\sqrt{n}}
-$$
+$SE=\frac{\sigma}{\sqrt{n}}$
 
-$$
-=\frac{10}{\sqrt{100}}
-$$
+$=\frac{10}{\sqrt{100}}$
 
-$$
-=\frac{10}{10}
-$$
+$=\frac{10}{10}$
 
-$$
-=1
-$$
+$=1$
 
 Now calculate the margin of error:
 
-$$
-ME=1.96(1)=1.96
-$$
+$ME=1.96(1)=1.96$
 
 Therefore:
 
-$$
-CI=72\pm1.96
-$$
+$CI=72\pm1.96$
 
 Lower limit:
 
-$$
-72-1.96=70.04
-$$
+$72-1.96=70.04$
 
 Upper limit:
 
-$$
-72+1.96=73.96
-$$
+$72+1.96=73.96$
 
 Therefore:
 
-$$
-\boxed{CI=(70.04,\ 73.96)}
-$$
+$\boxed{CI=(70.04,\ 73.96)}$
 
 The 95% confidence procedure gives an interval from 70.04 to 73.96.
 
@@ -798,12 +660,7 @@ We then use the sample standard deviation $s$ and the **t-distribution**.
 
 The confidence interval is:
 
-$$
-\bar{x}
-\pm
-t^*
-\frac{s}{\sqrt{n}}
-$$
+$\bar{x} \pm t^* \frac{s}{\sqrt{n}}$
 
 where:
 
@@ -814,9 +671,7 @@ where:
 
 The t-distribution depends on the **degrees of freedom**:
 
-$$
-df=n-1
-$$
+$df=n-1$
 
 ---
 
@@ -848,71 +703,45 @@ Suppose:
 
 Degrees of freedom:
 
-$$
-df=n-1
-$$
+$df=n-1$
 
-$$
-df=16-1=15
-$$
+$df=16-1=15$
 
 For 95% confidence with 15 degrees of freedom:
 
-$$
-t^*\approx2.131
-$$
+$t^*\approx2.131$
 
 Standard error:
 
-$$
-SE=\frac{s}{\sqrt{n}}
-$$
+$SE=\frac{s}{\sqrt{n}}$
 
-$$
-=\frac{8}{4}
-$$
+$=\frac{8}{4}$
 
-$$
-=2
-$$
+$=2$
 
 Margin of error:
 
-$$
-ME=t^*\times SE
-$$
+$ME=t^*\times SE$
 
-$$
-=2.131(2)
-$$
+$=2.131(2)$
 
-$$
-=4.262
-$$
+$=4.262$
 
 Confidence interval:
 
-$$
-50\pm4.262
-$$
+$50\pm4.262$
 
 Lower limit:
 
-$$
-50-4.262=45.738
-$$
+$50-4.262=45.738$
 
 Upper limit:
 
-$$
-50+4.262=54.262
-$$
+$50+4.262=54.262$
 
 Therefore:
 
-$$
-\boxed{CI\approx(45.74,\ 54.26)}
-$$
+$\boxed{CI\approx(45.74,\ 54.26)}$
 
 ---
 
@@ -920,12 +749,7 @@ $$
 
 For a sufficiently large sample, a common approximate confidence interval for a population proportion is:
 
-$$
-\hat{p}
-\pm
-z^*
-\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-$$
+$\hat{p} \pm z^* \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
 
 where:
 
@@ -935,11 +759,7 @@ where:
 
 The standard error is:
 
-$$
-SE(\hat{p})
-=
-\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}
-$$
+$SE(\hat{p}) = \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
 
 ---
 
@@ -949,76 +769,47 @@ Suppose 120 out of 200 customers prefer Product A.
 
 We have:
 
-$$
-\hat{p}=\frac{120}{200}=0.60
-$$
+$\hat{p}=\frac{120}{200}=0.60$
 
 For 95% confidence:
 
-$$
-z^*=1.96
-$$
+$z^*=1.96$
 
 Standard error:
 
-$$
-SE=
-\sqrt{\frac{0.60(1-0.60)}{200}}
-$$
+$SE= \sqrt{\frac{0.60(1-0.60)}{200}}$
 
-$$
-=
-\sqrt{\frac{0.24}{200}}
-$$
+$= \sqrt{\frac{0.24}{200}}$
 
-$$
-=
-\sqrt{0.0012}
-$$
+$= \sqrt{0.0012}$
 
-$$
-\approx0.0346
-$$
+$\approx0.0346$
 
 Margin of error:
 
-$$
-ME=1.96(0.0346)
-$$
+$ME=1.96(0.0346)$
 
-$$
-\approx0.0678
-$$
+$\approx0.0678$
 
 Confidence interval:
 
-$$
-0.60\pm0.0678
-$$
+$0.60\pm0.0678$
 
 Lower limit:
 
-$$
-0.60-0.0678=0.5322
-$$
+$0.60-0.0678=0.5322$
 
 Upper limit:
 
-$$
-0.60+0.0678=0.6678
-$$
+$0.60+0.0678=0.6678$
 
 Therefore:
 
-$$
-\boxed{CI\approx(0.532,\ 0.668)}
-$$
+$\boxed{CI\approx(0.532,\ 0.668)}$
 
 In percentage form, the interval is approximately:
 
-$$
-\boxed{53.2\% \text{ to } 66.8\%}
-$$
+$\boxed{53.2\% \text{ to } 66.8\%}$
 
 ---
 
@@ -1028,15 +819,11 @@ The normal approximation for a proportion should be used only when the sample is
 
 A common rule checks:
 
-$$
-n\hat{p}\ge10
-$$
+$n\hat{p}\ge10$
 
 and
 
-$$
-n(1-\hat{p})\ge10
-$$
+$n(1-\hat{p})\ge10$
 
 These conditions help ensure that both expected counts are sufficiently large.
 
@@ -1048,29 +835,15 @@ For small samples or proportions close to 0 or 1, more appropriate methods may b
 
 Suppose we want to estimate the difference between two population means:
 
-$$
-\mu_1-\mu_2
-$$
+$\mu_1-\mu_2$
 
 A common large-sample form is:
 
-$$
-(\bar{x}_1-\bar{x}_2)
-\pm
-z^*SE(\bar{x}_1-\bar{x}_2)
-$$
+$(\bar{x}_1-\bar{x}_2) \pm z^*SE(\bar{x}_1-\bar{x}_2)$
 
 For independent samples, an estimated standard error can be written as:
 
-$$
-SE(\bar{x}_1-\bar{x}_2)
-=
-\sqrt{
-\frac{s_1^2}{n_1}
-+
-\frac{s_2^2}{n_2}
-}
-$$
+$SE(\bar{x}_1-\bar{x}_2) = \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }$
 
 A corresponding t-based interval is commonly used when population standard deviations are unknown.
 
@@ -1089,65 +862,31 @@ Suppose two independent groups have:
 
 Estimated difference:
 
-$$
-\bar{x}_1-\bar{x}_2
-=
-82-78
-=
-4
-$$
+$\bar{x}_1-\bar{x}_2 = 82-78 = 4$
 
 Estimated standard error:
 
-$$
-SE=
-\sqrt{
-\frac{10^2}{100}
-+
-\frac{12^2}{144}
-}
-$$
+$SE= \sqrt{ \frac{10^2}{100} + \frac{12^2}{144} }$
 
-$$
-=
-\sqrt{
-\frac{100}{100}
-+
-\frac{144}{144}
-}
-$$
+$= \sqrt{ \frac{100}{100} + \frac{144}{144} }$
 
-$$
-=\sqrt{1+1}
-$$
+$=\sqrt{1+1}$
 
-$$
-=\sqrt{2}
-$$
+$=\sqrt{2}$
 
-$$
-\approx1.414
-$$
+$\approx1.414$
 
 Using a 95% normal critical value as an illustrative large-sample approximation:
 
-$$
-ME=1.96(1.414)
-$$
+$ME=1.96(1.414)$
 
-$$
-\approx2.77
-$$
+$\approx2.77$
 
 Therefore:
 
-$$
-CI=4\pm2.77
-$$
+$CI=4\pm2.77$
 
-$$
-\boxed{CI\approx(1.23,\ 6.77)}
-$$
+$\boxed{CI\approx(1.23,\ 6.77)}$
 
 The estimated mean difference is about 4 units, with this interval giving the corresponding range under the stated approximation.
 
@@ -1159,29 +898,15 @@ Suppose two independent groups have sample proportions $\hat{p}_1$ and $\hat{p}_
 
 The estimated difference is:
 
-$$
-\hat{p}_1-\hat{p}_2
-$$
+$\hat{p}_1-\hat{p}_2$
 
 A common large-sample confidence interval is:
 
-$$
-(\hat{p}_1-\hat{p}_2)
-\pm
-z^*
-SE
-$$
+$(\hat{p}_1-\hat{p}_2) \pm z^* SE$
 
 where:
 
-$$
-SE=
-\sqrt{
-\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}
-+
-\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}
-}
-$$
+$SE= \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2} }$
 
 ---
 
@@ -1194,72 +919,37 @@ Suppose:
 
 Then:
 
-$$
-\hat{p}_1=0.60
-$$
+$\hat{p}_1=0.60$
 
 and
 
-$$
-\hat{p}_2=0.45
-$$
+$\hat{p}_2=0.45$
 
 Difference:
 
-$$
-\hat{p}_1-\hat{p}_2
-=
-0.60-0.45
-=
-0.15
-$$
+$\hat{p}_1-\hat{p}_2 = 0.60-0.45 = 0.15$
 
 Standard error:
 
-$$
-SE=
-\sqrt{
-\frac{0.60(0.40)}{100}
-+
-\frac{0.45(0.55)}{100}
-}
-$$
+$SE= \sqrt{ \frac{0.60(0.40)}{100} + \frac{0.45(0.55)}{100} }$
 
-$$
-=
-\sqrt{
-0.0024+0.002475
-}
-$$
+$= \sqrt{ 0.0024+0.002475 }$
 
-$$
-=
-\sqrt{0.004875}
-$$
+$= \sqrt{0.004875}$
 
-$$
-\approx0.0698
-$$
+$\approx0.0698$
 
 For a 95% confidence interval:
 
-$$
-ME=1.96(0.0698)
-$$
+$ME=1.96(0.0698)$
 
-$$
-\approx0.1368
-$$
+$\approx0.1368$
 
 Therefore:
 
-$$
-CI=0.15\pm0.1368
-$$
+$CI=0.15\pm0.1368$
 
-$$
-\boxed{CI\approx(0.0132,\ 0.2868)}
-$$
+$\boxed{CI\approx(0.0132,\ 0.2868)}$
 
 The estimated difference is about 15 percentage points.
 
@@ -1271,24 +961,15 @@ The **margin of error** is the amount added to and subtracted from the point est
 
 For a mean with known $\sigma$:
 
-$$
-ME=z^*\frac{\sigma}{\sqrt{n}}
-$$
+$ME=z^*\frac{\sigma}{\sqrt{n}}$
 
 For a mean using the t-distribution:
 
-$$
-ME=t^*\frac{s}{\sqrt{n}}
-$$
+$ME=t^*\frac{s}{\sqrt{n}}$
 
 For a proportion:
 
-$$
-ME=z^*
-\sqrt{
-\frac{\hat{p}(1-\hat{p})}{n}
-}
-$$
+$ME=z^* \sqrt{ \frac{\hat{p}(1-\hat{p})}{n} }$
 
 A larger margin of error means less precision.
 
@@ -1306,11 +987,7 @@ Increasing the confidence level increases the critical value.
 
 Therefore:
 
-$$
-\text{Higher confidence}
-\Rightarrow
-\text{larger margin of error}
-$$
+$\text{Higher confidence} \Rightarrow \text{larger margin of error}$
 
 ### 28.2 Sample Size
 
@@ -1318,11 +995,7 @@ Increasing the sample size decreases the standard error.
 
 Therefore:
 
-$$
-\text{Larger sample}
-\Rightarrow
-\text{smaller margin of error}
-$$
+$\text{Larger sample} \Rightarrow \text{smaller margin of error}$
 
 ### 28.3 Variability
 
@@ -1330,11 +1003,7 @@ Greater population or sample variability increases the standard error.
 
 Therefore:
 
-$$
-\text{Greater variability}
-\Rightarrow
-\text{larger margin of error}
-$$
+$\text{Greater variability} \Rightarrow \text{larger margin of error}$
 
 ---
 
@@ -1342,39 +1011,25 @@ $$
 
 For a symmetric interval:
 
-$$
-\text{Width}
-=
-\text{Upper Limit}-\text{Lower Limit}
-$$
+$\text{Width} = \text{Upper Limit}-\text{Lower Limit}$
 
 If:
 
-$$
-CI=(70.04,\ 73.96)
-$$
+$CI=(70.04,\ 73.96)$
 
 then:
 
-$$
-Width=73.96-70.04
-$$
+$Width=73.96-70.04$
 
-$$
-=3.92
-$$
+$=3.92$
 
 The half-width is the margin of error:
 
-$$
-\frac{3.92}{2}=1.96
-$$
+$\frac{3.92}{2}=1.96$
 
 Therefore:
 
-$$
-\boxed{\text{Margin of Error}=\frac{\text{CI Width}}{2}}
-$$
+$\boxed{\text{Margin of Error}=\frac{\text{CI Width}}{2}}$
 
 for a symmetric confidence interval.
 
@@ -1390,21 +1045,15 @@ The reason is that higher confidence requires a larger critical value.
 
 Conceptually:
 
-$$
-90\% < 95\% < 99\%
-$$
+$90\% < 95\% < 99\%$
 
 leads to:
 
-$$
-z^*_{90}<z^*_{95}<z^*_{99}
-$$
+$z^*_{90}<z^*_{95}<z^*_{99}$
 
 and therefore:
 
-$$
-ME_{90}<ME_{95}<ME_{99}
-$$
+$ME_{90}<ME_{95}<ME_{99}$
 
 A researcher therefore trades interval width for confidence level.
 
@@ -1414,9 +1063,7 @@ A researcher therefore trades interval width for confidence level.
 
 For a mean:
 
-$$
-ME=z^*\frac{\sigma}{\sqrt{n}}
-$$
+$ME=z^*\frac{\sigma}{\sqrt{n}}$
 
 Suppose everything except $n$ remains fixed.
 
@@ -1440,39 +1087,21 @@ Suppose we want the margin of error for estimating a population mean to be no mo
 
 Using the normal approximation:
 
-$$
-E=z^*\frac{\sigma}{\sqrt{n}}
-$$
+$E=z^*\frac{\sigma}{\sqrt{n}}$
 
 Rearrange:
 
-$$
-E\sqrt{n}=z^*\sigma
-$$
+$E\sqrt{n}=z^*\sigma$
 
-$$
-\sqrt{n}=\frac{z^*\sigma}{E}
-$$
+$\sqrt{n}=\frac{z^*\sigma}{E}$
 
 Squaring both sides:
 
-$$
-n=
-\left(
-\frac{z^*\sigma}{E}
-\right)^2
-$$
+$n= \left( \frac{z^*\sigma}{E} \right)^2$
 
 Therefore:
 
-$$
-\boxed{
-n=
-\left(
-\frac{z^*\sigma}{E}
-\right)^2
-}
-$$
+$\boxed{ n= \left( \frac{z^*\sigma}{E} \right)^2 }$
 
 Because sample size must be an integer and the desired error must not be exceeded, the result is normally **rounded up**.
 
@@ -1489,40 +1118,25 @@ Suppose:
 
 Then:
 
-$$
-n=
-\left(
-\frac{1.96(12)}{2}
-\right)^2
-$$
+$n= \left( \frac{1.96(12)}{2} \right)^2$
 
 First:
 
-$$
-1.96(12)=23.52
-$$
+$1.96(12)=23.52$
 
 Then:
 
-$$
-\frac{23.52}{2}=11.76
-$$
+$\frac{23.52}{2}=11.76$
 
 Square:
 
-$$
-n=(11.76)^2
-$$
+$n=(11.76)^2$
 
-$$
-n=138.2976
-$$
+$n=138.2976$
 
 Round upward:
 
-$$
-\boxed{n=139}
-$$
+$\boxed{n=139}$
 
 At least 139 observations are required under these assumptions.
 
@@ -1532,40 +1146,25 @@ At least 139 observations are required under these assumptions.
 
 For estimating a population proportion with margin of error $E$, a common planning formula is:
 
-$$
-n=
-\frac{(z^*)^2p(1-p)}{E^2}
-$$
+$n= \frac{(z^*)^2p(1-p)}{E^2}$
 
 If the population proportion $p$ is unknown, a conservative choice is:
 
-$$
-p=0.5
-$$
+$p=0.5$
 
 because:
 
-$$
-p(1-p)
-$$
+$p(1-p)$
 
 is maximised at $p=0.5$.
 
 The formula then becomes:
 
-$$
-n=
-\frac{(z^*)^2(0.5)(0.5)}{E^2}
-$$
+$n= \frac{(z^*)^2(0.5)(0.5)}{E^2}$
 
 or:
 
-$$
-\boxed{
-n=
-\frac{(z^*)^2(0.25)}{E^2}
-}
-$$
+$\boxed{ n= \frac{(z^*)^2(0.25)}{E^2} }$
 
 Again, round upward.
 
@@ -1581,56 +1180,35 @@ Suppose we want:
 
 Use:
 
-$$
-p=0.5
-$$
+$p=0.5$
 
 and:
 
-$$
-z^*=1.96
-$$
+$z^*=1.96$
 
 Then:
 
-$$
-n=
-\frac{(1.96)^2(0.5)(0.5)}{(0.05)^2}
-$$
+$n= \frac{(1.96)^2(0.5)(0.5)}{(0.05)^2}$
 
 Calculate:
 
-$$
-(1.96)^2=3.8416
-$$
+$(1.96)^2=3.8416$
 
 and:
 
-$$
-(0.5)(0.5)=0.25
-$$
+$(0.5)(0.5)=0.25$
 
 Therefore:
 
-$$
-n=
-\frac{3.8416(0.25)}{0.0025}
-$$
+$n= \frac{3.8416(0.25)}{0.0025}$
 
-$$
-=
-\frac{0.9604}{0.0025}
-$$
+$= \frac{0.9604}{0.0025}$
 
-$$
-=384.16
-$$
+$=384.16$
 
 Round upward:
 
-$$
-\boxed{n=385}
-$$
+$\boxed{n=385}$
 
 Therefore, a sample of at least 385 observations is required under these assumptions.
 
@@ -1675,12 +1253,7 @@ When sampling without replacement from a finite population and the sample is a s
 
 The correction factor is:
 
-$$
-FPC=
-\sqrt{
-\frac{N-n}{N-1}
-}
-$$
+$FPC= \sqrt{ \frac{N-n}{N-1} }$
 
 where:
 
@@ -1689,14 +1262,7 @@ where:
 
 The adjusted standard error is:
 
-$$
-SE_{adjusted}
-=
-SE\times
-\sqrt{
-\frac{N-n}{N-1}
-}
-$$
+$SE_{adjusted} = SE\times \sqrt{ \frac{N-n}{N-1} }$
 
 When the sample is small compared with the population, the correction is close to 1 and has little effect.
 
@@ -1706,35 +1272,19 @@ When the sample is small compared with the population, the correction is close t
 
 Suppose:
 
-$$
-N=1000
-$$
+$N=1000$
 
 and:
 
-$$
-n=100
-$$
+$n=100$
 
 Then:
 
-$$
-FPC=
-\sqrt{
-\frac{1000-100}{1000-1}
-}
-$$
+$FPC= \sqrt{ \frac{1000-100}{1000-1} }$
 
-$$
-=
-\sqrt{
-\frac{900}{999}
-}
-$$
+$= \sqrt{ \frac{900}{999} }$
 
-$$
-\approx0.949
-$$
+$\approx0.949$
 
 Therefore, the standard error would be multiplied by approximately 0.949.
 
@@ -1748,21 +1298,15 @@ Instead of repeatedly collecting new samples from the population, we repeatedly 
 
 Suppose the original sample is:
 
-$$
-[10,\ 12,\ 15,\ 18,\ 20]
-$$
+$[10,\ 12,\ 15,\ 18,\ 20]$
 
 A bootstrap sample of the same size might be:
 
-$$
-[12,\ 12,\ 18,\ 20,\ 10]
-$$
+$[12,\ 12,\ 18,\ 20,\ 10]$
 
 Another bootstrap sample might be:
 
-$$
-[15,\ 15,\ 10,\ 20,\ 18]
-$$
+$[15,\ 15,\ 10,\ 20,\ 18]$
 
 For each bootstrap sample, calculate the statistic of interest, such as the mean.
 
@@ -1802,26 +1346,15 @@ The bootstrap does not magically remove uncertainty. It uses the observed sample
 
 Suppose the observed sample is:
 
-$$
-[4,\ 5,\ 6,\ 7,\ 8]
-$$
+$[4,\ 5,\ 6,\ 7,\ 8]$
 
 The sample mean is:
 
-$$
-\bar{x}
-=
-\frac{4+5+6+7+8}{5}
-$$
+$\bar{x} = \frac{4+5+6+7+8}{5}$
 
-$$
-=
-\frac{30}{5}
-$$
+$= \frac{30}{5}$
 
-$$
-=6
-$$
+$=6$
 
 Now imagine repeatedly generating bootstrap samples of size 5 with replacement.
 
@@ -1859,15 +1392,11 @@ The bootstrap is therefore a practical way to approximate sampling distributions
 
 Suppose a random sample of 64 observations has:
 
-$$
-\bar{x}=75
-$$
+$\bar{x}=75$
 
 and:
 
-$$
-s=16
-$$
+$s=16$
 
 We want a 95% confidence interval for the population mean.
 
@@ -1875,54 +1404,33 @@ Since the population standard deviation is unknown, use the t-distribution.
 
 Degrees of freedom:
 
-$$
-df=64-1=63
-$$
+$df=64-1=63$
 
 For 95% confidence, the t critical value is approximately:
 
-$$
-t^*\approx2.000
-$$
+$t^*\approx2.000$
 
 Standard error:
 
-$$
-SE=
-\frac{s}{\sqrt{n}}
-$$
+$SE= \frac{s}{\sqrt{n}}$
 
-$$
-=
-\frac{16}{\sqrt{64}}
-$$
+$= \frac{16}{\sqrt{64}}$
 
-$$
-=
-\frac{16}{8}
-$$
+$= \frac{16}{8}$
 
-$$
-=2
-$$
+$=2$
 
 Margin of error:
 
-$$
-ME=2.000(2)=4
-$$
+$ME=2.000(2)=4$
 
 Confidence interval:
 
-$$
-75\pm4
-$$
+$75\pm4$
 
 Therefore:
 
-$$
-\boxed{CI=(71,\ 79)}
-$$
+$\boxed{CI=(71,\ 79)}$
 
 The point estimate is 75, and the estimated population mean is represented by the interval from 71 to 79 at the stated confidence level.
 
@@ -1936,91 +1444,51 @@ Out of 500 customers, 325 say yes.
 
 The sample proportion is:
 
-$$
-\hat{p}=\frac{325}{500}
-$$
+$\hat{p}=\frac{325}{500}$
 
-$$
-=0.65
-$$
+$=0.65$
 
 Therefore:
 
-$$
-\boxed{\hat{p}=0.65}
-$$
+$\boxed{\hat{p}=0.65}$
 
 The estimated standard error is:
 
-$$
-SE=
-\sqrt{
-\frac{0.65(1-0.65)}{500}
-}
-$$
+$SE= \sqrt{ \frac{0.65(1-0.65)}{500} }$
 
-$$
-=
-\sqrt{
-\frac{0.65(0.35)}{500}
-}
-$$
+$= \sqrt{ \frac{0.65(0.35)}{500} }$
 
-$$
-=
-\sqrt{
-\frac{0.2275}{500}
-}
-$$
+$= \sqrt{ \frac{0.2275}{500} }$
 
-$$
-=
-\sqrt{0.000455}
-$$
+$= \sqrt{0.000455}$
 
-$$
-\approx0.0213
-$$
+$\approx0.0213$
 
 For 95% confidence:
 
-$$
-ME=1.96(0.0213)
-$$
+$ME=1.96(0.0213)$
 
-$$
-\approx0.0417
-$$
+$\approx0.0417$
 
 Therefore:
 
-$$
-CI=0.65\pm0.0417
-$$
+$CI=0.65\pm0.0417$
 
 Lower limit:
 
-$$
-0.65-0.0417=0.6083
-$$
+$0.65-0.0417=0.6083$
 
 Upper limit:
 
-$$
-0.65+0.0417=0.6917
-$$
+$0.65+0.0417=0.6917$
 
 Thus:
 
-$$
-\boxed{CI\approx(0.608,\ 0.692)}
-$$
+$\boxed{CI\approx(0.608,\ 0.692)}$
 
 or approximately:
 
-$$
-\boxed{60.8\%\text{ to }69.2\%}
-$$
+$\boxed{60.8\%\text{ to }69.2\%}$
 
 ---
 
@@ -2076,11 +1544,7 @@ On the other hand, a properly selected smaller sample can sometimes provide a us
 
 Therefore:
 
-$$
-\boxed{
-\text{Large sample size} \neq \text{automatically unbiased inference}
-}
-$$
+$\boxed{ \text{Large sample size} \neq \text{automatically unbiased inference} }$
 
 Sampling design and data quality matter.
 
@@ -2134,9 +1598,7 @@ When $\sigma$ is unknown, the t-distribution is commonly used for inference abou
 
 For the one-sample t procedure:
 
-$$
-df=n-1
-$$
+$df=n-1$
 
 ### Mistake 7: Rounding sample size downward
 
@@ -2197,150 +1659,73 @@ This is more informative than reporting only:
 
 ## Sample Mean
 
-$$
-\bar{x}
-=
-\frac{1}{n}
-\sum_{i=1}^{n}x_i
-$$
+$\bar{x} = \frac{1}{n} \sum_{i=1}^{n}x_i$
 
 ## Standard Error of Mean
 
 Known $\sigma$:
 
-$$
-SE(\bar{x})=\frac{\sigma}{\sqrt{n}}
-$$
+$SE(\bar{x})=\frac{\sigma}{\sqrt{n}}$
 
 Estimated using $s$:
 
-$$
-SE(\bar{x})=\frac{s}{\sqrt{n}}
-$$
+$SE(\bar{x})=\frac{s}{\sqrt{n}}$
 
 ## Sample Proportion
 
-$$
-\hat{p}=\frac{x}{n}
-$$
+$\hat{p}=\frac{x}{n}$
 
 ## Standard Error of Proportion
 
-$$
-SE(\hat{p})
-=
-\sqrt{
-\frac{\hat{p}(1-\hat{p})}{n}
-}
-$$
+$SE(\hat{p}) = \sqrt{ \frac{\hat{p}(1-\hat{p})}{n} }$
 
 ## Bias
 
-$$
-Bias(\hat{\theta})
-=
-E(\hat{\theta})-\theta
-$$
+$Bias(\hat{\theta}) = E(\hat{\theta})-\theta$
 
 ## z-Based Mean Confidence Interval
 
-$$
-\bar{x}
-\pm
-z^*
-\frac{\sigma}{\sqrt{n}}
-$$
+$\bar{x} \pm z^* \frac{\sigma}{\sqrt{n}}$
 
 ## t-Based Mean Confidence Interval
 
-$$
-\bar{x}
-\pm
-t^*
-\frac{s}{\sqrt{n}}
-$$
+$\bar{x} \pm t^* \frac{s}{\sqrt{n}}$
 
 ## Degrees of Freedom for One-Sample t
 
-$$
-df=n-1
-$$
+$df=n-1$
 
 ## Proportion Confidence Interval
 
-$$
-\hat{p}
-\pm
-z^*
-\sqrt{
-\frac{\hat{p}(1-\hat{p})}{n}
-}
-$$
+$\hat{p} \pm z^* \sqrt{ \frac{\hat{p}(1-\hat{p})}{n} }$
 
 ## Difference of Two Means
 
-$$
-(\bar{x}_1-\bar{x}_2)
-\pm
-\text{critical value}\times
-SE(\bar{x}_1-\bar{x}_2)
-$$
+$(\bar{x}_1-\bar{x}_2) \pm \text{critical value}\times SE(\bar{x}_1-\bar{x}_2)$
 
 with the common independent-sample standard error:
 
-$$
-SE=
-\sqrt{
-\frac{s_1^2}{n_1}
-+
-\frac{s_2^2}{n_2}
-}
-$$
+$SE= \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }$
 
 ## Difference of Two Proportions
 
-$$
-(\hat{p}_1-\hat{p}_2)
-\pm
-z^*
-\sqrt{
-\frac{\hat{p}_1(1-\hat{p}_1)}{n_1}
-+
-\frac{\hat{p}_2(1-\hat{p}_2)}{n_2}
-}
-$$
+$(\hat{p}_1-\hat{p}_2) \pm z^* \sqrt{ \frac{\hat{p}_1(1-\hat{p}_1)}{n_1} + \frac{\hat{p}_2(1-\hat{p}_2)}{n_2} }$
 
 ## Sample Size for a Mean
 
-$$
-n=
-\left(
-\frac{z^*\sigma}{E}
-\right)^2
-$$
+$n= \left( \frac{z^*\sigma}{E} \right)^2$
 
 ## Sample Size for a Proportion
 
-$$
-n=
-\frac{(z^*)^2p(1-p)}{E^2}
-$$
+$n= \frac{(z^*)^2p(1-p)}{E^2}$
 
 When $p$ is unknown:
 
-$$
-n=
-\frac{(z^*)^2(0.25)}{E^2}
-$$
+$n= \frac{(z^*)^2(0.25)}{E^2}$
 
 ## Finite Population Correction
 
-$$
-FPC=
-\sqrt{
-\frac{N-n}{N-1}
-}
-$$
+$FPC= \sqrt{ \frac{N-n}{N-1} }$
 
 ---
 
@@ -2391,17 +1776,7 @@ Finally, the **bootstrap** provides a computational approach for approximating s
 
 The central idea of inferential statistics can be summarised as:
 
-$$
-\boxed{
-\text{Sample Data}
-\rightarrow
-\text{Statistic}
-\rightarrow
-\text{Sampling Uncertainty}
-\rightarrow
-\text{Inference About Population}
-}
-$$
+$\boxed{ \text{Sample Data} \rightarrow \text{Statistic} \rightarrow \text{Sampling Uncertainty} \rightarrow \text{Inference About Population} }$
 
 ---
 
