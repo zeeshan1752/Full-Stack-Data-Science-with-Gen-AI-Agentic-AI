@@ -2,6 +2,10 @@
 
 Calculus is the branch of mathematics concerned with **change, rates of change, accumulation, and continuous variation**.
 
+![Tangent line illustrating the derivative at a point](../images/derivative-tangent.svg)
+
+**How to read this graph:** The curve shows a function and the dashed line is a tangent at a chosen point. Its slope is the derivative $f'(x)$, describing the function's local rate of change.
+
 The two central ideas of calculus are:
 
 - **Differentiation**, which studies instantaneous rates of change.
@@ -2125,7 +2129,7 @@ $$
 consider:
 
 $$
-\int_0^2x^2\,dx
+\int_0^2 x^2\,dx
 $$
 
 An antiderivative is:
@@ -2137,7 +2141,7 @@ $$
 Therefore:
 
 $$
-\int_0^2x^2\,dx
+\int_0^2 x^2\,dx
 =
 \left[\frac{x^3}{3}\right]_0^2
 $$
@@ -2156,7 +2160,7 @@ Thus:
 
 $$
 \boxed{
-\int_0^2x^2\,dx
+\int_0^2 x^2\,dx
 =
 \frac{8}{3}
 }
@@ -2169,7 +2173,7 @@ $$
 When $f(x)\ge0$ on $[a,b]$, the definite integral:
 
 $$
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 $$
 
 represents the area under the curve and above the $x$-axis.
@@ -2183,7 +2187,7 @@ $$
 from $0$ to $2$:
 
 $$
-\int_0^2x\,dx
+\int_0^2 x\,dx
 =
 \left[\frac{x^2}{2}\right]_0^2
 $$
@@ -2230,7 +2234,7 @@ The Fundamental Theorem of Calculus connects differentiation and integration.
 If:
 
 $$
-F(x)=\int_a^xf(t)\,dt
+F(x)=\int_a^x f(t)\,dt
 $$
 
 and $f$ is continuous, then:
@@ -2245,7 +2249,7 @@ The second part states:
 
 $$
 \boxed{
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 =
 F(b)-F(a)
 }
@@ -2374,7 +2378,7 @@ $$
 f_{\text{avg}}
 =
 \frac{1}{b-a}
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 }
 $$
 
@@ -2389,7 +2393,7 @@ on $[0,2]$.
 We know:
 
 $$
-\int_0^2x^2\,dx=\frac{8}{3}
+\int_0^2 x^2\,dx=\frac{8}{3}
 $$
 
 Therefore:
@@ -2429,7 +2433,7 @@ Common methods include:
 The trapezoidal rule approximates:
 
 $$
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 $$
 
 by replacing sections of the curve with trapezoids.
@@ -2464,7 +2468,7 @@ $$
 Approximate:
 
 $$
-\int_0^2x^2\,dx
+\int_0^2 x^2\,dx
 $$
 
 using two intervals.
@@ -3093,13 +3097,13 @@ $$
 ## Definite integral
 
 $$
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 $$
 
 ## Fundamental Theorem of Calculus
 
 $$
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 =
 F(b)-F(a)
 $$
@@ -3116,7 +3120,7 @@ $$
 f_{\mathrm{avg}}
 =
 \frac{1}{b-a}
-\int_a^bf(x)\,dx
+\int_a^b f(x)\,dx
 $$
 
 ## Trapezoidal rule

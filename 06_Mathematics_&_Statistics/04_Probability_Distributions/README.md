@@ -217,6 +217,18 @@ $$
 
 For continuous distributions, the probability corresponds to **area under the density curve**.
 
+![Shaded area under a density curve between a and b](../images/probability-density-area.svg)
+
+**How to read this graph:** The curve is the probability density function $f_X(x)$. The shaded area between $a$ and $b$ is the probability that the random variable falls in that interval:
+
+$
+P(a\leq X\leq b)
+=
+\int_a^b f_X(x)\,dx
+$
+
+The total area under a valid density curve is 1, while the probability at any one exact point of a continuous distribution is 0.
+
 Because a single point has zero width:
 
 $$
@@ -1662,7 +1674,7 @@ is a density, not generally the probability that $X=x$.
 The probability is obtained from area:
 
 $$
-P(a<X<b)=\int_a^bf(x)\,dx
+P(a<X<b)=\int_a^b f(x)\,dx
 $$
 
 ### Mistake 3: Forgetting the Conditions of a Binomial Model
@@ -1745,7 +1757,7 @@ $$
 ### Continuous Probability
 
 $$
-P(a\leq X\leq b)=\int_a^bf_X(x)\,dx
+P(a\leq X\leq b)=\int_a^b f_X(x)\,dx
 $$
 
 ### Expected Value — Discrete

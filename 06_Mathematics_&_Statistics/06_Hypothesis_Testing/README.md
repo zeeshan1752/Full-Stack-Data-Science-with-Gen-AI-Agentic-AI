@@ -62,6 +62,10 @@ flowchart LR
 
 The mathematical calculation is only one part of hypothesis testing.
 
+![Two-tailed hypothesis test with rejection regions](../images/hypothesis-test-tails.svg)
+
+**How to read this graph:** The central region contains test-statistic values more compatible with the null model. The shaded tails are rejection regions; for a two-tailed test, the significance level $\alpha$ is split between both tails ($\alpha/2$ each).
+
 A correct hypothesis test also requires:
 
 1. clearly defining the population parameter;

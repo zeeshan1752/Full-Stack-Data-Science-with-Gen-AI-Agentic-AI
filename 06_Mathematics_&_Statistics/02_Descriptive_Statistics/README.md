@@ -1005,6 +1005,10 @@ These five values are particularly useful when constructing and interpreting a b
 
 A **box plot** represents the five-number summary visually.
 
+![Annotated box plot showing quartiles, median, whiskers, and an outlier](../images/boxplot-anatomy.svg)
+
+**How to read this graph:** The box runs from the first quartile (Q1) to the third quartile (Q3), with the median marked inside. The whiskers show the range under the chosen box-plot convention; a separate point can indicate a possible outlier. The interquartile range is $IQR=Q_3-Q_1$.
+
 A typical box plot contains:
 
 - Lower whisker
@@ -1146,6 +1150,10 @@ It should be used carefully when the mean is zero or very close to zero, because
 **Skewness** describes the asymmetry of a distribution.
 
 A perfectly symmetric distribution has approximately equal left and right sides around its centre.
+
+![Comparison of negative skew, symmetric, and positive skew](../images/skewness-comparison.svg)
+
+**How to read this graph:** The left panel has a longer tail toward smaller values (negative skew); the middle panel is approximately balanced; the right panel has a longer tail toward larger values (positive skew). In many common distributions, the mean is pulled toward the longer tail, so mean < median for negative skew and mean > median for positive skew. These are useful patterns, not universal rules.
 
 ### Positive Skewness
 

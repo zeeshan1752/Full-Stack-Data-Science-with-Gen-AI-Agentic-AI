@@ -11,6 +11,10 @@ These ideas are related but different. An estimator can have low bias and high v
 
 The chapter first develops bias and variance in the context of statistical estimation. It then develops the bias–variance decomposition for squared prediction error and explains the trade-off between systematic error, sampling variability, and irreducible noise.
 
+![Conceptual bias–variance trade-off](../images/bias-variance-tradeoff.svg)
+
+**How to read this graph:** As model complexity grows, squared bias often decreases while variance often increases. Their combined prediction error may be lowest at an intermediate complexity. The exact curves depend on the dataset and model; the illustration is conceptual rather than measured data.
+
 The goal is to understand the mathematical structure behind these concepts rather than reduce them to the simple statement that "high bias means underfitting" and "high variance means overfitting."
 
 ---

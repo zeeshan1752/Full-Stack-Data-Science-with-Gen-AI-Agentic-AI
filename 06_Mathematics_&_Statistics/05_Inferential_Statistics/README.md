@@ -53,6 +53,10 @@ A **statistic** is a numerical value calculated from a sample.
 
 The distinction is important because inferential statistics uses statistics to learn about unknown parameters.
 
+![Illustration of a point estimate and confidence interval](../images/confidence-interval.svg)
+
+**How to read this graph:** The dot represents a point estimate and the horizontal line represents an interval estimate. The exact interval depends on the sample and method. A 95% confidence procedure captures the fixed population parameter in about 95% of intervals over repeated samples when its assumptions hold; it does not mean there is a 95% probability that a fixed parameter lies in this particular interval after it has been calculated.
+
 For example, if the true average height of all students is $\mu$, we may not know $\mu$. We can take a sample and calculate $\bar{x}$. We then use $\bar{x}$ as an estimate of $\mu$.
 
 ---

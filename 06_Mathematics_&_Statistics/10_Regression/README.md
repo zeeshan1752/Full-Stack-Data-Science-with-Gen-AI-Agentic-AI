@@ -344,6 +344,10 @@ $$
 
 The difference between observed and fitted values is the residual.
 
+![Regression line with observed points and residuals](../images/regression-residuals.svg)
+
+**How to read this graph:** The blue line represents the fitted regression model. Each red point is an observed value, and the vertical gap between the point and its fitted value is the residual $e_i=y_i-\hat{y}_i$. Positive residuals lie above the fitted line; negative residuals lie below it.
+
 ---
 
 # 12. Residual

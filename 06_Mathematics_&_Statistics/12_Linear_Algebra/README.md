@@ -115,6 +115,10 @@ In linear algebra, scalars are often used to scale vectors and matrices.
 
 # 4. Vectors
 
+![Vector represented by its horizontal and vertical components](../images/linear-algebra-vectors.svg)
+
+**How to read this graph:** The blue arrow is the vector. The dashed horizontal and vertical segments show its components; together they describe the same displacement as the full vector.
+
 A vector is an ordered list of values.
 
 A column vector can be written as:

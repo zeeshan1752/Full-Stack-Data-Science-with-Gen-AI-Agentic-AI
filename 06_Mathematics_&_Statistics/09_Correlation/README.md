@@ -199,6 +199,10 @@ can form a clear curved relationship while its linear correlation may be near ze
 
 This is why the scatter plot is important.
 
+![Positive, negative, and near-zero linear correlation patterns](../images/correlation-patterns.svg)
+
+**How to read this graph:** An upward trend indicates positive correlation, a downward trend indicates negative correlation, and a cloud without a clear straight-line trend may have correlation near zero. Near-zero Pearson correlation does not rule out a strong nonlinear relationship.
+
 ---
 
 # 6. Strength of Correlation
