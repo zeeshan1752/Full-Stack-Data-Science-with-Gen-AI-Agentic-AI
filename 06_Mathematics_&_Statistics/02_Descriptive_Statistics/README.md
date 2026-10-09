@@ -2,6 +2,10 @@
 
 Descriptive statistics is the branch of statistics concerned with **organising, summarising, and presenting observed data** in a meaningful form.
 
+![Normal distribution and empirical-rule illustration](https://www.leadingedgegroup.com/wp-content/uploads/2023/09/histogram-with-normal-distribution-1024x683.jpg.webp)
+
+*Visual reference: a normal curve showing the approximate proportions within one, two, and three standard deviations. Source: [Leading Edge Group — Histograms](https://www.leadingedgegroup.com/histograms/).*
+
 Raw data can contain hundreds, thousands, or millions of observations. Looking at every individual value does not always make the overall pattern easy to understand. Descriptive statistics reduces a large collection of observations into useful summaries such as measures of central tendency, measures of dispersion, position measures, frequency distributions, and graphical representations.
 
 This chapter develops these ideas step by step. The emphasis is on understanding what each measure means, how it is calculated, when it is useful, and how its value should be interpreted.

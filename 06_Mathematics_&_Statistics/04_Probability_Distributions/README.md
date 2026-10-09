@@ -2,6 +2,10 @@
 
 A **probability distribution** describes how probabilities are assigned to the possible values of a random variable.
 
+![Comparison of common discrete and continuous probability distributions](https://content-media-cdn.codefinity.com/courses/37287944-3858-4d25-b5b4-8963c453781b/pictures/section_2/probability_random/prob_dist.webp)
+
+*Visual reference: common discrete and continuous distribution shapes. Source: [Codefinity — Probability Distributions](https://codefinity.com/).*
+
 In the previous chapter, probability was introduced through events, conditional probability, independence, Bayes' theorem, and random variables. A probability distribution takes the next step: it tells us **which values a random variable can take and how probability is distributed across those values**.
 
 Probability distributions are fundamental because they provide mathematical models for uncertain quantities such as:

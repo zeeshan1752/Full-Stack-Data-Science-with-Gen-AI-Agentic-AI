@@ -2,6 +2,10 @@
 
 Correlation is a statistical method used to describe the **strength and direction of association between two variables**. It is especially useful when we want to understand whether two numerical variables tend to change together.
 
+![Scatter plot and fitted regression line](https://s3.us-west-2.amazonaws.com/content.podia.com/8gx2gkp469jsxxwy5864f2gjd097)
+
+*Visual reference: a positive association between two variables. The fitted line is a regression illustration, not a measure of correlation by itself. Source: [Team Academy](https://www.teamacademy.net/community/public/posts/550995-10-machine-learning-algorithms-simplified-with-real-world-analogies).*
+
 For example, we may want to study whether:
 
 - study time and examination marks are related,

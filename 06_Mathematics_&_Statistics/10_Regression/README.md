@@ -2,6 +2,10 @@
 
 Regression is a statistical method used to describe and model the relationship between a **response variable** and one or more **predictor variables**.
 
+![Linear regression line with observed points and residuals](https://miro.medium.com/1%2AjTznOE9Gq6QVrGJ5eVQI4A.png)
+
+*Visual reference: observed data points, a fitted line, and residual errors. Source: [Simple Linear Regression Using Example](https://medium.com/%40sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c).*
+
 Correlation describes the strength and direction of association between two variables. Regression goes one step further by describing a mathematical relationship that can be used to estimate the expected value of a response from predictor information.
 
 This chapter focuses on the **fundamentals of regression**:

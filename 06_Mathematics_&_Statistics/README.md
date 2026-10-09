@@ -1275,3 +1275,16 @@ Once these foundations are comfortable, the Machine Learning section can focus m
 - SciPy Documentation
 - Scikit-learn Documentation
 - Matplotlib Documentation
+
+---
+
+## Mathematical Formula Formatting
+
+All equations in this section use GitHub-compatible LaTeX math delimiters:
+
+- Use single dollar signs for inline expressions, such as $\mu$, $\sigma^2$, and $R^2$.
+- Put important or multi-line equations on separate lines between `$$` delimiters.
+- Use `\frac{a}{b}` for fractions, `\sum` for summations, and `\sqrt{}` for square roots.
+- Keep explanatory prose outside display-math blocks so equations remain readable in GitHub's README renderer.
+
+For details, see the [GitHub documentation for mathematical expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
