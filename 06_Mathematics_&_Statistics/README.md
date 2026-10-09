@@ -77,63 +77,23 @@ The `.ipynb` notebook provides practical calculations, Python implementation, vi
 
 The folders are arranged in a logical learning sequence.
 
-$$
-\boxed{
-\text{Statistics Fundamentals}
-\rightarrow
-\text{Descriptive Statistics}
-\rightarrow
-\text{Probability}
-\rightarrow
-\text{Probability Distributions}
-}
-$$
+$\boxed{ \text{Statistics Fundamentals} \rightarrow \text{Descriptive Statistics} \rightarrow \text{Probability} \rightarrow \text{Probability Distributions} }$
 
 Then:
 
-$$
-\boxed{
-\text{Inference}
-\rightarrow
-\text{Hypothesis Testing}
-\rightarrow
-\text{ANOVA}
-\rightarrow
-\text{Chi-Square}
-}
-$$
+$\boxed{ \text{Inference} \rightarrow \text{Hypothesis Testing} \rightarrow \text{ANOVA} \rightarrow \text{Chi-Square} }$
 
 Then:
 
-$$
-\boxed{
-\text{Correlation}
-\rightarrow
-\text{Regression}
-\rightarrow
-\text{Regression Evaluation}
-}
-$$
+$\boxed{ \text{Correlation} \rightarrow \text{Regression} \rightarrow \text{Regression Evaluation} }$
 
 And the mathematical foundations:
 
-$$
-\boxed{
-\text{Linear Algebra}
-\rightarrow
-\text{Calculus}
-\rightarrow
-\text{Bias and Variance}
-}
-$$
+$\boxed{ \text{Linear Algebra} \rightarrow \text{Calculus} \rightarrow \text{Bias and Variance} }$
 
 Finally:
 
-$$
-\boxed{
-\text{Statistics for Machine Learning}
-}
-$$
+$\boxed{ \text{Statistics for Machine Learning} }$
 
 The final folder brings together the statistical concepts that are repeatedly used during practical machine-learning work.
 
@@ -266,9 +226,7 @@ Probability is fundamental to machine learning because predictions are often unc
 
 For example:
 
-$$
-P(Y=1\mid X)
-$$
+$P(Y=1\mid X)$
 
 can represent the probability of a class given observed features.
 
@@ -518,15 +476,11 @@ Correlation is commonly used during exploratory analysis.
 
 For example, we may examine whether:
 
-$$
-\text{Study Hours}
-$$
+$\text{Study Hours}$
 
 and:
 
-$$
-\text{Exam Score}
-$$
+$\text{Exam Score}$
 
 are associated.
 
@@ -534,11 +488,7 @@ It is also useful for identifying highly related features.
 
 However:
 
-$$
-\boxed{
-\text{Correlation does not imply causation.}
-}
-$$
+$\boxed{ \text{Correlation does not imply causation.} }$
 
 ---
 
@@ -579,9 +529,7 @@ Examples:
 
 A simple regression model can be written as:
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 Regression is also an important foundation for understanding many machine-learning models.
 
@@ -617,9 +565,7 @@ After creating a regression model, we need to determine whether it actually perf
 
 For example:
 
-$$
-RMSE=5000
-$$
+$RMSE=5000$
 
 means something very different depending on whether the target represents:
 
@@ -670,9 +616,7 @@ Machine-learning datasets are naturally represented as matrices.
 
 For example:
 
-$$
-X\in\mathbb{R}^{n\times p}
-$$
+$X\in\mathbb{R}^{n\times p}$
 
 where:
 
@@ -722,15 +666,11 @@ Calculus becomes particularly important when understanding how machine-learning 
 
 A model often minimises a loss function:
 
-$$
-L(\theta)
-$$
+$L(\theta)$
 
 The gradient:
 
-$$
-\nabla L(\theta)
-$$
+$\nabla L(\theta)$
 
 describes the direction of greatest increase of the loss.
 
@@ -774,9 +714,7 @@ Topics include:
 
 A useful conceptual relationship is:
 
-$$
-\boxed{\text{Total Prediction Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}}
-$$
+$\boxed{\text{Total Prediction Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Error}}$
 
 ## Where is it used?
 
@@ -1006,25 +944,19 @@ For example:
 
 Vectors and matrices provide:
 
-$$
-X\beta
-$$
+$X\beta$
 
 ### Statistics
 
 We study uncertainty and relationships between:
 
-$$
-X \quad \text{and} \quad Y
-$$
+$X \quad \text{and} \quad Y$
 
 ### Machine Learning
 
 We use the data to construct a model:
 
-$$
-\hat{Y}=f(X)
-$$
+$\hat{Y}=f(X)$
 
 The three areas work together.
 
@@ -1146,43 +1078,23 @@ The real goal is to develop statistical and mathematical thinking.
 
 When you see a dataset, you should be able to ask:
 
-$$
-\boxed{
-\text{What does this data represent?}
-}
-$$
+$\boxed{ \text{What does this data represent?} }$
 
 Then:
 
-$$
-\boxed{
-\text{How is the data distributed?}
-}
-$$
+$\boxed{ \text{How is the data distributed?} }$
 
 Then:
 
-$$
-\boxed{
-\text{What relationships exist?}
-}
-$$
+$\boxed{ \text{What relationships exist?} }$
 
 Then:
 
-$$
-\boxed{
-\text{How uncertain are my conclusions?}
-}
-$$
+$\boxed{ \text{How uncertain are my conclusions?} }$
 
 And finally:
 
-$$
-\boxed{
-\text{Will the pattern generalise to new data?}
-}
-$$
+$\boxed{ \text{Will the pattern generalise to new data?} }$
 
 That way of thinking is more important than memorising individual formulas.
 
@@ -1237,27 +1149,7 @@ The 15 folders in this section move from basic statistical concepts to probabili
 
 The progression is:
 
-$$
-\boxed{
-\begin{aligned}
-&\text{Understand Data}\\
-&\downarrow\\
-&\text{Describe Data}\\
-&\downarrow\\
-&\text{Understand Uncertainty}\\
-&\downarrow\\
-&\text{Make Statistical Inferences}\\
-&\downarrow\\
-&\text{Analyse Relationships}\\
-&\downarrow\\
-&\text{Build Mathematical Models}\\
-&\downarrow\\
-&\text{Evaluate Generalisation}\\
-&\downarrow\\
-&\text{Apply Statistics to Machine Learning}
-\end{aligned}
-}
-$$
+$\boxed{ \begin{aligned} &\text{Understand Data}\\ &\downarrow\\ &\text{Describe Data}\\ &\downarrow\\ &\text{Understand Uncertainty}\\ &\downarrow\\ &\text{Make Statistical Inferences}\\ &\downarrow\\ &\text{Analyse Relationships}\\ &\downarrow\\ &\text{Build Mathematical Models}\\ &\downarrow\\ &\text{Evaluate Generalisation}\\ &\downarrow\\ &\text{Apply Statistics to Machine Learning} \end{aligned} }$
 
 Once these foundations are comfortable, the Machine Learning section can focus more on **algorithms, implementation, experimentation, and real-world modelling**, because the mathematical and statistical reasoning required to understand those algorithms has already been developed here.
 
