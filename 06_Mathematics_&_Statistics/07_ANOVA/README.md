@@ -49,15 +49,11 @@ ANOVA provides a single overall test of the null hypothesis that all population 
 
 For $k$ groups:
 
-$$
-H_0:\mu_1=\mu_2=\cdots=\mu_k
-$$
+$H_0:\mu_1=\mu_2=\cdots=\mu_k$
 
 The alternative hypothesis is:
 
-$$
-H_a:\text{At least one population mean differs}
-$$
+$H_a:\text{At least one population mean differs}$
 
 Notice that the alternative hypothesis does **not** say that every mean is different.
 
@@ -111,27 +107,19 @@ Suppose there are $k$ groups.
 
 The null hypothesis is:
 
-$$
-H_0:\mu_1=\mu_2=\cdots=\mu_k
-$$
+$H_0:\mu_1=\mu_2=\cdots=\mu_k$
 
 The alternative hypothesis is:
 
-$$
-H_a:\text{At least one }\mu_i\text{ differs}
-$$
+$H_a:\text{At least one }\mu_i\text{ differs}$
 
 For three groups:
 
-$$
-H_0:\mu_1=\mu_2=\mu_3
-$$
+$H_0:\mu_1=\mu_2=\mu_3$
 
 and:
 
-$$
-H_a:\text{At least one population mean is different}
-$$
+$H_a:\text{At least one population mean is different}$
 
 The ANOVA test does not initially identify which particular groups differ.
 
@@ -157,15 +145,7 @@ ANOVA compares these two sources of variation.
 
 Conceptually:
 
-$$
-\boxed{
-\text{Total Variation}
-=
-\text{Between-Group Variation}
-+
-\text{Within-Group Variation}
-}
-$$
+$\boxed{ \text{Total Variation} = \text{Between-Group Variation} + \text{Within-Group Variation} }$
 
 If the group means are genuinely different, the between-group variation tends to be large relative to the within-group variation.
 
@@ -183,17 +163,11 @@ Consider three groups:
 
 Group means:
 
-$$
-\bar{x}_A=10
-$$
+$\bar{x}_A=10$
 
-$$
-\bar{x}_B=15
-$$
+$\bar{x}_B=15$
 
-$$
-\bar{x}_C=22
-$$
+$\bar{x}_C=22$
 
 The group means are clearly separated.
 
@@ -217,26 +191,13 @@ The **grand mean** is the mean of all observations combined.
 
 If there are $N$ total observations:
 
-$$
-\bar{x}_{grand}
-=
-\frac{1}{N}
-\sum_{i=1}^{N}x_i
-$$
+$\bar{x}_{grand} = \frac{1}{N} \sum_{i=1}^{N}x_i$
 
 When groups have different sizes, the grand mean is naturally weighted by the number of observations in each group.
 
 If group $i$ has $n_i$ observations and mean $\bar{x}_i$, then:
 
-$$
-\bar{x}_{grand}
-=
-\frac{
-\sum_{i=1}^{k}n_i\bar{x}_i
-}{
-\sum_{i=1}^{k}n_i
-}
-$$
+$\bar{x}_{grand} = \frac{ \sum_{i=1}^{k}n_i\bar{x}_i }{ \sum_{i=1}^{k}n_i }$
 
 ---
 
@@ -252,39 +213,23 @@ Suppose:
 
 There are:
 
-$$
-N=9
-$$
+$N=9$
 
 total observations.
 
 The grand mean is:
 
-$$
-\bar{x}_{grand}
-=
-\frac{
-10+12+14+16+18+20+22+24+26
-}{9}
-$$
+$\bar{x}_{grand} = \frac{ 10+12+14+16+18+20+22+24+26 }{9}$
 
 The sum is:
 
-$$
-162
-$$
+$162$
 
 Therefore:
 
-$$
-\bar{x}_{grand}
-=
-\frac{162}{9}
-$$
+$\bar{x}_{grand} = \frac{162}{9}$
 
-$$
-\boxed{\bar{x}_{grand}=18}
-$$
+$\boxed{\bar{x}_{grand}=18}$
 
 The grand mean provides the overall reference point for decomposing total variability.
 
@@ -296,12 +241,7 @@ Total variation measures how far every observation is from the grand mean.
 
 The **total sum of squares** is:
 
-$$
-SS_{Total}
-=
-\sum_{i=1}^{N}
-(x_i-\bar{x}_{grand})^2
-$$
+$SS_{Total} = \sum_{i=1}^{N} (x_i-\bar{x}_{grand})^2$
 
 A large value means that the observations are widely spread around the grand mean.
 
@@ -315,12 +255,7 @@ Between-group variation measures how far each group mean is from the grand mean.
 
 The **between-group sum of squares** is:
 
-$$
-SS_{Between}
-=
-\sum_{i=1}^{k}
-n_i(\bar{x}_i-\bar{x}_{grand})^2
-$$
+$SS_{Between} = \sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x}_{grand})^2$
 
 where:
 
@@ -339,13 +274,7 @@ Within-group variation measures how far individual observations are from their o
 
 The **within-group sum of squares** is:
 
-$$
-SS_{Within}
-=
-\sum_{i=1}^{k}
-\sum_{j=1}^{n_i}
-(x_{ij}-\bar{x}_i)^2
-$$
+$SS_{Within} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (x_{ij}-\bar{x}_i)^2$
 
 where:
 
@@ -360,13 +289,7 @@ This measures the variation that remains inside the groups.
 
 The three sums of squares are related by:
 
-$$
-SS_{Total}
-=
-SS_{Between}
-+
-SS_{Within}
-$$
+$SS_{Total} = SS_{Between} + SS_{Within}$
 
 This is the central variance-decomposition identity of one-way ANOVA.
 
@@ -396,77 +319,47 @@ Use the data:
 
 The group means are:
 
-$$
-\bar{x}_A=12
-$$
+$\bar{x}_A=12$
 
-$$
-\bar{x}_B=18
-$$
+$\bar{x}_B=18$
 
-$$
-\bar{x}_C=24
-$$
+$\bar{x}_C=24$
 
 and the grand mean is:
 
-$$
-\bar{x}_{grand}=18
-$$
+$\bar{x}_{grand}=18$
 
 ## Total Sum of Squares
 
 For Group A:
 
-$$
-(10-18)^2+(12-18)^2+(14-18)^2
-$$
+$(10-18)^2+(12-18)^2+(14-18)^2$
 
-$$
-=64+36+16
-$$
+$=64+36+16$
 
-$$
-=116
-$$
+$=116$
 
 For Group B:
 
-$$
-(16-18)^2+(18-18)^2+(20-18)^2
-$$
+$(16-18)^2+(18-18)^2+(20-18)^2$
 
-$$
-=4+0+4
-$$
+$=4+0+4$
 
-$$
-=8
-$$
+$=8$
 
 For Group C:
 
-$$
-(22-18)^2+(24-18)^2+(26-18)^2
-$$
+$(22-18)^2+(24-18)^2+(26-18)^2$
 
-$$
-=16+36+64
-$$
+$=16+36+64$
 
-$$
-=116
-$$
+$=116$
 
 Therefore:
 
-$$
-SS_{Total}=116+8+116
-$$
+$SS_{Total}=116+8+116$
 
-$$
-\boxed{SS_{Total}=240}
-$$
+$\boxed{SS_{Total}=240}$
 
 ---
 
@@ -474,46 +367,25 @@ $$
 
 The group sizes are all:
 
-$$
-n_i=3
-$$
+$n_i=3$
 
 The group means are:
 
-$$
-12,\ 18,\ 24
-$$
+$12,\ 18,\ 24$
 
 and:
 
-$$
-\bar{x}_{grand}=18
-$$
+$\bar{x}_{grand}=18$
 
 Therefore:
 
-$$
-SS_{Between}
-=
-3(12-18)^2
-+
-3(18-18)^2
-+
-3(24-18)^2
-$$
+$SS_{Between} = 3(12-18)^2 + 3(18-18)^2 + 3(24-18)^2$
 
-$$
-=
-3(36)+3(0)+3(36)
-$$
+$= 3(36)+3(0)+3(36)$
 
-$$
-=108+0+108
-$$
+$=108+0+108$
 
-$$
-\boxed{SS_{Between}=216}
-$$
+$\boxed{SS_{Between}=216}$
 
 ---
 
@@ -521,67 +393,39 @@ $$
 
 For Group A:
 
-$$
-(10-12)^2+(12-12)^2+(14-12)^2
-$$
+$(10-12)^2+(12-12)^2+(14-12)^2$
 
-$$
-=4+0+4
-$$
+$=4+0+4$
 
-$$
-=8
-$$
+$=8$
 
 For Group B:
 
-$$
-(16-18)^2+(18-18)^2+(20-18)^2
-$$
+$(16-18)^2+(18-18)^2+(20-18)^2$
 
-$$
-=4+0+4
-$$
+$=4+0+4$
 
-$$
-=8
-$$
+$=8$
 
 For Group C:
 
-$$
-(22-24)^2+(24-24)^2+(26-24)^2
-$$
+$(22-24)^2+(24-24)^2+(26-24)^2$
 
-$$
-=4+0+4
-$$
+$=4+0+4$
 
-$$
-=8
-$$
+$=8$
 
 Therefore:
 
-$$
-SS_{Within}=8+8+8
-$$
+$SS_{Within}=8+8+8$
 
-$$
-\boxed{SS_{Within}=24}
-$$
+$\boxed{SS_{Within}=24}$
 
 Check:
 
-$$
-SS_{Total}
-=
-SS_{Between}+SS_{Within}
-$$
+$SS_{Total} = SS_{Between}+SS_{Within}$
 
-$$
-240=216+24
-$$
+$240=216+24$
 
 The decomposition is correct.
 
@@ -595,29 +439,19 @@ For $k$ groups and $N$ total observations:
 
 ### Between groups
 
-$$
-df_{Between}=k-1
-$$
+$df_{Between}=k-1$
 
 ### Within groups
 
-$$
-df_{Within}=N-k
-$$
+$df_{Within}=N-k$
 
 ### Total
 
-$$
-df_{Total}=N-1
-$$
+$df_{Total}=N-1$
 
 The relationship is:
 
-$$
-df_{Total}
-=
-df_{Between}+df_{Within}
-$$
+$df_{Total} = df_{Between}+df_{Within}$
 
 ---
 
@@ -625,45 +459,31 @@ $$
 
 There are:
 
-$$
-k=3
-$$
+$k=3$
 
 groups and:
 
-$$
-N=9
-$$
+$N=9$
 
 observations.
 
 Therefore:
 
-$$
-df_{Between}=3-1=2
-$$
+$df_{Between}=3-1=2$
 
-$$
-df_{Within}=9-3=6
-$$
+$df_{Within}=9-3=6$
 
 and:
 
-$$
-df_{Total}=9-1=8
-$$
+$df_{Total}=9-1=8$
 
 Check:
 
-$$
-2+6=8
-$$
+$2+6=8$
 
 So:
 
-$$
-\boxed{df_{Total}=df_{Between}+df_{Within}}
-$$
+$\boxed{df_{Total}=df_{Between}+df_{Within}}$
 
 ---
 
@@ -673,21 +493,11 @@ A **mean square** is a sum of squares divided by its corresponding degrees of fr
 
 Between-group mean square:
 
-$$
-MS_{Between}
-=
-\frac{SS_{Between}}
-{df_{Between}}
-$$
+$MS_{Between} = \frac{SS_{Between}} {df_{Between}}$
 
 Within-group mean square:
 
-$$
-MS_{Within}
-=
-\frac{SS_{Within}}
-{df_{Within}}
-$$
+$MS_{Within} = \frac{SS_{Within}} {df_{Within}}$
 
 The word "mean" here refers to averaging the sum of squared deviations over the appropriate degrees of freedom.
 
@@ -697,51 +507,31 @@ The word "mean" here refers to averaging the sum of squared deviations over the 
 
 From the previous example:
 
-$$
-SS_{Between}=216
-$$
+$SS_{Between}=216$
 
 and:
 
-$$
-df_{Between}=2
-$$
+$df_{Between}=2$
 
 Therefore:
 
-$$
-MS_{Between}
-=
-\frac{216}{2}
-$$
+$MS_{Between} = \frac{216}{2}$
 
-$$
-\boxed{MS_{Between}=108}
-$$
+$\boxed{MS_{Between}=108}$
 
 For within groups:
 
-$$
-SS_{Within}=24
-$$
+$SS_{Within}=24$
 
 and:
 
-$$
-df_{Within}=6
-$$
+$df_{Within}=6$
 
 Therefore:
 
-$$
-MS_{Within}
-=
-\frac{24}{6}
-$$
+$MS_{Within} = \frac{24}{6}$
 
-$$
-\boxed{MS_{Within}=4}
-$$
+$\boxed{MS_{Within}=4}$
 
 ---
 
@@ -749,11 +539,7 @@ $$
 
 The ANOVA test statistic is the **F-statistic**:
 
-$$
-F=
-\frac{MS_{Between}}
-{MS_{Within}}
-$$
+$F= \frac{MS_{Between}} {MS_{Within}}$
 
 The logic is simple:
 
@@ -768,40 +554,27 @@ If the between-group variation is much larger than the within-group variation, $
 
 From the previous calculations:
 
-$$
-MS_{Between}=108
-$$
+$MS_{Between}=108$
 
 and:
 
-$$
-MS_{Within}=4
-$$
+$MS_{Within}=4$
 
 Therefore:
 
-$$
-F=
-\frac{108}{4}
-$$
+$F= \frac{108}{4}$
 
-$$
-\boxed{F=27}
-$$
+$\boxed{F=27}$
 
 An F-statistic of 27 is large relative to what would usually be expected if all population means were equal.
 
 The exact decision requires the appropriate F-distribution with:
 
-$$
-df_1=df_{Between}
-$$
+$df_1=df_{Between}$
 
 and:
 
-$$
-df_2=df_{Within}
-$$
+$df_2=df_{Within}$
 
 ---
 
@@ -811,21 +584,15 @@ The F-statistic is compared with an **F-distribution**.
 
 The F-distribution has two degrees of freedom:
 
-$$
-df_1=df_{Between}
-$$
+$df_1=df_{Between}$
 
 and:
 
-$$
-df_2=df_{Within}
-$$
+$df_2=df_{Within}$
 
 The F-distribution is nonnegative:
 
-$$
-F\ge0
-$$
+$F\ge0$
 
 because it is a ratio of variance estimates.
 
@@ -845,11 +612,7 @@ flowchart LR
 
 The F-statistic is:
 
-$$
-F=
-\frac{MS_{Between}}
-{MS_{Within}}
-$$
+$F= \frac{MS_{Between}} {MS_{Within}}$
 
 Both mean squares are nonnegative.
 
@@ -865,35 +628,19 @@ Therefore, unusually **large** F values provide evidence against the null hypoth
 
 Using the p-value method:
 
-$$
-p\le\alpha
-\Rightarrow
-\boxed{\text{Reject }H_0}
-$$
+$p\le\alpha \Rightarrow \boxed{\text{Reject }H_0}$
 
 and:
 
-$$
-p>\alpha
-\Rightarrow
-\boxed{\text{Fail to reject }H_0}
-$$
+$p>\alpha \Rightarrow \boxed{\text{Fail to reject }H_0}$
 
 Using the critical-value method:
 
-$$
-F>F_{critical}
-\Rightarrow
-\boxed{\text{Reject }H_0}
-$$
+$F>F_{critical} \Rightarrow \boxed{\text{Reject }H_0}$
 
 Otherwise:
 
-$$
-F\le F_{critical}
-\Rightarrow
-\boxed{\text{Fail to reject }H_0}
-$$
+$F\le F_{critical} \Rightarrow \boxed{\text{Fail to reject }H_0}$
 
 ---
 
@@ -909,10 +656,7 @@ A one-way ANOVA table commonly contains:
 
 The F statistic is calculated from:
 
-$$
-F=
-\frac{MS_B}{MS_W}
-$$
+$F= \frac{MS_B}{MS_W}$
 
 ---
 
@@ -920,43 +664,27 @@ $$
 
 We found:
 
-$$
-SS_B=216
-$$
+$SS_B=216$
 
-$$
-SS_W=24
-$$
+$SS_W=24$
 
-$$
-SS_T=240
-$$
+$SS_T=240$
 
 and:
 
-$$
-df_B=2
-$$
+$df_B=2$
 
-$$
-df_W=6
-$$
+$df_W=6$
 
-$$
-df_T=8
-$$
+$df_T=8$
 
 Also:
 
-$$
-MS_B=108
-$$
+$MS_B=108$
 
 and:
 
-$$
-MS_W=4
-$$
+$MS_W=4$
 
 Therefore:
 
@@ -974,27 +702,19 @@ This table summarises the entire one-way ANOVA calculation.
 
 Suppose an ANOVA produces:
 
-$$
-p=0.003
-$$
+$p=0.003$
 
 with:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Since:
 
-$$
-0.003<0.05
-$$
+$0.003<0.05$
 
 we reject:
 
-$$
-H_0
-$$
+$H_0$
 
 The conclusion is:
 
@@ -1010,21 +730,15 @@ ANOVA gives an overall test.
 
 Suppose:
 
-$$
-p=0.27
-$$
+$p=0.27$
 
 and:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Since:
 
-$$
-0.27>0.05
-$$
+$0.27>0.05$
 
 we fail to reject $H_0$.
 
@@ -1058,21 +772,15 @@ Suppose there are three groups.
 
 The pairwise comparisons are:
 
-$$
-\binom{3}{2}=3
-$$
+$\binom{3}{2}=3$
 
 For five groups:
 
-$$
-\binom{5}{2}=10
-$$
+$\binom{5}{2}=10$
 
 For ten groups:
 
-$$
-\binom{10}{2}=45
-$$
+$\binom{10}{2}=45$
 
 The number of comparisons increases rapidly.
 
@@ -1088,13 +796,7 @@ ANOVA first provides an overall test, and post-hoc procedures provide controlled
 
 For equal group sizes, the basic HSD expression is:
 
-$$
-HSD=
-q_{\alpha,k,df_W}
-\sqrt{
-\frac{MS_W}{n}
-}
-$$
+$HSD= q_{\alpha,k,df_W} \sqrt{ \frac{MS_W}{n} }$
 
 where:
 
@@ -1125,9 +827,7 @@ Suppose an ANOVA is significant for three groups:
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we would conclude:
 
@@ -1184,15 +884,7 @@ However, extreme skewness and severe outliers can still cause problems.
 
 The standard one-way ANOVA assumes that the population variances are approximately equal across groups:
 
-$$
-\sigma_1^2
-=
-\sigma_2^2
-=
-\cdots
-=
-\sigma_k^2
-$$
+$\sigma_1^2 = \sigma_2^2 = \cdots = \sigma_k^2$
 
 This is called **homogeneity of variance** or **equal variances**.
 
@@ -1223,9 +915,7 @@ No single graph proves an assumption, but visual diagnostics are useful.
 
 Its null hypothesis is approximately:
 
-$$
-H_0:\sigma_1^2=\sigma_2^2=\cdots=\sigma_k^2
-$$
+$H_0:\sigma_1^2=\sigma_2^2=\cdots=\sigma_k^2$
 
 The alternative is that at least one variance differs.
 
@@ -1286,11 +976,7 @@ Effect-size measures provide additional information.
 
 One common measure is **eta squared**:
 
-$$
-\eta^2=
-\frac{SS_{Between}}
-{SS_{Total}}
-$$
+$\eta^2= \frac{SS_{Between}} {SS_{Total}}$
 
 It represents the proportion of total variation associated with differences between groups in the one-way ANOVA setting.
 
@@ -1300,32 +986,21 @@ It represents the proportion of total variation associated with differences betw
 
 From the previous example:
 
-$$
-SS_{Between}=216
-$$
+$SS_{Between}=216$
 
 and:
 
-$$
-SS_{Total}=240
-$$
+$SS_{Total}=240$
 
 Therefore:
 
-$$
-\eta^2=
-\frac{216}{240}
-$$
+$\eta^2= \frac{216}{240}$
 
-$$
-=0.90
-$$
+$=0.90$
 
 Thus:
 
-$$
-\boxed{\eta^2=0.90}
-$$
+$\boxed{\eta^2=0.90}$
 
 In this illustrative dataset, 90% of the total variation is associated with between-group differences.
 
@@ -1339,14 +1014,7 @@ Effect size should always be interpreted in context rather than using a single u
 
 Another effect-size measure is **omega squared**:
 
-$$
-\omega^2=
-\frac{
-SS_{Between}-(k-1)MS_{Within}
-}{
-SS_{Total}+MS_{Within}
-}
-$$
+$\omega^2= \frac{ SS_{Between}-(k-1)MS_{Within} }{ SS_{Total}+MS_{Within} }$
 
 Omega squared attempts to provide a less biased estimate of the population-level proportion of variance associated with the factor.
 
@@ -1371,9 +1039,7 @@ When there are exactly two groups, a one-way ANOVA and a corresponding independe
 
 For a two-group comparison under equivalent assumptions:
 
-$$
-F=t^2
-$$
+$F=t^2$
 
 This means that the F-test and the two-sided t-test lead to the same overall significance decision in the corresponding two-group setting.
 
@@ -1385,23 +1051,15 @@ ANOVA becomes particularly useful when there are three or more groups because it
 
 Suppose:
 
-$$
-t=2.5
-$$
+$t=2.5$
 
 Then:
 
-$$
-F=t^2
-$$
+$F=t^2$
 
-$$
-F=(2.5)^2
-$$
+$F=(2.5)^2$
 
-$$
-\boxed{F=6.25}
-$$
+$\boxed{F=6.25}$
 
 The corresponding two-sided t-test and one-way ANOVA test are linked through this relationship under the equivalent two-group setup.
 
@@ -1413,9 +1071,7 @@ One-way ANOVA can also be represented using a linear-model framework.
 
 For observation $j$ in group $i$:
 
-$$
-x_{ij}=\mu+\tau_i+\epsilon_{ij}
-$$
+$x_{ij}=\mu+\tau_i+\epsilon_{ij}$
 
 where:
 
@@ -1435,21 +1091,11 @@ This connects ANOVA to the broader linear-model framework, but the central one-w
 
 The model:
 
-$$
-x_{ij}=\mu+\tau_i+\epsilon_{ij}
-$$
+$x_{ij}=\mu+\tau_i+\epsilon_{ij}$
 
 can be understood as:
 
-$$
-\text{Observation}
-=
-\text{Overall Level}
-+
-\text{Group Effect}
-+
-\text{Random Error}
-$$
+$\text{Observation} = \text{Overall Level} + \text{Group Effect} + \text{Random Error}$
 
 If group effects are essentially zero, the group means are similar.
 
@@ -1471,89 +1117,57 @@ Consider:
 
 ## Step 1: Group means
 
-$$
-\bar{x}_A=12
-$$
+$\bar{x}_A=12$
 
-$$
-\bar{x}_B=18
-$$
+$\bar{x}_B=18$
 
-$$
-\bar{x}_C=24
-$$
+$\bar{x}_C=24$
 
 ## Step 2: Grand mean
 
-$$
-\bar{x}_{grand}=18
-$$
+$\bar{x}_{grand}=18$
 
 ## Step 3: Between-group SS
 
-$$
-SS_B=216
-$$
+$SS_B=216$
 
 ## Step 4: Within-group SS
 
-$$
-SS_W=24
-$$
+$SS_W=24$
 
 ## Step 5: Total SS
 
-$$
-SS_T=240
-$$
+$SS_T=240$
 
 ## Step 6: Degrees of freedom
 
-$$
-df_B=2
-$$
+$df_B=2$
 
-$$
-df_W=6
-$$
+$df_W=6$
 
-$$
-df_T=8
-$$
+$df_T=8$
 
 ## Step 7: Mean squares
 
-$$
-MS_B=\frac{216}{2}=108
-$$
+$MS_B=\frac{216}{2}=108$
 
-$$
-MS_W=\frac{24}{6}=4
-$$
+$MS_W=\frac{24}{6}=4$
 
 ## Step 8: F statistic
 
-$$
-F=\frac{108}{4}=27
-$$
+$F=\frac{108}{4}=27$
 
 Therefore:
 
-$$
-\boxed{F=27}
-$$
+$\boxed{F=27}$
 
 The final p-value would be obtained from the F-distribution with:
 
-$$
-df_1=2
-$$
+$df_1=2$
 
 and:
 
-$$
-df_2=6
-$$
+$df_2=6$
 
 ---
 
@@ -1561,48 +1175,19 @@ $$
 
 A useful memory sequence is:
 
-$$
-\boxed{
-SS
-\rightarrow
-df
-\rightarrow
-MS
-\rightarrow
-F
-\rightarrow
-p
-\rightarrow
-\text{Decision}
-}
-$$
+$\boxed{ SS \rightarrow df \rightarrow MS \rightarrow F \rightarrow p \rightarrow \text{Decision} }$
 
 More specifically:
 
-$$
-SS_B
-\rightarrow
-df_B
-\rightarrow
-MS_B
-$$
+$SS_B \rightarrow df_B \rightarrow MS_B$
 
 and:
 
-$$
-SS_W
-\rightarrow
-df_W
-\rightarrow
-MS_W
-$$
+$SS_W \rightarrow df_W \rightarrow MS_W$
 
 then:
 
-$$
-F=
-\frac{MS_B}{MS_W}
-$$
+$F= \frac{MS_B}{MS_W}$
 
 and finally the F statistic is evaluated using the F-distribution.
 
@@ -1630,25 +1215,17 @@ Multiple comparisons increase false-positive risk.
 
 The ANOVA statistic is:
 
-$$
-F=\frac{MS_B}{MS_W}
-$$
+$F=\frac{MS_B}{MS_W}$
 
 ### Mistake 6: Using the wrong degrees of freedom
 
 For one-way ANOVA:
 
-$$
-df_B=k-1
-$$
+$df_B=k-1$
 
-$$
-df_W=N-k
-$$
+$df_W=N-k$
 
-$$
-df_T=N-1
-$$
+$df_T=N-1$
 
 ### Mistake 7: Ignoring unequal variances
 
@@ -1714,15 +1291,9 @@ Suppose there are four groups.
 
 The number of pairwise comparisons is:
 
-$$
-\binom{4}{2}
-=
-\frac{4(3)}{2}
-$$
+$\binom{4}{2} = \frac{4(3)}{2}$
 
-$$
-=6
-$$
+$=6$
 
 With six comparisons, using an unadjusted 5% significance level for every comparison can inflate the probability of at least one false positive.
 
@@ -1738,9 +1309,7 @@ If there are three or more independent groups and the goal is to compare means, 
 
 The two-group relationship:
 
-$$
-F=t^2
-$$
+$F=t^2$
 
 explains why the methods are closely connected.
 
@@ -1821,18 +1390,13 @@ A residual is the difference between an observed value and its fitted group mean
 
 For observation $x_{ij}$:
 
-$$
-e_{ij}=x_{ij}-\bar{x}_i
-$$
+$e_{ij}=x_{ij}-\bar{x}_i$
 
 Residuals represent the within-group deviations that remain after accounting for group membership.
 
 The within-group sum of squares can therefore be written as:
 
-$$
-SS_W=
-\sum e_{ij}^2
-$$
+$SS_W= \sum e_{ij}^2$
 
 Residual analysis can help identify:
 
@@ -1847,49 +1411,31 @@ Residual analysis can help identify:
 
 Suppose Group A has:
 
-$$
-10,\ 12,\ 14
-$$
+$10,\ 12,\ 14$
 
 with:
 
-$$
-\bar{x}_A=12
-$$
+$\bar{x}_A=12$
 
 Residuals are:
 
-$$
-10-12=-2
-$$
+$10-12=-2$
 
-$$
-12-12=0
-$$
+$12-12=0$
 
-$$
-14-12=2
-$$
+$14-12=2$
 
 Squared residuals:
 
-$$
-(-2)^2=4
-$$
+$(-2)^2=4$
 
-$$
-0^2=0
-$$
+$0^2=0$
 
-$$
-2^2=4
-$$
+$2^2=4$
 
 Therefore:
 
-$$
-SS_{Within,A}=8
-$$
+$SS_{Within,A}=8$
 
 This is exactly the within-group contribution from Group A.
 
@@ -1908,17 +1454,11 @@ Consider three groups, each with four observations:
 
 Group means:
 
-$$
-\bar{x}_A=12.5
-$$
+$\bar{x}_A=12.5$
 
-$$
-\bar{x}_B=16.5
-$$
+$\bar{x}_B=16.5$
 
-$$
-\bar{x}_C=20.5
-$$
+$\bar{x}_C=20.5$
 
 The means are separated by approximately four units.
 
@@ -1940,37 +1480,19 @@ Consider:
 
 The grand mean is not:
 
-$$
-\frac{70+75+82}{3}
-$$
+$\frac{70+75+82}{3}$
 
 because the groups have different sizes.
 
 Instead:
 
-$$
-\bar{x}_{grand}
-=
-\frac{
-10(70)+20(75)+30(82)
-}{
-10+20+30
-}
-$$
+$\bar{x}_{grand} = \frac{ 10(70)+20(75)+30(82) }{ 10+20+30 }$
 
-$$
-=
-\frac{700+1500+2460}{60}
-$$
+$= \frac{700+1500+2460}{60}$
 
-$$
-=
-\frac{4660}{60}
-$$
+$= \frac{4660}{60}$
 
-$$
-\boxed{\bar{x}_{grand}\approx77.67}
-$$
+$\boxed{\bar{x}_{grand}\approx77.67}$
 
 This illustrates why group sizes matter in ANOVA calculations.
 
@@ -1980,15 +1502,7 @@ This illustrates why group sizes matter in ANOVA calculations.
 
 For unequal group sizes:
 
-$$
-\bar{x}_{grand}
-=
-\frac{
-\sum n_i\bar{x}_i
-}{
-\sum n_i
-}
-$$
+$\bar{x}_{grand} = \frac{ \sum n_i\bar{x}_i }{ \sum n_i }$
 
 This is a weighted mean.
 
@@ -2002,11 +1516,7 @@ This is an important practical point when calculating ANOVA components manually.
 
 The ANOVA decomposition can be remembered as:
 
-$$
-\boxed{
-SS_T=SS_B+SS_W
-}
-$$
+$\boxed{ SS_T=SS_B+SS_W }$
 
 where:
 
@@ -2016,27 +1526,15 @@ where:
 
 The corresponding degrees of freedom are:
 
-$$
-\boxed{
-df_T=df_B+df_W
-}
-$$
+$\boxed{ df_T=df_B+df_W }$
 
 and:
 
-$$
-\boxed{
-MS=\frac{SS}{df}
-}
-$$
+$\boxed{ MS=\frac{SS}{df} }$
 
 Finally:
 
-$$
-\boxed{
-F=\frac{MS_B}{MS_W}
-}
-$$
+$\boxed{ F=\frac{MS_B}{MS_W} }$
 
 These four relationships form the mathematical core of one-way ANOVA.
 
@@ -2046,25 +1544,19 @@ These four relationships form the mathematical core of one-way ANOVA.
 
 Suppose:
 
-$$
-F\approx1
-$$
+$F\approx1$
 
 This suggests that between-group variation is similar to within-group variation.
 
 Suppose:
 
-$$
-F=10
-$$
+$F=10$
 
 This means the between-group mean square is ten times the within-group mean square.
 
 Suppose:
 
-$$
-F=25
-$$
+$F=25$
 
 The between-group variation is much larger relative to within-group variation.
 
@@ -2076,17 +1568,13 @@ A large F value is evidence against the null hypothesis, but statistical signifi
 
 The p-value is calculated from the F-distribution:
 
-$$
-p=P(F_{df_1,df_2}\ge F_{observed})
-$$
+$p=P(F_{df_1,df_2}\ge F_{observed})$
 
 Because the F-test is right-tailed, the probability is the area to the right of the observed F statistic.
 
 For example, if:
 
-$$
-F=8.5
-$$
+$F=8.5$
 
 then the p-value is the right-tail probability beyond 8.5 for the appropriate degrees of freedom.
 
@@ -2105,21 +1593,15 @@ p-value = 0.0022
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we have:
 
-$$
-0.0022<0.05
-$$
+$0.0022<0.05$
 
 Therefore:
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 A suitable conclusion is:
 
@@ -2141,9 +1623,7 @@ A researcher might perform:
 
 ANOVA instead begins with:
 
-$$
-H_0:\mu_A=\mu_B=\mu_C
-$$
+$H_0:\mu_A=\mu_B=\mu_C$
 
 This gives a single overall test.
 
@@ -2157,9 +1637,7 @@ The advantage is a controlled overall testing strategy rather than a collection 
 
 Suppose an ANOVA is statistically significant and:
 
-$$
-\eta^2=0.04
-$$
+$\eta^2=0.04$
 
 The result indicates that the factor is associated with about 4% of the observed total variation in the sample under the eta-squared definition.
 
@@ -2197,34 +1675,24 @@ This structure reports both statistical evidence and interpretation.
 7. Total variation is decomposed into between-group and within-group variation.
 8. The core identity is:
 
-$$
-SS_T=SS_B+SS_W
-$$
+$SS_T=SS_B+SS_W$
 
 9. Between-group degrees of freedom are:
 
-$$
-df_B=k-1
-$$
+$df_B=k-1$
 
 10. Within-group degrees of freedom are:
 
-$$
-df_W=N-k
-$$
+$df_W=N-k$
 
 11. Total degrees of freedom are:
 
-$$
-df_T=N-1
-$$
+$df_T=N-1$
 
 12. Mean square equals sum of squares divided by degrees of freedom.
 13. The F statistic is:
 
-$$
-F=\frac{MS_B}{MS_W}
-$$
+$F=\frac{MS_B}{MS_W}$
 
 14. The F-test is right-tailed.
 15. A large F statistic provides evidence against equal population means.
@@ -2237,9 +1705,7 @@ $$
 22. Statistical significance does not automatically imply practical importance.
 23. Two-group ANOVA is closely related to the two-sample t-test:
 
-$$
-F=t^2
-$$
+$F=t^2$
 
 24. Multiple unadjusted pairwise tests can inflate false-positive risk.
 25. Visual diagnostics should be used along with statistical calculations.
@@ -2253,103 +1719,53 @@ $$
 
 ## Grand Mean
 
-$$
-\bar{x}_{grand}
-=
-\frac{
-\sum_{i=1}^{k}n_i\bar{x}_i
-}{
-N
-}
-$$
+$\bar{x}_{grand} = \frac{ \sum_{i=1}^{k}n_i\bar{x}_i }{ N }$
 
 where:
 
-$$
-N=\sum_{i=1}^{k}n_i
-$$
+$N=\sum_{i=1}^{k}n_i$
 
 ## Total Sum of Squares
 
-$$
-SS_T
-=
-\sum_{i=1}^{N}
-(x_i-\bar{x}_{grand})^2
-$$
+$SS_T = \sum_{i=1}^{N} (x_i-\bar{x}_{grand})^2$
 
 ## Between-Group Sum of Squares
 
-$$
-SS_B
-=
-\sum_{i=1}^{k}
-n_i(\bar{x}_i-\bar{x}_{grand})^2
-$$
+$SS_B = \sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x}_{grand})^2$
 
 ## Within-Group Sum of Squares
 
-$$
-SS_W
-=
-\sum_{i=1}^{k}
-\sum_{j=1}^{n_i}
-(x_{ij}-\bar{x}_i)^2
-$$
+$SS_W = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (x_{ij}-\bar{x}_i)^2$
 
 ## Sum-of-Squares Decomposition
 
-$$
-SS_T=SS_B+SS_W
-$$
+$SS_T=SS_B+SS_W$
 
 ## Degrees of Freedom
 
-$$
-df_B=k-1
-$$
+$df_B=k-1$
 
-$$
-df_W=N-k
-$$
+$df_W=N-k$
 
-$$
-df_T=N-1
-$$
+$df_T=N-1$
 
 ## Mean Squares
 
-$$
-MS_B=\frac{SS_B}{df_B}
-$$
+$MS_B=\frac{SS_B}{df_B}$
 
-$$
-MS_W=\frac{SS_W}{df_W}
-$$
+$MS_W=\frac{SS_W}{df_W}$
 
 ## F Statistic
 
-$$
-F=\frac{MS_B}{MS_W}
-$$
+$F=\frac{MS_B}{MS_W}$
 
 ## Eta Squared
 
-$$
-\eta^2=
-\frac{SS_B}{SS_T}
-$$
+$\eta^2= \frac{SS_B}{SS_T}$
 
 ## Omega Squared
 
-$$
-\omega^2=
-\frac{
-SS_B-(k-1)MS_W
-}{
-SS_T+MS_W
-}
-$$
+$\omega^2= \frac{ SS_B-(k-1)MS_W }{ SS_T+MS_W }$
 
 ---
 
@@ -2363,49 +1779,35 @@ The central question is:
 
 The method begins by defining:
 
-$$
-H_0:\mu_1=\mu_2=\cdots=\mu_k
-$$
+$H_0:\mu_1=\mu_2=\cdots=\mu_k$
 
 against:
 
-$$
-H_a:\text{At least one population mean differs}
-$$
+$H_a:\text{At least one population mean differs}$
 
 The total variability is divided into:
 
-$$
-SS_T=SS_B+SS_W
-$$
+$SS_T=SS_B+SS_W$
 
 Between-group variation measures how far the group means are from the grand mean. Within-group variation measures how far individual observations are from their own group means.
 
 The sums of squares are converted into mean squares using degrees of freedom:
 
-$$
-MS_B=\frac{SS_B}{k-1}
-$$
+$MS_B=\frac{SS_B}{k-1}$
 
 and:
 
-$$
-MS_W=\frac{SS_W}{N-k}
-$$
+$MS_W=\frac{SS_W}{N-k}$
 
 The F statistic is:
 
-$$
-F=\frac{MS_B}{MS_W}
-$$
+$F=\frac{MS_B}{MS_W}$
 
 A large F statistic indicates that the between-group variation is large relative to within-group variation.
 
 The p-value is obtained from the F-distribution. If:
 
-$$
-p\le\alpha
-$$
+$p\le\alpha$
 
 we reject the null hypothesis and conclude that there is statistical evidence that not all population means are equal.
 
@@ -2417,23 +1819,7 @@ Finally, effect sizes such as $\eta^2$ and $\omega^2$ provide information about 
 
 The complete logic can be summarised as:
 
-$$
-\boxed{
-\text{Group Means}
-\rightarrow
-\text{Variance Decomposition}
-\rightarrow
-SS_B,SS_W
-\rightarrow
-MS_B,MS_W
-\rightarrow
-F
-\rightarrow
-p
-\rightarrow
-\text{Overall Decision}
-}
-$$
+$\boxed{ \text{Group Means} \rightarrow \text{Variance Decomposition} \rightarrow SS_B,SS_W \rightarrow MS_B,MS_W \rightarrow F \rightarrow p \rightarrow \text{Overall Decision} }$
 
 ---
 
