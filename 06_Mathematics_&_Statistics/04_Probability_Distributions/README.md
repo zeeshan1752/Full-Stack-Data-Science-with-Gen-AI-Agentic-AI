@@ -1756,11 +1756,11 @@ $$
 
 ### Continuous Probability
 
-$
+$$
 P(a\leq X\leq b)
 =
 \int_a^b f_X(x)\,dx
-$
+$$
 
 ### Expected Value — Discrete
 
