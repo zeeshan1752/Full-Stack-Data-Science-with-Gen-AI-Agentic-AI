@@ -155,9 +155,7 @@ The frequency distribution is:
 
 The total frequency is:
 
-$$
-1 + 4 + 2 + 1 = 8
-$$
+$1 + 4 + 2 + 1 = 8$
 
 Therefore, there are 8 observations.
 
@@ -165,9 +163,7 @@ Therefore, there are 8 observations.
 
 Relative frequency expresses a frequency as a proportion of the total.
 
-$$
-R = \frac{f}{n}
-$$
+$R = \frac{f}{n}$
 
 where:
 
@@ -176,19 +172,13 @@ where:
 
 For the value 20:
 
-$$
-R = \frac{4}{8}
-$$
+$R = \frac{4}{8}$
 
-$$
-R = 0.5
-$$
+$R = 0.5$
 
 As a percentage:
 
-$$
-0.5 \times 100 = 50\%
-$$
+$0.5 \times 100 = 50\%$
 
 Therefore, 20 represents **50% of the observations**.
 
@@ -226,9 +216,7 @@ A class width describes the size of an interval.
 
 For continuous class boundaries, a common calculation is:
 
-$$
-\text{Class Width} = \frac{\text{Maximum Value} - \text{Minimum Value}}{\text{Number of Classes}}
-$$
+$\text{Class Width} = \frac{\text{Maximum Value} - \text{Minimum Value}}{\text{Number of Classes}}$
 
 The exact convention can vary depending on how class boundaries are defined.
 
@@ -256,9 +244,7 @@ The **arithmetic mean** is commonly called the average.
 
 For a sample:
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
 
 where:
 
@@ -277,27 +263,19 @@ Consider:
 
 Step 1: Add all observations.
 
-$$
-10 + 20 + 30 + 40 + 50 = 150
-$$
+$10 + 20 + 30 + 40 + 50 = 150$
 
 Step 2: Count the observations.
 
-$$
-n = 5
-$$
+$n = 5$
 
 Step 3: Apply the formula.
 
-$$
-\bar{x} = \frac{150}{5}
-$$
+$\bar{x} = \frac{150}{5}$
 
 Therefore:
 
-$$
-\boxed{\bar{x}=30}
-$$
+$\boxed{\bar{x}=30}$
 
 The mean is **30**.
 
@@ -313,9 +291,7 @@ Consider:
 
 The mean is:
 
-$$
-\bar{x}=30
-$$
+$\bar{x}=30$
 
 Now add an extreme value of 500:
 
@@ -325,13 +301,9 @@ Now add an extreme value of 500:
 
 The new mean becomes:
 
-$$
-\bar{x} = \frac{650}{6}
-$$
+$\bar{x} = \frac{650}{6}$
 
-$$
-\boxed{\bar{x}\approx108.33}
-$$
+$\boxed{\bar{x}\approx108.33}$
 
 The mean moved from 30 to approximately 108.33 because of one extreme observation.
 
@@ -345,9 +317,7 @@ A **weighted mean** is used when different observations contribute unequally to 
 
 The formula is:
 
-$$
-\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}
-$$
+$\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
 
 where:
 
@@ -368,39 +338,25 @@ Calculate the weighted score.
 
 First:
 
-$$
-80(2)=160
-$$
+$80(2)=160$
 
-$$
-70(3)=210
-$$
+$70(3)=210$
 
-$$
-90(5)=450
-$$
+$90(5)=450$
 
 Therefore:
 
-$$
-\sum w_i x_i = 160+210+450=820
-$$
+$\sum w_i x_i = 160+210+450=820$
 
 The total weight is:
 
-$$
-\sum w_i = 2+3+5=10
-$$
+$\sum w_i = 2+3+5=10$
 
 Thus:
 
-$$
-\bar{x}_w=\frac{820}{10}
-$$
+$\bar{x}_w=\frac{820}{10}$
 
-$$
-\boxed{\bar{x}_w=82}
-$$
+$\boxed{\bar{x}_w=82}$
 
 The weighted mean is **82**.
 
@@ -424,15 +380,11 @@ There are 5 observations.
 
 The middle observation is:
 
-$$
-30
-$$
+$30$
 
 Therefore:
 
-$$
-\boxed{\text{Median}=30}
-$$
+$\boxed{\text{Median}=30}$
 
 ### Case 2: Even Number of Observations
 
@@ -446,19 +398,13 @@ There are 6 observations.
 
 The two middle observations are:
 
-$$
-30 \quad \text{and} \quad 40
-$$
+$30 \quad \text{and} \quad 40$
 
 The median is their average:
 
-$$
-\text{Median}=\frac{30+40}{2}
-$$
+$\text{Median}=\frac{30+40}{2}$
 
-$$
-\boxed{\text{Median}=35}
-$$
+$\boxed{\text{Median}=35}$
 
 ### Why Sorting Is Important
 
@@ -478,9 +424,7 @@ The middle value is 30.
 
 Therefore:
 
-$$
-\boxed{\text{Median}=30}
-$$
+$\boxed{\text{Median}=30}$
 
 ---
 
@@ -507,9 +451,7 @@ The highest frequency is 3.
 
 Therefore:
 
-$$
-\boxed{\text{Mode}=20}
-$$
+$\boxed{\text{Mode}=20}$
 
 ### Possible Cases
 
@@ -534,13 +476,9 @@ Consider a roughly symmetric dataset:
 
 Here:
 
-$$
-\text{Mean}=30
-$$
+$\text{Mean}=30$
 
-$$
-\text{Median}=30
-$$
+$\text{Median}=30$
 
 There is no unique mode.
 
@@ -552,25 +490,17 @@ Now consider:
 
 The mean is:
 
-$$
-\bar{x}=\frac{200}{6}
-$$
+$\bar{x}=\frac{200}{6}$
 
-$$
-\bar{x}\approx33.33
-$$
+$\bar{x}\approx33.33$
 
 The median is:
 
-$$
-\text{Median}=\frac{20+20}{2}=20
-$$
+$\text{Median}=\frac{20+20}{2}=20$
 
 The mode is:
 
-$$
-\boxed{\text{Mode}=20}
-$$
+$\boxed{\text{Mode}=20}$
 
 The extreme value 100 pulls the mean upward, while the median remains near the centre of the majority of observations.
 
@@ -621,9 +551,7 @@ Important measures of dispersion include:
 
 The **range** is the difference between the largest and smallest values.
 
-$$
-R = x_{\max} - x_{\min}
-$$
+$R = x_{\max} - x_{\min}$
 
 ### Worked Example
 
@@ -635,25 +563,17 @@ Consider:
 
 The maximum is:
 
-$$
-x_{\max}=30
-$$
+$x_{\max}=30$
 
 The minimum is:
 
-$$
-x_{\min}=12
-$$
+$x_{\min}=12$
 
 Therefore:
 
-$$
-R=30-12
-$$
+$R=30-12$
 
-$$
-\boxed{R=18}
-$$
+$\boxed{R=18}$
 
 The range is 18.
 
@@ -676,15 +596,11 @@ Variance measures the average squared deviation of observations from their mean.
 
 For a population:
 
-$$
-\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
-$$
+$\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
 
 For a sample:
 
-$$
-s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
-$$
+$s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
 
 where:
 
@@ -708,9 +624,7 @@ For example:
 
 The sum is:
 
-$$
--10-5+0+5+10=0
-$$
+$-10-5+0+5+10=0$
 
 Squaring makes every deviation non-negative:
 
@@ -730,13 +644,9 @@ Consider:
 
 Step 1: Calculate the sample mean.
 
-$$
-\bar{x}=\frac{2+4+6}{3}
-$$
+$\bar{x}=\frac{2+4+6}{3}$
 
-$$
-\bar{x}=4
-$$
+$\bar{x}=4$
 
 Step 2: Calculate deviations.
 
@@ -756,25 +666,17 @@ Step 3: Square the deviations.
 
 Step 4: Add squared deviations.
 
-$$
-4+0+4=8
-$$
+$4+0+4=8$
 
 Step 5: Because these three observations are being treated as a sample, divide by $n-1$.
 
-$$
-s^2=\frac{8}{3-1}
-$$
+$s^2=\frac{8}{3-1}$
 
-$$
-s^2=\frac{8}{2}
-$$
+$s^2=\frac{8}{2}$
 
 Therefore:
 
-$$
-\boxed{s^2=4}
-$$
+$\boxed{s^2=4}$
 
 ---
 
@@ -784,31 +686,21 @@ Standard deviation is the square root of variance.
 
 For a population:
 
-$$
-\sigma = \sqrt{\sigma^2}
-$$
+$\sigma = \sqrt{\sigma^2}$
 
 For a sample:
 
-$$
-s = \sqrt{s^2}
-$$
+$s = \sqrt{s^2}$
 
 Using the previous example:
 
-$$
-s^2=4
-$$
+$s^2=4$
 
 Therefore:
 
-$$
-s=\sqrt{4}
-$$
+$s=\sqrt{4}$
 
-$$
-\boxed{s=2}
-$$
+$\boxed{s=2}$
 
 Standard deviation is expressed in the **same units as the original variable**, unlike variance.
 
@@ -829,17 +721,13 @@ A common source of confusion is the denominator.
 
 When the entire population is being described:
 
-$$
-\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
-$$
+$\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
 
 ### Sample Variance
 
 When the observations represent a sample used to estimate population variability:
 
-$$
-s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
-$$
+$s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
 
 The use of $n-1$ in the sample variance formula is known as **Bessel's correction**.
 
@@ -853,9 +741,7 @@ The **interquartile range (IQR)** measures the spread of the middle 50% of the o
 
 It is defined as:
 
-$$
-IQR = Q_3-Q_1
-$$
+$IQR = Q_3-Q_1$
 
 where:
 
@@ -868,25 +754,17 @@ The IQR is less affected by extreme observations than the range.
 
 Suppose:
 
-$$
-Q_1=20
-$$
+$Q_1=20$
 
 and:
 
-$$
-Q_3=50
-$$
+$Q_3=50$
 
 Then:
 
-$$
-IQR=50-20
-$$
+$IQR=50-20$
 
-$$
-\boxed{IQR=30}
-$$
+$\boxed{IQR=30}$
 
 The middle 50% of the data spans 30 units.
 
@@ -961,9 +839,7 @@ Deciles divide ordered data into ten parts.
 
 They are commonly represented as:
 
-$$
-D_1,D_2,\ldots,D_9
-$$
+$D_1,D_2,\ldots,D_9$
 
 where:
 
@@ -1038,13 +914,9 @@ Box plots are useful for comparing distributions across groups because they show
 
 A common rule identifies possible outliers using:
 
-$$
-\text{Lower Fence}=Q_1-1.5(IQR)
-$$
+$\text{Lower Fence}=Q_1-1.5(IQR)$
 
-$$
-\text{Upper Fence}=Q_3+1.5(IQR)
-$$
+$\text{Upper Fence}=Q_3+1.5(IQR)$
 
 Observations outside these fences are commonly flagged as possible outliers.
 
@@ -1100,9 +972,7 @@ The **coefficient of variation (CV)** measures relative variability.
 
 It is commonly defined as:
 
-$$
-CV = \frac{s}{\bar{x}}\times100
-$$
+$CV = \frac{s}{\bar{x}}\times100$
 
 for a sample, where:
 
@@ -1113,31 +983,21 @@ for a sample, where:
 
 Suppose:
 
-$$
-\bar{x}=50
-$$
+$\bar{x}=50$
 
 and:
 
-$$
-s=5
-$$
+$s=5$
 
 Then:
 
-$$
-CV=\frac{5}{50}\times100
-$$
+$CV=\frac{5}{50}\times100$
 
-$$
-CV=10\%
-$$
+$CV=10\%$
 
 Therefore:
 
-$$
-\boxed{CV=10\%}
-$$
+$\boxed{CV=10\%}$
 
 The coefficient of variation is useful when comparing relative variability between datasets with different scales or means.
 
@@ -1172,9 +1032,7 @@ Frequency
 
 For many positively skewed distributions:
 
-$$
-\text{Mean} > \text{Median}
-$$
+$\text{Mean} > \text{Median}$
 
 ### Negative Skewness
 
@@ -1182,9 +1040,7 @@ A negatively skewed distribution has a longer tail toward smaller values.
 
 For many negatively skewed distributions:
 
-$$
-\text{Mean} < \text{Median}
-$$
+$\text{Mean} < \text{Median}$
 
 ### Important Note
 
@@ -1337,25 +1193,19 @@ The relationship between mean and median can provide useful information about di
 
 The mean and median may be close:
 
-$$
-\text{Mean} \approx \text{Median}
-$$
+$\text{Mean} \approx \text{Median}$
 
 ### Positively Skewed Distribution
 
 The mean is often pulled toward the longer right tail:
 
-$$
-\text{Mean} > \text{Median}
-$$
+$\text{Mean} > \text{Median}$
 
 ### Negatively Skewed Distribution
 
 The mean is often pulled toward the longer left tail:
 
-$$
-\text{Mean} < \text{Median}
-$$
+$\text{Mean} < \text{Median}$
 
 These are useful descriptive patterns, not universal laws.
 
@@ -1371,9 +1221,7 @@ Consider the dataset:
 
 There are:
 
-$$
-n=10
-$$
+$n=10$
 
 observations.
 
@@ -1381,19 +1229,13 @@ observations.
 
 First calculate the sum:
 
-$$
-4+5+6+6+7+8+10+12+15+20=93
-$$
+$4+5+6+6+7+8+10+12+15+20=93$
 
 Therefore:
 
-$$
-\bar{x}=\frac{93}{10}
-$$
+$\bar{x}=\frac{93}{10}$
 
-$$
-\boxed{\bar{x}=9.3}
-$$
+$\boxed{\bar{x}=9.3}$
 
 ### Step 2: Median
 
@@ -1405,13 +1247,9 @@ The 6th value is 8.
 
 Therefore:
 
-$$
-\text{Median}=\frac{7+8}{2}
-$$
+$\text{Median}=\frac{7+8}{2}$
 
-$$
-\boxed{\text{Median}=7.5}
-$$
+$\boxed{\text{Median}=7.5}$
 
 ### Step 3: Mode
 
@@ -1421,33 +1259,23 @@ All other values occur once.
 
 Therefore:
 
-$$
-\boxed{\text{Mode}=6}
-$$
+$\boxed{\text{Mode}=6}$
 
 ### Step 4: Range
 
 Maximum:
 
-$$
-x_{\max}=20
-$$
+$x_{\max}=20$
 
 Minimum:
 
-$$
-x_{\min}=4
-$$
+$x_{\min}=4$
 
 Therefore:
 
-$$
-R=20-4
-$$
+$R=20-4$
 
-$$
-\boxed{R=16}
-$$
+$\boxed{R=16}$
 
 ### Step 5: Interpretation
 
@@ -1475,23 +1303,15 @@ Dataset B:
 
 ### Mean of Dataset A
 
-$$
-\bar{x}_A=\frac{48+49+50+51+52}{5}
-$$
+$\bar{x}_A=\frac{48+49+50+51+52}{5}$
 
-$$
-\boxed{\bar{x}_A=50}
-$$
+$\boxed{\bar{x}_A=50}$
 
 ### Mean of Dataset B
 
-$$
-\bar{x}_B=\frac{10+30+50+70+90}{5}
-$$
+$\bar{x}_B=\frac{10+30+50+70+90}{5}$
 
-$$
-\boxed{\bar{x}_B=50}
-$$
+$\boxed{\bar{x}_B=50}$
 
 The means are identical.
 
@@ -1613,81 +1433,55 @@ A mean without information about spread can hide important differences between d
 
 ### Arithmetic Mean
 
-$$
-\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
-$$
+$\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}$
 
 ### Weighted Mean
 
-$$
-\bar{x}_w=\frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}
-$$
+$\bar{x}_w=\frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
 
 ### Range
 
-$$
-R=x_{\max}-x_{\min}
-$$
+$R=x_{\max}-x_{\min}$
 
 ### Population Variance
 
-$$
-\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
-$$
+$\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
 
 ### Sample Variance
 
-$$
-s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
-$$
+$s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
 
 ### Population Standard Deviation
 
-$$
-\sigma=\sqrt{\sigma^2}
-$$
+$\sigma=\sqrt{\sigma^2}$
 
 ### Sample Standard Deviation
 
-$$
-s=\sqrt{s^2}
-$$
+$s=\sqrt{s^2}$
 
 ### Interquartile Range
 
-$$
-IQR=Q_3-Q_1
-$$
+$IQR=Q_3-Q_1$
 
 ### Lower IQR Fence
 
-$$
-Q_1-1.5(IQR)
-$$
+$Q_1-1.5(IQR)$
 
 ### Upper IQR Fence
 
-$$
-Q_3+1.5(IQR)
-$$
+$Q_3+1.5(IQR)$
 
 ### Coefficient of Variation
 
-$$
-CV=\frac{s}{\bar{x}}\times100
-$$
+$CV=\frac{s}{\bar{x}}\times100$
 
 ### Relative Frequency
 
-$$
-R=\frac{f}{n}
-$$
+$R=\frac{f}{n}$
 
 ### Percentage
 
-$$
-P=\frac{f}{n}\times100
-$$
+$P=\frac{f}{n}\times100$
 
 ---
 
