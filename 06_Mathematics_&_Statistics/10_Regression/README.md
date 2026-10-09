@@ -70,9 +70,7 @@ We may want to describe how marks tend to change as study hours change.
 
 A simple linear regression model can be written as:
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 where:
 
@@ -84,9 +82,7 @@ where:
 
 The fitted sample regression equation is:
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 where:
 
@@ -120,15 +116,11 @@ When there is one predictor variable and the relationship is modelled by a strai
 
 The population model is:
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 The fitted regression equation is:
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 The model assumes that the systematic part of the relationship can be represented by a straight line.
 
@@ -138,31 +130,21 @@ The model assumes that the systematic part of the relationship can be represente
 
 The intercept is:
 
-$$
-b_0
-$$
+$b_0$
 
 In:
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 the intercept is the predicted value of $Y$ when:
 
-$$
-X=0
-$$
+$X=0$
 
 Therefore:
 
-$$
-\hat{Y}=b_0+b_1(0)
-$$
+$\hat{Y}=b_0+b_1(0)$
 
-$$
-\hat{Y}=b_0
-$$
+$\hat{Y}=b_0$
 
 ### Important caution
 
@@ -176,25 +158,19 @@ If $X=0$ is impossible or far outside the observed range, the mathematical inter
 
 The slope is:
 
-$$
-b_1
-$$
+$b_1$
 
 It describes the expected change in the predicted response for a one-unit increase in the predictor.
 
 If:
 
-$$
-b_1=4
-$$
+$b_1=4$
 
 then a one-unit increase in $X$ is associated with an estimated increase of 4 units in predicted $Y$.
 
 If:
 
-$$
-b_1=-4
-$$
+$b_1=-4$
 
 then a one-unit increase in $X$ is associated with an estimated decrease of 4 units in predicted $Y$.
 
@@ -204,9 +180,7 @@ then a one-unit increase in $X$ is associated with an estimated decrease of 4 un
 
 The slope has units:
 
-$$
-\frac{\text{units of }Y}{\text{units of }X}
-$$
+$\frac{\text{units of }Y}{\text{units of }X}$
 
 For example, if:
 
@@ -215,15 +189,11 @@ For example, if:
 
 then the slope has units:
 
-$$
-\frac{\text{marks}}{\text{hour}}
-$$
+$\frac{\text{marks}}{\text{hour}}$
 
 If:
 
-$$
-b_1=5
-$$
+$b_1=5$
 
 the model predicts an increase of approximately 5 marks for each additional hour of the predictor, within the model's relevant range.
 
@@ -233,9 +203,7 @@ the model predicts an increase of approximately 5 marks for each additional hour
 
 Suppose:
 
-$$
-\hat{Y}=35+6X
-$$
+$\hat{Y}=35+6X$
 
 where:
 
@@ -246,15 +214,11 @@ where:
 
 When:
 
-$$
-X=0
-$$
+$X=0$
 
 we obtain:
 
-$$
-\hat{Y}=35
-$$
+$\hat{Y}=35$
 
 So the fitted intercept is 35 marks.
 
@@ -262,9 +226,7 @@ So the fitted intercept is 35 marks.
 
 The slope is:
 
-$$
-b_1=6
-$$
+$b_1=6$
 
 Therefore, for each additional hour of study, the predicted mark increases by approximately 6 marks according to the fitted model.
 
@@ -274,31 +236,21 @@ Therefore, for each additional hour of study, the predicted mark increases by ap
 
 Suppose:
 
-$$
-\hat{Y}=35+6X
-$$
+$\hat{Y}=35+6X$
 
 A student studies:
 
-$$
-X=5
-$$
+$X=5$
 
 Substitute:
 
-$$
-\hat{Y}=35+6(5)
-$$
+$\hat{Y}=35+6(5)$
 
-$$
-\hat{Y}=35+30
-$$
+$\hat{Y}=35+30$
 
 Therefore:
 
-$$
-\boxed{\hat{Y}=65}
-$$
+$\boxed{\hat{Y}=65}$
 
 The model predicts a mark of 65 for $X=5$.
 
@@ -338,9 +290,7 @@ For observation $i$:
 
 The fitted value is the value predicted by the regression equation.
 
-$$
-\hat{y}_i=b_0+b_1x_i
-$$
+$\hat{y}_i=b_0+b_1x_i$
 
 The difference between observed and fitted values is the residual.
 
@@ -354,9 +304,7 @@ The difference between observed and fitted values is the residual.
 
 A residual is:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 where:
 
@@ -366,25 +314,19 @@ where:
 
 If:
 
-$$
-e_i>0
-$$
+$e_i>0$
 
 the observed value is above the regression line.
 
 If:
 
-$$
-e_i<0
-$$
+$e_i<0$
 
 the observed value is below the regression line.
 
 If:
 
-$$
-e_i=0
-$$
+$e_i=0$
 
 the observation lies exactly on the fitted line.
 
@@ -394,45 +336,29 @@ the observation lies exactly on the fitted line.
 
 Suppose:
 
-$$
-\hat{Y}=20+5X
-$$
+$\hat{Y}=20+5X$
 
 For:
 
-$$
-X=6
-$$
+$X=6$
 
 the fitted value is:
 
-$$
-\hat{Y}=20+5(6)
-$$
+$\hat{Y}=20+5(6)$
 
-$$
-\hat{Y}=50
-$$
+$\hat{Y}=50$
 
 Suppose the observed value is:
 
-$$
-Y=56
-$$
+$Y=56$
 
 Then:
 
-$$
-e=Y-\hat{Y}
-$$
+$e=Y-\hat{Y}$
 
-$$
-e=56-50
-$$
+$e=56-50$
 
-$$
-\boxed{e=6}
-$$
+$\boxed{e=6}$
 
 The observation is 6 units above the fitted value.
 
@@ -442,15 +368,11 @@ The observation is 6 units above the fitted value.
 
 A positive residual means:
 
-$$
-y_i>\hat{y}_i
-$$
+$y_i>\hat{y}_i$
 
 A negative residual means:
 
-$$
-y_i<\hat{y}_i
-$$
+$y_i<\hat{y}_i$
 
 Residuals are important because they show the part of the observed response not captured by the fitted regression line.
 
@@ -466,15 +388,11 @@ The **least squares method** chooses the line that minimises the sum of squared 
 
 The residual sum of squares is:
 
-$$
-SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 The fitted regression line is chosen to minimise:
 
-$$
-\boxed{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}
-$$
+$\boxed{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}$
 
 This is the fundamental idea behind ordinary least squares regression.
 
@@ -484,37 +402,27 @@ This is the fundamental idea behind ordinary least squares regression.
 
 If we simply added residuals:
 
-$$
-\sum e_i
-$$
+$\sum e_i$
 
 positive and negative residuals could cancel.
 
 For example:
 
-$$
-5+(-5)=0
-$$
+$5+(-5)=0$
 
 even though the two errors are not zero.
 
 Squaring removes the sign:
 
-$$
-5^2=25
-$$
+$5^2=25$
 
 and:
 
-$$
-(-5)^2=25
-$$
+$(-5)^2=25$
 
 Therefore:
 
-$$
-\sum e_i^2
-$$
+$\sum e_i^2$
 
 provides a measure of total squared discrepancy.
 
@@ -524,11 +432,7 @@ provides a measure of total squared discrepancy.
 
 For simple linear regression, the least-squares slope is:
 
-$$
-b_1=
-\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
-{\sum_{i=1}^{n}(x_i-\bar{x})^2}
-$$
+$b_1= \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})} {\sum_{i=1}^{n}(x_i-\bar{x})^2}$
 
 The numerator measures joint variation between $X$ and $Y$.
 
@@ -536,9 +440,7 @@ The denominator measures variation in $X$.
 
 This can also be written as:
 
-$$
-b_1=\frac{s_{XY}}{s_X^2}
-$$
+$b_1=\frac{s_{XY}}{s_X^2}$
 
 where:
 
@@ -551,9 +453,7 @@ where:
 
 Once the slope is known, the intercept is:
 
-$$
-b_0=\bar{y}-b_1\bar{x}
-$$
+$b_0=\bar{y}-b_1\bar{x}$
 
 where:
 
@@ -562,9 +462,7 @@ where:
 
 Therefore, the fitted line is:
 
-$$
-\boxed{\hat{Y}=b_0+b_1X}
-$$
+$\boxed{\hat{Y}=b_0+b_1X}$
 
 ---
 
@@ -581,62 +479,39 @@ Consider:
 
 ### Step 1: Calculate means
 
-$$
-\bar{x}=2.5
-$$
+$\bar{x}=2.5$
 
-$$
-\bar{y}=4.75
-$$
+$\bar{y}=4.75$
 
 ### Step 2: Calculate cross-products
 
 From the deviation table:
 
-$$
-\sum(X-\bar{x})(Y-\bar{y})=9.5
-$$
+$\sum(X-\bar{x})(Y-\bar{y})=9.5$
 
 ### Step 3: Calculate squared deviations of $X$
 
-$$
-\sum(X-\bar{x})^2=5
-$$
+$\sum(X-\bar{x})^2=5$
 
 ### Step 4: Calculate slope
 
-$$
-b_1=
-\frac{9.5}{5}
-$$
+$b_1= \frac{9.5}{5}$
 
-$$
-\boxed{b_1=1.9}
-$$
+$\boxed{b_1=1.9}$
 
 ### Step 5: Calculate intercept
 
-$$
-b_0=\bar{y}-b_1\bar{x}
-$$
+$b_0=\bar{y}-b_1\bar{x}$
 
-$$
-b_0=4.75-(1.9)(2.5)
-$$
+$b_0=4.75-(1.9)(2.5)$
 
-$$
-b_0=4.75-4.75
-$$
+$b_0=4.75-4.75$
 
-$$
-\boxed{b_0=0}
-$$
+$\boxed{b_0=0}$
 
 Therefore:
 
-$$
-\boxed{\hat{Y}=1.9X}
-$$
+$\boxed{\hat{Y}=1.9X}$
 
 ---
 
@@ -644,35 +519,23 @@ $$
 
 For:
 
-$$
-X=3
-$$
+$X=3$
 
 the predicted value is:
 
-$$
-\hat{Y}=1.9(3)
-$$
+$\hat{Y}=1.9(3)$
 
-$$
-\hat{Y}=5.7
-$$
+$\hat{Y}=5.7$
 
 The observed value is:
 
-$$
-Y=5
-$$
+$Y=5$
 
 Therefore:
 
-$$
-e=5-5.7
-$$
+$e=5-5.7$
 
-$$
-\boxed{e=-0.7}
-$$
+$\boxed{e=-0.7}$
 
 The observation lies 0.7 units below the fitted line.
 
@@ -682,15 +545,11 @@ The observation lies 0.7 units below the fitted line.
 
 When an intercept is included, the least-squares regression line passes through the point:
 
-$$
-(\bar{x},\bar{y})
-$$
+$(\bar{x},\bar{y})$
 
 Therefore:
 
-$$
-\boxed{\hat{Y}\text{ at }X=\bar{x}\text{ equals }\bar{y}}
-$$
+$\boxed{\hat{Y}\text{ at }X=\bar{x}\text{ equals }\bar{y}}$
 
 This is an important property of ordinary least squares simple linear regression.
 
@@ -700,15 +559,11 @@ This is an important property of ordinary least squares simple linear regression
 
 For an ordinary least-squares regression with an intercept:
 
-$$
-\sum e_i=0
-$$
+$\sum e_i=0$
 
 Therefore:
 
-$$
-\sum(y_i-\hat{y}_i)=0
-$$
+$\sum(y_i-\hat{y}_i)=0$
 
 This occurs because the fitted line balances the residuals around zero.
 
@@ -718,15 +573,11 @@ This occurs because the fitted line balances the residuals around zero.
 
 Because:
 
-$$
-\sum e_i=0
-$$
+$\sum e_i=0$
 
 the average residual is:
 
-$$
-\bar{e}=0
-$$
+$\bar{e}=0$
 
 for an ordinary least-squares model containing an intercept.
 
@@ -740,9 +591,7 @@ It means positive and negative residuals balance overall.
 
 For simple linear regression, the slope can be connected to Pearson correlation:
 
-$$
-b_1=r\frac{s_Y}{s_X}
-$$
+$b_1=r\frac{s_Y}{s_X}$
 
 where:
 
@@ -756,17 +605,13 @@ However, they are not the same thing.
 
 Correlation is symmetric:
 
-$$
-r_{XY}=r_{YX}
-$$
+$r_{XY}=r_{YX}$
 
 Regression assigns roles to variables.
 
 In:
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 $Y$ is the response and $X$ is the predictor.
 
@@ -795,26 +640,11 @@ When two or more predictors are used, we have **multiple linear regression**.
 
 The population model is:
 
-$$
-Y=
-\beta_0+
-\beta_1X_1+
-\beta_2X_2+
-\cdots+
-\beta_pX_p+
-\varepsilon
-$$
+$Y= \beta_0+ \beta_1X_1+ \beta_2X_2+ \cdots+ \beta_pX_p+ \varepsilon$
 
 The fitted equation is:
 
-$$
-\hat{Y}=
-b_0+
-b_1X_1+
-b_2X_2+
-\cdots+
-b_pX_p
-$$
+$\hat{Y}= b_0+ b_1X_1+ b_2X_2+ \cdots+ b_pX_p$
 
 where $p$ is the number of predictors.
 
@@ -824,9 +654,7 @@ where $p$ is the number of predictors.
 
 Suppose:
 
-$$
-\hat{Y}=20+3X_1+5X_2
-$$
+$\hat{Y}=20+3X_1+5X_2$
 
 where:
 
@@ -836,17 +664,13 @@ where:
 
 The coefficient:
 
-$$
-b_1=3
-$$
+$b_1=3$
 
 means that a one-unit increase in study hours is associated with an increase of 3 units in predicted marks **holding attendance constant**.
 
 The coefficient:
 
-$$
-b_2=5
-$$
+$b_2=5$
 
 means that a one-unit increase in the attendance predictor is associated with an increase of 5 units in predicted marks **holding study hours constant**.
 
@@ -858,35 +682,23 @@ The phrase **holding other predictors constant** is essential in multiple regres
 
 Suppose:
 
-$$
-\hat{Y}=20+3X_1+5X_2
-$$
+$\hat{Y}=20+3X_1+5X_2$
 
 A student has:
 
-$$
-X_1=5
-$$
+$X_1=5$
 
 and:
 
-$$
-X_2=4
-$$
+$X_2=4$
 
 Then:
 
-$$
-\hat{Y}=20+3(5)+5(4)
-$$
+$\hat{Y}=20+3(5)+5(4)$
 
-$$
-\hat{Y}=20+15+20
-$$
+$\hat{Y}=20+15+20$
 
-$$
-\boxed{\hat{Y}=55}
-$$
+$\boxed{\hat{Y}=55}$
 
 ---
 
@@ -914,19 +726,11 @@ Regression can also include categorical predictors.
 
 Suppose:
 
-$$
-\text{Study Mode}=
-\begin{cases}
-0 & \text{Online}\\
-1 & \text{Offline}
-\end{cases}
-$$
+$\text{Study Mode}= \begin{cases} 0 & \text{Online}\\ 1 & \text{Offline} \end{cases}$
 
 A model may be:
 
-$$
-\hat{Y}=b_0+b_1X+b_2D
-$$
+$\hat{Y}=b_0+b_1X+b_2D$
 
 where:
 
@@ -941,47 +745,29 @@ Here, $D$ is called a **dummy variable** or **indicator variable**.
 
 Suppose:
 
-$$
-\hat{Y}=40+5X+8D
-$$
+$\hat{Y}=40+5X+8D$
 
 where:
 
-$$
-D=
-\begin{cases}
-0 & \text{Online}\\
-1 & \text{Offline}
-\end{cases}
-$$
+$D= \begin{cases} 0 & \text{Online}\\ 1 & \text{Offline} \end{cases}$
 
 For online students:
 
-$$
-D=0
-$$
+$D=0$
 
 so:
 
-$$
-\hat{Y}=40+5X
-$$
+$\hat{Y}=40+5X$
 
 For offline students:
 
-$$
-D=1
-$$
+$D=1$
 
 so:
 
-$$
-\hat{Y}=40+5X+8
-$$
+$\hat{Y}=40+5X+8$
 
-$$
-\hat{Y}=48+5X
-$$
+$\hat{Y}=48+5X$
 
 Therefore, the offline group has a predicted response that is 8 units higher than the online group **at the same value of $X$**, under this model.
 
@@ -1003,9 +789,7 @@ The coefficients for the other categories are interpreted relative to the refere
 
 For $k$ categories, a common coding approach uses:
 
-$$
-k-1
-$$
+$k-1$
 
 indicator variables when an intercept is included.
 
@@ -1019,15 +803,11 @@ This can be represented using an interaction term.
 
 For two predictors:
 
-$$
-\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2
-$$
+$\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2$
 
 The term:
 
-$$
-X_1X_2
-$$
+$X_1X_2$
 
 is the interaction term.
 
@@ -1037,47 +817,29 @@ is the interaction term.
 
 Suppose:
 
-$$
-\hat{Y}=20+4X+3D+2XD
-$$
+$\hat{Y}=20+4X+3D+2XD$
 
 where:
 
-$$
-D=
-\begin{cases}
-0 & \text{Group A}\\
-1 & \text{Group B}
-\end{cases}
-$$
+$D= \begin{cases} 0 & \text{Group A}\\ 1 & \text{Group B} \end{cases}$
 
 For Group A:
 
-$$
-D=0
-$$
+$D=0$
 
 so:
 
-$$
-\hat{Y}=20+4X
-$$
+$\hat{Y}=20+4X$
 
 For Group B:
 
-$$
-D=1
-$$
+$D=1$
 
 so:
 
-$$
-\hat{Y}=20+4X+3+2X
-$$
+$\hat{Y}=20+4X+3+2X$
 
-$$
-\hat{Y}=23+6X
-$$
+$\hat{Y}=23+6X$
 
 The interaction changes the slope.
 
@@ -1091,21 +853,15 @@ A relationship does not always have to be represented by a straight line in the 
 
 A polynomial regression model can include terms such as:
 
-$$
-X^2
-$$
+$X^2$
 
 or:
 
-$$
-X^3
-$$
+$X^3$
 
 For example:
 
-$$
-\hat{Y}=b_0+b_1X+b_2X^2
-$$
+$\hat{Y}=b_0+b_1X+b_2X^2$
 
 This model is nonlinear in $X$, but it is still a regression model that is linear in its coefficients $b_0,b_1,b_2$.
 
@@ -1119,9 +875,7 @@ A straight line may not describe the pattern adequately.
 
 Adding a squared term can allow curvature:
 
-$$
-\hat{Y}=b_0+b_1X+b_2X^2
-$$
+$\hat{Y}=b_0+b_1X+b_2X^2$
 
 The coefficient $b_2$ controls the curvature of the fitted relationship.
 
@@ -1135,25 +889,17 @@ Sometimes a transformation makes a relationship easier to model.
 
 Common transformations include:
 
-$$
-\log(X)
-$$
+$\log(X)$
 
-$$
-\sqrt{X}
-$$
+$\sqrt{X}$
 
 and:
 
-$$
-X^2
-$$
+$X^2$
 
 A model may therefore be written as:
 
-$$
-\hat{Y}=b_0+b_1\log(X)
-$$
+$\hat{Y}=b_0+b_1\log(X)$
 
 The interpretation of $b_1$ depends on which variable has been transformed.
 
@@ -1167,31 +913,21 @@ Regression can be used to estimate the expected response for a given predictor v
 
 For:
 
-$$
-\hat{Y}=10+2X
-$$
+$\hat{Y}=10+2X$
 
 if:
 
-$$
-X=8
-$$
+$X=8$
 
 then:
 
-$$
-\hat{Y}=10+2(8)
-$$
+$\hat{Y}=10+2(8)$
 
-$$
-\hat{Y}=26
-$$
+$\hat{Y}=26$
 
 Therefore:
 
-$$
-\boxed{\hat{Y}=26}
-$$
+$\boxed{\hat{Y}=26}$
 
 The prediction is based on the fitted relationship and should be interpreted within the context and range of the data.
 
@@ -1203,15 +939,11 @@ The prediction is based on the fitted relationship and should be interpreted wit
 
 Suppose the observed $X$ values range from:
 
-$$
-10\le X\le50
-$$
+$10\le X\le50$
 
 Predicting at:
 
-$$
-X=30
-$$
+$X=30$
 
 is interpolation.
 
@@ -1225,15 +957,11 @@ Interpolation is generally safer than extrapolation because the model is being u
 
 If:
 
-$$
-10\le X\le50
-$$
+$10\le X\le50$
 
 and we predict at:
 
-$$
-X=100
-$$
+$X=100$
 
 we are extrapolating.
 
@@ -1245,15 +973,11 @@ The relationship may change outside the observed range, so extrapolated predicti
 
 A model can be specified without an intercept:
 
-$$
-\hat{Y}=b_1X
-$$
+$\hat{Y}=b_1X$
 
 This forces the regression line through:
 
-$$
-(0,0)
-$$
+$(0,0)$
 
 Such a model should only be used when there is a strong substantive or theoretical reason that the response must be zero when the predictor is zero.
 
@@ -1267,27 +991,19 @@ The least-squares method can be viewed geometrically.
 
 The observed response vector is:
 
-$$
-\mathbf{y}
-$$
+$\mathbf{y}$
 
 The fitted response vector is:
 
-$$
-\hat{\mathbf{y}}
-$$
+$\hat{\mathbf{y}}$
 
 The residual vector is:
 
-$$
-\mathbf{e}=\mathbf{y}-\hat{\mathbf{y}}
-$$
+$\mathbf{e}=\mathbf{y}-\hat{\mathbf{y}}$
 
 Ordinary least squares chooses coefficients so that the squared length of the residual vector is minimised:
 
-$$
-\|\mathbf{e}\|^2
-$$
+$\|\mathbf{e}\|^2$
 
 This provides a geometric interpretation of least squares as a projection of the response onto the space spanned by the model predictors.
 
@@ -1297,9 +1013,7 @@ This provides a geometric interpretation of least squares as a projection of the
 
 Multiple linear regression can be written compactly as:
 
-$$
-\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}
-$$
+$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}$
 
 where:
 
@@ -1310,18 +1024,11 @@ where:
 
 The fitted model is:
 
-$$
-\hat{\mathbf{y}}=\mathbf{X}\mathbf{b}
-$$
+$\hat{\mathbf{y}}=\mathbf{X}\mathbf{b}$
 
 Under the standard ordinary least-squares conditions and when the required inverse exists:
 
-$$
-\mathbf{b}
-=
-(\mathbf{X}^{T}\mathbf{X})^{-1}
-\mathbf{X}^{T}\mathbf{y}
-$$
+$\mathbf{b} = (\mathbf{X}^{T}\mathbf{X})^{-1} \mathbf{X}^{T}\mathbf{y}$
 
 This matrix form provides the mathematical foundation for multiple linear regression.
 
@@ -1331,36 +1038,17 @@ This matrix form provides the mathematical foundation for multiple linear regres
 
 For the model:
 
-$$
-Y=\beta_0+\beta_1X_1+\beta_2X_2+\varepsilon
-$$
+$Y=\beta_0+\beta_1X_1+\beta_2X_2+\varepsilon$
 
 the design matrix has the form:
 
-$$
-\mathbf{X}
-=
-\begin{bmatrix}
-1 & x_{11} & x_{12}\\
-1 & x_{21} & x_{22}\\
-\vdots & \vdots & \vdots\\
-1 & x_{n1} & x_{n2}
-\end{bmatrix}
-$$
+$\mathbf{X} = \begin{bmatrix} 1 & x_{11} & x_{12}\\ 1 & x_{21} & x_{22}\\ \vdots & \vdots & \vdots\\ 1 & x_{n1} & x_{n2} \end{bmatrix}$
 
 The first column of ones represents the intercept.
 
 The coefficient vector is:
 
-$$
-\boldsymbol{\beta}
-=
-\begin{bmatrix}
-\beta_0\\
-\beta_1\\
-\beta_2
-\end{bmatrix}
-$$
+$\boldsymbol{\beta} = \begin{bmatrix} \beta_0\\ \beta_1\\ \beta_2 \end{bmatrix}$
 
 This notation becomes especially useful when working with multiple predictors.
 
@@ -1402,9 +1090,7 @@ A linear regression model assumes the systematic part of the relationship has th
 
 For simple linear regression:
 
-$$
-E(Y|X)=\beta_0+\beta_1X
-$$
+$E(Y|X)=\beta_0+\beta_1X$
 
 If the true pattern is strongly curved, a straight-line model may be inadequate.
 
@@ -1418,9 +1104,7 @@ Homoscedasticity means that the conditional variance of the errors is approximat
 
 Conceptually:
 
-$$
-Var(\varepsilon|X)=\sigma^2
-$$
+$Var(\varepsilon|X)=\sigma^2$
 
 for relevant values of $X$.
 
@@ -1440,15 +1124,11 @@ Errors from neighbouring observations may be related.
 
 For example:
 
-$$
-\varepsilon_t
-$$
+$\varepsilon_t$
 
 may be correlated with:
 
-$$
-\varepsilon_{t-1}
-$$
+$\varepsilon_{t-1}$
 
 This violates the usual independence assumption used by standard regression inference.
 
@@ -1487,15 +1167,11 @@ Multicollinearity can make individual coefficient estimates unstable and difficu
 
 Suppose:
 
-$$
-\hat{Y}=10+2X
-$$
+$\hat{Y}=10+2X$
 
 If $X$ is measured in hours and $Y$ in marks, then the slope has units:
 
-$$
-\frac{\text{marks}}{\text{hour}}
-$$
+$\frac{\text{marks}}{\text{hour}}$
 
 If the predictor is changed from hours to minutes, the numerical coefficient changes because the units have changed.
 
@@ -1509,21 +1185,15 @@ If both $X$ and $Y$ are standardised, the simple linear regression slope becomes
 
 For standardised variables:
 
-$$
-Z_X=\frac{X-\bar{X}}{s_X}
-$$
+$Z_X=\frac{X-\bar{X}}{s_X}$
 
 and:
 
-$$
-Z_Y=\frac{Y-\bar{Y}}{s_Y}
-$$
+$Z_Y=\frac{Y-\bar{Y}}{s_Y}$
 
 the fitted simple regression can be written as:
 
-$$
-\widehat{Z_Y}=rZ_X
-$$
+$\widehat{Z_Y}=rZ_X$
 
 This provides a useful connection between standardisation, correlation, and regression.
 
@@ -1539,14 +1209,7 @@ Suppose we predict salary using:
 
 A multiple regression model may be:
 
-$$
-\hat{Y}
-=
-b_0+
-b_1X_1+
-b_2X_2+
-b_3X_3
-$$
+$\hat{Y} = b_0+ b_1X_1+ b_2X_2+ b_3X_3$
 
 Each coefficient describes the association between its predictor and the predicted response while holding the other included predictors constant.
 
@@ -1560,9 +1223,7 @@ Ordinary linear regression is designed for a quantitative response.
 
 If the response is binary, such as:
 
-$$
-Y\in\{0,1\}
-$$
+$Y\in\{0,1\}$
 
 other regression methods, such as logistic regression, are usually more appropriate.
 
@@ -1591,35 +1252,23 @@ The regression model should therefore be fitted to a clearly defined analytical 
 
 Suppose:
 
-$$
-r=0.80
-$$
+$r=0.80$
 
 and:
 
-$$
-s_X=2,\qquad s_Y=10
-$$
+$s_X=2,\qquad s_Y=10$
 
 The simple regression slope is:
 
-$$
-b_1=r\frac{s_Y}{s_X}
-$$
+$b_1=r\frac{s_Y}{s_X}$
 
 Substitute:
 
-$$
-b_1=0.80\frac{10}{2}
-$$
+$b_1=0.80\frac{10}{2}$
 
-$$
-b_1=0.80(5)
-$$
+$b_1=0.80(5)$
 
-$$
-\boxed{b_1=4}
-$$
+$\boxed{b_1=4}$
 
 Thus, although correlation is unitless, the regression slope depends on the scales of $X$ and $Y$.
 
@@ -1641,71 +1290,45 @@ The goal is to describe marks as a function of study hours.
 
 ### Step 1: Calculate means
 
-$$
-\bar{x}=\frac{1+2+3+4+5}{5}=3
-$$
+$\bar{x}=\frac{1+2+3+4+5}{5}=3$
 
-$$
-\bar{y}=\frac{42+48+55+63+70}{5}=55.6
-$$
+$\bar{y}=\frac{42+48+55+63+70}{5}=55.6$
 
 ### Step 2: Calculate cross-products
 
 The deviation table gives:
 
-$$
-\sum(X-\bar{x})(Y-\bar{y})=70
-$$
+$\sum(X-\bar{x})(Y-\bar{y})=70$
 
 ### Step 3: Calculate squared deviations
 
-$$
-\sum(X-\bar{x})^2=10
-$$
+$\sum(X-\bar{x})^2=10$
 
 ### Step 4: Calculate slope
 
-$$
-b_1=\frac{70}{10}
-$$
+$b_1=\frac{70}{10}$
 
-$$
-\boxed{b_1=7}
-$$
+$\boxed{b_1=7}$
 
 ### Step 5: Calculate intercept
 
-$$
-b_0=\bar{y}-b_1\bar{x}
-$$
+$b_0=\bar{y}-b_1\bar{x}$
 
-$$
-b_0=55.6-(7)(3)
-$$
+$b_0=55.6-(7)(3)$
 
-$$
-b_0=34.6
-$$
+$b_0=34.6$
 
 Therefore:
 
-$$
-\boxed{\hat{Y}=34.6+7X}
-$$
+$\boxed{\hat{Y}=34.6+7X}$
 
 ### Step 6: Predict for $X=4$
 
-$$
-\hat{Y}=34.6+7(4)
-$$
+$\hat{Y}=34.6+7(4)$
 
-$$
-\hat{Y}=34.6+28
-$$
+$\hat{Y}=34.6+28$
 
-$$
-\boxed{\hat{Y}=62.6}
-$$
+$\boxed{\hat{Y}=62.6}$
 
 The fitted model predicts approximately 62.6 marks for four hours of study.
 
@@ -1715,31 +1338,21 @@ The fitted model predicts approximately 62.6 marks for four hours of study.
 
 For the student with:
 
-$$
-X=4
-$$
+$X=4$
 
 the predicted value is:
 
-$$
-\hat{Y}=62.6
-$$
+$\hat{Y}=62.6$
 
 The observed mark is:
 
-$$
-Y=63
-$$
+$Y=63$
 
 Therefore:
 
-$$
-e=63-62.6
-$$
+$e=63-62.6$
 
-$$
-\boxed{e=0.4}
-$$
+$\boxed{e=0.4}$
 
 The model slightly underpredicts this observation.
 
@@ -1867,9 +1480,7 @@ model.fit(X_poly, y)
 
 A quadratic model includes:
 
-$$
-1,\quad X,\quad X^2
-$$
+$1,\quad X,\quad X^2$
 
 in the design matrix.
 
@@ -1978,88 +1589,55 @@ A no-intercept model forces the fitted line through the origin and should have a
 
 ### Simple linear regression model
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 ### Fitted regression equation
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 ### Residual
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 ### Residual sum of squares
 
-$$
-SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 ### Least-squares slope
 
-$$
-b_1=
-\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}
-{\sum(x_i-\bar{x})^2}
-$$
+$b_1= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})} {\sum(x_i-\bar{x})^2}$
 
 ### Least-squares intercept
 
-$$
-b_0=\bar{y}-b_1\bar{x}
-$$
+$b_0=\bar{y}-b_1\bar{x}$
 
 ### Slope using covariance and variance
 
-$$
-b_1=\frac{s_{XY}}{s_X^2}
-$$
+$b_1=\frac{s_{XY}}{s_X^2}$
 
 ### Slope using correlation
 
-$$
-b_1=r\frac{s_Y}{s_X}
-$$
+$b_1=r\frac{s_Y}{s_X}$
 
 ### Multiple regression
 
-$$
-\hat{Y}
-=
-b_0+b_1X_1+\cdots+b_pX_p
-$$
+$\hat{Y} = b_0+b_1X_1+\cdots+b_pX_p$
 
 ### Interaction model
 
-$$
-\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2
-$$
+$\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2$
 
 ### Quadratic regression
 
-$$
-\hat{Y}=b_0+b_1X+b_2X^2
-$$
+$\hat{Y}=b_0+b_1X+b_2X^2$
 
 ### Matrix form
 
-$$
-\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}
-$$
+$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}$
 
 ### Ordinary least-squares estimator
 
-$$
-\mathbf{b}
-=
-(\mathbf{X}^{T}\mathbf{X})^{-1}
-\mathbf{X}^{T}\mathbf{y}
-$$
+$\mathbf{b} = (\mathbf{X}^{T}\mathbf{X})^{-1} \mathbf{X}^{T}\mathbf{y}$
 
 when the required inverse exists.
 
@@ -2091,23 +1669,17 @@ Regression provides a mathematical framework for describing how a response chang
 
 The basic simple linear regression model is:
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 and the fitted equation is:
 
-$$
-\hat{Y}=b_0+b_1X
-$$
+$\hat{Y}=b_0+b_1X$
 
 The slope describes the expected change in predicted response for a one-unit increase in the predictor. The intercept gives the predicted response at $X=0$, although its practical interpretation depends on whether zero is meaningful.
 
 Ordinary least squares chooses coefficients that minimise:
 
-$$
-\sum(y_i-\hat{y}_i)^2
-$$
+$\sum(y_i-\hat{y}_i)^2$
 
 The resulting residuals help describe the differences between observed and fitted values.
 
@@ -2115,14 +1687,7 @@ Regression can be extended to multiple predictors, categorical variables, intera
 
 The central idea is:
 
-$$
-\boxed{
-\text{Regression}
-=
-\text{Model the response}
-\text{ using predictor information}
-}
-$$
+$\boxed{ \text{Regression} = \text{Model the response} \text{ using predictor information} }$
 
 Regression and correlation are closely related, but regression assigns roles to variables and provides an explicit equation for estimation and prediction.
 
