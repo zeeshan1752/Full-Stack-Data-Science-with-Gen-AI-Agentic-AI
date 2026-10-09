@@ -62,27 +62,19 @@ Suppose a model predicts examination marks.
 
 The model may produce:
 
-$$
-\hat{Y}=60
-$$
+$\hat{Y}=60$
 
 for a student whose actual mark is:
 
-$$
-Y=65
-$$
+$Y=65$
 
 The prediction is not exact.
 
 Therefore:
 
-$$
-\text{Error}=Y-\hat{Y}
-$$
+$\text{Error}=Y-\hat{Y}$
 
-$$
-\text{Error}=65-60=5
-$$
+$\text{Error}=65-60=5$
 
 A model can make many such predictions.
 
@@ -102,9 +94,7 @@ This is the purpose of regression model evaluation.
 
 For observation $i$:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 where:
 
@@ -116,29 +106,21 @@ The sign tells us the direction of the error.
 
 ### Positive error
 
-$$
-e_i>0
-$$
+$e_i>0$
 
 means:
 
-$$
-y_i>\hat{y}_i
-$$
+$y_i>\hat{y}_i$
 
 The model underpredicted.
 
 ### Negative error
 
-$$
-e_i<0
-$$
+$e_i<0$
 
 means:
 
-$$
-y_i<\hat{y}_i
-$$
+$y_i<\hat{y}_i$
 
 The model overpredicted.
 
@@ -148,23 +130,17 @@ The model overpredicted.
 
 The absolute error is:
 
-$$
-|e_i|=|y_i-\hat{y}_i|
-$$
+$|e_i|=|y_i-\hat{y}_i|$
 
 Absolute error ignores the direction and measures only the size of the error.
 
 For example, if:
 
-$$
-e=-7
-$$
+$e=-7$
 
 then:
 
-$$
-|e|=7
-$$
+$|e|=7$
 
 ---
 
@@ -172,27 +148,17 @@ $$
 
 The squared error is:
 
-$$
-e_i^2=(y_i-\hat{y}_i)^2
-$$
+$e_i^2=(y_i-\hat{y}_i)^2$
 
 Squaring removes the sign and gives greater weight to large errors.
 
 For example:
 
-$$
-e=2
-\Rightarrow
-e^2=4
-$$
+$e=2 \Rightarrow e^2=4$
 
 while:
 
-$$
-e=10
-\Rightarrow
-e^2=100
-$$
+$e=10 \Rightarrow e^2=100$
 
 Therefore, metrics based on squared errors are particularly sensitive to large prediction errors.
 
@@ -211,9 +177,7 @@ Suppose the actual and predicted values are:
 
 Calculate:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 | Observation | Actual | Predicted | Error | Absolute Error | Squared Error |
 |---|---:|---:|---:|---:|---:|
@@ -230,19 +194,13 @@ These values form the basis for several evaluation metrics.
 
 The **Sum of Squared Errors** is:
 
-$$
-SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 Using the example:
 
-$$
-SSE=4+9+4+16
-$$
+$SSE=4+9+4+16$
 
-$$
-\boxed{SSE=33}
-$$
+$\boxed{SSE=33}$
 
 A smaller SSE indicates smaller total squared prediction error for the same dataset.
 
@@ -254,33 +212,21 @@ However, SSE depends on sample size and the units of the response.
 
 The **Mean Squared Error** is:
 
-$$
-MSE=
-\frac{1}{n}
-\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$MSE= \frac{1}{n} \sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 Since:
 
-$$
-SSE=33
-$$
+$SSE=33$
 
 and:
 
-$$
-n=4
-$$
+$n=4$
 
 we obtain:
 
-$$
-MSE=\frac{33}{4}
-$$
+$MSE=\frac{33}{4}$
 
-$$
-\boxed{MSE=8.25}
-$$
+$\boxed{MSE=8.25}$
 
 MSE is the average squared prediction error.
 
@@ -292,25 +238,17 @@ Its units are the **square of the response units**.
 
 The **Root Mean Squared Error** is:
 
-$$
-RMSE=\sqrt{MSE}
-$$
+$RMSE=\sqrt{MSE}$
 
 For:
 
-$$
-MSE=8.25
-$$
+$MSE=8.25$
 
 we obtain:
 
-$$
-RMSE=\sqrt{8.25}
-$$
+$RMSE=\sqrt{8.25}$
 
-$$
-\boxed{RMSE\approx2.87}
-$$
+$\boxed{RMSE\approx2.87}$
 
 RMSE is useful because it is expressed in the same units as the response variable.
 
@@ -326,29 +264,21 @@ Suppose two models have errors:
 
 Model A:
 
-$$
-[1,1,1,10]
-$$
+$[1,1,1,10]$
 
 Model B:
 
-$$
-[3,3,3,3]
-$$
+$[3,3,3,3]$
 
 Model A has one very large error.
 
 Squared errors for Model A:
 
-$$
-1^2+1^2+1^2+10^2=103
-$$
+$1^2+1^2+1^2+10^2=103$
 
 Squared errors for Model B:
 
-$$
-3^2+3^2+3^2+3^2=36
-$$
+$3^2+3^2+3^2+3^2=36$
 
 Therefore, RMSE strongly penalises the large error in Model A.
 
@@ -358,26 +288,15 @@ Therefore, RMSE strongly penalises the large error in Model A.
 
 The **Mean Absolute Error** is:
 
-$$
-MAE=
-\frac{1}{n}
-\sum_{i=1}^{n}|y_i-\hat{y}_i|
-$$
+$MAE= \frac{1}{n} \sum_{i=1}^{n}|y_i-\hat{y}_i|$
 
 For the example:
 
-$$
-MAE=
-\frac{2+3+2+4}{4}
-$$
+$MAE= \frac{2+3+2+4}{4}$
 
-$$
-MAE=\frac{11}{4}
-$$
+$MAE=\frac{11}{4}$
 
-$$
-\boxed{MAE=2.75}
-$$
+$\boxed{MAE=2.75}$
 
 MAE is expressed in the same units as the response.
 
@@ -401,29 +320,17 @@ If we want an easier-to-interpret average error magnitude, MAE is often useful.
 
 The **Mean Absolute Percentage Error** is commonly written as:
 
-$$
-MAPE=
-\frac{100}{n}
-\sum_{i=1}^{n}
-\left|
-\frac{y_i-\hat{y}_i}{y_i}
-\right|
-$$
+$MAPE= \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|$
 
 MAPE expresses average absolute error relative to the actual value.
 
 For example, if the actual value is 100 and the prediction is 90:
 
-$$
-\left|\frac{100-90}{100}\right|
-=0.10
-$$
+$\left|\frac{100-90}{100}\right| =0.10$
 
 or:
 
-$$
-10\%
-$$
+$10\%$
 
 ---
 
@@ -431,9 +338,7 @@ $$
 
 MAPE has an important problem when actual values are zero:
 
-$$
-y_i=0
-$$
+$y_i=0$
 
 because division by zero is undefined.
 
@@ -457,53 +362,33 @@ Consider:
 
 Errors:
 
-$$
-[2,-2,3]
-$$
+$[2,-2,3]$
 
 Absolute errors:
 
-$$
-[2,2,3]
-$$
+$[2,2,3]$
 
 Squared errors:
 
-$$
-[4,4,9]
-$$
+$[4,4,9]$
 
 ### MAE
 
-$$
-MAE=
-\frac{2+2+3}{3}
-$$
+$MAE= \frac{2+2+3}{3}$
 
-$$
-\boxed{MAE=\frac{7}{3}\approx2.33}
-$$
+$\boxed{MAE=\frac{7}{3}\approx2.33}$
 
 ### MSE
 
-$$
-MSE=
-\frac{4+4+9}{3}
-$$
+$MSE= \frac{4+4+9}{3}$
 
-$$
-\boxed{MSE=\frac{17}{3}\approx5.67}
-$$
+$\boxed{MSE=\frac{17}{3}\approx5.67}$
 
 ### RMSE
 
-$$
-RMSE=\sqrt{5.67}
-$$
+$RMSE=\sqrt{5.67}$
 
-$$
-\boxed{RMSE\approx2.38}
-$$
+$\boxed{RMSE\approx2.38}$
 
 ---
 
@@ -531,16 +416,11 @@ Use **MAPE** only when percentage error is meaningful and zero or near-zero actu
 
 The **coefficient of determination** is:
 
-$$
-R^2
-$$
+$R^2$
 
 In the standard regression setting:
 
-$$
-R^2=
-1-\frac{SSE}{SST}
-$$
+$R^2= 1-\frac{SSE}{SST}$
 
 where:
 
@@ -549,10 +429,7 @@ where:
 
 The total sum of squares is:
 
-$$
-SST=
-\sum_{i=1}^{n}(y_i-\bar{y})^2
-$$
+$SST= \sum_{i=1}^{n}(y_i-\bar{y})^2$
 
 ---
 
@@ -560,36 +437,23 @@ $$
 
 The total sum of squares measures total variation in the observed response around its mean.
 
-$$
-SST=
-\sum(y_i-\bar{y})^2
-$$
+$SST= \sum(y_i-\bar{y})^2$
 
 For example, if:
 
-$$
-y=[10,20,30]
-$$
+$y=[10,20,30]$
 
 then:
 
-$$
-\bar{y}=20
-$$
+$\bar{y}=20$
 
 and:
 
-$$
-SST=(10-20)^2+(20-20)^2+(30-20)^2
-$$
+$SST=(10-20)^2+(20-20)^2+(30-20)^2$
 
-$$
-SST=100+0+100
-$$
+$SST=100+0+100$
 
-$$
-\boxed{SST=200}
-$$
+$\boxed{SST=200}$
 
 ---
 
@@ -597,9 +461,7 @@ $$
 
 Suppose:
 
-$$
-R^2=0.80
-$$
+$R^2=0.80$
 
 In the standard regression interpretation, the fitted model accounts for 80% of the observed variation in the response relative to the mean-only baseline.
 
@@ -617,30 +479,19 @@ $R^2$ is about variation explained by the fitted model, not causation.
 
 Suppose:
 
-$$
-SSE=40
-$$
+$SSE=40$
 
 and:
 
-$$
-SST=200
-$$
+$SST=200$
 
 Then:
 
-$$
-R^2=
-1-\frac{40}{200}
-$$
+$R^2= 1-\frac{40}{200}$
 
-$$
-R^2=1-0.20
-$$
+$R^2=1-0.20$
 
-$$
-\boxed{R^2=0.80}
-$$
+$\boxed{R^2=0.80}$
 
 Thus, the fitted model accounts for 80% of the variation relative to the mean-only baseline.
 
@@ -650,25 +501,17 @@ Thus, the fitted model accounts for 80% of the variation relative to the mean-on
 
 For simple linear regression with an intercept:
 
-$$
-R^2=r^2
-$$
+$R^2=r^2$
 
 For example, if:
 
-$$
-r=0.80
-$$
+$r=0.80$
 
 then:
 
-$$
-R^2=(0.80)^2
-$$
+$R^2=(0.80)^2$
 
-$$
-\boxed{R^2=0.64}
-$$
+$\boxed{R^2=0.64}$
 
 This direct relationship applies to simple linear regression with an intercept.
 
@@ -686,13 +529,7 @@ Adjusted $R^2$ introduces a penalty for model complexity.
 
 A common formula is:
 
-$$
-R^2_{\text{adj}}
-=
-1-
-\frac{(1-R^2)(n-1)}
-{n-p-1}
-$$
+$R^2_{\text{adj}} = 1- \frac{(1-R^2)(n-1)} {n-p-1}$
 
 where:
 
@@ -708,47 +545,25 @@ Adjusted $R^2$ can decrease when an additional predictor does not provide enough
 
 Suppose:
 
-$$
-R^2=0.80
-$$
+$R^2=0.80$
 
 with:
 
-$$
-n=100
-$$
+$n=100$
 
 and:
 
-$$
-p=3
-$$
+$p=3$
 
 Then:
 
-$$
-R^2_{\text{adj}}
-=
-1-
-\frac{(1-0.80)(100-1)}
-{100-3-1}
-$$
+$R^2_{\text{adj}} = 1- \frac{(1-0.80)(100-1)} {100-3-1}$
 
-$$
-=
-1-
-\frac{0.20(99)}
-{96}
-$$
+$= 1- \frac{0.20(99)} {96}$
 
-$$
-=
-1-\frac{19.8}{96}
-$$
+$= 1-\frac{19.8}{96}$
 
-$$
-\boxed{R^2_{\text{adj}}\approx0.794}
-$$
+$\boxed{R^2_{\text{adj}}\approx0.794}$
 
 The adjusted value is slightly lower because the model contains multiple predictors.
 
@@ -777,9 +592,7 @@ Training error measures how well the model fits data it has already seen.
 
 For example:
 
-$$
-RMSE_{\text{train}}
-$$
+$RMSE_{\text{train}}$
 
 measures prediction error on the training data.
 
@@ -795,9 +608,7 @@ Test error measures performance on unseen data.
 
 For example:
 
-$$
-RMSE_{\text{test}}
-$$
+$RMSE_{\text{test}}$
 
 is calculated from test-set predictions.
 
@@ -828,21 +639,13 @@ Model A may generalise better.
 
 The goal of predictive modelling is not merely:
 
-$$
-\text{minimise training error}
-$$
+$\text{minimise training error}$
 
 but rather to obtain a model that performs well on appropriate unseen data.
 
 Conceptually:
 
-$$
-\boxed{
-\text{Good model}
-\Rightarrow
-\text{Good performance on relevant unseen data}
-}
-$$
+$\boxed{ \text{Good model} \Rightarrow \text{Good performance on relevant unseen data} }$
 
 ---
 
@@ -852,15 +655,11 @@ $$
 
 Typical pattern:
 
-$$
-\text{Training error}\downarrow
-$$
+$\text{Training error}\downarrow$
 
 while:
 
-$$
-\text{Test error}\uparrow
-$$
+$\text{Test error}\uparrow$
 
 As model complexity increases, training performance often improves, but test performance may eventually deteriorate.
 
@@ -917,15 +716,11 @@ A common evaluation workflow is to divide the dataset into:
 
 For example:
 
-$$
-80\%
-$$
+$80\%$
 
 training and:
 
-$$
-20\%
-$$
+$20\%$
 
 testing.
 
@@ -963,15 +758,7 @@ The test set is reserved for final evaluation.
 
 Conceptually:
 
-$$
-\text{Data}
-\rightarrow
-\begin{cases}
-\text{Training}\\
-\text{Validation}\\
-\text{Test}
-\end{cases}
-$$
+$\text{Data} \rightarrow \begin{cases} \text{Training}\\ \text{Validation}\\ \text{Test} \end{cases}$
 
 For small datasets, using a separate validation set may waste too much data, which motivates cross-validation.
 
@@ -998,9 +785,7 @@ This process is repeated until every fold has served as the validation fold.
 
 For:
 
-$$
-k=5
-$$
+$k=5$
 
 the process is:
 
@@ -1020,27 +805,15 @@ Each observation is used for validation exactly once.
 
 Suppose the five validation RMSE values are:
 
-$$
-2.1,\quad2.4,\quad2.0,\quad2.3,\quad2.2
-$$
+$2.1,\quad2.4,\quad2.0,\quad2.3,\quad2.2$
 
 The mean cross-validation RMSE is:
 
-$$
-RMSE_{CV}
-=
-\frac{2.1+2.4+2.0+2.3+2.2}{5}
-$$
+$RMSE_{CV} = \frac{2.1+2.4+2.0+2.3+2.2}{5}$
 
-$$
-RMSE_{CV}
-=
-\frac{11.0}{5}
-$$
+$RMSE_{CV} = \frac{11.0}{5}$
 
-$$
-\boxed{RMSE_{CV}=2.2}
-$$
+$\boxed{RMSE_{CV}=2.2}$
 
 The variation among fold scores can also provide useful information about model stability.
 
@@ -1054,21 +827,15 @@ This may indicate that model performance depends strongly on which observations 
 
 Therefore, it is often useful to report:
 
-$$
-\text{mean CV score}
-$$
+$\text{mean CV score}$
 
 along with:
 
-$$
-\text{standard deviation of CV scores}
-$$
+$\text{standard deviation of CV scores}$
 
 For example:
 
-$$
-2.20\pm0.15
-$$
+$2.20\pm0.15$
 
 can summarise the average and variation across folds, depending on the reporting convention.
 
@@ -1092,9 +859,7 @@ This helps keep the final test estimate separate from model-selection decisions.
 
 A residual is:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 Residual analysis examines whether residuals show systematic patterns.
 
@@ -1118,9 +883,7 @@ A residual-versus-fitted plot places:
 
 A well-behaved pattern often resembles a random cloud around:
 
-$$
-e=0
-$$
+$e=0$
 
 A systematic curve may indicate that the model has not captured the relationship adequately.
 
@@ -1192,15 +955,11 @@ This is a possible sign of heteroscedasticity.
 
 For ordinary least squares with an intercept:
 
-$$
-\sum e_i=0
-$$
+$\sum e_i=0$
 
 Therefore:
 
-$$
-\bar{e}=0
-$$
+$\bar{e}=0$
 
 This is a mathematical property of the fitted model.
 
@@ -1224,9 +983,7 @@ Lower MAE indicates smaller average absolute prediction error.
 
 Therefore, among these models:
 
-$$
-3.1<3.8<4.2
-$$
+$3.1<3.8<4.2$
 
 Model B has the smallest MAE.
 
@@ -1246,9 +1003,7 @@ Suppose:
 
 The lowest RMSE is:
 
-$$
-4.2
-$$
+$4.2$
 
 Therefore, Model B has the lowest RMSE among the three models on this evaluation dataset.
 
@@ -1303,9 +1058,7 @@ An actual-vs-predicted plot compares:
 
 A good predictive relationship generally places points near the diagonal line:
 
-$$
-y=\hat{y}
-$$
+$y=\hat{y}$
 
 Conceptually:
 
@@ -1329,9 +1082,7 @@ One advantage of MAE and RMSE is that they can be interpreted in the response's 
 
 Suppose:
 
-$$
-RMSE=4.5
-$$
+$RMSE=4.5$
 
 and $Y$ is measured in marks.
 
@@ -1339,9 +1090,7 @@ Then a typical model error, interpreted through RMSE, is on the scale of approxi
 
 This is often easier to communicate than:
 
-$$
-MSE=20.25
-$$
+$MSE=20.25$
 
 because MSE is measured in squared marks.
 
@@ -1353,9 +1102,7 @@ A regression model should often be compared with a simple baseline.
 
 For a basic regression problem, a mean-prediction baseline predicts:
 
-$$
-\hat{y}_i=\bar{y}_{train}
-$$
+$\hat{y}_i=\bar{y}_{train}$
 
 for every observation.
 
@@ -1369,15 +1116,11 @@ This is particularly important when $R^2$ or another metric is considered in iso
 
 Suppose the training mean is:
 
-$$
-\bar{y}=50
-$$
+$\bar{y}=50$
 
 The baseline predicts:
 
-$$
-\hat{y}=50
-$$
+$\hat{y}=50$
 
 for every test observation.
 
@@ -1596,9 +1339,7 @@ plt.show()
 
 A closer alignment with the diagonal relationship:
 
-$$
-y=\hat{y}
-$$
+$y=\hat{y}$
 
 generally indicates smaller prediction errors.
 
@@ -1659,48 +1400,31 @@ Suppose a model produces the following test results:
 
 We already have:
 
-$$
-MAE=2.75
-$$
+$MAE=2.75$
 
 and:
 
-$$
-MSE=8.25
-$$
+$MSE=8.25$
 
 Therefore:
 
-$$
-RMSE=\sqrt{8.25}
-$$
+$RMSE=\sqrt{8.25}$
 
-$$
-\boxed{RMSE\approx2.87}
-$$
+$\boxed{RMSE\approx2.87}$
 
 Suppose the total variation is:
 
-$$
-SST=200
-$$
+$SST=200$
 
 and:
 
-$$
-SSE=33
-$$
+$SSE=33$
 
 Then:
 
-$$
-R^2=
-1-\frac{33}{200}
-$$
+$R^2= 1-\frac{33}{200}$
 
-$$
-\boxed{R^2=0.835}
-$$
+$\boxed{R^2=0.835}$
 
 The model therefore has:
 
@@ -1783,92 +1507,53 @@ A numerical improvement may not matter if it is too small for the application.
 
 ### Prediction error / residual
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 ### Absolute error
 
-$$
-|e_i|=|y_i-\hat{y}_i|
-$$
+$|e_i|=|y_i-\hat{y}_i|$
 
 ### Squared error
 
-$$
-e_i^2=(y_i-\hat{y}_i)^2
-$$
+$e_i^2=(y_i-\hat{y}_i)^2$
 
 ### Sum of Squared Errors
 
-$$
-SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 ### Mean Squared Error
 
-$$
-MSE=
-\frac{1}{n}
-\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
-$$
+$MSE= \frac{1}{n} \sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
 
 ### Root Mean Squared Error
 
-$$
-RMSE=\sqrt{MSE}
-$$
+$RMSE=\sqrt{MSE}$
 
 ### Mean Absolute Error
 
-$$
-MAE=
-\frac{1}{n}
-\sum_{i=1}^{n}|y_i-\hat{y}_i|
-$$
+$MAE= \frac{1}{n} \sum_{i=1}^{n}|y_i-\hat{y}_i|$
 
 ### Mean Absolute Percentage Error
 
-$$
-MAPE=
-\frac{100}{n}
-\sum_{i=1}^{n}
-\left|
-\frac{y_i-\hat{y}_i}{y_i}
-\right|
-$$
+$MAPE= \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|$
 
 ### Total Sum of Squares
 
-$$
-SST=
-\sum_{i=1}^{n}(y_i-\bar{y})^2
-$$
+$SST= \sum_{i=1}^{n}(y_i-\bar{y})^2$
 
 ### Coefficient of determination
 
-$$
-R^2=
-1-\frac{SSE}{SST}
-$$
+$R^2= 1-\frac{SSE}{SST}$
 
 ### Simple regression relationship
 
-$$
-R^2=r^2
-$$
+$R^2=r^2$
 
 for simple linear regression with an intercept.
 
 ### Adjusted $R^2$
 
-$$
-R^2_{\text{adj}}
-=
-1-
-\frac{(1-R^2)(n-1)}
-{n-p-1}
-$$
+$R^2_{\text{adj}} = 1- \frac{(1-R^2)(n-1)} {n-p-1}$
 
 ---
 
@@ -1926,37 +1611,25 @@ Regression model evaluation determines how well a fitted model performs and whet
 
 The fundamental prediction error is:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 From these errors we obtain several important metrics.
 
 MAE measures average absolute error:
 
-$$
-MAE=
-\frac{1}{n}\sum|y_i-\hat{y}_i|
-$$
+$MAE= \frac{1}{n}\sum|y_i-\hat{y}_i|$
 
 MSE averages squared errors:
 
-$$
-MSE=
-\frac{1}{n}\sum(y_i-\hat{y}_i)^2
-$$
+$MSE= \frac{1}{n}\sum(y_i-\hat{y}_i)^2$
 
 RMSE converts MSE back to the original response scale:
 
-$$
-RMSE=\sqrt{MSE}
-$$
+$RMSE=\sqrt{MSE}$
 
 $R^2$ compares residual variation with total variation:
 
-$$
-R^2=1-\frac{SSE}{SST}
-$$
+$R^2=1-\frac{SSE}{SST}$
 
 Adjusted $R^2$ introduces a penalty for the number of predictors.
 
@@ -1966,19 +1639,7 @@ Finally, numerical metrics should be combined with residual analysis. A model wi
 
 The central principle is:
 
-$$
-\boxed{
-\text{Good regression evaluation}
-=
-\text{appropriate metrics}
-+
-\text{unseen-data testing}
-+
-\text{residual analysis}
-+
-\text{careful interpretation}
-}
-$$
+$\boxed{ \text{Good regression evaluation} = \text{appropriate metrics} + \text{unseen-data testing} + \text{residual analysis} + \text{careful interpretation} }$
 
 ---
 
