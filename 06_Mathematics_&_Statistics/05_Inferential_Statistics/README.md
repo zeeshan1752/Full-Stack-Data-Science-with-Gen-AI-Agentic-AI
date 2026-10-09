@@ -640,23 +640,17 @@ A confidence interval has two main parts:
 1. Point estimate
 2. Margin of error
 
-In general:
+In general, a confidence interval is calculated as:
 
-$$
-\text{Confidence Interval}
-=
-\text{Point Estimate}
-\pm
-\text{Margin of Error}
-$$
+$
+\text{Confidence Interval} = \text{Point Estimate} \pm \text{Margin of Error}
+$
 
-For many common intervals:
+For many common intervals, the margin of error is:
 
-$$
-\text{Margin of Error}
-=
-\text{Critical Value}\times\text{Standard Error}
-$$
+$
+\text{Margin of Error} = \text{Critical Value} \times \text{Standard Error}
+$
 
 Therefore:
 
@@ -1020,11 +1014,11 @@ $$
 \boxed{CI\approx(0.532,\ 0.668)}
 $$
 
-In percentage form:
+In percentage form, the interval is approximately:
 
-$$
-\boxed{53.2\%\text{ to }66.8\%}
-$$
+$
+\boxed{53.2\% \text{ to } 66.8\%}
+$
 
 ---
 
