@@ -1,0 +1,7 @@
+{
+  "markdown.math.enabled": true,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": false
+  }
+}
