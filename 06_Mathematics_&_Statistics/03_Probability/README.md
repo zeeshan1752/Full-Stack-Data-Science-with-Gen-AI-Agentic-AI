@@ -16,27 +16,19 @@ Probability measures how likely an event is to occur.
 
 The probability of an event $A$ is written as:
 
-$$
-P(A)
-$$
+$P(A)$
 
 For an ordinary probability:
 
-$$
-0 \leq P(A) \leq 1
-$$
+$0 \leq P(A) \leq 1$
 
 The two extreme cases are:
 
-$$
-P(A)=0
-$$
+$P(A)=0$
 
 which represents an impossible event, and:
 
-$$
-P(A)=1
-$$
+$P(A)=1$
 
 which represents a certain event.
 
@@ -44,15 +36,11 @@ A probability can also be expressed as a percentage.
 
 For example:
 
-$$
-P(A)=0.75
-$$
+$P(A)=0.75$
 
 is equivalent to:
 
-$$
-75\%
-$$
+$75\%$
 
 Probability does not guarantee that an event will occur. It describes the likelihood of the event based on the probability model being used.
 
@@ -75,9 +63,7 @@ Although the exact outcome is uncertain, the possible outcomes can usually be de
 
 For example, when a standard die is rolled, the possible outcomes are:
 
-$$
-\{1,2,3,4,5,6\}
-$$
+$\{1,2,3,4,5,6\}$
 
 ---
 
@@ -87,9 +73,7 @@ An **outcome** is one possible result of a random experiment.
 
 When a coin is tossed, the possible outcomes are:
 
-$$
-\{H,T\}
-$$
+$\{H,T\}$
 
 where:
 
@@ -98,9 +82,7 @@ where:
 
 When a die is rolled:
 
-$$
-\{1,2,3,4,5,6\}
-$$
+$\{1,2,3,4,5,6\}$
 
 Each individual result is an outcome.
 
@@ -112,41 +94,31 @@ The **sample space** is the set of all possible outcomes of a random experiment.
 
 The sample space is commonly represented by:
 
-$$
-S
-$$
+$S$
 
 ### Example 1: Coin Toss
 
 For one coin toss:
 
-$$
-S=\{H,T\}
-$$
+$S=\{H,T\}$
 
 ### Example 2: Die Roll
 
 For one die roll:
 
-$$
-S=\{1,2,3,4,5,6\}
-$$
+$S=\{1,2,3,4,5,6\}$
 
 ### Example 3: Two Coin Tosses
 
 For two coin tosses:
 
-$$
-S=\{HH,HT,TH,TT\}
-$$
+$S=\{HH,HT,TH,TT\}$
 
 There are four possible outcomes.
 
 Therefore:
 
-$$
-|S|=4
-$$
+$|S|=4$
 
 where $|S|$ represents the number of outcomes in the sample space.
 
@@ -160,23 +132,17 @@ Suppose a die is rolled.
 
 The sample space is:
 
-$$
-S=\{1,2,3,4,5,6\}
-$$
+$S=\{1,2,3,4,5,6\}$
 
 Let event $A$ represent obtaining an even number.
 
 Then:
 
-$$
-A=\{2,4,6\}
-$$
+$A=\{2,4,6\}$
 
 Therefore, $A$ is a subset of $S$:
 
-$$
-A \subseteq S
-$$
+$A \subseteq S$
 
 An event may contain:
 
@@ -195,9 +161,7 @@ A simple event contains exactly one outcome.
 
 For a die:
 
-$$
-A=\{4\}
-$$
+$A=\{4\}$
 
 This is the event of obtaining 4.
 
@@ -207,9 +171,7 @@ A compound event contains more than one outcome.
 
 For example:
 
-$$
-B=\{2,4,6\}
-$$
+$B=\{2,4,6\}$
 
 represents obtaining an even number.
 
@@ -221,9 +183,7 @@ The distinction is useful when constructing events and calculating their probabi
 
 When all outcomes are equally likely, the probability of an event can be calculated using:
 
-$$
-P(A)=\frac{|A|}{|S|}
-$$
+$P(A)=\frac{|A|}{|S|}$
 
 where:
 
@@ -236,49 +196,33 @@ A fair die is rolled. What is the probability of obtaining an even number?
 
 Sample space:
 
-$$
-S=\{1,2,3,4,5,6\}
-$$
+$S=\{1,2,3,4,5,6\}$
 
 Even outcomes:
 
-$$
-A=\{2,4,6\}
-$$
+$A=\{2,4,6\}$
 
 Therefore:
 
-$$
-|A|=3
-$$
+$|A|=3$
 
 and:
 
-$$
-|S|=6
-$$
+$|S|=6$
 
 Apply the formula:
 
-$$
-P(A)=\frac{3}{6}
-$$
+$P(A)=\frac{3}{6}$
 
-$$
-P(A)=\frac{1}{2}
-$$
+$P(A)=\frac{1}{2}$
 
 Therefore:
 
-$$
-\boxed{P(A)=0.5}
-$$
+$\boxed{P(A)=0.5}$
 
 or:
 
-$$
-\boxed{P(A)=50\%}
-$$
+$\boxed{P(A)=50\%}$
 
 This formula assumes that the possible outcomes are equally likely.
 
@@ -290,21 +234,15 @@ Two or more outcomes are **equally likely** when they have the same probability.
 
 For a fair coin:
 
-$$
-P(H)=P(T)=\frac{1}{2}
-$$
+$P(H)=P(T)=\frac{1}{2}$
 
 For a fair die:
 
-$$
-P(1)=P(2)=\cdots=P(6)=\frac{1}{6}
-$$
+$P(1)=P(2)=\cdots=P(6)=\frac{1}{6}$
 
 The simple ratio:
 
-$$
-P(A)=\frac{|A|}{|S|}
-$$
+$P(A)=\frac{|A|}{|S|}$
 
 is appropriate when the relevant outcomes are equally likely.
 
@@ -320,9 +258,7 @@ The modern mathematical foundation of probability is commonly expressed through 
 
 For every event $A$:
 
-$$
-P(A)\geq0
-$$
+$P(A)\geq0$
 
 A probability cannot be negative.
 
@@ -330,23 +266,17 @@ A probability cannot be negative.
 
 The probability that some outcome in the sample space occurs is:
 
-$$
-P(S)=1
-$$
+$P(S)=1$
 
 ### Axiom 3: Additivity for Mutually Exclusive Events
 
 If $A$ and $B$ cannot occur together:
 
-$$
-A\cap B=\varnothing
-$$
+$A\cap B=\varnothing$
 
 then:
 
-$$
-P(A\cup B)=P(A)+P(B)
-$$
+$P(A\cup B)=P(A)+P(B)$
 
 These axioms form the foundation from which many probability rules are derived.
 
@@ -358,35 +288,25 @@ The **complement** of event $A$ represents all outcomes in the sample space that
 
 It is commonly written as:
 
-$$
-A^c
-$$
+$A^c$
 
 The probability of the complement is:
 
-$$
-P(A^c)=1-P(A)
-$$
+$P(A^c)=1-P(A)$
 
 ### Worked Example
 
 Suppose:
 
-$$
-P(A)=0.7
-$$
+$P(A)=0.7$
 
 Then:
 
-$$
-P(A^c)=1-0.7
-$$
+$P(A^c)=1-0.7$
 
 Therefore:
 
-$$
-\boxed{P(A^c)=0.3}
-$$
+$\boxed{P(A^c)=0.3}$
 
 The probability that event $A$ does not occur is 0.3.
 
@@ -396,9 +316,7 @@ The probability that event $A$ does not occur is 0.3.
 
 The general addition rule is:
 
-$$
-P(A\cup B)=P(A)+P(B)-P(A\cap B)
-$$
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$
 
 where:
 
@@ -411,31 +329,21 @@ The intersection is subtracted because it is counted twice when $P(A)$ and $P(B)
 
 Suppose:
 
-$$
-P(A)=0.5
-$$
+$P(A)=0.5$
 
-$$
-P(B)=0.4
-$$
+$P(B)=0.4$
 
 and:
 
-$$
-P(A\cap B)=0.2
-$$
+$P(A\cap B)=0.2$
 
 Then:
 
-$$
-P(A\cup B)=0.5+0.4-0.2
-$$
+$P(A\cup B)=0.5+0.4-0.2$
 
 Therefore:
 
-$$
-\boxed{P(A\cup B)=0.7}
-$$
+$\boxed{P(A\cup B)=0.7}$
 
 ---
 
@@ -445,21 +353,15 @@ Two events are **mutually exclusive** if they cannot occur together.
 
 For mutually exclusive events:
 
-$$
-A\cap B=\varnothing
-$$
+$A\cap B=\varnothing$
 
 Therefore:
 
-$$
-P(A\cap B)=0
-$$
+$P(A\cap B)=0$
 
 The addition rule becomes:
 
-$$
-P(A\cup B)=P(A)+P(B)
-$$
+$P(A\cup B)=P(A)+P(B)$
 
 ### Example
 
@@ -472,23 +374,15 @@ Both cannot happen on the same roll.
 
 Therefore:
 
-$$
-P(A\cap B)=0
-$$
+$P(A\cap B)=0$
 
 and:
 
-$$
-P(A\cup B)=P(A)+P(B)
-$$
+$P(A\cup B)=P(A)+P(B)$
 
-$$
-=\frac{1}{6}+\frac{1}{6}
-$$
+$=\frac{1}{6}+\frac{1}{6}$
 
-$$
-\boxed{P(A\cup B)=\frac{1}{3}}
-$$
+$\boxed{P(A\cup B)=\frac{1}{3}}$
 
 Mutual exclusivity is different from independence.
 
@@ -500,47 +394,33 @@ Conditional probability measures the probability of an event **given that anothe
 
 The probability of $A$ given $B$ is written as:
 
-$$
-P(A\mid B)
-$$
+$P(A\mid B)$
 
 and is calculated as:
 
-$$
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-$$
+$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
 
 provided:
 
-$$
-P(B)>0
-$$
+$P(B)>0$
 
 ### Worked Example
 
 Suppose:
 
-$$
-P(A\cap B)=0.2
-$$
+$P(A\cap B)=0.2$
 
 and:
 
-$$
-P(B)=0.5
-$$
+$P(B)=0.5$
 
 Then:
 
-$$
-P(A\mid B)=\frac{0.2}{0.5}
-$$
+$P(A\mid B)=\frac{0.2}{0.5}$
 
 Therefore:
 
-$$
-\boxed{P(A\mid B)=0.4}
-$$
+$\boxed{P(A\mid B)=0.4}$
 
 The information that $B$ occurred changes the probability assigned to $A$.
 
@@ -563,21 +443,15 @@ Let:
 
 We want:
 
-$$
-P(A\mid B)
-$$
+$P(A\mid B)$
 
 Among the 50 students who study regularly, 45 passed.
 
 Therefore:
 
-$$
-P(A\mid B)=\frac{45}{50}
-$$
+$P(A\mid B)=\frac{45}{50}$
 
-$$
-\boxed{P(A\mid B)=0.9}
-$$
+$\boxed{P(A\mid B)=0.9}$
 
 Thus, within the group of students who study regularly, the observed probability of passing is 90%.
 
@@ -589,27 +463,19 @@ The denominator is the group specified by the condition.
 
 Starting from conditional probability:
 
-$$
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-$$
+$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
 
 Multiply both sides by $P(B)$:
 
-$$
-P(A\cap B)=P(A\mid B)P(B)
-$$
+$P(A\cap B)=P(A\mid B)P(B)$
 
 Therefore:
 
-$$
-\boxed{P(A\cap B)=P(A\mid B)P(B)}
-$$
+$\boxed{P(A\cap B)=P(A\mid B)P(B)}$
 
 Similarly:
 
-$$
-P(A\cap B)=P(B\mid A)P(A)
-$$
+$P(A\cap B)=P(B\mid A)P(A)$
 
 This rule is useful for calculating the probability that multiple events occur together.
 
@@ -621,17 +487,13 @@ Two events $A$ and $B$ are **independent** when the occurrence of one event does
 
 Mathematically:
 
-$$
-P(A\mid B)=P(A)
-$$
+$P(A\mid B)=P(A)$
 
 when $P(B)>0$.
 
 An equivalent multiplication rule is:
 
-$$
-P(A\cap B)=P(A)P(B)
-$$
+$P(A\cap B)=P(A)P(B)$
 
 ### Example
 
@@ -646,25 +508,17 @@ The result of the first toss does not affect the second toss.
 
 Therefore:
 
-$$
-P(A)=\frac{1}{2}
-$$
+$P(A)=\frac{1}{2}$
 
 and:
 
-$$
-P(B)=\frac{1}{2}
-$$
+$P(B)=\frac{1}{2}$
 
 Thus:
 
-$$
-P(A\cap B)=\frac{1}{2}\times\frac{1}{2}
-$$
+$P(A\cap B)=\frac{1}{2}\times\frac{1}{2}$
 
-$$
-\boxed{P(A\cap B)=\frac{1}{4}}
-$$
+$\boxed{P(A\cap B)=\frac{1}{4}}$
 
 ### Important Distinction
 
@@ -682,21 +536,15 @@ Conditional probability and independence are closely related.
 
 If $A$ and $B$ are independent:
 
-$$
-P(A\mid B)=P(A)
-$$
+$P(A\mid B)=P(A)$
 
 and:
 
-$$
-P(B\mid A)=P(B)
-$$
+$P(B\mid A)=P(B)$
 
 Therefore:
 
-$$
-P(A\cap B)=P(A)P(B)
-$$
+$P(A\cap B)=P(A)P(B)$
 
 Independence should not be assumed merely because two events appear unrelated. It is a property of the probability model or data-generating process.
 
@@ -706,21 +554,15 @@ Independence should not be assumed merely because two events appear unrelated. I
 
 Suppose the sample space is divided into mutually exclusive and exhaustive events:
 
-$$
-B_1,B_2,\ldots,B_n
-$$
+$B_1,B_2,\ldots,B_n$
 
 Then the probability of event $A$ can be calculated as:
 
-$$
-P(A)=\sum_{i=1}^{n}P(A\mid B_i)P(B_i)
-$$
+$P(A)=\sum_{i=1}^{n}P(A\mid B_i)P(B_i)$
 
 For two events $B$ and $B^c$:
 
-$$
-P(A)=P(A\mid B)P(B)+P(A\mid B^c)P(B^c)
-$$
+$P(A)=P(A\mid B)P(B)+P(A\mid B^c)P(B^c)$
 
 ### Worked Example
 
@@ -735,49 +577,31 @@ Let $D$ represent a defective product.
 
 Then:
 
-$$
-P(A)=0.6
-$$
+$P(A)=0.6$
 
-$$
-P(B)=0.4
-$$
+$P(B)=0.4$
 
-$$
-P(D\mid A)=0.02
-$$
+$P(D\mid A)=0.02$
 
-$$
-P(D\mid B)=0.05
-$$
+$P(D\mid B)=0.05$
 
 Therefore:
 
-$$
-P(D)=P(D\mid A)P(A)+P(D\mid B)P(B)
-$$
+$P(D)=P(D\mid A)P(A)+P(D\mid B)P(B)$
 
 Substitute:
 
-$$
-P(D)=(0.02)(0.6)+(0.05)(0.4)
-$$
+$P(D)=(0.02)(0.6)+(0.05)(0.4)$
 
-$$
-P(D)=0.012+0.020
-$$
+$P(D)=0.012+0.020$
 
 Therefore:
 
-$$
-\boxed{P(D)=0.032}
-$$
+$\boxed{P(D)=0.032}$
 
 As a percentage:
 
-$$
-\boxed{P(D)=3.2\%}
-$$
+$\boxed{P(D)=3.2\%}$
 
 ---
 
@@ -787,41 +611,23 @@ Bayes' theorem provides a way to reverse a conditional probability.
 
 Starting with:
 
-$$
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-$$
+$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
 
 and:
 
-$$
-P(B\mid A)=\frac{P(A\cap B)}{P(A)}
-$$
+$P(B\mid A)=\frac{P(A\cap B)}{P(A)}$
 
 we obtain:
 
-$$
-\boxed{
-P(A\mid B)=
-\frac{P(B\mid A)P(A)}
-{P(B)}
-}
-$$
+$\boxed{ P(A\mid B)= \frac{P(B\mid A)P(A)} {P(B)} }$
 
 Using the law of total probability, when $A$ and $A^c$ partition the sample space:
 
-$$
-P(B)=P(B\mid A)P(A)+P(B\mid A^c)P(A^c)
-$$
+$P(B)=P(B\mid A)P(A)+P(B\mid A^c)P(A^c)$
 
 Therefore:
 
-$$
-\boxed{
-P(A\mid B)=
-\frac{P(B\mid A)P(A)}
-{P(B\mid A)P(A)+P(B\mid A^c)P(A^c)}
-}
-$$
+$\boxed{ P(A\mid B)= \frac{P(B\mid A)P(A)} {P(B\mid A)P(A)+P(B\mid A^c)P(A^c)} }$
 
 Bayes' theorem is especially important when we want to update a prior belief after observing new evidence.
 
@@ -846,78 +652,47 @@ Let:
 
 We know:
 
-$$
-P(D)=0.01
-$$
+$P(D)=0.01$
 
-$$
-P(D^c)=0.99
-$$
+$P(D^c)=0.99$
 
-$$
-P(+\mid D)=0.95
-$$
+$P(+\mid D)=0.95$
 
-$$
-P(+\mid D^c)=0.05
-$$
+$P(+\mid D^c)=0.05$
 
 We want:
 
-$$
-P(D\mid +)
-$$
+$P(D\mid +)$
 
 Using Bayes' theorem:
 
-$$
-P(D\mid +)=
-\frac{P(+\mid D)P(D)}
-{P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}
-$$
+$P(D\mid +)= \frac{P(+\mid D)P(D)} {P(+\mid D)P(D)+P(+\mid D^c)P(D^c)}$
 
 Substitute:
 
-$$
-P(D\mid +)=
-\frac{(0.95)(0.01)}
-{(0.95)(0.01)+(0.05)(0.99)}
-$$
+$P(D\mid +)= \frac{(0.95)(0.01)} {(0.95)(0.01)+(0.05)(0.99)}$
 
 Calculate the numerator:
 
-$$
-(0.95)(0.01)=0.0095
-$$
+$(0.95)(0.01)=0.0095$
 
 Calculate the second term in the denominator:
 
-$$
-(0.05)(0.99)=0.0495
-$$
+$(0.05)(0.99)=0.0495$
 
 Therefore:
 
-$$
-P(D\mid +)=
-\frac{0.0095}{0.0095+0.0495}
-$$
+$P(D\mid +)= \frac{0.0095}{0.0095+0.0495}$
 
-$$
-P(D\mid +)=\frac{0.0095}{0.059}
-$$
+$P(D\mid +)=\frac{0.0095}{0.059}$
 
 Therefore:
 
-$$
-\boxed{P(D\mid +)\approx0.161}
-$$
+$\boxed{P(D\mid +)\approx0.161}$
 
 or approximately:
 
-$$
-\boxed{16.1\%}
-$$
+$\boxed{16.1\%}$
 
 The important lesson is that a positive test result does not automatically mean that the person has a 95% probability of having the condition.
 
@@ -931,9 +706,7 @@ A **random variable** assigns a numerical value to the outcome of a random exper
 
 It is commonly represented by a capital letter such as:
 
-$$
-X
-$$
+$X$
 
 ### Example
 
@@ -941,9 +714,7 @@ Suppose a coin is tossed twice.
 
 The possible outcomes are:
 
-$$
-\{HH,HT,TH,TT\}
-$$
+$\{HH,HT,TH,TT\}$
 
 Let $X$ represent the number of Heads.
 
@@ -980,9 +751,7 @@ Examples:
 
 For example, if $X$ is the number of Heads in two coin tosses:
 
-$$
-X\in\{0,1,2\}
-$$
+$X\in\{0,1,2\}$
 
 ---
 
@@ -1000,23 +769,17 @@ Examples:
 
 For example:
 
-$$
-X=2.1,\;2.15,\;2.157,\ldots
-$$
+$X=2.1,\;2.15,\;2.157,\ldots$
 
 may represent a measured time.
 
 For a continuous random variable, the probability of one exact point is generally:
 
-$$
-P(X=x)=0
-$$
+$P(X=x)=0$
 
 Probabilities are instead assigned to intervals, such as:
 
-$$
-P(a<X<b)
-$$
+$P(a<X<b)$
 
 ---
 
@@ -1026,9 +789,7 @@ The **expected value** represents the long-run average value of a random variabl
 
 For a discrete random variable:
 
-$$
-E(X)=\sum_x xP(X=x)
-$$
+$E(X)=\sum_x xP(X=x)$
 
 ### Worked Example
 
@@ -1036,43 +797,25 @@ Suppose a fair die is rolled.
 
 The possible values are:
 
-$$
-1,2,3,4,5,6
-$$
+$1,2,3,4,5,6$
 
 Each has probability:
 
-$$
-\frac{1}{6}
-$$
+$\frac{1}{6}$
 
 Therefore:
 
-$$
-E(X)=
-1\left(\frac{1}{6}\right)+
-2\left(\frac{1}{6}\right)+
-3\left(\frac{1}{6}\right)+
-4\left(\frac{1}{6}\right)+
-5\left(\frac{1}{6}\right)+
-6\left(\frac{1}{6}\right)
-$$
+$E(X)= 1\left(\frac{1}{6}\right)+ 2\left(\frac{1}{6}\right)+ 3\left(\frac{1}{6}\right)+ 4\left(\frac{1}{6}\right)+ 5\left(\frac{1}{6}\right)+ 6\left(\frac{1}{6}\right)$
 
 Factor out $\frac{1}{6}$:
 
-$$
-E(X)=\frac{1+2+3+4+5+6}{6}
-$$
+$E(X)=\frac{1+2+3+4+5+6}{6}$
 
-$$
-E(X)=\frac{21}{6}
-$$
+$E(X)=\frac{21}{6}$
 
 Therefore:
 
-$$
-\boxed{E(X)=3.5}
-$$
+$\boxed{E(X)=3.5}$
 
 A die does not produce 3.5 on a single roll. The expected value is a theoretical long-run average.
 
@@ -1084,15 +827,11 @@ Expected value has an important property called **linearity of expectation**.
 
 For random variables $X$ and $Y$:
 
-$$
-E(X+Y)=E(X)+E(Y)
-$$
+$E(X+Y)=E(X)+E(Y)$
 
 More generally:
 
-$$
-E(aX+b)=aE(X)+b
-$$
+$E(aX+b)=aE(X)+b$
 
 where $a$ and $b$ are constants.
 
@@ -1106,27 +845,19 @@ Variance measures the spread of a random variable around its expected value.
 
 The definition is:
 
-$$
-Var(X)=E[(X-E(X))^2]
-$$
+$Var(X)=E[(X-E(X))^2]$
 
 An equivalent formula is:
 
-$$
-\boxed{Var(X)=E(X^2)-[E(X)]^2}
-$$
+$\boxed{Var(X)=E(X^2)-[E(X)]^2}$
 
 The standard deviation is:
 
-$$
-SD(X)=\sqrt{Var(X)}
-$$
+$SD(X)=\sqrt{Var(X)}$
 
 Variance is non-negative:
 
-$$
-Var(X)\geq0
-$$
+$Var(X)\geq0$
 
 ---
 
@@ -1136,15 +867,11 @@ Covariance describes how two numerical random variables vary together.
 
 The covariance is:
 
-$$
-Cov(X,Y)=E[(X-E(X))(Y-E(Y))]
-$$
+$Cov(X,Y)=E[(X-E(X))(Y-E(Y))]$
 
 An equivalent form is:
 
-$$
-Cov(X,Y)=E(XY)-E(X)E(Y)
-$$
+$Cov(X,Y)=E(XY)-E(X)E(Y)$
 
 A positive covariance generally indicates that larger values of one variable tend to occur with larger values of the other.
 
@@ -1160,25 +887,15 @@ Correlation is a standardised measure of linear association.
 
 The population correlation coefficient is:
 
-$$
-\rho_{X,Y}=
-\frac{Cov(X,Y)}
-{\sigma_X\sigma_Y}
-$$
+$\rho_{X,Y}= \frac{Cov(X,Y)} {\sigma_X\sigma_Y}$
 
 The sample correlation coefficient is commonly written as:
 
-$$
-r=
-\frac{Cov(X,Y)}
-{s_Xs_Y}
-$$
+$r= \frac{Cov(X,Y)} {s_Xs_Y}$
 
 Correlation typically lies between:
 
-$$
--1\leq r\leq1
-$$
+$-1\leq r\leq1$
 
 Interpretation:
 
@@ -1205,9 +922,7 @@ Two fundamental counting rules are:
 
 If one task can be completed in $m$ ways and another independent stage can be completed in $n$ ways, the combined number of possibilities is:
 
-$$
-m\times n
-$$
+$m\times n$
 
 ### Example
 
@@ -1219,15 +934,11 @@ Suppose a password contains:
 
 Then the total number of possible passwords is:
 
-$$
-3\times4\times5=60
-$$
+$3\times4\times5=60$
 
 Therefore:
 
-$$
-\boxed{60}
-$$
+$\boxed{60}$
 
 possible combinations exist under these choices.
 
@@ -1237,25 +948,17 @@ possible combinations exist under these choices.
 
 The factorial of a positive integer $n$ is:
 
-$$
-n!=n(n-1)(n-2)\cdots2\cdot1
-$$
+$n!=n(n-1)(n-2)\cdots2\cdot1$
 
 For example:
 
-$$
-5!=5\times4\times3\times2\times1
-$$
+$5!=5\times4\times3\times2\times1$
 
-$$
-\boxed{5!=120}
-$$
+$\boxed{5!=120}$
 
 By convention:
 
-$$
-\boxed{0!=1}
-$$
+$\boxed{0!=1}$
 
 Factorials are used extensively in permutations and combinations.
 
@@ -1267,15 +970,11 @@ A permutation is an arrangement in which **order matters**.
 
 The number of ways to arrange $n$ distinct objects is:
 
-$$
-n!
-$$
+$n!$
 
 More generally, the number of ways to select and arrange $r$ objects from $n$ distinct objects is:
 
-$$
-{}^nP_r=\frac{n!}{(n-r)!}
-$$
+${}^nP_r=\frac{n!}{(n-r)!}$
 
 ### Worked Example
 
@@ -1283,29 +982,19 @@ How many ways can 3 students be selected and arranged from 5 students?
 
 Here:
 
-$$
-n=5,\quad r=3
-$$
+$n=5,\quad r=3$
 
 Therefore:
 
-$$
-{}^5P_3=\frac{5!}{(5-3)!}
-$$
+${}^5P_3=\frac{5!}{(5-3)!}$
 
-$$
-=\frac{5!}{2!}
-$$
+$=\frac{5!}{2!}$
 
-$$
-=\frac{120}{2}
-$$
+$=\frac{120}{2}$
 
 Therefore:
 
-$$
-\boxed{{}^5P_3=60}
-$$
+$\boxed{{}^5P_3=60}$
 
 ---
 
@@ -1315,15 +1004,11 @@ A combination is a selection in which **order does not matter**.
 
 The number of ways to select $r$ objects from $n$ objects is:
 
-$$
-{}^nC_r=\frac{n!}{r!(n-r)!}
-$$
+${}^nC_r=\frac{n!}{r!(n-r)!}$
 
 It is also written as:
 
-$$
-\binom{n}{r}
-$$
+$\binom{n}{r}$
 
 ### Worked Example
 
@@ -1331,24 +1016,15 @@ How many ways can 3 students be selected from 5 students?
 
 Here:
 
-$$
-n=5,\quad r=3
-$$
+$n=5,\quad r=3$
 
 Therefore:
 
-$$
-{}^5C_3=
-\frac{5!}{3!2!}
-$$
+${}^5C_3= \frac{5!}{3!2!}$
 
-$$
-=\frac{120}{6\times2}
-$$
+$=\frac{120}{6\times2}$
 
-$$
-\boxed{{}^5C_3=10}
-$$
+$\boxed{{}^5C_3=10}$
 
 The difference from permutations is important:
 
@@ -1373,11 +1049,7 @@ If:
 
 then the probability of exactly $x$ successes is:
 
-$$
-P(X=x)=
-\binom{n}{x}
-p^x(1-p)^{n-x}
-$$
+$P(X=x)= \binom{n}{x} p^x(1-p)^{n-x}$
 
 This formula forms the basis of the binomial probability distribution.
 
@@ -1387,52 +1059,33 @@ Suppose a fair coin is tossed 4 times. What is the probability of exactly 2 Head
 
 Here:
 
-$$
-n=4
-$$
+$n=4$
 
-$$
-x=2
-$$
+$x=2$
 
-$$
-p=0.5
-$$
+$p=0.5$
 
 Therefore:
 
-$$
-P(X=2)=
-\binom{4}{2}(0.5)^2(0.5)^2
-$$
+$P(X=2)= \binom{4}{2}(0.5)^2(0.5)^2$
 
 Calculate the combination:
 
-$$
-\binom{4}{2}=6
-$$
+$\binom{4}{2}=6$
 
 Therefore:
 
-$$
-P(X=2)=6(0.25)(0.25)
-$$
+$P(X=2)=6(0.25)(0.25)$
 
-$$
-P(X=2)=0.375
-$$
+$P(X=2)=0.375$
 
 Therefore:
 
-$$
-\boxed{P(X=2)=0.375}
-$$
+$\boxed{P(X=2)=0.375}$
 
 or:
 
-$$
-\boxed{37.5\%}
-$$
+$\boxed{37.5\%}$
 
 ---
 
@@ -1444,23 +1097,17 @@ These concepts should not be confused.
 
 Joint probability is the probability that two events occur together:
 
-$$
-P(A\cap B)
-$$
+$P(A\cap B)$
 
 ### Conditional Probability
 
 Conditional probability is the probability of one event given that another has occurred:
 
-$$
-P(A\mid B)
-$$
+$P(A\mid B)$
 
 The relationship is:
 
-$$
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-$$
+$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
 
 Therefore, the condition changes the reference set.
 
@@ -1472,39 +1119,27 @@ Probability and odds are related but not identical.
 
 If:
 
-$$
-P(A)=p
-$$
+$P(A)=p$
 
 then the odds in favour of $A$ are:
 
-$$
-\text{Odds}=\frac{p}{1-p}
-$$
+$\text{Odds}=\frac{p}{1-p}$
 
 ### Example
 
 Suppose:
 
-$$
-P(A)=0.75
-$$
+$P(A)=0.75$
 
 Then:
 
-$$
-\text{Odds}=\frac{0.75}{1-0.75}
-$$
+$\text{Odds}=\frac{0.75}{1-0.75}$
 
-$$
-=\frac{0.75}{0.25}
-$$
+$=\frac{0.75}{0.25}$
 
 Therefore:
 
-$$
-\boxed{\text{Odds}=3:1}
-$$
+$\boxed{\text{Odds}=3:1}$
 
 This means there are three units of probability weight in favour for every one unit against, under the odds representation.
 
@@ -1518,9 +1153,7 @@ For example, consider repeatedly tossing a fair coin.
 
 The theoretical probability of Heads is:
 
-$$
-P(H)=0.5
-$$
+$P(H)=0.5$
 
 If the coin is tossed only 10 times, the observed proportion of Heads may be 0.3 or 0.7.
 
@@ -1542,9 +1175,7 @@ H H H H H
 
 The probability of Heads on the next toss is still:
 
-$$
-P(H)=0.5
-$$
+$P(H)=0.5$
 
 The previous five outcomes do not make Tails "due" on the next independent toss.
 
@@ -1568,21 +1199,15 @@ Suppose a coin is tossed twice.
 
 The four paths correspond to:
 
-$$
-HH,\ HT,\ TH,\ TT
-$$
+$HH,\ HT,\ TH,\ TT$
 
 For a fair coin, each path has probability:
 
-$$
-\frac{1}{2}\times\frac{1}{2}
-$$
+$\frac{1}{2}\times\frac{1}{2}$
 
 Therefore:
 
-$$
-\boxed{P(\text{each path})=\frac{1}{4}}
-$$
+$\boxed{P(\text{each path})=\frac{1}{4}}$
 
 Probability trees become especially useful when later probabilities depend on earlier outcomes.
 
@@ -1596,21 +1221,15 @@ Suppose an online store records 1,000 visitors and 80 make a purchase.
 
 The empirical purchase probability is:
 
-$$
-\hat{p}=\frac{80}{1000}
-$$
+$\hat{p}=\frac{80}{1000}$
 
 Therefore:
 
-$$
-\boxed{\hat{p}=0.08}
-$$
+$\boxed{\hat{p}=0.08}$
 
 or:
 
-$$
-\boxed{\hat{p}=8\%}
-$$
+$\boxed{\hat{p}=8\%}$
 
 The symbol $\hat{p}$ indicates an estimated probability or sample proportion.
 
@@ -1635,92 +1254,57 @@ Let:
 
 We know:
 
-$$
-P(A)=0.70
-$$
+$P(A)=0.70$
 
-$$
-P(B)=0.30
-$$
+$P(B)=0.30$
 
-$$
-P(R\mid A)=0.03
-$$
+$P(R\mid A)=0.03$
 
-$$
-P(R\mid B)=0.08
-$$
+$P(R\mid B)=0.08$
 
 ### Step 1: Overall Probability of a Return
 
 Using the law of total probability:
 
-$$
-P(R)=P(R\mid A)P(A)+P(R\mid B)P(B)
-$$
+$P(R)=P(R\mid A)P(A)+P(R\mid B)P(B)$
 
 Substitute:
 
-$$
-P(R)=(0.03)(0.70)+(0.08)(0.30)
-$$
+$P(R)=(0.03)(0.70)+(0.08)(0.30)$
 
-$$
-P(R)=0.021+0.024
-$$
+$P(R)=0.021+0.024$
 
 Therefore:
 
-$$
-\boxed{P(R)=0.045}
-$$
+$\boxed{P(R)=0.045}$
 
 or:
 
-$$
-\boxed{P(R)=4.5\%}
-$$
+$\boxed{P(R)=4.5\%}$
 
 ### Step 2: Probability That a Returned Order Came From Region B
 
 We want:
 
-$$
-P(B\mid R)
-$$
+$P(B\mid R)$
 
 Using Bayes' theorem:
 
-$$
-P(B\mid R)=
-\frac{P(R\mid B)P(B)}
-{P(R)}
-$$
+$P(B\mid R)= \frac{P(R\mid B)P(B)} {P(R)}$
 
 Substitute:
 
-$$
-P(B\mid R)=
-\frac{(0.08)(0.30)}
-{0.045}
-$$
+$P(B\mid R)= \frac{(0.08)(0.30)} {0.045}$
 
-$$
-P(B\mid R)=
-\frac{0.024}{0.045}
-$$
+$P(B\mid R)= \frac{0.024}{0.045}$
 
 Therefore:
 
-$$
-\boxed{P(B\mid R)\approx0.5333}
-$$
+$\boxed{P(B\mid R)\approx0.5333}$
 
 or approximately:
 
-$$
-\boxed{53.33\%}
-$$
+$\boxed{53.33\%}$
 
 Although Region B produces only 30% of orders, it accounts for approximately 53.33% of returned orders under this probability model because its return probability is higher.
 
@@ -1732,17 +1316,13 @@ Although Region B produces only 30% of orders, it accounts for approximately 53.
 
 They are generally different:
 
-$$
-P(A\mid B)\neq P(B\mid A)
-$$
+$P(A\mid B)\neq P(B\mid A)$
 
 ### Mistake 2: Forgetting the Intersection in the Addition Rule
 
 For general events:
 
-$$
-P(A\cup B)=P(A)+P(B)-P(A\cap B)
-$$
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$
 
 ### Mistake 3: Assuming Events Are Independent
 
@@ -1758,9 +1338,7 @@ Independent events do not change each other's probabilities.
 
 The formula:
 
-$$
-P(A)=\frac{|A|}{|S|}
-$$
+$P(A)=\frac{|A|}{|S|}$
 
 requires equally likely outcomes.
 
@@ -1768,9 +1346,7 @@ requires equally likely outcomes.
 
 For example:
 
-$$
-0.25=25\%
-$$
+$0.25=25\%$
 
 but 0.25 and 25 are not the same numerical probability.
 
@@ -1786,15 +1362,11 @@ An expected value is a theoretical average, not necessarily an outcome that must
 
 The quantities:
 
-$$
-P(+\mid D)
-$$
+$P(+\mid D)$
 
 and:
 
-$$
-P(D\mid +)
-$$
+$P(D\mid +)$
 
 are different.
 
@@ -1832,143 +1404,93 @@ are different.
 
 ### Probability of an Event
 
-$$
-P(A)=\frac{|A|}{|S|}
-$$
+$P(A)=\frac{|A|}{|S|}$
 
 when outcomes are equally likely.
 
 ### Complement Rule
 
-$$
-P(A^c)=1-P(A)
-$$
+$P(A^c)=1-P(A)$
 
 ### General Addition Rule
 
-$$
-P(A\cup B)=P(A)+P(B)-P(A\cap B)
-$$
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$
 
 ### Mutually Exclusive Events
 
-$$
-P(A\cup B)=P(A)+P(B)
-$$
+$P(A\cup B)=P(A)+P(B)$
 
 when:
 
-$$
-A\cap B=\varnothing
-$$
+$A\cap B=\varnothing$
 
 ### Conditional Probability
 
-$$
-P(A\mid B)=\frac{P(A\cap B)}{P(B)}
-$$
+$P(A\mid B)=\frac{P(A\cap B)}{P(B)}$
 
 ### Multiplication Rule
 
-$$
-P(A\cap B)=P(A\mid B)P(B)
-$$
+$P(A\cap B)=P(A\mid B)P(B)$
 
 ### Independence
 
-$$
-P(A\cap B)=P(A)P(B)
-$$
+$P(A\cap B)=P(A)P(B)$
 
 ### Law of Total Probability
 
-$$
-P(A)=\sum_{i=1}^{n}P(A\mid B_i)P(B_i)
-$$
+$P(A)=\sum_{i=1}^{n}P(A\mid B_i)P(B_i)$
 
 ### Bayes' Theorem
 
-$$
-P(A\mid B)=
-\frac{P(B\mid A)P(A)}
-{P(B)}
-$$
+$P(A\mid B)= \frac{P(B\mid A)P(A)} {P(B)}$
 
 ### Expected Value
 
-$$
-E(X)=\sum_x xP(X=x)
-$$
+$E(X)=\sum_x xP(X=x)$
 
 ### Variance
 
-$$
-Var(X)=E[(X-E(X))^2]
-$$
+$Var(X)=E[(X-E(X))^2]$
 
 ### Alternative Variance Formula
 
-$$
-Var(X)=E(X^2)-[E(X)]^2
-$$
+$Var(X)=E(X^2)-[E(X)]^2$
 
 ### Standard Deviation
 
-$$
-SD(X)=\sqrt{Var(X)}
-$$
+$SD(X)=\sqrt{Var(X)}$
 
 ### Covariance
 
-$$
-Cov(X,Y)=E[(X-E(X))(Y-E(Y))]
-$$
+$Cov(X,Y)=E[(X-E(X))(Y-E(Y))]$
 
 ### Correlation
 
-$$
-\rho_{X,Y}=
-\frac{Cov(X,Y)}
-{\sigma_X\sigma_Y}
-$$
+$\rho_{X,Y}= \frac{Cov(X,Y)} {\sigma_X\sigma_Y}$
 
 ### Factorial
 
-$$
-n!=n(n-1)(n-2)\cdots1
-$$
+$n!=n(n-1)(n-2)\cdots1$
 
 ### Permutation
 
-$$
-{}^nP_r=\frac{n!}{(n-r)!}
-$$
+${}^nP_r=\frac{n!}{(n-r)!}$
 
 ### Combination
 
-$$
-{}^nC_r=\frac{n!}{r!(n-r)!}
-$$
+${}^nC_r=\frac{n!}{r!(n-r)!}$
 
 ### Binomial Probability
 
-$$
-P(X=x)=
-\binom{n}{x}p^x(1-p)^{n-x}
-$$
+$P(X=x)= \binom{n}{x}p^x(1-p)^{n-x}$
 
 ### Odds
 
-$$
-\text{Odds}=\frac{p}{1-p}
-$$
+$\text{Odds}=\frac{p}{1-p}$
 
 ### Empirical Probability
 
-$$
-\hat{p}=\frac{\text{Observed favourable outcomes}}
-{\text{Total observations}}
-$$
+$\hat{p}=\frac{\text{Observed favourable outcomes}} {\text{Total observations}}$
 
 ---
 
