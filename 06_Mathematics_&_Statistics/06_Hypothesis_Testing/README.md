@@ -29,17 +29,13 @@ A hypothesis is expressed in terms of a population parameter rather than an indi
 
 For example:
 
-$$
-\mu=50
-$$
+$\mu=50$
 
 is a statement about a population mean.
 
 Similarly:
 
-$$
-p=0.40
-$$
+$p=0.40$
 
 is a statement about a population proportion.
 
@@ -85,21 +81,15 @@ The **null hypothesis**, written as $H_0$, represents the default claim or a spe
 
 Examples:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 or:
 
-$$
-H_0:p=0.40
-$$
+$H_0:p=0.40$
 
 The null hypothesis commonly contains an equality:
 
-$$
-=
-$$
+$=$
 
 It can also be expressed using inequalities when the equivalent boundary formulation is appropriate.
 
@@ -115,21 +105,15 @@ The three common forms are:
 
 ### Two-sided
 
-$$
-H_a:\mu\ne\mu_0
-$$
+$H_a:\mu\ne\mu_0$
 
 ### Right-tailed
 
-$$
-H_a:\mu>\mu_0
-$$
+$H_a:\mu>\mu_0$
 
 ### Left-tailed
 
-$$
-H_a:\mu<\mu_0
-$$
+$H_a:\mu<\mu_0$
 
 The alternative hypothesis determines the direction of the test.
 
@@ -143,37 +127,25 @@ Suppose a company claims:
 
 If we want to test whether the true average is different from 30 minutes:
 
-$$
-H_0:\mu=30
-$$
+$H_0:\mu=30$
 
-$$
-H_a:\mu\ne30
-$$
+$H_a:\mu\ne30$
 
 This is a **two-tailed test** because deviations in either direction are considered evidence against the null hypothesis.
 
 If we instead want to test whether delivery takes longer than claimed:
 
-$$
-H_0:\mu=30
-$$
+$H_0:\mu=30$
 
-$$
-H_a:\mu>30
-$$
+$H_a:\mu>30$
 
 This is a **right-tailed test**.
 
 If we want to test whether delivery is faster:
 
-$$
-H_0:\mu=30
-$$
+$H_0:\mu=30$
 
-$$
-H_a:\mu<30
-$$
+$H_a:\mu<30$
 
 This is a **left-tailed test**.
 
@@ -183,29 +155,21 @@ This is a **left-tailed test**.
 
 A common beginner mistake is to write:
 
-$$
-H_0:\mu\ne50
-$$
+$H_0:\mu\ne50$
 
 and:
 
-$$
-H_a:\mu=50
-$$
+$H_a:\mu=50$
 
 for an ordinary two-sided test.
 
 The standard formulation is:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 and:
 
-$$
-H_a:\mu\ne50
-$$
+$H_a:\mu\ne50$
 
 The null hypothesis provides the reference value used to calculate the test statistic.
 
@@ -217,25 +181,17 @@ The **significance level**, denoted by $\alpha$, is the probability threshold us
 
 Common values include:
 
-$$
-\alpha=0.10
-$$
+$\alpha=0.10$
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 and:
 
-$$
-\alpha=0.01
-$$
+$\alpha=0.01$
 
 For example, if:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we use a 5% significance level.
 
@@ -263,11 +219,7 @@ A **test statistic** measures how far the observed sample result is from the val
 
 For a mean with known population standard deviation:
 
-$$
-z=
-\frac{\bar{x}-\mu_0}
-{\sigma/\sqrt{n}}
-$$
+$z= \frac{\bar{x}-\mu_0} {\sigma/\sqrt{n}}$
 
 where:
 
@@ -278,17 +230,13 @@ where:
 
 The numerator:
 
-$$
-\bar{x}-\mu_0
-$$
+$\bar{x}-\mu_0$
 
 is the difference between the observed sample mean and the null value.
 
 The denominator:
 
-$$
-\frac{\sigma}{\sqrt{n}}
-$$
+$\frac{\sigma}{\sqrt{n}}$
 
 is the standard error.
 
@@ -298,17 +246,13 @@ is the standard error.
 
 Suppose:
 
-$$
-z=2
-$$
+$z=2$
 
 This means the observed sample mean is approximately two standard errors above the null-hypothesised mean.
 
 If:
 
-$$
-z=-2
-$$
+$z=-2$
 
 the observed sample mean is approximately two standard errors below the null value.
 
@@ -316,9 +260,7 @@ A test statistic close to zero indicates that the observed sample result is rela
 
 A large absolute value:
 
-$$
-|z|
-$$
+$|z|$
 
 indicates stronger disagreement with the null hypothesis.
 
@@ -345,27 +287,19 @@ Compare the p-value with $\alpha$.
 
 If:
 
-$$
-p\text{-value}\le\alpha
-$$
+$p\text{-value}\le\alpha$
 
 then:
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 If:
 
-$$
-p\text{-value}>\alpha
-$$
+$p\text{-value}>\alpha$
 
 then:
 
-$$
-\boxed{\text{Fail to reject }H_0}
-$$
+$\boxed{\text{Fail to reject }H_0}$
 
 We normally do not say "accept $H_0$" merely because the p-value is larger than $\alpha$.
 
@@ -377,21 +311,15 @@ Failing to reject means that the sample does not provide sufficient evidence aga
 
 Suppose a test produces:
 
-$$
-p=0.20
-$$
+$p=0.20$
 
 with:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Since:
 
-$$
-0.20>0.05
-$$
+$0.20>0.05$
 
 we fail to reject $H_0$.
 
@@ -407,47 +335,33 @@ Instead of calculating a p-value, we can compare the test statistic with a **cri
 
 For a two-sided z-test at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 the critical values are approximately:
 
-$$
--1.96
-$$
+$-1.96$
 
 and:
 
-$$
-+1.96
-$$
+$+1.96$
 
 The rejection region is:
 
-$$
-z<-1.96
-$$
+$z<-1.96$
 
 or:
 
-$$
-z>1.96
-$$
+$z>1.96$
 
 Equivalently:
 
-$$
-|z|>1.96
-$$
+$|z|>1.96$
 
 leads to rejection.
 
 If:
 
-$$
--1.96\le z\le1.96
-$$
+$-1.96\le z\le1.96$
 
 we fail to reject the null hypothesis.
 
@@ -474,25 +388,19 @@ The alternative hypothesis determines the tail structure.
 
 ### Right-tailed
 
-$$
-H_a:\mu>\mu_0
-$$
+$H_a:\mu>\mu_0$
 
 The rejection region is in the right tail.
 
 ### Left-tailed
 
-$$
-H_a:\mu<\mu_0
-$$
+$H_a:\mu<\mu_0$
 
 The rejection region is in the left tail.
 
 ### Two-tailed
 
-$$
-H_a:\mu\ne\mu_0
-$$
+$H_a:\mu\ne\mu_0$
 
 The rejection regions are in both tails.
 
@@ -512,29 +420,21 @@ flowchart TD
 
 Suppose:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 and:
 
-$$
-H_a:\mu>50
-$$
+$H_a:\mu>50$
 
 The test asks whether the sample provides evidence that the population mean is **greater than 50**.
 
 For a z-test at $\alpha=0.05$:
 
-$$
-z^*=1.645
-$$
+$z^*=1.645$
 
 Reject if:
 
-$$
-z>1.645
-$$
+$z>1.645$
 
 The entire significance level is placed in the right tail.
 
@@ -544,27 +444,19 @@ The entire significance level is placed in the right tail.
 
 Suppose:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 and:
 
-$$
-H_a:\mu<50
-$$
+$H_a:\mu<50$
 
 At $\alpha=0.05$:
 
-$$
-z^*=-1.645
-$$
+$z^*=-1.645$
 
 Reject if:
 
-$$
-z<-1.645
-$$
+$z<-1.645$
 
 The significance level is placed in the left tail.
 
@@ -574,47 +466,33 @@ The significance level is placed in the left tail.
 
 Suppose:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 and:
 
-$$
-H_a:\mu\ne50
-$$
+$H_a:\mu\ne50$
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 the significance level is split between the two tails:
 
-$$
-\frac{\alpha}{2}=0.025
-$$
+$\frac{\alpha}{2}=0.025$
 
 in each tail.
 
 The critical values are:
 
-$$
--1.96
-$$
+$-1.96$
 
 and:
 
-$$
-+1.96
-$$
+$+1.96$
 
 Reject if:
 
-$$
-|z|>1.96
-$$
+$|z|>1.96$
 
 ---
 
@@ -624,26 +502,19 @@ A **Type I error** occurs when we reject a true null hypothesis.
 
 Symbolically:
 
-$$
-\text{Reject }H_0
-\quad\text{when }H_0\text{ is true}
-$$
+$\text{Reject }H_0 \quad\text{when }H_0\text{ is true}$
 
 The probability of a Type I error is controlled by $\alpha$.
 
 Therefore:
 
-$$
-P(\text{Type I Error})=\alpha
-$$
+$P(\text{Type I Error})=\alpha$
 
 under the standard testing framework.
 
 For example, if:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 the procedure has a 5% Type I error rate under the relevant assumptions.
 
@@ -655,22 +526,15 @@ A **Type II error** occurs when we fail to reject a false null hypothesis.
 
 Symbolically:
 
-$$
-\text{Fail to reject }H_0
-\quad\text{when }H_0\text{ is false}
-$$
+$\text{Fail to reject }H_0 \quad\text{when }H_0\text{ is false}$
 
 The probability of a Type II error is denoted by:
 
-$$
-\beta
-$$
+$\beta$
 
 Therefore:
 
-$$
-P(\text{Type II Error})=\beta
-$$
+$P(\text{Type II Error})=\beta$
 
 ---
 
@@ -693,9 +557,7 @@ The **power** of a hypothesis test is the probability of correctly rejecting a f
 
 Power is:
 
-$$
-Power=1-\beta
-$$
+$Power=1-\beta$
 
 A test with high power is more likely to detect a real difference when one exists.
 
@@ -737,11 +599,7 @@ There is therefore a trade-off.
 
 When the population standard deviation $\sigma$ is known, a one-sample z-test for a mean uses:
 
-$$
-z=
-\frac{\bar{x}-\mu_0}
-{\sigma/\sqrt{n}}
-$$
+$z= \frac{\bar{x}-\mu_0} {\sigma/\sqrt{n}}$
 
 where:
 
@@ -758,81 +616,53 @@ A company claims that the average delivery time is 30 minutes.
 
 A random sample of 100 deliveries has:
 
-$$
-\bar{x}=32
-$$
+$\bar{x}=32$
 
 Suppose:
 
-$$
-\sigma=10
-$$
+$\sigma=10$
 
 We test:
 
-$$
-H_0:\mu=30
-$$
+$H_0:\mu=30$
 
 against:
 
-$$
-H_a:\mu\ne30
-$$
+$H_a:\mu\ne30$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 ### Step 1: Calculate the standard error
 
-$$
-SE=
-\frac{10}{\sqrt{100}}
-$$
+$SE= \frac{10}{\sqrt{100}}$
 
-$$
-=\frac{10}{10}
-$$
+$=\frac{10}{10}$
 
-$$
-=1
-$$
+$=1$
 
 ### Step 2: Calculate the test statistic
 
-$$
-z=
-\frac{32-30}{1}
-$$
+$z= \frac{32-30}{1}$
 
-$$
-=2
-$$
+$=2$
 
 ### Step 3: Compare with critical values
 
 For a two-tailed test at 5%:
 
-$$
-z^*=\pm1.96
-$$
+$z^*=\pm1.96$
 
 Since:
 
-$$
-|2|>1.96
-$$
+$|2|>1.96$
 
 we reject the null hypothesis.
 
 ### Conclusion
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 There is sufficient statistical evidence at the 5% significance level that the population mean delivery time differs from 30 minutes.
 
@@ -842,37 +672,25 @@ There is sufficient statistical evidence at the 5% significance level that the p
 
 For:
 
-$$
-z=2
-$$
+$z=2$
 
 in a two-tailed test:
 
-$$
-p=2P(Z\ge2)
-$$
+$p=2P(Z\ge2)$
 
 Using the standard normal distribution:
 
-$$
-P(Z\ge2)\approx0.0228
-$$
+$P(Z\ge2)\approx0.0228$
 
 Therefore:
 
-$$
-p\approx2(0.0228)
-$$
+$p\approx2(0.0228)$
 
-$$
-p\approx0.0456
-$$
+$p\approx0.0456$
 
 Since:
 
-$$
-0.0456<0.05
-$$
+$0.0456<0.05$
 
 we reject $H_0$.
 
@@ -888,70 +706,43 @@ We want to determine whether the actual mean production is **greater than 100**.
 
 Given:
 
-$$
-\bar{x}=103
-$$
+$\bar{x}=103$
 
-$$
-\sigma=12
-$$
+$\sigma=12$
 
-$$
-n=64
-$$
+$n=64$
 
 Test:
 
-$$
-H_0:\mu=100
-$$
+$H_0:\mu=100$
 
-$$
-H_a:\mu>100
-$$
+$H_a:\mu>100$
 
 Use:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Standard error:
 
-$$
-SE=\frac{12}{\sqrt{64}}
-$$
+$SE=\frac{12}{\sqrt{64}}$
 
-$$
-=\frac{12}{8}
-$$
+$=\frac{12}{8}$
 
-$$
-=1.5
-$$
+$=1.5$
 
 Test statistic:
 
-$$
-z=
-\frac{103-100}{1.5}
-$$
+$z= \frac{103-100}{1.5}$
 
-$$
-=2
-$$
+$=2$
 
 For a right-tailed 5% test:
 
-$$
-z^*=1.645
-$$
+$z^*=1.645$
 
 Since:
 
-$$
-2>1.645
-$$
+$2>1.645$
 
 we reject $H_0$.
 
@@ -967,66 +758,41 @@ We want to test whether it is **underfilling**.
 
 Given:
 
-$$
-\bar{x}=496
-$$
+$\bar{x}=496$
 
-$$
-\sigma=12
-$$
+$\sigma=12$
 
-$$
-n=36
-$$
+$n=36$
 
 Hypotheses:
 
-$$
-H_0:\mu=500
-$$
+$H_0:\mu=500$
 
-$$
-H_a:\mu<500
-$$
+$H_a:\mu<500$
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Standard error:
 
-$$
-SE=\frac{12}{\sqrt{36}}
-$$
+$SE=\frac{12}{\sqrt{36}}$
 
-$$
-=2
-$$
+$=2$
 
 Test statistic:
 
-$$
-z=
-\frac{496-500}{2}
-$$
+$z= \frac{496-500}{2}$
 
-$$
-=-2
-$$
+$=-2$
 
 The left-tail critical value is:
 
-$$
--1.645
-$$
+$-1.645$
 
 Since:
 
-$$
--2<-1.645
-$$
+$-2<-1.645$
 
 we reject $H_0$.
 
@@ -1040,11 +806,7 @@ When the population standard deviation is unknown, the one-sample t-test is comm
 
 The test statistic is:
 
-$$
-t=
-\frac{\bar{x}-\mu_0}
-{s/\sqrt{n}}
-$$
+$t= \frac{\bar{x}-\mu_0} {s/\sqrt{n}}$
 
 where:
 
@@ -1055,9 +817,7 @@ where:
 
 Degrees of freedom:
 
-$$
-df=n-1
-$$
+$df=n-1$
 
 ---
 
@@ -1065,78 +825,51 @@ $$
 
 Suppose a sample of 16 observations has:
 
-$$
-\bar{x}=52
-$$
+$\bar{x}=52$
 
-$$
-s=8
-$$
+$s=8$
 
 We want to test:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 against:
 
-$$
-H_a:\mu\ne50
-$$
+$H_a:\mu\ne50$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 ### Step 1: Degrees of freedom
 
-$$
-df=16-1=15
-$$
+$df=16-1=15$
 
 ### Step 2: Standard error
 
-$$
-SE=\frac{8}{\sqrt{16}}
-$$
+$SE=\frac{8}{\sqrt{16}}$
 
-$$
-=\frac{8}{4}
-$$
+$=\frac{8}{4}$
 
-$$
-=2
-$$
+$=2$
 
 ### Step 3: Test statistic
 
-$$
-t=
-\frac{52-50}{2}
-$$
+$t= \frac{52-50}{2}$
 
-$$
-=1
-$$
+$=1$
 
 ### Step 4: Critical value
 
 For a two-tailed 5% test with 15 degrees of freedom:
 
-$$
-t^*\approx2.131
-$$
+$t^*\approx2.131$
 
 ### Step 5: Decision
 
 Since:
 
-$$
-|1|<2.131
-$$
+$|1|<2.131$
 
 we fail to reject $H_0$.
 
@@ -1164,36 +897,19 @@ The distinction should be based on the assumptions and available information, no
 
 Suppose we want to test:
 
-$$
-H_0:p=p_0
-$$
+$H_0:p=p_0$
 
 The sample proportion is:
 
-$$
-\hat{p}=\frac{x}{n}
-$$
+$\hat{p}=\frac{x}{n}$
 
 Under the null hypothesis, the standard error used for the one-proportion z-test is:
 
-$$
-SE_0=
-\sqrt{
-\frac{p_0(1-p_0)}{n}
-}
-$$
+$SE_0= \sqrt{ \frac{p_0(1-p_0)}{n} }$
 
 The test statistic is:
 
-$$
-z=
-\frac{\hat{p}-p_0}
-{
-\sqrt{
-\frac{p_0(1-p_0)}{n}
-}
-}
-$$
+$z= \frac{\hat{p}-p_0} { \sqrt{ \frac{p_0(1-p_0)}{n} } }$
 
 Notice that the null value $p_0$, rather than $\hat{p}$, is used in the denominator for the hypothesis test.
 
@@ -1207,74 +923,45 @@ A sample of 200 customers contains 140 satisfied customers.
 
 Then:
 
-$$
-\hat{p}=\frac{140}{200}
-$$
+$\hat{p}=\frac{140}{200}$
 
-$$
-=0.70
-$$
+$=0.70$
 
 We test:
 
-$$
-H_0:p=0.60
-$$
+$H_0:p=0.60$
 
 against:
 
-$$
-H_a:p\ne0.60
-$$
+$H_a:p\ne0.60$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 ### Step 1: Null standard error
 
-$$
-SE_0=
-\sqrt{
-\frac{0.60(0.40)}{200}
-}
-$$
+$SE_0= \sqrt{ \frac{0.60(0.40)}{200} }$
 
-$$
-=
-\sqrt{0.0012}
-$$
+$= \sqrt{0.0012}$
 
-$$
-\approx0.0346
-$$
+$\approx0.0346$
 
 ### Step 2: Test statistic
 
-$$
-z=
-\frac{0.70-0.60}{0.0346}
-$$
+$z= \frac{0.70-0.60}{0.0346}$
 
-$$
-\approx2.89
-$$
+$\approx2.89$
 
 ### Step 3: Decision
 
 For a two-tailed test at 5%:
 
-$$
-|z|>1.96
-$$
+$|z|>1.96$
 
 Therefore:
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 There is sufficient statistical evidence that the population satisfaction proportion differs from 60%.
 
@@ -1284,54 +971,27 @@ There is sufficient statistical evidence that the population satisfaction propor
 
 Suppose two independent groups have population means:
 
-$$
-\mu_1
-$$
+$\mu_1$
 
 and:
 
-$$
-\mu_2
-$$
+$\mu_2$
 
 We may test:
 
-$$
-H_0:\mu_1-\mu_2=0
-$$
+$H_0:\mu_1-\mu_2=0$
 
 against:
 
-$$
-H_a:\mu_1-\mu_2\ne0
-$$
+$H_a:\mu_1-\mu_2\ne0$
 
 A common estimated standard error for independent samples is:
 
-$$
-SE=
-\sqrt{
-\frac{s_1^2}{n_1}
-+
-\frac{s_2^2}{n_2}
-}
-$$
+$SE= \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }$
 
 The test statistic can be formed as:
 
-$$
-t=
-\frac{
-(\bar{x}_1-\bar{x}_2)-0
-}
-{
-\sqrt{
-\frac{s_1^2}{n_1}
-+
-\frac{s_2^2}{n_2}
-}
-}
-$$
+$t= \frac{ (\bar{x}_1-\bar{x}_2)-0 } { \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} } }$
 
 When population variances are unknown and may differ, **Welch's t-test** is commonly preferred.
 
@@ -1348,56 +1008,31 @@ Suppose:
 
 We test:
 
-$$
-H_0:\mu_1-\mu_2=0
-$$
+$H_0:\mu_1-\mu_2=0$
 
 against:
 
-$$
-H_a:\mu_1-\mu_2\ne0
-$$
+$H_a:\mu_1-\mu_2\ne0$
 
 Estimated difference:
 
-$$
-82-78=4
-$$
+$82-78=4$
 
 Standard error:
 
-$$
-SE=
-\sqrt{
-\frac{10^2}{100}
-+
-\frac{12^2}{144}
-}
-$$
+$SE= \sqrt{ \frac{10^2}{100} + \frac{12^2}{144} }$
 
-$$
-=
-\sqrt{1+1}
-$$
+$= \sqrt{1+1}$
 
-$$
-=\sqrt{2}
-$$
+$=\sqrt{2}$
 
-$$
-\approx1.414
-$$
+$\approx1.414$
 
 Approximate test statistic:
 
-$$
-t=
-\frac{4}{1.414}
-$$
+$t= \frac{4}{1.414}$
 
-$$
-\approx2.83
-$$
+$\approx2.83$
 
 A formal Welch test would use the appropriate Welch-Satterthwaite degrees of freedom and corresponding p-value.
 
@@ -1409,49 +1044,27 @@ The large absolute test statistic indicates evidence against the null hypothesis
 
 Suppose:
 
-$$
-H_0:p_1-p_2=0
-$$
+$H_0:p_1-p_2=0$
 
 The sample proportions are:
 
-$$
-\hat{p}_1
-$$
+$\hat{p}_1$
 
 and:
 
-$$
-\hat{p}_2
-$$
+$\hat{p}_2$
 
 Under the null hypothesis of equal proportions, the **pooled proportion** is commonly used:
 
-$$
-\hat{p}_{pooled}
-=
-\frac{x_1+x_2}{n_1+n_2}
-$$
+$\hat{p}_{pooled} = \frac{x_1+x_2}{n_1+n_2}$
 
 The null standard error is:
 
-$$
-SE_0=
-\sqrt{
-\hat{p}_{pooled}(1-\hat{p}_{pooled})
-\left(
-\frac{1}{n_1}+\frac{1}{n_2}
-\right)
-}
-$$
+$SE_0= \sqrt{ \hat{p}_{pooled}(1-\hat{p}_{pooled}) \left( \frac{1}{n_1}+\frac{1}{n_2} \right) }$
 
 The test statistic is:
 
-$$
-z=
-\frac{\hat{p}_1-\hat{p}_2}
-{SE_0}
-$$
+$z= \frac{\hat{p}_1-\hat{p}_2} {SE_0}$
 
 This is a hypothesis-testing formula. It differs from the confidence-interval standard error for estimating an unknown difference.
 
@@ -1461,21 +1074,15 @@ This is a hypothesis-testing formula. It differs from the confidence-interval st
 
 Suppose a test gives:
 
-$$
-p=0.003
-$$
+$p=0.003$
 
 and:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 Because:
 
-$$
-0.003<0.05
-$$
+$0.003<0.05$
 
 we reject the null hypothesis.
 
@@ -1513,37 +1120,27 @@ Hypothesis testing answers a question about evidence against a null hypothesis. 
 
 A result is called **statistically significant** at level $\alpha$ when:
 
-$$
-p\le\alpha
-$$
+$p\le\alpha$
 
 and the null hypothesis is rejected.
 
 For example:
 
-$$
-p=0.02
-$$
+$p=0.02$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 is statistically significant.
 
 But:
 
-$$
-p=0.08
-$$
+$p=0.08$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 is not statistically significant.
 
@@ -1557,21 +1154,15 @@ Confidence intervals and two-sided hypothesis tests are closely related.
 
 For many standard procedures, a 95% confidence interval corresponds to a two-sided hypothesis test at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 For example, suppose we test:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
 at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 If the corresponding 95% confidence interval does not contain 50, the two-sided test rejects $H_0$.
 
@@ -1589,29 +1180,21 @@ A reliable workflow is:
 
 For example:
 
-$$
-\mu=\text{population mean}
-$$
+$\mu=\text{population mean}$
 
 ### Step 2: State the hypotheses
 
 For example:
 
-$$
-H_0:\mu=50
-$$
+$H_0:\mu=50$
 
-$$
-H_a:\mu\ne50
-$$
+$H_a:\mu\ne50$
 
 ### Step 3: Select $\alpha$
 
 For example:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 ### Step 4: Select the appropriate test
 
@@ -1621,11 +1204,7 @@ For example, a one-sample t-test if $\sigma$ is unknown.
 
 For a one-sample t-test:
 
-$$
-t=
-\frac{\bar{x}-\mu_0}
-{s/\sqrt{n}}
-$$
+$t= \frac{\bar{x}-\mu_0} {s/\sqrt{n}}$
 
 ### Step 6: Find the p-value or critical value
 
@@ -1633,19 +1212,11 @@ Use the appropriate probability distribution.
 
 ### Step 7: Make the decision
 
-$$
-p\le\alpha
-\Rightarrow
-\text{Reject }H_0
-$$
+$p\le\alpha \Rightarrow \text{Reject }H_0$
 
 otherwise:
 
-$$
-p>\alpha
-\Rightarrow
-\text{Fail to reject }H_0
-$$
+$p>\alpha \Rightarrow \text{Fail to reject }H_0$
 
 ### Step 8: Interpret in context
 
@@ -1659,103 +1230,69 @@ Suppose a university claims that the average daily study time of students is 4 h
 
 A random sample of 36 students gives:
 
-$$
-\bar{x}=4.5
-$$
+$\bar{x}=4.5$
 
 and:
 
-$$
-s=1.2
-$$
+$s=1.2$
 
 Test at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 whether the population mean is different from 4 hours.
 
 ## Step 1: Hypotheses
 
-$$
-H_0:\mu=4
-$$
+$H_0:\mu=4$
 
-$$
-H_a:\mu\ne4
-$$
+$H_a:\mu\ne4$
 
 This is two-tailed.
 
 ## Step 2: Degrees of freedom
 
-$$
-df=36-1=35
-$$
+$df=36-1=35$
 
 ## Step 3: Standard error
 
-$$
-SE=
-\frac{1.2}{\sqrt{36}}
-$$
+$SE= \frac{1.2}{\sqrt{36}}$
 
-$$
-=\frac{1.2}{6}
-$$
+$=\frac{1.2}{6}$
 
-$$
-=0.2
-$$
+$=0.2$
 
 ## Step 4: Test statistic
 
-$$
-t=
-\frac{4.5-4}{0.2}
-$$
+$t= \frac{4.5-4}{0.2}$
 
-$$
-=2.5
-$$
+$=2.5$
 
 ## Step 5: Critical value
 
 For a two-tailed test with:
 
-$$
-df=35
-$$
+$df=35$
 
 and:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 the critical value is approximately:
 
-$$
-t^*\approx2.030
-$$
+$t^*\approx2.030$
 
 ## Step 6: Decision
 
 Since:
 
-$$
-|2.5|>2.030
-$$
+$|2.5|>2.030$
 
 we reject $H_0$.
 
 ## Final conclusion
 
-$$
-\boxed{\text{Reject }H_0}
-$$
+$\boxed{\text{Reject }H_0}$
 
 There is sufficient statistical evidence at the 5% significance level that the population mean daily study time differs from 4 hours.
 
@@ -1791,15 +1328,11 @@ Assumptions should be checked rather than automatically assumed.
 
 For the normal approximation to a one-proportion test, the expected numbers of successes and failures under the null are commonly checked:
 
-$$
-np_0\ge10
-$$
+$np_0\ge10$
 
 and:
 
-$$
-n(1-p_0)\ge10
-$$
+$n(1-p_0)\ge10$
 
 These conditions help support the normal approximation.
 
@@ -1839,35 +1372,23 @@ Suppose each subject has a before measurement and an after measurement.
 
 For each pair:
 
-$$
-d_i=After_i-Before_i
-$$
+$d_i=After_i-Before_i$
 
 Calculate the mean difference:
 
-$$
-\bar{d}
-$$
+$\bar{d}$
 
 and standard deviation of differences:
 
-$$
-s_d
-$$
+$s_d$
 
 The paired t statistic is:
 
-$$
-t=
-\frac{\bar{d}-\mu_{d,0}}
-{s_d/\sqrt{n}}
-$$
+$t= \frac{\bar{d}-\mu_{d,0}} {s_d/\sqrt{n}}$
 
 Usually the null hypothesis is:
 
-$$
-H_0:\mu_d=0
-$$
+$H_0:\mu_d=0$
 
 The test is therefore a one-sample t-test applied to the paired differences.
 
@@ -1946,19 +1467,11 @@ This is much more informative than simply writing:
 
 The basic relationship is:
 
-$$
-p\le\alpha
-\Rightarrow
-\text{Reject }H_0
-$$
+$p\le\alpha \Rightarrow \text{Reject }H_0$
 
 and:
 
-$$
-p>\alpha
-\Rightarrow
-\text{Fail to reject }H_0
-$$
+$p>\alpha \Rightarrow \text{Fail to reject }H_0$
 
 Examples:
 
@@ -1978,23 +1491,17 @@ The equality case depends on the stated decision convention; the common rule is 
 
 Suppose a p-value is:
 
-$$
-p=0.04
-$$
+$p=0.04$
 
 At:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 we reject $H_0$.
 
 But at:
 
-$$
-\alpha=0.01
-$$
+$\alpha=0.01$
 
 we fail to reject $H_0$.
 
@@ -2010,15 +1517,11 @@ A one-sided test asks whether the parameter differs in a **specified direction**
 
 For example:
 
-$$
-H_a:\mu>50
-$$
+$H_a:\mu>50$
 
 A two-sided test asks whether the parameter differs in either direction:
 
-$$
-H_a:\mu\ne50
-$$
+$H_a:\mu\ne50$
 
 A one-sided test should not be selected merely because it makes it easier to obtain significance.
 
@@ -2030,15 +1533,11 @@ The direction must be justified by the research question and study design.
 
 Suppose a sample of one million observations produces:
 
-$$
-p<0.001
-$$
+$p<0.001$
 
 for a mean difference of only:
 
-$$
-0.01
-$$
+$0.01$
 
 The result may be statistically significant because the sample is enormous.
 
@@ -2059,9 +1558,7 @@ When many hypothesis tests are conducted, the probability of obtaining at least 
 
 For example, if many independent tests are performed at:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 some tests may produce small p-values simply by chance.
 
@@ -2109,94 +1606,49 @@ ANOVA, chi-square tests, correlation tests, and regression inference belong to t
 
 ## One-Sample z Statistic for a Mean
 
-$$
-z=
-\frac{\bar{x}-\mu_0}
-{\sigma/\sqrt{n}}
-$$
+$z= \frac{\bar{x}-\mu_0} {\sigma/\sqrt{n}}$
 
 ## One-Sample t Statistic
 
-$$
-t=
-\frac{\bar{x}-\mu_0}
-{s/\sqrt{n}}
-$$
+$t= \frac{\bar{x}-\mu_0} {s/\sqrt{n}}$
 
 with:
 
-$$
-df=n-1
-$$
+$df=n-1$
 
 ## One-Proportion z Statistic
 
-$$
-z=
-\frac{\hat{p}-p_0}
-{
-\sqrt{
-\frac{p_0(1-p_0)}{n}
-}
-}
-$$
+$z= \frac{\hat{p}-p_0} { \sqrt{ \frac{p_0(1-p_0)}{n} } }$
 
 ## Sample Proportion
 
-$$
-\hat{p}=\frac{x}{n}
-$$
+$\hat{p}=\frac{x}{n}$
 
 ## Two-Sample Mean Standard Error
 
-$$
-SE=
-\sqrt{
-\frac{s_1^2}{n_1}
-+
-\frac{s_2^2}{n_2}
-}
-$$
+$SE= \sqrt{ \frac{s_1^2}{n_1} + \frac{s_2^2}{n_2} }$
 
 ## Pooled Proportion
 
-$$
-\hat{p}_{pooled}
-=
-\frac{x_1+x_2}{n_1+n_2}
-$$
+$\hat{p}_{pooled} = \frac{x_1+x_2}{n_1+n_2}$
 
 ## Type I Error
 
-$$
-P(\text{Type I Error})=\alpha
-$$
+$P(\text{Type I Error})=\alpha$
 
 ## Type II Error
 
-$$
-P(\text{Type II Error})=\beta
-$$
+$P(\text{Type II Error})=\beta$
 
 ## Power
 
-$$
-Power=1-\beta
-$$
+$Power=1-\beta$
 
 ## p-Value Decision
 
-$$
-p\le\alpha
-\Rightarrow
-\text{Reject }H_0
-$$
+$p\le\alpha \Rightarrow \text{Reject }H_0$
 
-$$
-p>\alpha
-\Rightarrow
-\text{Fail to reject }H_0
-$$
+$p>\alpha \Rightarrow \text{Fail to reject }H_0$
 
 ---
 
@@ -2240,27 +1692,17 @@ The significance level $\alpha$ defines the decision threshold. A test statistic
 
 The two basic decisions are:
 
-$$
-p\le\alpha
-\Rightarrow
-\text{Reject }H_0
-$$
+$p\le\alpha \Rightarrow \text{Reject }H_0$
 
 and:
 
-$$
-p>\alpha
-\Rightarrow
-\text{Fail to reject }H_0
-$$
+$p>\alpha \Rightarrow \text{Fail to reject }H_0$
 
 Hypothesis tests may be right-tailed, left-tailed, or two-tailed depending on the alternative hypothesis.
 
 A **Type I error** occurs when a true null hypothesis is rejected, while a **Type II error** occurs when a false null hypothesis is not rejected. The power of a test is:
 
-$$
-Power=1-\beta
-$$
+$Power=1-\beta$
 
 For population means, a z-test is used in the known-$\sigma$ setting, while a t-test is commonly used when $\sigma$ is unknown. Proportion tests use the appropriate binomial-to-normal approximation when its conditions are satisfied. Two-sample and paired tests require additional attention to the structure of the observations.
 
@@ -2268,23 +1710,7 @@ A hypothesis test should never be reduced to the p-value alone. A good analysis 
 
 The overall process can be summarised as:
 
-$$
-\boxed{
-\text{Research Question}
-\rightarrow
-H_0,H_a
-\rightarrow
-\alpha
-\rightarrow
-\text{Test Statistic}
-\rightarrow
-\text{p-Value/Critical Value}
-\rightarrow
-\text{Decision}
-\rightarrow
-\text{Contextual Conclusion}
-}
-$$
+$\boxed{ \text{Research Question} \rightarrow H_0,H_a \rightarrow \alpha \rightarrow \text{Test Statistic} \rightarrow \text{p-Value/Critical Value} \rightarrow \text{Decision} \rightarrow \text{Contextual Conclusion} }$
 
 ---
 
