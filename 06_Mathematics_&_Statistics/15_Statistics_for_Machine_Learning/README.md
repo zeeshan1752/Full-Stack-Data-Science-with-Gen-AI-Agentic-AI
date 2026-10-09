@@ -8,21 +8,7 @@ The purpose here is not to repeat complete chapters on probability, descriptive 
 
 The central workflow is:
 
-$$
-\boxed{
-\text{Data}
-\rightarrow
-\text{Explore}
-\rightarrow
-\text{Prepare}
-\rightarrow
-\text{Model}
-\rightarrow
-\text{Evaluate}
-\rightarrow
-\text{Interpret}
-}
-$$
+$\boxed{ \text{Data} \rightarrow \text{Explore} \rightarrow \text{Prepare} \rightarrow \text{Model} \rightarrow \text{Evaluate} \rightarrow \text{Interpret} }$
 
 Throughout this chapter, statistical concepts are connected to practical machine-learning decisions.
 
@@ -153,23 +139,15 @@ The variable we want to predict is the **target**.
 
 For a regression problem:
 
-$$
-X=
-\text{features}
-$$
+$X= \text{features}$
 
 and:
 
-$$
-Y=
-\text{target}
-$$
+$Y= \text{target}$
 
 The model learns a relationship such as:
 
-$$
-\hat{Y}=f(X)
-$$
+$\hat{Y}=f(X)$
 
 ---
 
@@ -177,10 +155,7 @@ $$
 
 A dataset can be represented as:
 
-$$
-D=
-\{(x_i,y_i)\}_{i=1}^{n}
-$$
+$D= \{(x_i,y_i)\}_{i=1}^{n}$
 
 where:
 
@@ -190,15 +165,7 @@ where:
 
 For example:
 
-$$
-x_i=
-\begin{bmatrix}
-x_{i1}\\
-x_{i2}\\
-\vdots\\
-x_{ip}
-\end{bmatrix}
-$$
+$x_i= \begin{bmatrix} x_{i1}\\ x_{i2}\\ \vdots\\ x_{ip} \end{bmatrix}$
 
 where $p$ is the number of features.
 
@@ -219,11 +186,7 @@ The distinction matters because a model is normally intended to work beyond the 
 
 Therefore:
 
-$$
-\boxed{
-\text{Training data is not necessarily the complete population.}
-}
-$$
+$\boxed{ \text{Training data is not necessarily the complete population.} }$
 
 ---
 
@@ -304,11 +267,7 @@ A statistical summary of incorrect data can still be mathematically correct but 
 
 Therefore:
 
-$$
-\boxed{
-\text{Good modelling begins with trustworthy measurements.}
-}
-$$
+$\boxed{ \text{Good modelling begins with trustworthy measurements.} }$
 
 ---
 
@@ -348,27 +307,17 @@ Descriptive statistics help answer:
 
 Useful summaries include:
 
-$$
-\text{Mean}
-$$
+$\text{Mean}$
 
-$$
-\text{Median}
-$$
+$\text{Median}$
 
-$$
-\text{Standard deviation}
-$$
+$\text{Standard deviation}$
 
-$$
-\text{Quartiles}
-$$
+$\text{Quartiles}$
 
 and:
 
-$$
-\text{Minimum and maximum}
-$$
+$\text{Minimum and maximum}$
 
 The correct summary depends on the distribution and measurement scale.
 
@@ -386,11 +335,7 @@ The mean may be substantially larger than the median.
 
 Therefore, comparing:
 
-$$
-\boxed{
-\text{Mean versus median}
-}
-$$
+$\boxed{ \text{Mean versus median} }$
 
 can provide useful information about skewness and unusual observations.
 
@@ -404,21 +349,15 @@ For example:
 
 Dataset A:
 
-$$
-10,\ 10,\ 10,\ 10,\ 10
-$$
+$10,\ 10,\ 10,\ 10,\ 10$
 
 Dataset B:
 
-$$
-2,\ 6,\ 10,\ 14,\ 18
-$$
+$2,\ 6,\ 10,\ 14,\ 18$
 
 Both have mean:
 
-$$
-10
-$$
+$10$
 
 but Dataset B has much greater spread.
 
@@ -430,21 +369,11 @@ Standard deviation and variance quantify this variability.
 
 A common transformation is the z-score:
 
-$$
-\boxed{
-z=
-\frac{x-\mu}{\sigma}
-}
-$$
+$\boxed{ z= \frac{x-\mu}{\sigma} }$
 
 When population quantities are not known and sample statistics are used:
 
-$$
-\boxed{
-z=
-\frac{x-\bar{x}}{s}
-}
-$$
+$\boxed{ z= \frac{x-\bar{x}}{s} }$
 
 Standardisation centres a variable around zero and expresses values in standard-deviation units.
 
@@ -454,42 +383,27 @@ Standardisation centres a variable around zero and expresses values in standard-
 
 Suppose:
 
-$$
-x=80
-$$
+$x=80$
 
 with:
 
-$$
-\mu=70
-$$
+$\mu=70$
 
 and:
 
-$$
-\sigma=5
-$$
+$\sigma=5$
 
 Then:
 
-$$
-z=
-\frac{80-70}{5}
-$$
+$z= \frac{80-70}{5}$
 
-$$
-=\frac{10}{5}
-$$
+$=\frac{10}{5}$
 
-$$
-=2
-$$
+$=2$
 
 Therefore:
 
-$$
-\boxed{z=2}
-$$
+$\boxed{z=2}$
 
 The observation is 2 standard deviations above the mean.
 
@@ -503,15 +417,11 @@ Their numerical scales may be very different.
 
 Standardisation gives each feature a common scale:
 
-$$
-\text{mean}\approx0
-$$
+$\text{mean}\approx0$
 
 and:
 
-$$
-\text{standard deviation}\approx1
-$$
+$\text{standard deviation}\approx1$
 
 This can be particularly useful for methods whose calculations depend on distances, dot products, or coefficient magnitudes.
 
@@ -525,19 +435,11 @@ These terms are sometimes used inconsistently, so the exact transformation shoul
 
 A common min–max transformation is:
 
-$$
-\boxed{
-x'=
-\frac{x-x_{\min}}
-{x_{\max}-x_{\min}}
-}
-$$
+$\boxed{ x'= \frac{x-x_{\min}} {x_{\max}-x_{\min}} }$
 
 This maps values to the interval:
 
-$$
-[0,1]
-$$
+$[0,1]$
 
 when the minimum and maximum are finite and fixed.
 
@@ -545,11 +447,7 @@ Standardisation instead uses the mean and standard deviation.
 
 Therefore:
 
-$$
-\boxed{
-\text{Standardisation}\ne\text{Min-max scaling}
-}
-$$
+$\boxed{ \text{Standardisation}\ne\text{Min-max scaling} }$
 
 ---
 
@@ -566,9 +464,7 @@ Examples often include:
 
 A common transformation is:
 
-$$
-x'=\log(x)
-$$
+$x'=\log(x)$
 
 for positive $x$.
 
@@ -576,9 +472,7 @@ This can compress large values and sometimes make a strongly right-skewed distri
 
 For nonnegative counts, another option is:
 
-$$
-x'=\log(1+x)
-$$
+$x'=\log(1+x)$
 
 The transformation should be chosen based on the data and modelling objective, not applied automatically.
 
@@ -655,11 +549,7 @@ This creates leakage.
 
 The correct principle is:
 
-$$
-\boxed{
-\text{Fit preprocessing on training data only.}
-}
-$$
+$\boxed{ \text{Fit preprocessing on training data only.} }$
 
 Then apply the learned transformation to validation and test data.
 
@@ -697,11 +587,7 @@ Repeatedly using the test set for decisions can lead to optimistic performance e
 
 Therefore:
 
-$$
-\boxed{
-\text{Do not repeatedly tune the model against the final test set.}
-}
-$$
+$\boxed{ \text{Do not repeatedly tune the model against the final test set.} }$
 
 ---
 
@@ -719,20 +605,11 @@ In $k$-fold cross-validation:
 
 If the fold errors are:
 
-$$
-E_1,E_2,\ldots,E_k
-$$
+$E_1,E_2,\ldots,E_k$
 
 then the mean cross-validation error is:
 
-$$
-\boxed{
-CV\ Error
-=
-\frac{1}{k}
-\sum_{j=1}^{k}E_j
-}
-$$
+$\boxed{ CV\ Error = \frac{1}{k} \sum_{j=1}^{k}E_j }$
 
 ---
 
@@ -752,15 +629,11 @@ The resulting estimate is still not a guarantee of future performance.
 
 Suppose a classification dataset contains:
 
-$$
-95\%
-$$
+$95\%$
 
 class 0 and:
 
-$$
-5\%
-$$
+$5\%$
 
 class 1.
 
@@ -776,21 +649,15 @@ This is especially useful when classes are imbalanced.
 
 Suppose:
 
-$$
-P(Y=1)=0.01
-$$
+$P(Y=1)=0.01$
 
 and:
 
-$$
-P(Y=0)=0.99
-$$
+$P(Y=0)=0.99$
 
 A model that always predicts class 0 achieves:
 
-$$
-99\%
-$$
+$99\%$
 
 accuracy.
 
@@ -798,11 +665,7 @@ Yet it completely fails to identify the minority class.
 
 Therefore:
 
-$$
-\boxed{
-\text{Accuracy alone can be misleading for imbalanced classification.}
-}
-$$
+$\boxed{ \text{Accuracy alone can be misleading for imbalanced classification.} }$
 
 ---
 
@@ -823,42 +686,19 @@ These counts form the basis of several evaluation metrics.
 
 ### Accuracy
 
-$$
-\boxed{
-Accuracy=
-\frac{TP+TN}
-{TP+TN+FP+FN}
-}
-$$
+$\boxed{ Accuracy= \frac{TP+TN} {TP+TN+FP+FN} }$
 
 ### Precision
 
-$$
-\boxed{
-Precision=
-\frac{TP}{TP+FP}
-}
-$$
+$\boxed{ Precision= \frac{TP}{TP+FP} }$
 
 ### Recall
 
-$$
-\boxed{
-Recall=
-\frac{TP}{TP+FN}
-}
-$$
+$\boxed{ Recall= \frac{TP}{TP+FN} }$
 
 ### F1 score
 
-$$
-\boxed{
-F_1=
-2
-\frac{Precision\cdot Recall}
-{Precision+Recall}
-}
-$$
+$\boxed{ F_1= 2 \frac{Precision\cdot Recall} {Precision+Recall} }$
 
 The appropriate metric depends on the cost of different types of errors.
 
@@ -885,29 +725,21 @@ Metrics should therefore reflect the decision problem.
 
 Classification probabilities can be written as:
 
-$$
-P(Y=c\mid X=x)
-$$
+$P(Y=c\mid X=x)$
 
 This is the probability of class $c$ given the observed features.
 
 For binary classification:
 
-$$
-P(Y=1\mid X=x)
-$$
+$P(Y=1\mid X=x)$
 
 and:
 
-$$
-P(Y=0\mid X=x)
-$$
+$P(Y=0\mid X=x)$
 
 satisfy:
 
-$$
-P(Y=1\mid X=x)+P(Y=0\mid X=x)=1
-$$
+$P(Y=1\mid X=x)+P(Y=0\mid X=x)=1$
 
 when these are the only two classes.
 
@@ -917,19 +749,11 @@ when these are the only two classes.
 
 A classifier may output:
 
-$$
-\hat{p}=P(Y=1\mid X=x)
-$$
+$\hat{p}=P(Y=1\mid X=x)$
 
 A common decision rule is:
 
-$$
-\hat{Y}=
-\begin{cases}
-1,&\hat{p}\ge0.5\\
-0,&\hat{p}<0.5
-\end{cases}
-$$
+$\hat{Y}= \begin{cases} 1,&\hat{p}\ge0.5\\ 0,&\hat{p}<0.5 \end{cases}$
 
 But 0.5 is not universally optimal.
 
@@ -949,9 +773,7 @@ A classifier is well calibrated when predicted probabilities correspond reasonab
 
 For example, among observations assigned predicted probability near:
 
-$$
-0.8
-$$
+$0.8$
 
 approximately 80% should belong to the positive class if the model is well calibrated in that region.
 
@@ -965,15 +787,7 @@ A model can rank observations well but produce poorly calibrated probabilities.
 
 For two variables $X$ and $Y$, sample covariance is:
 
-$$
-\boxed{
-s_{XY}
-=
-\frac{1}{n-1}
-\sum_{i=1}^{n}
-(x_i-\bar{x})(y_i-\bar{y})
-}
-$$
+$\boxed{ s_{XY} = \frac{1}{n-1} \sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y}) }$
 
 Covariance indicates whether the variables tend to move together.
 
@@ -989,13 +803,7 @@ The magnitude depends on the measurement scales.
 
 Pearson correlation standardises covariance:
 
-$$
-\boxed{
-r=
-\frac{s_{XY}}
-{s_Xs_Y}
-}
-$$
+$\boxed{ r= \frac{s_{XY}} {s_Xs_Y} }$
 
 where:
 
@@ -1004,9 +812,7 @@ where:
 
 The correlation lies between:
 
-$$
--1\le r\le1
-$$
+$-1\le r\le1$
 
 A value near 1 indicates strong positive linear association.
 
@@ -1022,9 +828,7 @@ Suppose two variables are correlated.
 
 This does not establish:
 
-$$
-X\rightarrow Y
-$$
+$X\rightarrow Y$
 
 as a causal relationship.
 
@@ -1038,11 +842,7 @@ Possible explanations include:
 
 Therefore:
 
-$$
-\boxed{
-\text{Association is not automatically causation.}
-}
-$$
+$\boxed{ \text{Association is not automatically causation.} }$
 
 ---
 
@@ -1050,21 +850,11 @@ $$
 
 For several numerical features, correlations can be arranged into a matrix:
 
-$$
-R=
-\begin{bmatrix}
-1&r_{12}&\cdots&r_{1p}\\
-r_{21}&1&\cdots&r_{2p}\\
-\vdots&\vdots&\ddots&\vdots\\
-r_{p1}&r_{p2}&\cdots&1
-\end{bmatrix}
-$$
+$R= \begin{bmatrix} 1&r_{12}&\cdots&r_{1p}\\ r_{21}&1&\cdots&r_{2p}\\ \vdots&\vdots&\ddots&\vdots\\ r_{p1}&r_{p2}&\cdots&1 \end{bmatrix}$
 
 The diagonal entries are:
 
-$$
-r_{ii}=1
-$$
+$r_{ii}=1$
 
 because each variable is perfectly correlated with itself.
 
@@ -1092,12 +882,7 @@ A model may still predict reasonably well even when individual coefficients are 
 
 A common diagnostic for linear-model multicollinearity is the Variance Inflation Factor:
 
-$$
-\boxed{
-VIF_j=
-\frac{1}{1-R_j^2}
-}
-$$
+$\boxed{ VIF_j= \frac{1}{1-R_j^2} }$
 
 where $R_j^2$ is obtained by regressing predictor $X_j$ on the other predictors.
 
@@ -1113,15 +898,11 @@ A relationship observed between two variables can change after conditioning on a
 
 Symbolically:
 
-$$
-P(Y\mid X)
-$$
+$P(Y\mid X)$
 
 may differ from:
 
-$$
-P(Y\mid X,Z)
-$$
+$P(Y\mid X,Z)$
 
 Similarly, correlation between $X$ and $Y$ can change after controlling for $Z$.
 
@@ -1137,11 +918,7 @@ For example, an overall treatment comparison might favour one treatment, while e
 
 This demonstrates that:
 
-$$
-\boxed{
-\text{Aggregated relationships can differ from conditional relationships.}
-}
-$$
+$\boxed{ \text{Aggregated relationships can differ from conditional relationships.} }$
 
 The correct interpretation depends on the data-generating context.
 
@@ -1151,22 +928,13 @@ The correct interpretation depends on the data-generating context.
 
 In a linear model:
 
-$$
-Y=
-\beta_0+
-\beta_1X_1+
-\cdots+
-\beta_pX_p+
-\varepsilon
-$$
+$Y= \beta_0+ \beta_1X_1+ \cdots+ \beta_pX_p+ \varepsilon$
 
 the coefficients describe the model's conditional mean relationship under the model assumptions.
 
 For a one-predictor model:
 
-$$
-Y=\beta_0+\beta_1X+\varepsilon
-$$
+$Y=\beta_0+\beta_1X+\varepsilon$
 
 $\beta_1$ represents the expected change in the conditional mean of $Y$ for a one-unit increase in $X$ under the model.
 
@@ -1178,9 +946,7 @@ This is a statistical interpretation, not automatically a causal interpretation.
 
 An estimated coefficient:
 
-$$
-\hat{\beta}
-$$
+$\hat{\beta}$
 
 is not usually treated as perfectly known.
 
@@ -1188,14 +954,7 @@ A confidence interval can quantify uncertainty around the parameter estimate und
 
 A general large-sample form is:
 
-$$
-\boxed{
-\hat{\beta}
-\pm
-(\text{critical value})
-\times SE(\hat{\beta})
-}
-$$
+$\boxed{ \hat{\beta} \pm (\text{critical value}) \times SE(\hat{\beta}) }$
 
 The exact critical value and standard error depend on the model and inferential framework.
 
@@ -1232,17 +991,11 @@ Hypothesis tests can be useful when investigating whether an observed relationsh
 
 A typical structure is:
 
-$$
-H_0:
-\text{specified null relationship}
-$$
+$H_0: \text{specified null relationship}$
 
 versus:
 
-$$
-H_1:
-\text{alternative relationship}
-$$
+$H_1: \text{alternative relationship}$
 
 The test produces a statistic and, under the chosen framework, a p-value.
 
@@ -1256,9 +1009,7 @@ A p-value is the probability, under the null model, of observing a test statisti
 
 It is **not**:
 
-$$
-P(H_0\mid Data)
-$$
+$P(H_0\mid Data)$
 
 and it is not the probability that the observed result occurred "by chance" in an unrestricted sense.
 
@@ -1270,9 +1021,7 @@ With a very large sample, a tiny effect can produce a very small p-value.
 
 For example, a difference of:
 
-$$
-0.1
-$$
+$0.1$
 
 could be statistically significant in a huge dataset.
 
@@ -1294,28 +1043,17 @@ An effect size describes the magnitude of a difference or relationship.
 
 For example, a standardised mean difference can be written as:
 
-$$
-d=
-\frac{\bar{x}_1-\bar{x}_2}{s_p}
-$$
+$d= \frac{\bar{x}_1-\bar{x}_2}{s_p}$
 
 where $s_p$ is an appropriate pooled standard deviation under the chosen definition.
 
 Effect sizes help distinguish:
 
-$$
-\boxed{
-\text{Is there evidence of a difference?}
-}
-$$
+$\boxed{ \text{Is there evidence of a difference?} }$
 
 from:
 
-$$
-\boxed{
-\text{How large is the difference?}
-}
-$$
+$\boxed{ \text{How large is the difference?} }$
 
 ---
 
@@ -1327,36 +1065,23 @@ Even if every null hypothesis is true, some p-values may be small simply due to 
 
 If $m$ independent tests are each performed at significance level $\alpha$, the probability of at least one false positive is:
 
-$$
-1-(1-\alpha)^m
-$$
+$1-(1-\alpha)^m$
 
 For example, with:
 
-$$
-\alpha=0.05
-$$
+$\alpha=0.05$
 
 and:
 
-$$
-m=20
-$$
+$m=20$
 
 we obtain:
 
-$$
-1-(0.95)^{20}
-\approx0.642
-$$
+$1-(0.95)^{20} \approx0.642$
 
 Thus:
 
-$$
-\boxed{
-\text{The probability of at least one false positive can become large.}
-}
-$$
+$\boxed{ \text{The probability of at least one false positive can become large.} }$
 
 Multiple-testing procedures can be used when appropriate.
 
@@ -1382,15 +1107,11 @@ The bootstrap repeatedly samples observations from the observed dataset with rep
 
 If the original sample contains:
 
-$$
-n
-$$
+$n$
 
 observations, a bootstrap sample usually also contains:
 
-$$
-n
-$$
+$n$
 
 draws, with replacement.
 
@@ -1408,33 +1129,15 @@ The resulting distribution can be used to study:
 
 Suppose bootstrap estimates are:
 
-$$
-\hat{\theta}^{(1)},\ldots,\hat{\theta}^{(B)}
-$$
+$\hat{\theta}^{(1)},\ldots,\hat{\theta}^{(B)}$
 
 Their mean is:
 
-$$
-\bar{\theta}_{boot}
-=
-\frac1B
-\sum_{b=1}^{B}
-\hat{\theta}^{(b)}
-$$
+$\bar{\theta}_{boot} = \frac1B \sum_{b=1}^{B} \hat{\theta}^{(b)}$
 
 The bootstrap standard deviation is:
 
-$$
-\boxed{
-SE_{boot}
-=
-\sqrt{
-\frac{1}{B-1}
-\sum_{b=1}^{B}
-(\hat{\theta}^{(b)}-\bar{\theta}_{boot})^2
-}
-}
-$$
+$\boxed{ SE_{boot} = \sqrt{ \frac{1}{B-1} \sum_{b=1}^{B} (\hat{\theta}^{(b)}-\bar{\theta}_{boot})^2 } }$
 
 This provides an empirical estimate of estimator variability under the bootstrap assumptions.
 
@@ -1456,17 +1159,11 @@ Permutation tests can be useful when a simple parametric reference distribution 
 
 For a regression prediction:
 
-$$
-\hat{y}_i
-$$
+$\hat{y}_i$
 
 the residual is:
 
-$$
-\boxed{
-e_i=y_i-\hat{y}_i
-}
-$$
+$\boxed{ e_i=y_i-\hat{y}_i }$
 
 Residual analysis can reveal:
 
@@ -1483,15 +1180,11 @@ A good regression model should not leave obvious systematic structure in residua
 
 In ordinary least squares regression with an intercept, the residuals satisfy:
 
-$$
-\sum_{i=1}^{n}e_i=0
-$$
+$\sum_{i=1}^{n}e_i=0$
 
 Therefore:
 
-$$
-\bar{e}=0
-$$
+$\bar{e}=0$
 
 for the fitted training data under the standard OLS setup.
 
@@ -1525,11 +1218,7 @@ The statistical association may be extremely strong, but it is not a legitimate 
 
 Therefore:
 
-$$
-\boxed{
-\text{Predictive association is useful only when the information is legitimately available at prediction time.}
-}
-$$
+$\boxed{ \text{Predictive association is useful only when the information is legitimately available at prediction time.} }$
 
 ---
 
@@ -1539,25 +1228,17 @@ The training distribution may differ from the deployment distribution.
 
 Let:
 
-$$
-P_{train}(X,Y)
-$$
+$P_{train}(X,Y)$
 
 represent the training distribution and:
 
-$$
-P_{deploy}(X,Y)
-$$
+$P_{deploy}(X,Y)$
 
 represent the deployment distribution.
 
 If:
 
-$$
-P_{train}(X,Y)
-\ne
-P_{deploy}(X,Y)
-$$
+$P_{train}(X,Y) \ne P_{deploy}(X,Y)$
 
 then model performance can change after deployment.
 
@@ -1573,19 +1254,11 @@ Distribution shift can involve:
 
 Covariate shift is a situation where:
 
-$$
-P_{train}(X)
-\ne
-P_{deploy}(X)
-$$
+$P_{train}(X) \ne P_{deploy}(X)$
 
 while the conditional relationship may remain approximately:
 
-$$
-P_{train}(Y\mid X)
-\approx
-P_{deploy}(Y\mid X)
-$$
+$P_{train}(Y\mid X) \approx P_{deploy}(Y\mid X)$
 
 This distinction helps diagnose why a model may perform differently after deployment.
 
@@ -1595,11 +1268,7 @@ This distinction helps diagnose why a model may perform differently after deploy
 
 In prior probability shift, class proportions change:
 
-$$
-P_{train}(Y)
-\ne
-P_{deploy}(Y)
-$$
+$P_{train}(Y) \ne P_{deploy}(Y)$
 
 For example, a fraud-detection system may experience a different fraud rate during a new period.
 
@@ -1613,11 +1282,7 @@ Concept drift refers broadly to changes in the relationship between inputs and o
 
 Conceptually:
 
-$$
-P_{train}(Y\mid X)
-\ne
-P_{deploy}(Y\mid X)
-$$
+$P_{train}(Y\mid X) \ne P_{deploy}(Y\mid X)$
 
 Examples may include:
 
@@ -1656,41 +1321,19 @@ The metric should match the modelling objective and the consequences of errors.
 
 For residuals:
 
-$$
-e_i=y_i-\hat{y}_i
-$$
+$e_i=y_i-\hat{y}_i$
 
 ### MAE
 
-$$
-\boxed{
-MAE=
-\frac1n
-\sum_{i=1}^{n}|e_i|
-}
-$$
+$\boxed{ MAE= \frac1n \sum_{i=1}^{n}|e_i| }$
 
 ### MSE
 
-$$
-\boxed{
-MSE=
-\frac1n
-\sum_{i=1}^{n}e_i^2
-}
-$$
+$\boxed{ MSE= \frac1n \sum_{i=1}^{n}e_i^2 }$
 
 ### RMSE
 
-$$
-\boxed{
-RMSE=
-\sqrt{
-\frac1n
-\sum_{i=1}^{n}e_i^2
-}
-}
-$$
+$\boxed{ RMSE= \sqrt{ \frac1n \sum_{i=1}^{n}e_i^2 } }$
 
 MSE and RMSE place greater emphasis on large errors because the errors are squared.
 
@@ -1733,21 +1376,15 @@ Metric selection should be based on the actual decision problem.
 
 Suppose Model A has test RMSE:
 
-$$
-10.2
-$$
+$10.2$
 
 and Model B has:
 
-$$
-10.0
-$$
+$10.0$
 
 The numerical difference is:
 
-$$
-0.2
-$$
+$0.2$
 
 But we should ask:
 
@@ -1768,15 +1405,11 @@ Performance metrics are calculated from finite samples and therefore have uncert
 
 For example, an accuracy of:
 
-$$
-0.90
-$$
+$0.90$
 
 on one test set does not imply that the model's true future accuracy is exactly:
 
-$$
-0.90
-$$
+$0.90$
 
 Uncertainty can be studied using:
 
@@ -1795,20 +1428,13 @@ When comparing models, it can be useful to examine paired differences in their p
 
 Let:
 
-$$
-d_i=L_i^{(A)}-L_i^{(B)}
-$$
+$d_i=L_i^{(A)}-L_i^{(B)}$
 
 where $L_i^{(A)}$ and $L_i^{(B)}$ are losses for models A and B.
 
 Then the mean difference is:
 
-$$
-\bar{d}
-=
-\frac1n
-\sum_{i=1}^{n}d_i
-$$
+$\bar{d} = \frac1n \sum_{i=1}^{n}d_i$
 
 A confidence interval for the mean difference can provide more information than simply reporting two separate averages.
 
@@ -1876,13 +1502,7 @@ Features include:
 
 Target:
 
-$$
-Y=
-\begin{cases}
-1,&\text{customer churns}\\
-0,&\text{customer stays}
-\end{cases}
-$$
+$Y= \begin{cases} 1,&\text{customer churns}\\ 0,&\text{customer stays} \end{cases}$
 
 A statistically informed analysis should consider:
 
@@ -1905,17 +1525,13 @@ A statistically informed analysis should consider:
 
 Suppose a test set contains:
 
-$$
-1000
-$$
+$1000$
 
 customers.
 
 Only:
 
-$$
-20
-$$
+$20$
 
 churn.
 
@@ -1923,51 +1539,33 @@ A model predicts no customer will churn.
 
 Then:
 
-$$
-TN=980
-$$
+$TN=980$
 
 and:
 
-$$
-FN=20
-$$
+$FN=20$
 
 Accuracy is:
 
-$$
-Accuracy=
-\frac{980+0}{1000}
-$$
+$Accuracy= \frac{980+0}{1000}$
 
-$$
-=0.98
-$$
+$=0.98$
 
 Therefore:
 
-$$
-\boxed{Accuracy=98\%}
-$$
+$\boxed{Accuracy=98\%}$
 
 But recall is:
 
-$$
-Recall=
-\frac{TP}{TP+FN}
-$$
+$Recall= \frac{TP}{TP+FN}$
 
 Since:
 
-$$
-TP=0
-$$
+$TP=0$
 
 we obtain:
 
-$$
-Recall=0
-$$
+$Recall=0$
 
 Thus the model has excellent-looking accuracy but completely fails to identify churners.
 
@@ -1981,11 +1579,7 @@ The majority class dominates the accuracy calculation.
 
 Therefore:
 
-$$
-\boxed{
-\text{A high aggregate metric can hide poor minority-class performance.}
-}
-$$
+$\boxed{ \text{A high aggregate metric can hide poor minority-class performance.} }$
 
 This is a statistical reason to inspect class distributions before selecting evaluation metrics.
 
@@ -2053,11 +1647,7 @@ print(X_scaled)
 
 The important statistical rule is:
 
-$$
-\boxed{
-\text{fit the scaler on training data only}
-}
-$$
+$\boxed{ \text{fit the scaler on training data only} }$
 
 For validation or test data, use:
 
@@ -2230,140 +1820,61 @@ Validation performance is an estimate, not a guarantee.
 
 ### Z-score
 
-$$
-\boxed{
-z=\frac{x-\mu}{\sigma}
-}
-$$
+$\boxed{ z=\frac{x-\mu}{\sigma} }$
 
 ### Min-max scaling
 
-$$
-\boxed{
-x'=
-\frac{x-x_{\min}}
-{x_{\max}-x_{\min}}
-}
-$$
+$\boxed{ x'= \frac{x-x_{\min}} {x_{\max}-x_{\min}} }$
 
 ### Sample covariance
 
-$$
-\boxed{
-s_{XY}
-=
-\frac{1}{n-1}
-\sum_{i=1}^{n}
-(x_i-\bar{x})(y_i-\bar{y})
-}
-$$
+$\boxed{ s_{XY} = \frac{1}{n-1} \sum_{i=1}^{n} (x_i-\bar{x})(y_i-\bar{y}) }$
 
 ### Pearson correlation
 
-$$
-\boxed{
-r=
-\frac{s_{XY}}{s_Xs_Y}
-}
-$$
+$\boxed{ r= \frac{s_{XY}}{s_Xs_Y} }$
 
 ### VIF
 
-$$
-\boxed{
-VIF_j=
-\frac{1}{1-R_j^2}
-}
-$$
+$\boxed{ VIF_j= \frac{1}{1-R_j^2} }$
 
 ### Cross-validation mean error
 
-$$
-\boxed{
-CV\ Error=
-\frac1k
-\sum_{j=1}^{k}E_j
-}
-$$
+$\boxed{ CV\ Error= \frac1k \sum_{j=1}^{k}E_j }$
 
 ### Accuracy
 
-$$
-\boxed{
-Accuracy=
-\frac{TP+TN}{TP+TN+FP+FN}
-}
-$$
+$\boxed{ Accuracy= \frac{TP+TN}{TP+TN+FP+FN} }$
 
 ### Precision
 
-$$
-\boxed{
-Precision=
-\frac{TP}{TP+FP}
-}
-$$
+$\boxed{ Precision= \frac{TP}{TP+FP} }$
 
 ### Recall
 
-$$
-\boxed{
-Recall=
-\frac{TP}{TP+FN}
-}
-$$
+$\boxed{ Recall= \frac{TP}{TP+FN} }$
 
 ### F1 score
 
-$$
-\boxed{
-F_1=
-2
-\frac{Precision\cdot Recall}
-{Precision+Recall}
-}
-$$
+$\boxed{ F_1= 2 \frac{Precision\cdot Recall} {Precision+Recall} }$
 
 ### MAE
 
-$$
-\boxed{
-MAE=
-\frac1n\sum_{i=1}^{n}|y_i-\hat y_i|
-}
-$$
+$\boxed{ MAE= \frac1n\sum_{i=1}^{n}|y_i-\hat y_i| }$
 
 ### MSE
 
-$$
-\boxed{
-MSE=
-\frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2
-}
-$$
+$\boxed{ MSE= \frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2 }$
 
 ### RMSE
 
-$$
-\boxed{
-RMSE=
-\sqrt{
-\frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2
-}
-}
-$$
+$\boxed{ RMSE= \sqrt{ \frac1n\sum_{i=1}^{n}(y_i-\hat y_i)^2 } }$
 
 ### Multiple-comparison probability
 
 For $m$ independent tests at level $\alpha$:
 
-$$
-\boxed{
-P(\text{at least one false positive})
-=
-1-(1-\alpha)^m
-}
-$$
+$\boxed{ P(\text{at least one false positive}) = 1-(1-\alpha)^m }$
 
 ---
 
@@ -2429,35 +1940,19 @@ Statistics for machine learning is not a separate collection of formulas. It is 
 
 The first question is about the data:
 
-$$
-\boxed{
-\text{What population does this sample represent?}
-}
-$$
+$\boxed{ \text{What population does this sample represent?} }$
 
 The next questions concern the variables:
 
-$$
-\boxed{
-\text{How are the variables distributed and related?}
-}
-$$
+$\boxed{ \text{How are the variables distributed and related?} }$
 
 Then we consider model development:
 
-$$
-\boxed{
-\text{How can we estimate performance without leakage?}
-}
-$$
+$\boxed{ \text{How can we estimate performance without leakage?} }$
 
 Finally, we consider uncertainty and deployment:
 
-$$
-\boxed{
-\text{How stable is the result, and will it generalise?}
-}
-$$
+$\boxed{ \text{How stable is the result, and will it generalise?} }$
 
 Important statistical tools include:
 
@@ -2477,11 +1972,7 @@ Important statistical tools include:
 
 The most important practical principle is:
 
-$$
-\boxed{
-\text{A model result is only as trustworthy as the data, assumptions, and evaluation procedure behind it.}
-}
-$$
+$\boxed{ \text{A model result is only as trustworthy as the data, assumptions, and evaluation procedure behind it.} }$
 
 This chapter therefore serves as the bridge between the statistical foundations developed throughout the Mathematics & Statistics section and the applied modelling work in the Machine Learning section.
 
