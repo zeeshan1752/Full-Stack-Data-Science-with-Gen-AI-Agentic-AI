@@ -62,30 +62,17 @@ An **estimator** is a rule that uses sample data to estimate a population parame
 
 For example, the sample mean:
 
-$$
-\bar{X}
-=
-\frac{1}{n}
-\sum_{i=1}^{n}X_i
-$$
+$\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_i$
 
 is an estimator of the population mean $\mu$.
 
 The important distinction is:
 
-$$
-\boxed{
-\text{Parameter}=\text{population quantity}
-}
-$$
+$\boxed{ \text{Parameter}=\text{population quantity} }$
 
 while:
 
-$$
-\boxed{
-\text{Estimator}=\text{sample-based rule used to estimate it}
-}
-$$
+$\boxed{ \text{Estimator}=\text{sample-based rule used to estimate it} }$
 
 ---
 
@@ -93,17 +80,13 @@ $$
 
 Suppose a population has a true mean:
 
-$$
-\mu=50
-$$
+$\mu=50$
 
 We repeatedly take samples of size $n$.
 
 The sample means might be:
 
-$$
-48.7,\quad50.9,\quad49.6,\quad51.2,\quad50.1
-$$
+$48.7,\quad50.9,\quad49.6,\quad51.2,\quad50.1$
 
 The population mean has not changed.
 
@@ -119,29 +102,21 @@ This sampling variability is the foundation for understanding estimator variance
 
 Let:
 
-$$
-\hat{\theta}
-$$
+$\hat{\theta}$
 
 be an estimator of a parameter:
 
-$$
-\theta
-$$
+$\theta$
 
 The expected value of the estimator is:
 
-$$
-E[\hat{\theta}]
-$$
+$E[\hat{\theta}]$
 
 This represents the average value the estimator would produce over repeated random samples from the same population.
 
 If:
 
-$$
-E[\hat{\theta}]=\theta
-$$
+$E[\hat{\theta}]=\theta$
 
 the estimator is unbiased.
 
@@ -151,37 +126,25 @@ the estimator is unbiased.
 
 The bias of an estimator $\hat{\theta}$ for parameter $\theta$ is:
 
-$$
-\boxed{
-\operatorname{Bias}(\hat{\theta})
-=
-E[\hat{\theta}]-\theta
-}
-$$
+$\boxed{ \operatorname{Bias}(\hat{\theta}) = E[\hat{\theta}]-\theta }$
 
 The bias measures systematic deviation from the true parameter.
 
 If:
 
-$$
-\operatorname{Bias}(\hat{\theta})=0
-$$
+$\operatorname{Bias}(\hat{\theta})=0$
 
 the estimator is unbiased.
 
 If:
 
-$$
-\operatorname{Bias}(\hat{\theta})>0
-$$
+$\operatorname{Bias}(\hat{\theta})>0$
 
 the estimator tends to overestimate $\theta$.
 
 If:
 
-$$
-\operatorname{Bias}(\hat{\theta})<0
-$$
+$\operatorname{Bias}(\hat{\theta})<0$
 
 the estimator tends to underestimate $\theta$.
 
@@ -191,31 +154,19 @@ the estimator tends to underestimate $\theta$.
 
 Suppose an estimator has:
 
-$$
-E[\hat{\theta}]=12.5
-$$
+$E[\hat{\theta}]=12.5$
 
 and the true parameter is:
 
-$$
-\theta=10
-$$
+$\theta=10$
 
 Then:
 
-$$
-\operatorname{Bias}(\hat{\theta})
-=
-12.5-10
-$$
+$\operatorname{Bias}(\hat{\theta}) = 12.5-10$
 
 Therefore:
 
-$$
-\boxed{
-\operatorname{Bias}(\hat{\theta})=2.5
-}
-$$
+$\boxed{ \operatorname{Bias}(\hat{\theta})=2.5 }$
 
 The estimator has positive bias and tends to overestimate the parameter.
 
@@ -225,29 +176,19 @@ The estimator has positive bias and tends to overestimate the parameter.
 
 An estimator is unbiased if:
 
-$$
-E[\hat{\theta}]=\theta
-$$
+$E[\hat{\theta}]=\theta$
 
 Equivalently:
 
-$$
-\operatorname{Bias}(\hat{\theta})=0
-$$
+$\operatorname{Bias}(\hat{\theta})=0$
 
 For example, under the usual random-sampling assumptions, the sample mean is an unbiased estimator of the population mean:
 
-$$
-E[\bar{X}]=\mu
-$$
+$E[\bar{X}]=\mu$
 
 Therefore:
 
-$$
-\boxed{
-\operatorname{Bias}(\bar{X})=0
-}
-$$
+$\boxed{ \operatorname{Bias}(\bar{X})=0 }$
 
 Unbiasedness does not mean that every individual sample estimate equals the true parameter. It means that the estimator is correct on average over repeated sampling.
 
@@ -257,47 +198,33 @@ Unbiasedness does not mean that every individual sample estimate equals the true
 
 Suppose:
 
-$$
-\theta=100
-$$
+$\theta=100$
 
 and an estimator has zero bias.
 
 A particular sample might produce:
 
-$$
-\hat{\theta}=94
-$$
+$\hat{\theta}=94$
 
 Another might produce:
 
-$$
-\hat{\theta}=106
-$$
+$\hat{\theta}=106$
 
 Another might produce:
 
-$$
-\hat{\theta}=101
-$$
+$\hat{\theta}=101$
 
 The individual estimates are not necessarily equal to 100.
 
 Unbiasedness means:
 
-$$
-E[\hat{\theta}]=100
-$$
+$E[\hat{\theta}]=100$
 
 over repeated sampling.
 
 Therefore:
 
-$$
-\boxed{
-\text{Unbiased does not mean exact for every sample.}
-}
-$$
+$\boxed{ \text{Unbiased does not mean exact for every sample.} }$
 
 ---
 
@@ -307,15 +234,7 @@ The variance of an estimator measures its sampling variability.
 
 For estimator $\hat{\theta}$:
 
-$$
-\boxed{
-\operatorname{Var}(\hat{\theta})
-=
-E[
-(\hat{\theta}-E[\hat{\theta}])^2
-]
-}
-$$
+$\boxed{ \operatorname{Var}(\hat{\theta}) = E[ (\hat{\theta}-E[\hat{\theta}])^2 ] }$
 
 A low estimator variance means that repeated samples tend to produce estimates close to each other.
 
@@ -327,13 +246,7 @@ A high estimator variance means that repeated samples can produce substantially 
 
 The standard error of an estimator is its standard deviation:
 
-$$
-\boxed{
-SE(\hat{\theta})
-=
-\sqrt{\operatorname{Var}(\hat{\theta})}
-}
-$$
+$\boxed{ SE(\hat{\theta}) = \sqrt{\operatorname{Var}(\hat{\theta})} }$
 
 Variance is measured in squared units.
 
@@ -347,52 +260,27 @@ For example, if an estimator measures income in rupees, its variance has units o
 
 Suppose independent observations have:
 
-$$
-E[X_i]=\mu
-$$
+$E[X_i]=\mu$
 
 and:
 
-$$
-\operatorname{Var}(X_i)=\sigma^2
-$$
+$\operatorname{Var}(X_i)=\sigma^2$
 
 The sample mean is:
 
-$$
-\bar{X}
-=
-\frac{1}{n}
-\sum_{i=1}^{n}X_i
-$$
+$\bar{X} = \frac{1}{n} \sum_{i=1}^{n}X_i$
 
 Its variance is:
 
-$$
-\boxed{
-\operatorname{Var}(\bar{X})
-=
-\frac{\sigma^2}{n}
-}
-$$
+$\boxed{ \operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n} }$
 
 Therefore:
 
-$$
-SE(\bar{X})
-=
-\sqrt{\frac{\sigma^2}{n}}
-$$
+$SE(\bar{X}) = \sqrt{\frac{\sigma^2}{n}}$
 
 so:
 
-$$
-\boxed{
-SE(\bar{X})
-=
-\frac{\sigma}{\sqrt{n}}
-}
-$$
+$\boxed{ SE(\bar{X}) = \frac{\sigma}{\sqrt{n}} }$
 
 Increasing sample size reduces the sampling variability of the sample mean.
 
@@ -402,36 +290,21 @@ Increasing sample size reduces the sampling variability of the sample mean.
 
 Suppose:
 
-$$
-\sigma=12
-$$
+$\sigma=12$
 
 and:
 
-$$
-n=36
-$$
+$n=36$
 
 Then:
 
-$$
-SE(\bar{X})
-=
-\frac{12}{\sqrt{36}}
-$$
+$SE(\bar{X}) = \frac{12}{\sqrt{36}}$
 
-$$
-=
-\frac{12}{6}
-$$
+$= \frac{12}{6}$
 
 Therefore:
 
-$$
-\boxed{
-SE(\bar{X})=2
-}
-$$
+$\boxed{ SE(\bar{X})=2 }$
 
 The sample mean has a standard error of 2 units under these assumptions.
 
@@ -441,44 +314,23 @@ The sample mean has a standard error of 2 units under these assumptions.
 
 For the sample mean:
 
-$$
-\operatorname{Var}(\bar{X})
-=
-\frac{\sigma^2}{n}
-$$
+$\operatorname{Var}(\bar{X}) = \frac{\sigma^2}{n}$
 
 If the sample size is multiplied by 4:
 
-$$
-n_{\text{new}}=4n
-$$
+$n_{\text{new}}=4n$
 
 then:
 
-$$
-\operatorname{Var}(\bar{X}_{\text{new}})
-=
-\frac{\sigma^2}{4n}
-$$
+$\operatorname{Var}(\bar{X}_{\text{new}}) = \frac{\sigma^2}{4n}$
 
 Therefore:
 
-$$
-\boxed{
-\operatorname{Var}(\bar{X}_{\text{new}})
-=
-\frac14
-\operatorname{Var}(\bar{X})
-}
-$$
+$\boxed{ \operatorname{Var}(\bar{X}_{\text{new}}) = \frac14 \operatorname{Var}(\bar{X}) }$
 
 The standard error becomes:
 
-$$
-\frac{\sigma}{\sqrt{4n}}
-=
-\frac12\frac{\sigma}{\sqrt n}
-$$
+$\frac{\sigma}{\sqrt{4n}} = \frac12\frac{\sigma}{\sqrt n}$
 
 So quadrupling the sample size halves the standard error of the sample mean.
 
@@ -504,19 +356,11 @@ Estimator B is consistently shifted away from the true parameter but produces st
 
 Therefore:
 
-$$
-\boxed{
-\text{Bias measures systematic error.}
-}
-$$
+$\boxed{ \text{Bias measures systematic error.} }$
 
 and:
 
-$$
-\boxed{
-\text{Variance measures sampling variability.}
-}
-$$
+$\boxed{ \text{Variance measures sampling variability.} }$
 
 ---
 
@@ -548,29 +392,13 @@ The important point is that accuracy and stability are separate properties.
 
 The mean squared error of an estimator is:
 
-$$
-\boxed{
-MSE(\hat{\theta})
-=
-E[
-(\hat{\theta}-\theta)^2
-]
-}
-$$
+$\boxed{ MSE(\hat{\theta}) = E[ (\hat{\theta}-\theta)^2 ] }$
 
 MSE combines both systematic bias and variability.
 
 The key decomposition is:
 
-$$
-\boxed{
-MSE(\hat{\theta})
-=
-\operatorname{Var}(\hat{\theta})
-+
-\operatorname{Bias}(\hat{\theta})^2
-}
-$$
+$\boxed{ MSE(\hat{\theta}) = \operatorname{Var}(\hat{\theta}) + \operatorname{Bias}(\hat{\theta})^2 }$
 
 This relationship assumes the estimator is considered with respect to a fixed parameter $\theta$.
 
@@ -580,92 +408,39 @@ This relationship assumes the estimator is considered with respect to a fixed pa
 
 Start with:
 
-$$
-MSE(\hat{\theta})
-=
-E[(\hat{\theta}-\theta)^2]
-$$
+$MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2]$
 
 Add and subtract:
 
-$$
-E[\hat{\theta}]
-$$
+$E[\hat{\theta}]$
 
 inside the difference:
 
-$$
-\hat{\theta}-\theta
-=
-[\hat{\theta}-E(\hat{\theta})]
-+
-[E(\hat{\theta})-\theta]
-$$
+$\hat{\theta}-\theta = [\hat{\theta}-E(\hat{\theta})] + [E(\hat{\theta})-\theta]$
 
 Therefore:
 
-$$
-MSE(\hat{\theta})
-=
-E
-\left[
-\left(
-\hat{\theta}-E[\hat{\theta}]
-+
-E[\hat{\theta}]-\theta
-\right)^2
-\right]
-$$
+$MSE(\hat{\theta}) = E \left[ \left( \hat{\theta}-E[\hat{\theta}] + E[\hat{\theta}]-\theta \right)^2 \right]$
 
 Expand:
 
-$$
-=
-E[(\hat{\theta}-E[\hat{\theta}])^2]
-+
-2E[
-(\hat{\theta}-E[\hat{\theta}])
-(E[\hat{\theta}]-\theta)
-]
-+
-(E[\hat{\theta}]-\theta)^2
-$$
+$= E[(\hat{\theta}-E[\hat{\theta}])^2] + 2E[ (\hat{\theta}-E[\hat{\theta}]) (E[\hat{\theta}]-\theta) ] + (E[\hat{\theta}]-\theta)^2$
 
 The second term is zero because:
 
-$$
-E[\hat{\theta}-E(\hat{\theta})]=0
-$$
+$E[\hat{\theta}-E(\hat{\theta})]=0$
 
 Therefore:
 
-$$
-MSE(\hat{\theta})
-=
-\operatorname{Var}(\hat{\theta})
-+
-(E[\hat{\theta}]-\theta)^2
-$$
+$MSE(\hat{\theta}) = \operatorname{Var}(\hat{\theta}) + (E[\hat{\theta}]-\theta)^2$
 
 Since:
 
-$$
-\operatorname{Bias}(\hat{\theta})
-=
-E[\hat{\theta}]-\theta
-$$
+$\operatorname{Bias}(\hat{\theta}) = E[\hat{\theta}]-\theta$
 
 we obtain:
 
-$$
-\boxed{
-MSE(\hat{\theta})
-=
-\operatorname{Var}(\hat{\theta})
-+
-\operatorname{Bias}(\hat{\theta})^2
-}
-$$
+$\boxed{ MSE(\hat{\theta}) = \operatorname{Var}(\hat{\theta}) + \operatorname{Bias}(\hat{\theta})^2 }$
 
 This is one of the most important results in this chapter.
 
@@ -675,35 +450,21 @@ This is one of the most important results in this chapter.
 
 Suppose an estimator has:
 
-$$
-\operatorname{Bias}(\hat{\theta})=2
-$$
+$\operatorname{Bias}(\hat{\theta})=2$
 
 and:
 
-$$
-\operatorname{Var}(\hat{\theta})=9
-$$
+$\operatorname{Var}(\hat{\theta})=9$
 
 Then:
 
-$$
-MSE
-=
-9+2^2
-$$
+$MSE = 9+2^2$
 
-$$
-=9+4
-$$
+$=9+4$
 
 Therefore:
 
-$$
-\boxed{
-MSE=13
-}
-$$
+$\boxed{ MSE=13 }$
 
 The MSE contains:
 
@@ -716,29 +477,15 @@ The MSE contains:
 
 The root mean squared error is:
 
-$$
-\boxed{
-RMSE
-=
-\sqrt{MSE}
-}
-$$
+$\boxed{ RMSE = \sqrt{MSE} }$
 
 For the previous example:
 
-$$
-RMSE
-=
-\sqrt{13}
-$$
+$RMSE = \sqrt{13}$
 
 Therefore:
 
-$$
-\boxed{
-RMSE\approx3.606
-}
-$$
+$\boxed{ RMSE\approx3.606 }$
 
 RMSE is expressed in the same units as the quantity being estimated.
 
@@ -748,33 +495,19 @@ RMSE is expressed in the same units as the quantity being estimated.
 
 If an estimator is unbiased:
 
-$$
-\operatorname{Bias}(\hat{\theta})=0
-$$
+$\operatorname{Bias}(\hat{\theta})=0$
 
 then:
 
-$$
-MSE(\hat{\theta})
-=
-\operatorname{Var}(\hat{\theta})
-$$
+$MSE(\hat{\theta}) = \operatorname{Var}(\hat{\theta})$
 
 Therefore:
 
-$$
-\boxed{
-\text{For an unbiased estimator, MSE equals variance.}
-}
-$$
+$\boxed{ \text{For an unbiased estimator, MSE equals variance.} }$
 
 For a biased estimator:
 
-$$
-MSE
-=
-Variance+Bias^2
-$$
+$MSE = Variance+Bias^2$
 
 so MSE is greater than or equal to variance.
 
@@ -786,27 +519,15 @@ An estimator is consistent if it approaches the true parameter as the sample siz
 
 Informally:
 
-$$
-\hat{\theta}_n
-\rightarrow
-\theta
-$$
+$\hat{\theta}_n \rightarrow \theta$
 
 as:
 
-$$
-n\rightarrow\infty
-$$
+$n\rightarrow\infty$
 
 More formally, consistency is generally expressed as convergence in probability:
 
-$$
-\boxed{
-\hat{\theta}_n
-\xrightarrow{p}
-\theta
-}
-$$
+$\boxed{ \hat{\theta}_n \xrightarrow{p} \theta }$
 
 An estimator can be biased for finite samples and still be consistent if its bias and variability decrease appropriately as sample size grows.
 
@@ -818,31 +539,21 @@ Bias and consistency are not the same property.
 
 An estimator may have:
 
-$$
-\operatorname{Bias}(\hat{\theta}_n)\ne0
-$$
+$\operatorname{Bias}(\hat{\theta}_n)\ne0$
 
 for finite $n$ but still satisfy:
 
-$$
-\operatorname{Bias}(\hat{\theta}_n)\to0
-$$
+$\operatorname{Bias}(\hat{\theta}_n)\to0$
 
 as:
 
-$$
-n\to\infty
-$$
+$n\to\infty$
 
 Such an estimator can still be consistent, provided its sampling variability also shrinks appropriately.
 
 Therefore:
 
-$$
-\boxed{
-\text{Biased for finite samples does not automatically mean inconsistent.}
-}
-$$
+$\boxed{ \text{Biased for finite samples does not automatically mean inconsistent.} }$
 
 ---
 
@@ -852,21 +563,13 @@ When comparing unbiased estimators of the same parameter, an estimator with smal
 
 Suppose two unbiased estimators satisfy:
 
-$$
-\operatorname{Var}(\hat{\theta}_1)
-<
-\operatorname{Var}(\hat{\theta}_2)
-$$
+$\operatorname{Var}(\hat{\theta}_1) < \operatorname{Var}(\hat{\theta}_2)$
 
 Then estimator 1 has greater precision under this criterion.
 
 Thus:
 
-$$
-\boxed{
-\text{Lower variance among comparable unbiased estimators means greater efficiency.}
-}
-$$
+$\boxed{ \text{Lower variance among comparable unbiased estimators means greater efficiency.} }$
 
 Efficiency must always be interpreted relative to the estimators being compared and the assumptions under which the comparison is made.
 
@@ -896,39 +599,27 @@ The goal under squared-error loss is to obtain a good balance that produces low 
 
 Suppose the target variable is:
 
-$$
-Y
-$$
+$Y$
 
 and the input is:
 
-$$
-X=x
-$$
+$X=x$
 
 A prediction rule produces:
 
-$$
-\hat{f}(x)
-$$
+$\hat{f}(x)$
 
 Suppose the data-generating relationship is:
 
-$$
-Y=f(x)+\varepsilon
-$$
+$Y=f(x)+\varepsilon$
 
 where:
 
-$$
-E[\varepsilon\mid X=x]=0
-$$
+$E[\varepsilon\mid X=x]=0$
 
 and:
 
-$$
-\operatorname{Var}(\varepsilon\mid X=x)=\sigma^2_\varepsilon
-$$
+$\operatorname{Var}(\varepsilon\mid X=x)=\sigma^2_\varepsilon$
 
 The observed target therefore contains both systematic structure and random noise.
 
@@ -938,9 +629,7 @@ The observed target therefore contains both systematic structure and random nois
 
 At a fixed input $x$, consider:
 
-$$
-E[(Y-\hat{f}(x))^2\mid X=x]
-$$
+$E[(Y-\hat{f}(x))^2\mid X=x]$
 
 This is the expected squared prediction error at that point.
 
@@ -952,17 +641,7 @@ The prediction error can be decomposed into:
 
 The result is:
 
-$$
-\boxed{
-E[(Y-\hat{f}(x))^2\mid X=x]
-=
-Bias(\hat{f}(x))^2
-+
-Var(\hat{f}(x))
-+
-\sigma_\varepsilon^2
-}
-$$
+$\boxed{ E[(Y-\hat{f}(x))^2\mid X=x] = Bias(\hat{f}(x))^2 + Var(\hat{f}(x)) + \sigma_\varepsilon^2 }$
 
 This is the classical prediction bias–variance decomposition.
 
@@ -972,34 +651,19 @@ This is the classical prediction bias–variance decomposition.
 
 Let:
 
-$$
-Y=f(x)+\varepsilon
-$$
+$Y=f(x)+\varepsilon$
 
 and define:
 
-$$
-m(x)=E[\hat{f}(x)]
-$$
+$m(x)=E[\hat{f}(x)]$
 
 Then:
 
-$$
-Y-\hat{f}(x)
-=
-f(x)+\varepsilon-\hat{f}(x)
-$$
+$Y-\hat{f}(x) = f(x)+\varepsilon-\hat{f}(x)$
 
 Add and subtract $m(x)$:
 
-$$
-=
-[f(x)-m(x)]
-+
-[m(x)-\hat{f}(x)]
-+
-\varepsilon
-$$
+$= [f(x)-m(x)] + [m(x)-\hat{f}(x)] + \varepsilon$
 
 The first term represents systematic prediction bias.
 
@@ -1009,31 +673,11 @@ The third represents random noise.
 
 Under the usual assumptions, the cross terms vanish in expectation, giving:
 
-$$
-\boxed{
-E[(Y-\hat{f}(x))^2\mid X=x]
-=
-[f(x)-E(\hat{f}(x))]^2
-+
-Var(\hat{f}(x))
-+
-Var(\varepsilon\mid X=x)
-}
-$$
+$\boxed{ E[(Y-\hat{f}(x))^2\mid X=x] = [f(x)-E(\hat{f}(x))]^2 + Var(\hat{f}(x)) + Var(\varepsilon\mid X=x) }$
 
 Therefore:
 
-$$
-\boxed{
-\text{Expected prediction error}
-=
-\text{Bias}^2
-+
-\text{Variance}
-+
-\text{Irreducible noise}
-}
-$$
+$\boxed{ \text{Expected prediction error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible noise} }$
 
 ---
 
@@ -1041,13 +685,7 @@ $$
 
 At a fixed $x$, prediction bias is:
 
-$$
-\boxed{
-Bias(\hat{f}(x))
-=
-E[\hat{f}(x)]-f(x)
-}
-$$
+$\boxed{ Bias(\hat{f}(x)) = E[\hat{f}(x)]-f(x) }$
 
 It measures how far the average prediction across repeated training samples is from the true conditional mean.
 
@@ -1059,15 +697,7 @@ A model with high bias systematically misses part of the underlying relationship
 
 At a fixed input $x$:
 
-$$
-\boxed{
-Var(\hat{f}(x))
-=
-E[
-(\hat{f}(x)-E[\hat{f}(x)])^2
-]
-}
-$$
+$\boxed{ Var(\hat{f}(x)) = E[ (\hat{f}(x)-E[\hat{f}(x)])^2 ] }$
 
 This measures how much the prediction changes when the model is trained on different samples.
 
@@ -1079,23 +709,17 @@ A high-variance procedure can produce substantially different predictions from d
 
 Suppose:
 
-$$
-Y=f(X)+\varepsilon
-$$
+$Y=f(X)+\varepsilon$
 
 Even if $f$ were known exactly, the random noise $\varepsilon$ could still cause prediction errors.
 
 If:
 
-$$
-Var(\varepsilon\mid X=x)=\sigma_\varepsilon^2
-$$
+$Var(\varepsilon\mid X=x)=\sigma_\varepsilon^2$
 
 then this component contributes:
 
-$$
-\boxed{\sigma_\varepsilon^2}
-$$
+$\boxed{\sigma_\varepsilon^2}$
 
 to the expected squared prediction error.
 
@@ -1111,9 +735,7 @@ Expected prediction error can be conceptually divided into:
 
 These include:
 
-$$
-Bias^2+Variance
-$$
+$Bias^2+Variance$
 
 They can potentially be changed by choosing a different estimation procedure, model complexity, training strategy, or amount of data.
 
@@ -1121,23 +743,13 @@ They can potentially be changed by choosing a different estimation procedure, mo
 
 This is:
 
-$$
-\sigma_\varepsilon^2
-$$
+$\sigma_\varepsilon^2$
 
 It represents random variation that remains even when the systematic relationship is known.
 
 Therefore:
 
-$$
-\boxed{
-Total\ Error
-=
-Reducible\ Error
-+
-Irreducible\ Error
-}
-$$
+$\boxed{ Total\ Error = Reducible\ Error + Irreducible\ Error }$
 
 under the stated squared-error framework.
 
@@ -1166,15 +778,11 @@ Underfitting occurs when a model is too restrictive to capture important structu
 
 It can be associated with:
 
-$$
-\boxed{\text{High bias}}
-$$
+$\boxed{\text{High bias}}$
 
 and often:
 
-$$
-\boxed{\text{Low variance}}
-$$
+$\boxed{\text{Low variance}}$
 
 A highly constrained model may make similar predictions across different training samples while consistently missing systematic patterns.
 
@@ -1186,15 +794,11 @@ Overfitting occurs when a model adapts too closely to the particular training sa
 
 It can be associated with:
 
-$$
-\boxed{\text{Low bias}}
-$$
+$\boxed{\text{Low bias}}$
 
 and often:
 
-$$
-\boxed{\text{High variance}}
-$$
+$\boxed{\text{High variance}}$
 
 Such a model may perform very well on training observations but substantially worse on new observations.
 
@@ -1212,15 +816,11 @@ However, lower training error does not guarantee lower test error.
 
 A model that memorises training-specific noise may have:
 
-$$
-\text{low training error}
-$$
+$\text{low training error}$
 
 but:
 
-$$
-\text{high test error}
-$$
+$\text{high test error}$
 
 The practical goal is good performance on unseen data.
 
@@ -1253,35 +853,23 @@ Suppose three procedures have the following hypothetical values:
 
 Calculate:
 
-$$
-Bias^2+Variance
-$$
+$Bias^2+Variance$
 
 For Model A:
 
-$$
-4^2+2=18
-$$
+$4^2+2=18$
 
 For Model B:
 
-$$
-2^2+5=9
-$$
+$2^2+5=9$
 
 For Model C:
 
-$$
-1^2+12=13
-$$
+$1^2+12=13$
 
 Therefore:
 
-$$
-\boxed{
-\text{Model B has the smallest }Bias^2+Variance
-}
-$$
+$\boxed{ \text{Model B has the smallest }Bias^2+Variance }$
 
 if the same irreducible noise applies to all three.
 
@@ -1306,11 +894,7 @@ The best procedure depends on:
 
 The correct principle is:
 
-$$
-\boxed{
-\text{Choose the procedure that performs best on the relevant generalisation objective.}
-}
-$$
+$\boxed{ \text{Choose the procedure that performs best on the relevant generalisation objective.} }$
 
 ---
 
@@ -1342,11 +926,7 @@ However, if the linear form cannot represent the true nonlinear relationship, sy
 
 Thus:
 
-$$
-\boxed{
-\text{More data can reduce variance without eliminating model bias.}
-}
-$$
+$\boxed{ \text{More data can reduce variance without eliminating model bias.} }$
 
 This distinction is important when interpreting the effect of additional observations.
 
@@ -1373,38 +953,17 @@ A practical way to study estimator variability is to repeatedly resample from ob
 
 Suppose we create many bootstrap samples and calculate an estimator for each sample:
 
-$$
-\hat{\theta}^{(1)},
-\hat{\theta}^{(2)},
-\ldots,
-\hat{\theta}^{(B)}
-$$
+$\hat{\theta}^{(1)}, \hat{\theta}^{(2)}, \ldots, \hat{\theta}^{(B)}$
 
 The bootstrap estimates can be used to examine the empirical sampling distribution of the estimator.
 
 Their average is:
 
-$$
-\overline{\hat{\theta}}
-=
-\frac{1}{B}
-\sum_{b=1}^{B}
-\hat{\theta}^{(b)}
-$$
+$\overline{\hat{\theta}} = \frac{1}{B} \sum_{b=1}^{B} \hat{\theta}^{(b)}$
 
 The empirical variance is:
 
-$$
-s^2_{\text{boot}}
-=
-\frac{1}{B-1}
-\sum_{b=1}^{B}
-\left(
-\hat{\theta}^{(b)}
--
-\overline{\hat{\theta}}
-\right)^2
-$$
+$s^2_{\text{boot}} = \frac{1}{B-1} \sum_{b=1}^{B} \left( \hat{\theta}^{(b)} - \overline{\hat{\theta}} \right)^2$
 
 This gives a practical way to study sampling variability.
 
@@ -1414,23 +973,17 @@ This gives a practical way to study sampling variability.
 
 Suppose:
 
-$$
-X_1,\ldots,X_n
-$$
+$X_1,\ldots,X_n$
 
 are generated from a population with mean:
 
-$$
-\mu=10
-$$
+$\mu=10$
 
 The sample mean is an unbiased estimator.
 
 If we repeat the experiment many times, the average of the simulated sample means should be close to:
 
-$$
-10
-$$
+$10$
 
 while individual sample means vary around that value.
 
@@ -1446,45 +999,25 @@ This demonstrates the distinction between:
 
 Suppose we intentionally define:
 
-$$
-\hat{\mu}_{biased}
-=
-\bar{X}+2
-$$
+$\hat{\mu}_{biased} = \bar{X}+2$
 
 Then:
 
-$$
-E[\hat{\mu}_{biased}]
-=
-E[\bar{X}]+2
-$$
+$E[\hat{\mu}_{biased}] = E[\bar{X}]+2$
 
 Since:
 
-$$
-E[\bar{X}]=\mu
-$$
+$E[\bar{X}]=\mu$
 
 we obtain:
 
-$$
-E[\hat{\mu}_{biased}]
-=
-\mu+2
-$$
+$E[\hat{\mu}_{biased}] = \mu+2$
 
 Therefore:
 
-$$
-\operatorname{Bias}
-=
-(\mu+2)-\mu
-$$
+$\operatorname{Bias} = (\mu+2)-\mu$
 
-$$
-\boxed{\operatorname{Bias}=2}
-$$
+$\boxed{\operatorname{Bias}=2}$
 
 The added constant creates systematic positive bias.
 
@@ -1494,37 +1027,19 @@ The added constant creates systematic positive bias.
 
 Consider:
 
-$$
-\hat{\theta}_{biased}
-=
-\hat{\theta}+c
-$$
+$\hat{\theta}_{biased} = \hat{\theta}+c$
 
 Adding a constant does not change variance:
 
-$$
-\operatorname{Var}(\hat{\theta}+c)
-=
-\operatorname{Var}(\hat{\theta})
-$$
+$\operatorname{Var}(\hat{\theta}+c) = \operatorname{Var}(\hat{\theta})$
 
 Therefore:
 
-$$
-\boxed{
-\operatorname{Var}(\hat{\theta}+c)
-=
-\operatorname{Var}(\hat{\theta})
-}
-$$
+$\boxed{ \operatorname{Var}(\hat{\theta}+c) = \operatorname{Var}(\hat{\theta}) }$
 
 But its bias changes:
 
-$$
-\operatorname{Bias}(\hat{\theta}+c)
-=
-\operatorname{Bias}(\hat{\theta})+c
-$$
+$\operatorname{Bias}(\hat{\theta}+c) = \operatorname{Bias}(\hat{\theta})+c$
 
 This is a useful example showing that bias and variance are mathematically separate properties.
 
@@ -1534,67 +1049,39 @@ This is a useful example showing that bias and variance are mathematically separ
 
 Suppose:
 
-$$
-\hat{\theta}_1
-$$
+$\hat{\theta}_1$
 
 has:
 
-$$
-Bias_1=1
-$$
+$Bias_1=1$
 
 and:
 
-$$
-Variance_1=4
-$$
+$Variance_1=4$
 
 while:
 
-$$
-\hat{\theta}_2
-$$
+$\hat{\theta}_2$
 
 has:
 
-$$
-Bias_2=0
-$$
+$Bias_2=0$
 
 and:
 
-$$
-Variance_2=8
-$$
+$Variance_2=8$
 
 Then:
 
-$$
-MSE_1
-=
-1^2+4
-=
-5
-$$
+$MSE_1 = 1^2+4 = 5$
 
 and:
 
-$$
-MSE_2
-=
-0^2+8
-=
-8
-$$
+$MSE_2 = 0^2+8 = 8$
 
 Therefore:
 
-$$
-\boxed{
-MSE_1<MSE_2
-}
-$$
+$\boxed{ MSE_1<MSE_2 }$
 
 under squared-error loss.
 
@@ -1606,39 +1093,27 @@ Although estimator 2 is unbiased, estimator 1 has lower MSE because its variance
 
 Suppose an estimator has:
 
-$$
-Bias=0
-$$
+$Bias=0$
 
 but:
 
-$$
-Variance=100
-$$
+$Variance=100$
 
 Then:
 
-$$
-MSE=100
-$$
+$MSE=100$
 
 Now suppose another estimator has:
 
-$$
-Bias=1
-$$
+$Bias=1$
 
 and:
 
-$$
-Variance=1
-$$
+$Variance=1$
 
 Then:
 
-$$
-MSE=1+1=2
-$$
+$MSE=1+1=2$
 
 Therefore, the unbiased estimator is not automatically preferable under squared-error loss.
 
@@ -1652,43 +1127,25 @@ These quantities should not be confused.
 
 ### Bias
 
-$$
-Bias(\hat{\theta})
-=
-E[\hat{\theta}]-\theta
-$$
+$Bias(\hat{\theta}) = E[\hat{\theta}]-\theta$
 
 Measures systematic displacement.
 
 ### Variance
 
-$$
-Var(\hat{\theta})
-=
-E[
-(\hat{\theta}-E[\hat{\theta}])^2
-]
-$$
+$Var(\hat{\theta}) = E[ (\hat{\theta}-E[\hat{\theta}])^2 ]$
 
 Measures sampling variability.
 
 ### Standard error
 
-$$
-SE(\hat{\theta})
-=
-\sqrt{Var(\hat{\theta})}
-$$
+$SE(\hat{\theta}) = \sqrt{Var(\hat{\theta})}$
 
 Measures typical sampling variability in the same units as the estimator.
 
 ### MSE
 
-$$
-MSE(\hat{\theta})
-=
-Bias^2+Variance
-$$
+$MSE(\hat{\theta}) = Bias^2+Variance$
 
 Combines systematic and random estimation error under squared loss.
 
@@ -1702,21 +1159,15 @@ Each repeated sample produces one estimate.
 
 If the estimates form a tight cluster far from the target:
 
-$$
-\text{low variance, high bias}
-$$
+$\text{low variance, high bias}$
 
 If they form a wide cloud centred around the target:
 
-$$
-\text{high variance, low bias}
-$$
+$\text{high variance, low bias}$
 
 If they form a tight cluster around the target:
 
-$$
-\text{low variance, low bias}
-$$
+$\text{low variance, low bias}$
 
 This repeated-sampling perspective is often the clearest way to understand the concepts.
 
@@ -1745,9 +1196,7 @@ When several model complexities are possible, cross-validation can estimate how 
 
 For example, consider polynomial models of degrees:
 
-$$
-1,2,3,\ldots,10
-$$
+$1,2,3,\ldots,10$
 
 A very low degree may underfit.
 
@@ -1804,19 +1253,11 @@ As degree increases, the model can represent increasingly complex shapes.
 
 A conceptual sequence is:
 
-$$
-\text{Low degree}
-\rightarrow
-\text{higher bias}
-$$
+$\text{Low degree} \rightarrow \text{higher bias}$
 
 and:
 
-$$
-\text{High degree}
-\rightarrow
-\text{potentially higher variance}
-$$
+$\text{High degree} \rightarrow \text{potentially higher variance}$
 
 The best degree is not necessarily the highest or lowest one. It is the degree that gives appropriate generalisation performance.
 
@@ -1834,39 +1275,23 @@ Suppose the following three procedures have:
 
 Calculate:
 
-$$
-Bias^2+Variance
-$$
+$Bias^2+Variance$
 
 For A:
 
-$$
-3^2+2=11
-$$
+$3^2+2=11$
 
 For B:
 
-$$
-1^2+5=6
-$$
+$1^2+5=6$
 
 For C:
 
-$$
-0.5^2+12
-=
-0.25+12
-=
-12.25
-$$
+$0.5^2+12 = 0.25+12 = 12.25$
 
 Therefore:
 
-$$
-\boxed{
-\text{Procedure B has the smallest reducible squared error}
-}
-$$
+$\boxed{ \text{Procedure B has the smallest reducible squared error} }$
 
 This example shows why minimising bias alone can lead to the wrong conclusion.
 
@@ -1876,9 +1301,7 @@ This example shows why minimising bias alone can lead to the wrong conclusion.
 
 The classical decomposition:
 
-$$
-MSE=Bias^2+Variance
-$$
+$MSE=Bias^2+Variance$
 
 is specifically associated with **squared-error loss**.
 
@@ -1894,25 +1317,11 @@ Bias and variance appear in both parameter estimation and prediction, but the ma
 
 For parameter estimation:
 
-$$
-MSE(\hat{\theta})
-=
-Bias(\hat{\theta})^2
-+
-Var(\hat{\theta})
-$$
+$MSE(\hat{\theta}) = Bias(\hat{\theta})^2 + Var(\hat{\theta})$
 
 For prediction at a fixed input:
 
-$$
-E[(Y-\hat{f}(x))^2\mid X=x]
-=
-Bias(\hat{f}(x))^2
-+
-Var(\hat{f}(x))
-+
-\sigma_\varepsilon^2
-$$
+$E[(Y-\hat{f}(x))^2\mid X=x] = Bias(\hat{f}(x))^2 + Var(\hat{f}(x)) + \sigma_\varepsilon^2$
 
 The prediction setting contains the additional irreducible-noise term.
 
@@ -1960,15 +1369,11 @@ Bias is systematic displacement; variance is sampling variability.
 
 The formula is:
 
-$$
-MSE=Bias^2+Variance
-$$
+$MSE=Bias^2+Variance$
 
 not:
 
-$$
-Bias+Variance
-$$
+$Bias+Variance$
 
 ### Mistake 4: Saying high bias always means underfitting
 
@@ -2007,15 +1412,11 @@ The following sections use simulation to study the ideas experimentally.
 
 Suppose the population distribution is normal with:
 
-$$
-\mu=50
-$$
+$\mu=50$
 
 and:
 
-$$
-\sigma=10
-$$
+$\sigma=10$
 
 Generate repeated samples and calculate their means.
 
@@ -2038,18 +1439,11 @@ print("Variance of sample means:", sample_means.var())
 
 The average of the simulated sample means should be close to:
 
-$$
-50
-$$
+$50$
 
 The theoretical variance is:
 
-$$
-\frac{\sigma^2}{n}
-=
-\frac{100}{30}
-\approx3.333
-$$
+$\frac{\sigma^2}{n} = \frac{100}{30} \approx3.333$
 
 Therefore the simulation should produce a value reasonably close to this theoretical result.
 
@@ -2059,11 +1453,7 @@ Therefore the simulation should produce a value reasonably close to this theoret
 
 The theoretical variance of the sample mean is:
 
-$$
-Var(\bar{X})
-=
-\frac{\sigma^2}{n}
-$$
+$Var(\bar{X}) = \frac{\sigma^2}{n}$
 
 In Python:
 
@@ -2085,11 +1475,7 @@ As the number of repetitions increases, the empirical estimate should generally 
 
 Define:
 
-$$
-\hat{\mu}_{biased}
-=
-\bar{X}+2
-$$
+$\hat{\mu}_{biased} = \bar{X}+2$
 
 ```python
 biased_estimates = sample_means + 2
@@ -2100,9 +1486,7 @@ print("Estimated bias:", biased_estimates.mean() - mu)
 
 The estimated bias should be close to:
 
-$$
-\boxed{2}
-$$
+$\boxed{2}$
 
 Notice that the variance is essentially unchanged.
 
@@ -2113,9 +1497,7 @@ print("Biased-estimator variance:", biased_estimates.var())
 
 This demonstrates:
 
-$$
-Var(\bar{X}+2)=Var(\bar{X})
-$$
+$Var(\bar{X}+2)=Var(\bar{X})$
 
 ---
 
@@ -2138,11 +1520,7 @@ print("Bias^2 + Variance:", estimated_bias**2 + estimated_variance)
 
 The two MSE calculations should be close:
 
-$$
-MSE
-\approx
-Bias^2+Variance
-$$
+$MSE \approx Bias^2+Variance$
 
 The small difference in simulation is due to finite-sample Monte Carlo variation.
 
@@ -2152,9 +1530,7 @@ The small difference in simulation is due to finite-sample Monte Carlo variation
 
 We can simulate data from a nonlinear relationship:
 
-$$
-y=x^2+\varepsilon
-$$
+$y=x^2+\varepsilon$
 
 and fit polynomial models of different degrees.
 
@@ -2205,34 +1581,15 @@ A more direct way to study prediction variance is to train the same procedure on
 
 For a fixed test point $x_0$, collect the prediction from every fitted model:
 
-$$
-\hat{f}^{(1)}(x_0),
-\hat{f}^{(2)}(x_0),
-\ldots
-$$
+$\hat{f}^{(1)}(x_0), \hat{f}^{(2)}(x_0), \ldots$
 
 Then calculate:
 
-$$
-\text{Empirical prediction mean}
-=
-\frac{1}{B}
-\sum_{b=1}^{B}\hat{f}^{(b)}(x_0)
-$$
+$\text{Empirical prediction mean} = \frac{1}{B} \sum_{b=1}^{B}\hat{f}^{(b)}(x_0)$
 
 and:
 
-$$
-\text{Empirical prediction variance}
-=
-\frac{1}{B}
-\sum_{b=1}^{B}
-\left(
-\hat{f}^{(b)}(x_0)
--
-\overline{\hat{f}(x_0)}
-\right)^2
-$$
+$\text{Empirical prediction variance} = \frac{1}{B} \sum_{b=1}^{B} \left( \hat{f}^{(b)}(x_0) - \overline{\hat{f}(x_0)} \right)^2$
 
 This directly illustrates the theoretical definitions.
 
@@ -2259,121 +1616,47 @@ These questions are more useful than simply labelling a model "high bias" or "hi
 
 ### Bias
 
-$$
-\boxed{
-Bias(\hat{\theta})
-=
-E[\hat{\theta}]-\theta
-}
-$$
+$\boxed{ Bias(\hat{\theta}) = E[\hat{\theta}]-\theta }$
 
 ### Variance
 
-$$
-\boxed{
-Var(\hat{\theta})
-=
-E[
-(\hat{\theta}-E[\hat{\theta}])^2
-]
-}
-$$
+$\boxed{ Var(\hat{\theta}) = E[ (\hat{\theta}-E[\hat{\theta}])^2 ] }$
 
 ### Standard error
 
-$$
-\boxed{
-SE(\hat{\theta})
-=
-\sqrt{Var(\hat{\theta})}
-}
-$$
+$\boxed{ SE(\hat{\theta}) = \sqrt{Var(\hat{\theta})} }$
 
 ### MSE
 
-$$
-\boxed{
-MSE(\hat{\theta})
-=
-E[(\hat{\theta}-\theta)^2]
-}
-$$
+$\boxed{ MSE(\hat{\theta}) = E[(\hat{\theta}-\theta)^2] }$
 
 ### Bias–variance decomposition
 
-$$
-\boxed{
-MSE(\hat{\theta})
-=
-Bias(\hat{\theta})^2
-+
-Var(\hat{\theta})
-}
-$$
+$\boxed{ MSE(\hat{\theta}) = Bias(\hat{\theta})^2 + Var(\hat{\theta}) }$
 
 ### Sample mean variance
 
-$$
-\boxed{
-Var(\bar{X})
-=
-\frac{\sigma^2}{n}
-}
-$$
+$\boxed{ Var(\bar{X}) = \frac{\sigma^2}{n} }$
 
 ### Sample mean standard error
 
-$$
-\boxed{
-SE(\bar{X})
-=
-\frac{\sigma}{\sqrt n}
-}
-$$
+$\boxed{ SE(\bar{X}) = \frac{\sigma}{\sqrt n} }$
 
 ### Prediction bias
 
-$$
-\boxed{
-Bias(\hat{f}(x))
-=
-E[\hat{f}(x)]-f(x)
-}
-$$
+$\boxed{ Bias(\hat{f}(x)) = E[\hat{f}(x)]-f(x) }$
 
 ### Prediction variance
 
-$$
-\boxed{
-Var(\hat{f}(x))
-=
-E[
-(\hat{f}(x)-E[\hat{f}(x)])^2
-]
-}
-$$
+$\boxed{ Var(\hat{f}(x)) = E[ (\hat{f}(x)-E[\hat{f}(x)])^2 ] }$
 
 ### Prediction bias–variance decomposition
 
-$$
-\boxed{
-E[(Y-\hat{f}(x))^2\mid X=x]
-=
-Bias(\hat{f}(x))^2
-+
-Var(\hat{f}(x))
-+
-\sigma_\varepsilon^2
-}
-$$
+$\boxed{ E[(Y-\hat{f}(x))^2\mid X=x] = Bias(\hat{f}(x))^2 + Var(\hat{f}(x)) + \sigma_\varepsilon^2 }$
 
 ### RMSE
 
-$$
-\boxed{
-RMSE=\sqrt{MSE}
-}
-$$
+$\boxed{ RMSE=\sqrt{MSE} }$
 
 ---
 
@@ -2441,39 +1724,21 @@ Bias and variance are central concepts in statistical estimation.
 
 Bias measures systematic displacement:
 
-$$
-Bias(\hat{\theta})
-=
-E[\hat{\theta}]-\theta
-$$
+$Bias(\hat{\theta}) = E[\hat{\theta}]-\theta$
 
 Variance measures sampling variability:
 
-$$
-Var(\hat{\theta})
-=
-E[
-(\hat{\theta}-E[\hat{\theta}])^2
-]
-$$
+$Var(\hat{\theta}) = E[ (\hat{\theta}-E[\hat{\theta}])^2 ]$
 
 Under squared-error loss, these combine to produce:
 
-$$
-MSE
-=
-Bias^2+Variance
-$$
+$MSE = Bias^2+Variance$
 
 This decomposition explains why an estimator with zero bias is not automatically the best estimator. A small amount of bias can sometimes be accepted if it produces a sufficiently large reduction in variance.
 
 In prediction problems, random noise adds a third component:
 
-$$
-Expected\ Prediction\ Error
-=
-Bias^2+Variance+Irreducible\ Noise
-$$
+$Expected\ Prediction\ Error = Bias^2+Variance+Irreducible\ Noise$
 
 Model flexibility can affect bias and variance in opposite directions. A restrictive model may have higher bias and lower variance, while a highly flexible model may have lower bias and higher variance.
 
@@ -2481,25 +1746,11 @@ However, these are general patterns rather than universal rules. Model selection
 
 The central idea can be summarised as:
 
-$$
-\boxed{
-\text{Good estimation balances accuracy and stability}
-}
-$$
+$\boxed{ \text{Good estimation balances accuracy and stability} }$
 
 and, under squared-error prediction:
 
-$$
-\boxed{
-\text{Expected error}
-=
-\text{Bias}^2
-+
-\text{Variance}
-+
-\text{Irreducible noise}
-}
-$$
+$\boxed{ \text{Expected error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible noise} }$
 
 ---
 
