@@ -1287,5 +1287,6 @@ All equations in this section use GitHub-compatible LaTeX math delimiters:
 - Use `\frac{a}{b}` for fractions, `\sum` for summations, and `\sqrt{}` for square roots.
 - Keep explanatory prose outside display-math blocks so equations remain readable in GitHub's README renderer.
 - Escape percentage signs inside math as `\%`. A raw `%` starts a LaTeX comment and can hide a closing brace, causing an “Extra open brace or missing close brace” error.
+- Keep Markdown headings (for example, `### Continuous Probability`) on their own lines; never prefix a math block with `#`. Put equations on separate lines between `$` delimiters.
 
 For details, see the [GitHub documentation for mathematical expressions](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
