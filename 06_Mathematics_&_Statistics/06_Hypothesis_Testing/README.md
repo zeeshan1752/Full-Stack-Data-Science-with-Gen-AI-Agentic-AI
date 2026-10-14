@@ -1,18 +1,10 @@
 # Hypothesis Testing
 
-## Introduction
+Hypothesis testing is a statistical method used to evaluate claims about a population using sample data. It is an important part of inferential statistics and is widely used in data analysis, machine learning experiments, business analytics, and scientific research.
 
-Hypothesis testing is a statistical framework used to evaluate claims about a population using sample data.
+For example, a company may claim that its average delivery time is 30 minutes. By collecting a sample of delivery times, we can evaluate whether the available evidence provides a reason to question that claim.
 
-In inferential statistics, we usually cannot collect information about every member of a population. Instead, we select a sample and use the observed data to evaluate a claim about an unknown population parameter.
-
-For example, suppose a company claims that the average delivery time is 30 minutes. We can collect a random sample of delivery times and determine whether the sample provides sufficient statistical evidence to question the claim.
-
-Hypothesis testing provides a structured procedure for making this decision.
-
-The objective is not to prove that a claim is absolutely true or false. Instead, we begin with a **null hypothesis**, measure how unusual the observed sample result would be if that hypothesis were true, and decide whether the evidence is strong enough to reject it.
-
-This chapter covers null and alternative hypotheses, significance levels, p-values, test statistics, critical values, one-tailed and two-tailed tests, statistical errors, power, z-tests, t-tests, proportion tests, paired tests, assumptions, Python implementation, and practical interpretation.
+Hypothesis testing does not prove a claim with absolute certainty. Instead, it provides a systematic method for making decisions under uncertainty.
 
 ## 1. What Is a Statistical Hypothesis?
 
@@ -22,1061 +14,196 @@ Examples include:
 
 - The population mean is 50.
 - The population proportion is 0.40.
-- The average lifetime of a product is greater than 1,000 hours.
-- The population mean differs from 75.
+- The average delivery time is greater than 30 minutes.
+- The average scores of two groups are different.
 
-A hypothesis concerns a population parameter rather than a single observation.
+A population mean is represented by $\mu$, a population proportion by $p$, and a population standard deviation by $\sigma$.
 
-For a population mean:
+## 2. Null and Alternative Hypotheses
 
-$\mu=50$
+### Null Hypothesis
 
-For a population proportion:
+The **null hypothesis**, denoted by $H_0$, is the reference claim evaluated using sample evidence.
 
-$p=0.40$
-
-For a population variance:
-
-$\sigma^2=25$
-
-Here, $\mu$ represents the population mean, $p$ represents the population proportion, and $\sigma^2$ represents the population variance.
-
-## 2. Hypothesis Testing as a Decision Process
-
-A hypothesis test follows a systematic process.
-
-1. Identify the population parameter.
-2. State the null and alternative hypotheses.
-3. Choose the significance level.
-4. Collect sample data.
-5. Select an appropriate statistical test.
-6. Calculate the test statistic.
-7. Find the p-value or critical value.
-8. Make the statistical decision.
-9. Interpret the result in the original context.
-
-The calculation is only one part of hypothesis testing. The assumptions and interpretation are equally important.
-
-## 3. Null Hypothesis
-
-The **null hypothesis**, written as $H_0$, represents the default claim or reference value against which the sample evidence is evaluated.
-
-Examples:
+For example:
 
 $H_0:\mu=50$
 
-$H_0:p=0.40$
+This states that the population mean equals 50.
 
-In ordinary hypothesis testing, the null hypothesis generally contains an equality. It establishes the reference condition used to calculate the test statistic.
+### Alternative Hypothesis
 
-The null hypothesis is not necessarily the researcher's preferred claim. It is the starting assumption against which evidence is evaluated.
-
-## 4. Alternative Hypothesis
-
-The **alternative hypothesis**, written as $H_a$ or $H_1$, represents the departure from the null hypothesis that the test is designed to detect.
-
-There are three common forms.
-
-### Two-sided alternative
-
-$H_a:\mu\ne\mu_0$
-
-This tests whether the population mean differs from the specified value in either direction.
-
-### Right-tailed alternative
-
-$H_a:\mu>\mu_0$
-
-This tests whether the population mean is greater than the specified value.
-
-### Left-tailed alternative
-
-$H_a:\mu<\mu_0$
-
-This tests whether the population mean is less than the specified value.
+The **alternative hypothesis**, denoted by $H_a$ or $H_1$, represents the difference or effect being investigated.
 
 The alternative hypothesis determines the direction of the test.
 
-## 5. Null and Alternative Hypotheses Together
+| Test type | Alternative hypothesis | Meaning |
+|---|---|---|
+| Two-tailed | $H_a:\mu\ne\mu_0$ | The mean is different |
+| Right-tailed | $H_a:\mu>\mu_0$ | The mean is greater |
+| Left-tailed | $H_a:\mu<\mu_0$ | The mean is smaller |
 
-Suppose a company claims that its average delivery time is 30 minutes.
-
-If we want to investigate whether the true average is different from 30 minutes, we write:
+For example, if a company claims that the average delivery time is 30 minutes and we want to determine whether it differs from the claim:
 
 $H_0:\mu=30$
 
 $H_a:\mu\ne30$
 
-This is a two-tailed test.
+The hypotheses should be selected according to the research question before examining the results.
 
-If we want to investigate whether delivery takes longer than claimed:
+## 3. Steps in Hypothesis Testing
 
-$H_0:\mu=30$
+A hypothesis test generally follows these steps:
 
-$H_a:\mu>30$
+1. Define the research question and population parameter.
+2. State the null and alternative hypotheses.
+3. Choose the significance level $\alpha$.
+4. Select an appropriate statistical test.
+5. Calculate the test statistic.
+6. Obtain the p-value or compare the statistic with a critical value.
+7. Make the statistical decision.
+8. Interpret the result in the original context.
 
-This is a right-tailed test.
+## 4. Significance Level
 
-If we want to investigate whether delivery is faster than claimed:
+The **significance level**, denoted by $\alpha$, is the threshold used to determine whether the evidence is sufficiently strong to reject the null hypothesis.
 
-$H_0:\mu=30$
+Common significance levels are:
 
-$H_a:\mu<30$
+- $\alpha=0.10$
+- $\alpha=0.05$
+- $\alpha=0.01$
 
-This is a left-tailed test.
+A significance level of 0.05 corresponds to a 5% long-run probability of rejecting a true null hypothesis when the testing procedure's assumptions hold.
 
-The direction should be selected from the research question **before examining the result**.
+A smaller significance level generally requires stronger evidence to reject $H_0$.
 
-## 6. Why Does the Null Hypothesis Contain Equality?
+## 5. Test Statistic
 
-For an ordinary two-sided test, the standard formulation is:
+A **test statistic** measures how far the observed sample result is from the value expected under the null hypothesis, relative to its standard error.
 
-$H_0:\mu=50$
+A general structure is:
 
-$H_a:\mu\ne50$
+Test statistic = (Observed estimate − Null value) / Standard error
 
-The null hypothesis provides the reference value used to calculate the test statistic and its probability distribution.
+The exact formula depends on the statistical test being used.
 
-A common beginner mistake is to reverse these hypotheses:
+Examples include:
 
-$H_0:\mu\ne50$
+- Z-statistic for z-tests.
+- t-statistic for t-tests.
+- F-statistic for F-tests.
+- Chi-square statistic for Chi-Square tests.
 
-$H_a:\mu=50$
+Detailed ANOVA and Chi-Square procedures are covered in their respective folders.
 
-That is not the standard formulation for an ordinary two-sided test.
+## 6. P-Value
 
-## 7. Significance Level
+The **p-value** is the probability, assuming the null hypothesis is true, of obtaining a test statistic as extreme as or more extreme than the observed result in the direction specified by the alternative hypothesis.
 
-The **significance level**, denoted by $\alpha$, is the threshold used to decide when the sample evidence is sufficiently unusual under the null hypothesis.
+The standard decision rule is:
 
-Common values are:
+- If $p\le\alpha$, reject $H_0$.
+- If $p>\alpha$, fail to reject $H_0$.
 
-- $\alpha=0.10$ — 10% significance level.
-- $\alpha=0.05$ — 5% significance level.
-- $\alpha=0.01$ — 1% significance level.
+For example, suppose:
 
-For example, $\alpha=0.05$ means that the testing procedure is designed with a 5% Type I error rate under the relevant assumptions.
-
-The significance level should normally be selected before examining the test result.
-
-### Important distinction
-
-A significance level of 0.05 does **not** mean that there is a 5% probability that the null hypothesis is true.
-
-It represents the long-run probability of rejecting a true null hypothesis when the testing procedure's assumptions hold.
-
-## 8. Test Statistic
-
-A **test statistic** measures how far the observed sample result is from the value expected under the null hypothesis, usually relative to its standard error.
-
-For a population mean with known population standard deviation:
-
-$z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$
-
-Where:
-
-- $\bar{x}$ = sample mean.
-- $\mu_0$ = mean specified by the null hypothesis.
-- $\sigma$ = known population standard deviation.
-- $n$ = sample size.
-- $\sigma/\sqrt{n}$ = standard error of the sample mean.
-
-The numerator measures the difference between the observed sample mean and the hypothesised mean. The denominator expresses that difference in standard-error units.
-
-### Interpreting the z-statistic
-
-If $z=2$, the sample mean is two standard errors above the hypothesised mean.
-
-If $z=-2$, the sample mean is two standard errors below the hypothesised mean.
-
-A value near zero indicates that the sample result is relatively close to the null value.
-
-A large absolute value, $|z|$, generally indicates greater disagreement with the null hypothesis.
-
-## 9. The p-Value
-
-The **p-value** is the probability, assuming the null hypothesis is true, of obtaining a test statistic at least as extreme as the observed statistic in the direction specified by the alternative hypothesis.
-
-A small p-value indicates that the observed result would be unusual under the null model.
-
-For a standard normal test statistic $Z$:
-
-- Right-tailed test: $p=P(Z\ge z_{\text{obs}})$.
-- Left-tailed test: $p=P(Z\le z_{\text{obs}})$.
-- Two-tailed test: $p=2P(Z\ge |z_{\text{obs}}|)$.
-
-These expressions assume a continuous standard normal reference distribution.
-
-### p-Value decision rule
-
-If:
-
-$p\le\alpha$
-
-then reject the null hypothesis.
-
-If:
-
-$p>\alpha$
-
-then fail to reject the null hypothesis.
-
-We generally do not say that the null hypothesis has been accepted merely because the p-value is greater than the significance level.
-
-Failing to reject means that the evidence is insufficient to reject the null hypothesis at the chosen significance level.
-
-### Example
-
-Suppose a test produces:
-
-$p=0.03$
-
-and the selected significance level is:
-
-$\alpha=0.05$
+$p=0.03,\quad \alpha=0.05$
 
 Since $0.03<0.05$, we reject the null hypothesis.
 
-If instead $p=0.20$, we fail to reject the null hypothesis at the 5% significance level.
+However, if:
 
-Neither decision, by itself, proves that the null hypothesis is true or false.
+$p=0.08,\quad \alpha=0.05$
 
-## 10. Critical Value Method
+we fail to reject the null hypothesis.
 
-A hypothesis test can also be performed by comparing the test statistic with a **critical value**.
+**Important:** The p-value is not the probability that the null hypothesis is true. Failing to reject $H_0$ does not prove that it is true.
 
-For a two-tailed z-test with $\alpha=0.05$, the critical values are approximately:
+## 7. Critical Value and Rejection Region
 
-$z^*=-1.96,\quad z^*=1.96$
+A **critical value** is a threshold determined by the significance level and the relevant probability distribution.
 
-The rejection region is:
+The **rejection region** contains the test-statistic values for which the null hypothesis is rejected.
 
-$z<-1.96\quad\text{or}\quad z>1.96$
+For a two-tailed z-test at $\alpha=0.05$, the standard normal critical values are approximately:
 
-Equivalently:
+$z=-1.96 \quad \text{and} \quad z=1.96$
 
-$|z|>1.96$
+The null hypothesis is rejected if the observed z-statistic is below −1.96 or above 1.96.
 
-If the test statistic falls inside the interval from $-1.96$ to $1.96$, we fail to reject the null hypothesis.
+The p-value method and critical-value method are two ways of making the same statistical decision when applied consistently.
 
-### Common z critical values
+## 8. Type I and Type II Errors
 
-| Test | Significance level | Critical value(s) |
-|---|---:|---:|
-| Right-tailed | 0.05 | $1.645$ |
-| Left-tailed | 0.05 | $-1.645$ |
-| Two-tailed | 0.05 | $\pm1.960$ |
-| Two-tailed | 0.01 | $\pm2.576$ |
-| Two-tailed | 0.10 | $\pm1.645$ |
+A hypothesis test uses sample data, so an incorrect decision is possible.
 
-The p-value method and the critical value method lead to the same decision when they use the same test, assumptions, and significance level.
-
-## 11. One-Tailed and Two-Tailed Tests
-
-The alternative hypothesis determines the test's tail structure.
-
-| Test | Alternative hypothesis | Rejection region at $\alpha=0.05$ |
+| Error | Meaning | Probability |
 |---|---|---|
-| Right-tailed z-test | $H_a:\mu>\mu_0$ | $z>1.645$ |
-| Left-tailed z-test | $H_a:\mu<\mu_0$ | $z<-1.645$ |
-| Two-tailed z-test | $H_a:\mu\ne\mu_0$ | $|z|>1.960$ |
+| Type I error | Rejecting a true $H_0$ | $\alpha$ |
+| Type II error | Failing to reject a false $H_0$ | $\beta$ |
 
-### Right-tailed test
+### Type I Error
 
-The entire significance level is placed in the right tail.
+A Type I error occurs when the test concludes that there is evidence against the null hypothesis even though the null hypothesis is true.
 
-$H_a:\mu>\mu_0$
+### Type II Error
 
-Reject when $z>1.645$ at the 5% significance level.
+A Type II error occurs when the test fails to reject the null hypothesis even though it is false.
 
-### Left-tailed test
+### Statistical Power
 
-The entire significance level is placed in the left tail.
-
-$H_a:\mu<\mu_0$
-
-Reject when $z<-1.645$ at the 5% significance level.
-
-### Two-tailed test
-
-The significance level is divided between both tails.
-
-$H_a:\mu\ne\mu_0$
-
-For $\alpha=0.05$, each tail contains $\alpha/2=0.025$.
-
-Reject when $|z|>1.96$.
-
-A one-tailed test must not be selected simply because it makes statistical significance easier to obtain. Its direction must be justified by the research question.
-
-## 12. Type I Error
-
-A **Type I error** occurs when we reject a true null hypothesis.
-
-Symbolically:
-
-$\text{Reject }H_0\text{ when }H_0\text{ is true}$
-
-Its probability is represented by $\alpha$:
-
-$P(\text{Type I error})=\alpha$
-
-For a test using $\alpha=0.05$, the procedure has a 5% Type I error rate under the relevant assumptions.
-
-For example, a medical test might indicate that a treatment has an effect when the null hypothesis of no effect is actually true.
-
-## 13. Type II Error
-
-A **Type II error** occurs when we fail to reject a false null hypothesis.
-
-Symbolically:
-
-$\text{Fail to reject }H_0\text{ when }H_0\text{ is false}$
-
-The probability of a Type II error is denoted by $\beta$:
-
-$P(\text{Type II error})=\beta$
-
-For example, a study might fail to detect a real improvement because its sample is too small or its measurements are too variable.
-
-## 14. Type I and Type II Errors Together
-
-| Reality | Statistical decision | Result |
-|---|---|---|
-| $H_0$ is true | Reject $H_0$ | Type I error |
-| $H_0$ is true | Fail to reject $H_0$ | Correct decision |
-| $H_0$ is false | Reject $H_0$ | Correct rejection |
-| $H_0$ is false | Fail to reject $H_0$ | Type II error |
-
-The true state of the population is generally unknown, so we cannot know with certainty whether a particular decision is an error.
-
-## 15. Statistical Power
-
-The **power** of a hypothesis test is the probability of correctly rejecting a false null hypothesis.
+Statistical power is the probability of correctly rejecting a false null hypothesis.
 
 $Power=1-\beta$
 
-A test with high power is more likely to detect a real difference when one exists.
+Power generally increases with a larger sample size, a larger true effect, or a higher significance level, assuming other factors remain unchanged.
 
-Power depends on:
+## 9. Z-Test
 
-- Sample size.
-- Effect size.
-- Population variability.
-- Significance level.
-- Whether the test is one-tailed or two-tailed.
-- The statistical procedure and its assumptions.
+A **z-test** uses the standard normal distribution to evaluate a hypothesis.
 
-### Factors that increase power
-
-**Larger sample size:** Generally reduces the standard error and makes real differences easier to detect.
-
-**Larger effect size:** A true parameter farther from the null value is easier to distinguish from the null.
-
-**Lower variability:** Less variability can make a real effect easier to detect.
-
-**Higher significance level:** Increasing $\alpha$ generally increases power, but also increases the Type I error rate.
-
-Power calculations are useful when planning sample sizes for experiments, surveys, and machine learning evaluations.
-
-## 16. One-Sample z-Test for a Population Mean
-
-A one-sample z-test is used for a population mean when the population standard deviation $\sigma$ is known and the distributional assumptions for the test are reasonable.
-
-The test statistic is:
+For a one-sample population mean with a known population standard deviation:
 
 $z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$
-
-### Worked example
-
-A company claims that the average delivery time is 30 minutes.
-
-A random sample of 100 deliveries has:
-
-- Sample mean: $\bar{x}=32$ minutes.
-- Known population standard deviation: $\sigma=10$ minutes.
-- Sample size: $n=100$.
-- Significance level: $\alpha=0.05$.
-
-We want to test whether the average delivery time differs from 30 minutes.
-
-### Step 1: State the hypotheses
-
-$H_0:\mu=30$
-
-$H_a:\mu\ne30$
-
-This is a two-tailed test.
-
-### Step 2: Calculate the standard error
-
-$SE=\frac{10}{\sqrt{100}}$
-
-$SE=\frac{10}{10}=1$
-
-### Step 3: Calculate the z-statistic
-
-$z=\frac{32-30}{1}=2$
-
-### Step 4: Compare with the critical values
-
-For a two-tailed test at $\alpha=0.05$, the critical values are approximately $\pm1.96$.
-
-Since $|2|>1.96$, we reject $H_0$.
-
-### Step 5: Interpret the result
-
-There is sufficient statistical evidence at the 5% significance level that the population mean delivery time differs from 30 minutes.
-
-### Python implementation
-
-```python
-import numpy as np
-from scipy import stats
-
-sample_mean = 32
-population_mean = 30
-population_sd = 10
-sample_size = 100
-alpha = 0.05
-
-standard_error = population_sd / np.sqrt(sample_size)
-z_statistic = (sample_mean - population_mean) / standard_error
-
-p_value = 2 * stats.norm.sf(abs(z_statistic))
-critical_value = stats.norm.ppf(1 - alpha / 2)
-
-print("Standard Error:", standard_error)
-print("Z-statistic:", z_statistic)
-print("P-value:", p_value)
-print("Critical Values:", -critical_value, critical_value)
-
-if p_value <= alpha:
-    print("Reject the null hypothesis.")
-else:
-    print("Fail to reject the null hypothesis.")
-```
-
-The two-tailed p-value is approximately $0.0455$. Small differences from hand calculations may occur because of rounding.
-
-## 17. Right-Tailed z-Test: Worked Example
-
-A manufacturer claims that a machine produces an average of 100 units per hour. We want to determine whether its true mean production is greater than 100 units.
-
-Given:
-
-$\bar{x}=103,\quad \sigma=12,\quad n=64$
-
-Hypotheses:
-
-$H_0:\mu=100$
-
-$H_a:\mu>100$
-
-Significance level:
-
-$\alpha=0.05$
-
-### Step 1: Calculate the standard error
-
-$SE=\frac{12}{\sqrt{64}}=\frac{12}{8}=1.5$
-
-### Step 2: Calculate the test statistic
-
-$z=\frac{103-100}{1.5}=2$
-
-### Step 3: Compare with the critical value
-
-For a right-tailed test at the 5% level:
-
-$z^*=1.645$
-
-Since $2>1.645$, reject $H_0$.
-
-There is sufficient evidence that the mean production rate is greater than 100 units per hour.
-
-### Python implementation
-
-```python
-from scipy import stats
-import numpy as np
-
-sample_mean = 103
-null_mean = 100
-population_sd = 12
-n = 64
-alpha = 0.05
-
-se = population_sd / np.sqrt(n)
-z = (sample_mean - null_mean) / se
-p_value = stats.norm.sf(z)
-
-print("Z-statistic:", z)
-print("Right-tailed p-value:", p_value)
-
-if p_value <= alpha:
-    print("Reject H0: evidence supports a greater mean.")
-else:
-    print("Fail to reject H0.")
-```
-
-## 18. Left-Tailed z-Test: Worked Example
-
-A filling machine is expected to fill bottles with an average of 500 ml. We want to determine whether it is underfilling.
-
-Given:
-
-$\bar{x}=496,\quad \sigma=12,\quad n=36$
-
-Hypotheses:
-
-$H_0:\mu=500$
-
-$H_a:\mu<500$
-
-At $\alpha=0.05$:
-
-$SE=\frac{12}{\sqrt{36}}=2$
-
-$z=\frac{496-500}{2}=-2$
-
-The left-tail critical value is $-1.645$.
-
-Since $-2<-1.645$, reject $H_0$.
-
-There is sufficient statistical evidence that the machine's mean fill amount is below 500 ml.
-
-### Python implementation
-
-```python
-from scipy import stats
-import numpy as np
-
-sample_mean = 496
-null_mean = 500
-population_sd = 12
-n = 36
-
-se = population_sd / np.sqrt(n)
-z = (sample_mean - null_mean) / se
-p_value = stats.norm.cdf(z)
-
-print("Z-statistic:", z)
-print("Left-tailed p-value:", p_value)
-```
-
-## 19. One-Sample t-Test
-
-When the population standard deviation is unknown, a one-sample t-test is commonly used to test a population mean.
-
-The test statistic is:
-
-$t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}$
 
 Where:
 
-- $\bar{x}$ = sample mean.
-- $\mu_0$ = null-hypothesised mean.
-- $s$ = sample standard deviation.
-- $n$ = sample size.
+- $\bar{x}$ = sample mean
+- $\mu_0$ = mean specified under the null hypothesis
+- $\sigma$ = known population standard deviation
+- $n$ = sample size
 
-Degrees of freedom:
+### Example
 
-$df=n-1$
+Suppose a sample has:
 
-The t-distribution accounts for the additional uncertainty introduced by estimating the population standard deviation using the sample.
-
-### Worked example
-
-Suppose a sample of 16 observations has:
-
-$\bar{x}=52,\quad s=8$
-
-We test:
-
-$H_0:\mu=50$
-
-$H_a:\mu\ne50$
-
-At $\alpha=0.05$:
-
-**Step 1: Degrees of freedom**
-
-$df=16-1=15$
-
-**Step 2: Standard error**
-
-$SE=\frac{8}{\sqrt{16}}=2$
-
-**Step 3: Test statistic**
-
-$t=\frac{52-50}{2}=1$
-
-**Step 4: Critical value**
-
-For a two-tailed test with 15 degrees of freedom:
-
-$t^*\approx2.131$
-
-**Step 5: Decision**
-
-Since $|1|<2.131$, fail to reject $H_0$.
-
-There is insufficient statistical evidence at the 5% significance level that the population mean differs from 50.
-
-### Python implementation
-
-```python
-from scipy import stats
-import numpy as np
-
-sample_mean = 52
-null_mean = 50
-sample_sd = 8
-n = 16
-alpha = 0.05
-
-se = sample_sd / np.sqrt(n)
-t_statistic = (sample_mean - null_mean) / se
-df = n - 1
-
-p_value = 2 * stats.t.sf(abs(t_statistic), df)
-critical_value = stats.t.ppf(1 - alpha / 2, df)
-
-print("Standard Error:", se)
-print("T-statistic:", t_statistic)
-print("Degrees of Freedom:", df)
-print("P-value:", p_value)
-print("Critical Values:", -critical_value, critical_value)
-```
-
-## 20. z-Test vs t-Test
-
-| Feature | z-Test | t-Test |
-|---|---|---|
-| Standard deviation | Population SD $\sigma$ known | Population SD usually unknown |
-| Standard deviation used | $\sigma$ | Sample SD $s$ |
-| Reference distribution | Standard normal | t-distribution |
-| Degrees of freedom | Not needed for the standard z distribution | Depends on the procedure |
-| Common use | Known-$\sigma$ mean tests | Mean tests with unknown $\sigma$ |
-
-The distinction should be based on the available information and assumptions, not simply on whether the sample is small or large.
-
-## 21. Test for a Population Proportion
-
-A one-proportion z-test evaluates a claim about a population proportion.
-
-The sample proportion is:
-
-$\hat{p}=\frac{x}{n}$
-
-Where $x$ is the number of successes and $n$ is the sample size.
-
-Suppose the null hypothesis is:
-
-$H_0:p=p_0$
-
-The standard error under the null hypothesis is:
-
-$SE_0=\sqrt{\frac{p_0(1-p_0)}{n}}$
+- Sample mean = 52
+- Hypothesised population mean = 50
+- Known population standard deviation = 10
+- Sample size = 100
 
 The test statistic is:
 
-$z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$
+$z=\frac{52-50}{10/\sqrt{100}}$
 
-Notice that the denominator uses the null proportion $p_0$, rather than the observed sample proportion $\hat{p}$.
+$z=\frac{2}{1}=2$
 
-For the normal approximation, the expected numbers of successes and failures under the null are commonly checked:
+For a two-tailed test at $\alpha=0.05$, the critical values are approximately −1.96 and 1.96.
 
-$np_0\ge10$
+Since $2>1.96$, reject $H_0$.
 
-$n(1-p_0)\ge10$
+The sample provides statistically significant evidence that the population mean differs from 50, subject to the test assumptions.
 
-These are common guidelines, not universal guarantees. Exact methods may be preferable for small samples or extreme proportions.
+A one-sample z-test for a mean is appropriate when the population standard deviation is known and the sampling conditions support the normal approximation.
 
-### Worked example
+## 10. T-Test
 
-A company claims that 60% of its customers are satisfied.
+A **t-test** is commonly used to test hypotheses about population means when the population standard deviation is unknown.
 
-A sample of 200 customers contains 140 satisfied customers.
+### One-Sample T-Test
 
-Therefore:
-
-$\hat{p}=\frac{140}{200}=0.70$
-
-Hypotheses:
-
-$H_0:p=0.60$
-
-$H_a:p\ne0.60$
-
-At $\alpha=0.05$:
-
-**Step 1: Calculate the null standard error**
-
-$SE_0=\sqrt{\frac{0.60(1-0.60)}{200}}$
-
-$SE_0=\sqrt{0.0012}\approx0.03464$
-
-**Step 2: Calculate the test statistic**
-
-$z=\frac{0.70-0.60}{0.03464}\approx2.89$
-
-**Step 3: Make the decision**
-
-The absolute test statistic exceeds 1.96, so reject $H_0$.
-
-There is sufficient statistical evidence that the population customer satisfaction proportion differs from 60%.
-
-### Python implementation
-
-```python
-from scipy import stats
-import numpy as np
-
-successes = 140
-n = 200
-p0 = 0.60
-alpha = 0.05
-
-sample_proportion = successes / n
-se_null = np.sqrt(p0 * (1 - p0) / n)
-
-z = (sample_proportion - p0) / se_null
-p_value = 2 * stats.norm.sf(abs(z))
-
-print("Sample Proportion:", sample_proportion)
-print("Null Standard Error:", se_null)
-print("Z-statistic:", z)
-print("P-value:", p_value)
-```
-
-## 22. Hypothesis Test for a Difference Between Two Means
-
-When comparing two population means, we may test whether the difference between them equals zero.
-
-Hypotheses:
-
-$H_0:\mu_1-\mu_2=0$
-
-$H_a:\mu_1-\mu_2\ne0$
-
-For two independent samples with unknown population variances, Welch's t-test is commonly used.
-
-Its estimated standard error is:
-
-$SE=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$
-
-The test statistic is:
-
-$t=\frac{(\bar{x}_1-\bar{x}_2)-0}{\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}}$
-
-Welch's test uses an estimated degrees-of-freedom calculation that accounts for the sample sizes and sample variances.
-
-### Worked example
-
-Suppose the following results are obtained:
-
-| Group | Mean | Standard deviation | Sample size |
-|---|---:|---:|---:|
-| Group 1 | 82 | 10 | 100 |
-| Group 2 | 78 | 12 | 144 |
-
-The estimated difference is:
-
-$82-78=4$
-
-The standard error is:
-
-$SE=\sqrt{\frac{10^2}{100}+\frac{12^2}{144}}$
-
-$SE=\sqrt{1+1}=\sqrt{2}\approx1.414$
-
-The test statistic is approximately:
-
-$t=\frac{4}{1.414}\approx2.83$
-
-This indicates evidence against the null hypothesis under the test assumptions. The formal p-value should be calculated using the appropriate Welch degrees of freedom.
-
-### Python implementation
-
-```python
-from scipy import stats
-
-group1 = [80, 85, 78, 84, 83, 82, 79, 86]
-group2 = [75, 80, 77, 79, 81, 76, 78, 74]
-
-result = stats.ttest_ind(
-    group1,
-    group2,
-    equal_var=False,
-    alternative="two-sided"
-)
-
-print("T-statistic:", result.statistic)
-print("P-value:", result.pvalue)
-```
-
-The example data are illustrative. Replace them with the actual observations for a real analysis.
-
-## 23. Hypothesis Test for the Difference Between Two Proportions
-
-Suppose we want to compare two population proportions.
-
-The null hypothesis is:
-
-$H_0:p_1-p_2=0$
-
-The sample proportions are:
-
-$\hat{p}_1=\frac{x_1}{n_1}$
-
-$\hat{p}_2=\frac{x_2}{n_2}$
-
-Under the null hypothesis of equal proportions, the pooled proportion is:
-
-$\hat{p}_{\text{pooled}}=\frac{x_1+x_2}{n_1+n_2}$
-
-The null standard error is:
-
-$SE_0=\sqrt{\hat{p}_{\text{pooled}}(1-\hat{p}_{\text{pooled}})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$
-
-The test statistic is:
-
-$z=\frac{\hat{p}_1-\hat{p}_2}{SE_0}$
-
-This pooled standard error is used for the standard test of equal proportions. It is different from the unpooled standard error commonly used for a confidence interval estimating the difference between two proportions.
-
-### Python implementation
-
-```python
-from statsmodels.stats.proportion import proportions_ztest
-
-successes = [140, 120]
-sample_sizes = [200, 200]
-
-z_statistic, p_value = proportions_ztest(
-    count=successes,
-    nobs=sample_sizes,
-    alternative="two-sided"
-)
-
-print("Z-statistic:", z_statistic)
-print("P-value:", p_value)
-```
-
-The test compares the observed proportions with the null hypothesis that the population proportions are equal.
-
-## 24. Paired t-Test
-
-A paired t-test is appropriate when observations are naturally matched, such as:
-
-- Before-and-after measurements on the same people.
-- Measurements from matched subjects.
-- Repeated measurements on the same experimental unit.
-
-Paired observations should not automatically be treated as independent samples.
-
-For each pair, calculate the difference:
-
-$d_i=After_i-Before_i$
-
-Let $\bar{d}$ be the mean of the differences and $s_d$ be their sample standard deviation.
-
-The paired t-statistic is:
-
-$t=\frac{\bar{d}-\mu_{d,0}}{s_d/\sqrt{n}}$
-
-The usual null hypothesis is:
-
-$H_0:\mu_d=0$
-
-with degrees of freedom:
-
-$df=n-1$
-
-A paired t-test is therefore equivalent to a one-sample t-test applied to the within-pair differences.
-
-### Python implementation
-
-```python
-from scipy import stats
-
-before = [70, 75, 80, 65, 90, 72, 68, 85]
-after = [75, 78, 83, 70, 94, 76, 72, 88]
-
-result = stats.ttest_rel(
-    after,
-    before,
-    alternative="two-sided"
-)
-
-print("T-statistic:", result.statistic)
-print("P-value:", result.pvalue)
-```
-
-The paired measurements must be in matching order: each value in `before` should correspond to the same subject or unit in `after`.
-
-## 25. Interpreting the p-Value Correctly
-
-Suppose a hypothesis test produces:
-
-$p=0.003$
-
-with:
-
-$\alpha=0.05$
-
-Since $0.003<0.05$, we reject the null hypothesis.
-
-A suitable interpretation is:
-
-> The observed data provide strong statistical evidence against the null hypothesis at the 5% significance level.
-
-A p-value is not:
-
-- The probability that the null hypothesis is true.
-- The probability that the alternative hypothesis is true.
-- The probability that the result happened purely by chance.
-- A measure of the effect size.
-- The probability that the conclusion is wrong.
-
-A p-value describes the extremeness of the observed data under the null model and the assumptions of the chosen test.
-
-## 26. Statistical Significance vs Practical Significance
-
-A result is statistically significant at level $\alpha$ when:
-
-$p\le\alpha$
-
-However, statistical significance does not automatically mean that an effect is important in practice.
-
-For example, a very large dataset might detect a mean difference of only 0.01 with a very small p-value. Whether that difference matters depends on the application.
-
-A complete analysis should consider:
-
-- The estimated effect size.
-- The uncertainty around the estimate.
-- The p-value and significance level.
-- The assumptions of the test.
-- The practical context.
-
-Whenever possible, report the estimated effect and its confidence interval alongside the hypothesis test.
-
-## 27. Confidence Intervals and Hypothesis Tests
-
-Confidence intervals and two-sided hypothesis tests are closely related.
-
-For many standard procedures, a 95% confidence interval corresponds to a two-sided test at:
-
-$\alpha=0.05$
-
-Suppose we test:
-
-$H_0:\mu=50$
-
-If the corresponding 95% confidence interval does not contain 50, the two-sided test rejects $H_0$ at the 5% level.
-
-If the interval contains 50, the test fails to reject $H_0$.
-
-This relationship applies when the confidence interval and hypothesis test use matching procedures and assumptions.
-
-A confidence interval provides additional information because it shows the range of parameter values compatible with the data under the method.
-
-## 28. Assumptions for a One-Sample Mean Test
-
-A one-sample mean test requires attention to the following assumptions.
-
-### Random sampling
-
-The sample should be collected in a way that supports inference about the target population.
-
-### Independence
-
-Observations should be independent when the chosen procedure assumes independence.
-
-### Distributional shape
-
-For small samples, the population distribution should be reasonably close to normal, especially when using the t procedure.
-
-For larger samples, the sampling distribution of the mean may be approximately normal under suitable conditions. A large sample does not automatically eliminate every problem caused by extreme skewness, dependence, or outliers.
-
-### Outliers
-
-Extreme observations can strongly affect the sample mean, standard deviation, and t-statistic.
-
-Assumptions should be evaluated rather than automatically assumed.
-
-## 29. Assumptions for a Proportion Test
-
-For the normal approximation in a one-proportion z-test, common checks under the null hypothesis are:
-
-$np_0\ge10$
-
-$n(1-p_0)\ge10$
-
-These conditions help assess whether the normal approximation is reasonable.
-
-When the sample is small or the proportion is close to zero or one, an exact binomial test or another suitable method may be preferable.
-
-## 30. Multiple Testing
-
-When many hypothesis tests are conducted, the probability of obtaining at least one false-positive result can increase.
-
-For example, if many independent tests are each performed at $\alpha=0.05$, some tests may produce small p-values even when their null hypotheses are true.
-
-Methods for handling multiple comparisons include:
-
-- Bonferroni correction.
-- Holm procedure.
-- False discovery rate procedures.
-
-These methods address different goals and should be selected according to the analysis.
-
-The important principle is that **performing more tests creates more opportunities for false-positive findings**.
-
-## 31. Reporting a Hypothesis Test
-
-A clear statistical report should include:
-
-1. The null and alternative hypotheses.
-2. The test used.
-3. The test statistic.
-4. The degrees of freedom, when applicable.
-5. The p-value.
-6. The significance level.
-7. The statistical decision.
-8. A conclusion in the original context.
-9. An estimate and confidence interval when relevant.
-
-Example:
-
-> A one-sample t-test was conducted to evaluate whether the population mean differs from 50. The test produced $t=2.50$ with 35 degrees of freedom. At $\alpha=0.05$, the null hypothesis was rejected, providing evidence that the population mean differs from 50.
-
-Reporting only "the result is significant" does not provide enough information to understand the analysis.
-
-## 32. Quick Test Selection Guide
-
-| Statistical question | Common test |
-|---|---|
-| One population mean, known $\sigma$ | One-sample z-test |
-| One population mean, unknown $\sigma$ | One-sample t-test |
-| One population proportion | One-proportion z-test, when approximation conditions are met |
-| Two independent population means | Two-sample t-test, often Welch's test |
-| Before-and-after measurements | Paired t-test |
-| Two independent proportions | Two-proportion z-test |
-| Several population means | ANOVA |
-| Association between categorical variables | Chi-square test of independence |
-
-The appropriate test depends on the data structure, research question, and assumptions. ANOVA, chi-square tests, correlation tests, and regression inference should be studied in their respective chapters.
-
-## 33. Important Formula Summary
-
-### One-sample z-statistic for a mean
-
-$z=\frac{\bar{x}-\mu_0}{\sigma/\sqrt{n}}$
-
-### One-sample t-statistic
+Used to compare a sample mean with a hypothesised population mean.
 
 $t=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}$
 
@@ -1084,175 +211,201 @@ Degrees of freedom:
 
 $df=n-1$
 
-### Sample proportion
+Here, $s$ is the sample standard deviation.
 
-$\hat{p}=\frac{x}{n}$
+### Independent Two-Sample T-Test
 
-### One-proportion z-statistic
+Used to compare the means of two independent groups.
 
-$z=\frac{\hat{p}-p_0}{\sqrt{\frac{p_0(1-p_0)}{n}}}$
+Welch's t-test is often a suitable default because it does not require equal population variances.
 
-### Standard error for the difference between two independent means
+### Paired T-Test
 
-$SE=\sqrt{\frac{s_1^2}{n_1}+\frac{s_2^2}{n_2}}$
+Used when observations are naturally paired, such as measurements taken from the same individuals before and after a treatment.
 
-### Pooled proportion
+First calculate the difference for each pair. Then test whether the population mean difference equals zero.
 
-$\hat{p}_{\text{pooled}}=\frac{x_1+x_2}{n_1+n_2}$
+### Python Example
 
-### Standard error for the difference between two proportions under the null
+```python
+from scipy import stats
 
-$SE_0=\sqrt{\hat{p}_{\text{pooled}}(1-\hat{p}_{\text{pooled}})\left(\frac{1}{n_1}+\frac{1}{n_2}\right)}$
+group_a = [72, 75, 78, 74, 77]
+group_b = [80, 82, 79, 85, 81]
 
-### Paired t-statistic
+# Independent two-sample Welch's t-test
+t_statistic, p_value = stats.ttest_ind(
+    group_a,
+    group_b,
+    equal_var=False
+)
 
-$t=\frac{\bar{d}-\mu_{d,0}}{s_d/\sqrt{n}}$
+print("T-statistic:", t_statistic)
+print("P-value:", p_value)
 
-### Type I error probability
+alpha = 0.05
 
-$P(\text{Type I error})=\alpha$
+if p_value <= alpha:
+    print("Reject the null hypothesis")
+else:
+    print("Fail to reject the null hypothesis")
+```
 
-### Type II error probability
+This test evaluates whether the two population means differ. The conclusion should also consider the effect size, data quality, and assumptions.
 
-$P(\text{Type II error})=\beta$
+## 11. One-Proportion Z-Test
 
-### Statistical power
+A one-proportion z-test evaluates a hypothesis about a population proportion.
 
-$Power=1-\beta$
+For the null hypothesis $H_0:p=p_0$, the test statistic is:
 
-### p-value decision rule
+$z=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)/n}}$
 
-$p\le\alpha\Rightarrow\text{Reject }H_0$
+Where:
 
-$p>\alpha\Rightarrow\text{Fail to reject }H_0$
+- $\hat{p}$ = observed sample proportion
+- $p_0$ = proportion specified under the null hypothesis
+- $n$ = sample size
 
-## 34. Python Practice Exercises
+The null proportion $p_0$ is used to calculate the standard error under the null hypothesis.
 
-Try solving the following exercises using Python, NumPy, and SciPy.
+The normal approximation requires suitable sample-size conditions. If the sample is small or the approximation is unsuitable, an exact binomial test may be preferable.
 
-### Exercise 1: Two-tailed z-test
+### Python Example
 
-A population has a known standard deviation of 8. A random sample of 64 observations has a mean of 103. Test whether the population mean differs from 100 at $\alpha=0.05$.
+```python
+from statsmodels.stats.proportion import (
+    proportions_ztest
+)
 
-Calculate:
+successes = 60
+observations = 100
+hypothesised_proportion = 0.50
 
-- The standard error.
-- The z-statistic.
-- The p-value.
-- The final decision.
+z_statistic, p_value = proportions_ztest(
+    count=successes,
+    nobs=observations,
+    value=hypothesised_proportion
+)
 
-### Exercise 2: One-sample t-test
+print("Z-statistic:", z_statistic)
+print("P-value:", p_value)
+```
 
-A sample contains 25 observations with a mean of 52 and a sample standard deviation of 10. Test whether the population mean differs from 50 at the 5% significance level.
+This example tests whether the population proportion differs from 0.50 using the default two-sided alternative.
 
-Calculate the t-statistic, degrees of freedom, and p-value.
+## 12. Choosing the Appropriate Test
 
-### Exercise 3: One-proportion test
+| Research question | Common test |
+|---|---|
+| Is a population mean different from a specified value, with known population standard deviation? | One-sample z-test |
+| Is a population mean different from a specified value, with unknown population standard deviation? | One-sample t-test |
+| Do two independent population means differ? | Independent two-sample t-test, often Welch's |
+| Did the mean change between paired measurements? | Paired t-test |
+| Does a population proportion differ from a specified value? | One-proportion z-test, when its conditions hold |
+| Do three or more population means differ? | ANOVA |
+| Are two categorical variables associated? | Chi-Square test of independence |
 
-A company claims that 50% of customers prefer its product. In a sample of 200 customers, 115 prefer the product.
+ANOVA is covered in `07_ANOVA`, while Chi-Square methods are covered in `08_Chi_Square_Test`. Their detailed theory and formulas should remain in those folders.
 
-Test whether the population proportion differs from 0.50 at $\alpha=0.05$.
+## 13. Assumptions of Hypothesis Testing
 
-Check the normal approximation conditions before interpreting the result.
+The assumptions depend on the selected test. Common considerations include:
 
-### Exercise 4: Independent samples
+**Random sampling:** The sample should represent the population of interest.
 
-Two independent groups provide measurements of a performance score. Use Welch's t-test to evaluate whether their population means differ.
+**Independence:** Observations should satisfy the independence conditions required by the test. Paired tests instead account for the pairing.
 
-Explain why treating paired observations as independent would be inappropriate if the measurements actually came from the same individuals.
+**Distributional conditions:** Small-sample t-tests commonly rely on the relevant population or difference distribution being approximately normal, while large-sample methods may rely on suitable approximations.
 
-### Exercise 5: Paired observations
+**Outliers:** Extreme observations can substantially affect means and test statistics.
 
-Record measurements before and after a training programme for the same group of participants. Use a paired t-test to test whether the mean change differs from zero.
+**Equal variances:** Some pooled two-sample procedures assume equal population variances. Welch's t-test does not require this assumption.
 
-Explain the meaning of the sign of the estimated mean difference.
+**Proportion approximation:** A proportion z-test requires conditions that make the normal approximation reasonable.
 
-### Exercise 6: Interpret p-values
+If assumptions are not satisfied, consider a suitable alternative rather than automatically applying the same test.
 
-For each p-value below, make a decision at $\alpha=0.05$:
+## 14. Statistical Significance vs Practical Significance
 
-- $p=0.001$
-- $p=0.03$
-- $p=0.05$
-- $p=0.08$
-- $p=0.20$
+**Statistical significance** indicates that the data provide evidence against the null hypothesis under the selected procedure.
 
-Explain why failing to reject the null hypothesis does not prove that it is true.
+**Practical significance** concerns whether the observed difference is meaningful in the real-world context.
 
-## 35. Points to Remember
+A very large dataset can produce a small p-value for a difference that has little practical importance. Conversely, a potentially meaningful difference may not be statistically significant in a small sample.
 
-1. A statistical hypothesis is a claim about a population parameter or distribution.
-2. The null hypothesis is written as $H_0$.
-3. The alternative hypothesis is written as $H_a$ or $H_1$.
-4. The null hypothesis normally contains the equality in ordinary hypothesis tests.
-5. The alternative hypothesis determines whether the test is one-tailed or two-tailed.
-6. The significance level $\alpha$ should be selected before examining the result.
-7. A p-value is calculated under the assumption that the null hypothesis is true.
-8. A small p-value provides evidence against the null hypothesis.
-9. Reject $H_0$ when $p\le\alpha$ under the standard decision rule.
-10. If $p>\alpha$, fail to reject $H_0$.
-11. Failing to reject $H_0$ does not prove that it is true.
-12. A Type I error means rejecting a true null hypothesis.
-13. A Type II error means failing to reject a false null hypothesis.
-14. Statistical power is $1-\beta$.
-15. A one-sample z-test for a mean uses a known population standard deviation.
-16. A one-sample t-test commonly uses the sample standard deviation when the population standard deviation is unknown.
-17. For a one-sample t-test, the degrees of freedom are $n-1$.
-18. A one-proportion z-test uses the null proportion in its standard error.
-19. Welch's t-test is commonly used to compare independent means when population variances are unknown and may differ.
-20. A paired t-test analyses the differences within matched pairs.
-21. Statistical significance does not automatically imply practical importance.
-22. A p-value is not the probability that the null hypothesis is true.
-23. Confidence intervals and two-sided hypothesis tests are closely related.
-24. Assumptions must be checked before interpreting results.
-25. A complete report should explain the result in the context of the original research question.
+Therefore, interpretation should consider the estimated difference, effect size, uncertainty, sample size, and domain context—not only the p-value.
 
-## 36. Chapter Summary
+## 15. Common Mistakes
 
-Hypothesis testing provides a formal framework for evaluating population claims using sample evidence.
+1. Treating the p-value as the probability that $H_0$ is true.
+2. Accepting the null hypothesis merely because the result is not significant.
+3. Choosing a one-tailed test after seeing the results.
+4. Ignoring assumptions or data quality.
+5. Confusing statistical significance with practical importance.
+6. Using a z-test for a population mean when the population standard deviation is unknown without justification.
+7. Reporting only “significant” without the test statistic, p-value, and contextual conclusion.
+8. Performing many tests without considering the increased risk of false-positive findings.
 
-The process begins by identifying the population parameter and translating the research question into a null hypothesis and an alternative hypothesis. The significance level defines the decision threshold, while the test statistic measures the difference between the observed result and the null value relative to its standard error.
+The correct wording for a non-significant result is **“fail to reject the null hypothesis,”** not “accept the null hypothesis.”
 
-The p-value describes how unusual the observed statistic, or a more extreme one, would be under the null hypothesis and the assumptions of the test.
+## 16. Reporting Results
 
-The standard decision rules are:
+A useful report identifies the test, hypotheses, test statistic, degrees of freedom when applicable, p-value, significance level, decision, and contextual conclusion.
 
-$p\le\alpha\Rightarrow\text{Reject }H_0$
+For example:
 
-$p>\alpha\Rightarrow\text{Fail to reject }H_0$
+> A one-sample t-test was conducted to examine whether the population mean differs from 50. The test produced a t-statistic of 2.50 with 35 degrees of freedom. At the 5% significance level, the null hypothesis was rejected, providing evidence that the population mean differs from 50.
 
-A Type I error occurs when a true null hypothesis is rejected, while a Type II error occurs when a false null hypothesis is not rejected. The power of a test is:
+In a complete analysis, also report an appropriate effect size and confidence interval where relevant.
 
-$Power=1-\beta$
+## 17. Formula Summary
 
-For population means, a z-test is used in the known-population-standard-deviation setting, while a t-test is commonly used when that standard deviation is unknown. Proportion tests use appropriate normal approximations when their conditions are satisfied. Two-sample and paired tests require careful attention to the relationship between observations.
+| Concept | Formula |
+|---|---|
+| One-sample z-test for a mean | $z=(\bar{x}-\mu_0)/(\sigma/\sqrt{n})$ |
+| One-sample t-test | $t=(\bar{x}-\mu_0)/(s/\sqrt{n})$ |
+| Degrees of freedom for one-sample t-test | $df=n-1$ |
+| One-proportion z-test | $z=(\hat{p}-p_0)/\sqrt{p_0(1-p_0)/n}$ |
+| Statistical power | $1-\beta$ |
+| Reject decision | $p\le\alpha$ |
+| Fail-to-reject decision | $p>\alpha$ |
 
-A sound statistical analysis does not rely on the p-value alone. It also considers the estimated effect, uncertainty, assumptions, and practical context.
+## 18. Key Points to Remember
 
-The complete process can be summarised as:
+1. Hypothesis testing evaluates population claims using sample evidence.
+2. The null hypothesis is the reference claim; the alternative defines the departure being investigated.
+3. The significance level is chosen before interpreting the test result.
+4. A p-value measures how extreme the observed evidence is under the null hypothesis.
+5. Reject $H_0$ when $p\le\alpha$ under the standard decision rule.
+6. Failing to reject $H_0$ does not establish that it is true.
+7. Type I and Type II errors describe different kinds of incorrect decisions.
+8. Select the test according to the research question, data structure, and assumptions.
+9. Statistical significance does not automatically imply practical importance.
+10. Report the result in context and consider effect size and uncertainty.
 
-**Research question → Hypotheses → Significance level → Test statistic → p-value or critical value → Decision → Contextual conclusion**
+## 19. Practice Questions
 
-## 37. References
+1. Define a statistical hypothesis.
+2. Explain the difference between the null and alternative hypotheses.
+3. What is the significance level?
+4. Explain the meaning of a p-value.
+5. Differentiate between one-tailed and two-tailed tests.
+6. Explain Type I and Type II errors.
+7. What is statistical power?
+8. When is a one-sample z-test appropriate?
+9. Differentiate between independent and paired t-tests.
+10. Why should a statistically significant result also be evaluated for practical significance?
 
-1. OpenStax, *Introductory Statistics*. https://openstax.org/details/books/introductory-statistics
-2. NIST/SEMATECH, *e-Handbook of Statistical Methods*. https://www.itl.nist.gov/div898/handbook/
-3. Penn State Eberly College of Science, *STAT Online*. https://online.stat.psu.edu/
-4. Montgomery, D. C., and Runger, G. C., *Applied Statistics and Probability for Engineers*.
-5. Casella, G., and Berger, R. L., *Statistical Inference*.
-6. SciPy Documentation, *Statistical Functions*. https://docs.scipy.org/doc/scipy/reference/stats.html
-7. Statsmodels Documentation, *Proportion Tests*. https://www.statsmodels.org/stable/generated/statsmodels.stats.proportion.proportions_ztest.html
+## 20. References
+
+- [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
+- [SciPy Statistical Functions](https://docs.scipy.org/doc/scipy/reference/stats.html)
+- [Statsmodels Documentation](https://www.statsmodels.org/stable/index.html)
+- [Penn State — STAT 500: Applied Statistics](https://online.stat.psu.edu/stat500/)
 
 ---
 
-### Python libraries used in this chapter
+**Folder placement:** Save this file as `06_Hypothesis_Testing/README.md`.
 
-Install the required packages using:
-
-```bash
-pip install numpy scipy statsmodels
-```
-
-- **NumPy:** Numerical calculations and square roots.
-- **SciPy:** Probability distributions, p-values, z-test calculations, and t-tests.
-- **Statsmodels:** Statistical tests for population proportions and other inferential procedures.
+Keep detailed ANOVA and Chi-Square explanations in their dedicated folders. Keep confidence intervals and estimation methods primarily in `05_Inferential_Statistics`, referring to their relationship with hypothesis testing here without duplicating the entire chapter.
