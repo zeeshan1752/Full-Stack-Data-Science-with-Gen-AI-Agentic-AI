@@ -1,1832 +1,550 @@
-# ANOVA
+# Analysis of Variance (ANOVA)
 
-ANOVA stands for **Analysis of Variance**.
+## 1. Introduction
 
-ANOVA is a statistical method used to compare the means of multiple groups. The name can initially seem confusing because the main question is about **means**, while the calculation is based on **variability**.
+ANOVA stands for **Analysis of Variance**. It is a statistical method used to determine whether there is sufficient evidence that the means of three or more populations differ.
 
-The central idea is to compare two kinds of variation:
+Although ANOVA compares means, it uses variation to perform the comparison.
 
-1. **Variation between groups** — how much the group means differ from one another.
-2. **Variation within groups** — how much individual observations vary around their own group mean.
+It examines two sources of variation:
 
-If the variation between groups is sufficiently large compared with the variation within groups, the data provide evidence that not all population means are equal.
+1. **Between-group variation:** Differences between the group means.
+2. **Within-group variation:** Differences between observations belonging to the same group.
 
-A one-way ANOVA is especially useful when we want to compare three or more independent group means using one overall statistical test.
+If the variation between groups is large relative to the variation within groups, ANOVA may provide evidence that not all population means are equal.
 
-For example, suppose a researcher wants to compare the average exam score of students taught using three different teaching methods:
+ANOVA is useful in data analysis, business analytics, experimental analysis, and machine learning experiments.
 
-- Method A
-- Method B
-- Method C
+For example, a data scientist may use ANOVA to compare the average performance of three different experimental conditions.
 
-Instead of performing several separate pairwise t-tests, a one-way ANOVA can test the overall equality of the group means.
+## 2. One-Way ANOVA
 
-This chapter focuses on the foundations of ANOVA, especially **one-way ANOVA**. It covers the logic of ANOVA, hypotheses, total/between/within variation, sums of squares, degrees of freedom, mean squares, the F-statistic, p-values, assumptions, ANOVA tables, effect size, post-hoc comparisons, and practical interpretation.
-
----
-
-# 1. Why Do We Need ANOVA?
-
-Suppose we have three groups:
-
-| Group | Mean |
-|---|---:|
-| A | 70 |
-| B | 74 |
-| C | 82 |
-
-We may want to know whether these observed differences are large enough to provide evidence that the population means are different.
-
-If we compare the groups one pair at a time, we would need:
-
-- A vs B
-- A vs C
-- B vs C
-
-As the number of groups increases, the number of pairwise comparisons grows quickly.
-
-ANOVA provides a single overall test of the null hypothesis that all population means are equal.
-
-For $k$ groups:
-
-$H_0:\mu_1=\mu_2=\cdots=\mu_k$
-
-The alternative hypothesis is:
-
-$H_a:\text{At least one population mean differs}$
-
-Notice that the alternative hypothesis does **not** say that every mean is different.
-
----
-
-# 2. One-Way ANOVA
-
-A **one-way ANOVA** examines the effect of one categorical factor on a quantitative response variable.
+One-way ANOVA examines the effect of **one categorical factor** on a quantitative response variable.
 
 For example:
 
-- Factor: teaching method
-- Levels: Method A, Method B, Method C
-- Response: exam score
+| Variable | Example |
+|---|---|
+| Factor | Teaching method |
+| Factor levels | Method A, Method B, Method C |
+| Response variable | Examination score |
 
-The factor has one dimension, which is why this is called **one-way ANOVA**.
+The factor divides the observations into groups, and ANOVA compares their population means.
 
-```mermaid
-flowchart LR
-    A["One Categorical Factor"] --> B["Level 1"]
-    A --> C["Level 2"]
-    A --> D["Level 3"]
-    B --> E["Quantitative Response"]
-    C --> E
-    D --> E
-```
+## 3. Hypotheses of ANOVA
 
-The factor creates the groups whose means we want to compare.
+Suppose there are \(k\) independent groups.
 
----
+The null hypothesis states that all population means are equal:
 
-# 3. Examples of One-Way ANOVA
+$H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
 
-One-way ANOVA can be used when comparing:
+The alternative hypothesis states that at least one population mean differs:
 
-- average test scores across teaching methods;
-- average production output across machine settings;
-- average customer satisfaction across service plans;
-- average response time across three or more systems;
-- average measurement across several experimental conditions.
+$H_a: \text{At least one population mean differs}$
 
-The response variable should be quantitative for the standard one-way ANOVA framework.
+A significant ANOVA result does not mean that every group differs from every other group. It indicates evidence that the population means are not all equal.
 
-The grouping variable is categorical.
+## 4. Understanding Variation
 
----
+ANOVA divides total variation into between-group and within-group components.
 
-# 4. ANOVA Hypotheses
+The fundamental relationship is:
 
-Suppose there are $k$ groups.
+$SS_T = SS_B + SS_W$
 
-The null hypothesis is:
+Where:
 
-$H_0:\mu_1=\mu_2=\cdots=\mu_k$
+- \(SS_T\) = total sum of squares.
+- \(SS_B\) = between-group sum of squares.
+- \(SS_W\) = within-group sum of squares.
 
-The alternative hypothesis is:
+### 4.1 Grand Mean
 
-$H_a:\text{At least one }\mu_i\text{ differs}$
+The grand mean is the mean of all observations combined.
 
-For three groups:
+$\bar{x}_{grand} = \frac{\sum_{i=1}^{k} n_i\bar{x}_i}{N}$
 
-$H_0:\mu_1=\mu_2=\mu_3$
+Where:
 
-and:
+- \(n_i\) = number of observations in group \(i\).
+- \(\bar{x}_i\) = mean of group \(i\).
+- \(N\) = total number of observations.
 
-$H_a:\text{At least one population mean is different}$
+$N = \sum_{i=1}^{k} n_i$
 
-The ANOVA test does not initially identify which particular groups differ.
+### 4.2 Total Sum of Squares
 
-That question is handled using appropriate **post-hoc comparisons** after a significant overall ANOVA result.
+The total sum of squares measures the variation of all observations around the grand mean.
 
----
+$SS_T = \sum_{i=1}^{N}(x_i-\bar{x}_{grand})^2$
 
-# 5. Why Is It Called Analysis of Variance?
+### 4.3 Between-Group Sum of Squares
 
-Suppose the observations are divided into groups.
+This measures how far the group means are from the grand mean.
 
-There are two major sources of variation.
+$SS_B = \sum_{i=1}^{k}n_i(\bar{x}_i-\bar{x}_{grand})^2$
 
-### Within-group variation
+### 4.4 Within-Group Sum of Squares
 
-Observations in the same group are not identical. They vary around their group mean.
+This measures how far individual observations are from their respective group means.
 
-### Between-group variation
+$SS_W = \sum_{i=1}^{k}\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2$
 
-The group means may differ from one another.
+Where \(x_{ij}\) represents observation \(j\) in group \(i\).
 
-ANOVA compares these two sources of variation.
+## 5. Worked Example: Calculating Sums of Squares
 
-Conceptually:
-
-$\boxed{ \text{Total Variation} = \text{Between-Group Variation} + \text{Within-Group Variation} }$
-
-If the group means are genuinely different, the between-group variation tends to be large relative to the within-group variation.
-
----
-
-# 6. A Simple Example of Group Variation
-
-Consider three groups:
+Consider the following data:
 
 | Group A | Group B | Group C |
 |---:|---:|---:|
-| 8 | 15 | 22 |
-| 10 | 14 | 21 |
-| 12 | 16 | 23 |
+| 10 | 16 | 22 |
+| 12 | 18 | 24 |
+| 14 | 20 | 26 |
 
-Group means:
+### Step 1: Calculate the group means
 
-$\bar{x}_A=10$
+For Group A:
 
-$\bar{x}_B=15$
+$\bar{x}_A = \frac{10+12+14}{3} = 12$
 
-$\bar{x}_C=22$
+For Group B:
 
-The group means are clearly separated.
+$\bar{x}_B = \frac{16+18+20}{3} = 18$
 
-Now imagine instead:
+For Group C:
 
-| Group A | Group B | Group C |
-|---:|---:|---:|
-| 10 | 10 | 11 |
-| 11 | 12 | 10 |
-| 12 | 11 | 12 |
+$\bar{x}_C = \frac{22+24+26}{3} = 24$
 
-The group means are much closer.
+### Step 2: Calculate the grand mean
 
-ANOVA asks whether the observed separation of group means is large compared with the variability within the groups.
+There are \(N=9\) observations.
 
----
-
-# 7. Grand Mean
-
-The **grand mean** is the mean of all observations combined.
-
-If there are $N$ total observations:
-
-$\bar{x}_{grand} = \frac{1}{N} \sum_{i=1}^{N}x_i$
-
-When groups have different sizes, the grand mean is naturally weighted by the number of observations in each group.
-
-If group $i$ has $n_i$ observations and mean $\bar{x}_i$, then:
-
-$\bar{x}_{grand} = \frac{ \sum_{i=1}^{k}n_i\bar{x}_i }{ \sum_{i=1}^{k}n_i }$
-
----
-
-# 8. Worked Example: Grand Mean
-
-Suppose:
-
-| Group | Observations | Mean |
-|---|---|---:|
-| A | 10, 12, 14 | 12 |
-| B | 16, 18, 20 | 18 |
-| C | 22, 24, 26 | 24 |
-
-There are:
-
-$N=9$
-
-total observations.
-
-The grand mean is:
-
-$\bar{x}_{grand} = \frac{ 10+12+14+16+18+20+22+24+26 }{9}$
-
-The sum is:
-
-$162$
-
-Therefore:
-
-$\bar{x}_{grand} = \frac{162}{9}$
+$\bar{x}_{grand} = \frac{10+12+14+16+18+20+22+24+26}{9}$
 
 $\boxed{\bar{x}_{grand}=18}$
 
-The grand mean provides the overall reference point for decomposing total variability.
+### Step 3: Calculate the between-group sum of squares
 
----
+$SS_B = 3(12-18)^2 + 3(18-18)^2 + 3(24-18)^2$
 
-# 9. Total Variation
+$SS_B = 3(36) + 3(0) + 3(36)$
 
-Total variation measures how far every observation is from the grand mean.
+$SS_B = 108 + 0 + 108$
 
-The **total sum of squares** is:
+**Answer:**
 
-$SS_{Total} = \sum_{i=1}^{N} (x_i-\bar{x}_{grand})^2$
+$\boxed{SS_B=216}$
 
-A large value means that the observations are widely spread around the grand mean.
-
-A small value means that the observations are concentrated near the grand mean.
-
----
-
-# 10. Between-Group Variation
-
-Between-group variation measures how far each group mean is from the grand mean.
-
-The **between-group sum of squares** is:
-
-$SS_{Between} = \sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x}_{grand})^2$
-
-where:
-
-- $k$ = number of groups
-- $n_i$ = sample size of group $i$
-- $\bar{x}_i$ = mean of group $i$
-- $\bar{x}_{grand}$ = grand mean
-
-The factor $n_i$ appears because each group mean represents $n_i$ observations.
-
----
-
-# 11. Within-Group Variation
-
-Within-group variation measures how far individual observations are from their own group mean.
-
-The **within-group sum of squares** is:
-
-$SS_{Within} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (x_{ij}-\bar{x}_i)^2$
-
-where:
-
-- $x_{ij}$ = observation $j$ in group $i$
-- $\bar{x}_i$ = mean of group $i$
-
-This measures the variation that remains inside the groups.
-
----
-
-# 12. Fundamental ANOVA Decomposition
-
-The three sums of squares are related by:
-
-$SS_{Total} = SS_{Between} + SS_{Within}$
-
-This is the central variance-decomposition identity of one-way ANOVA.
-
-The idea can be visualised as:
-
-```mermaid
-flowchart TD
-    A["Total Sum of Squares"] --> B["Between-Group Sum of Squares"]
-    A --> C["Within-Group Sum of Squares"]
-    B --> D["Variation explained by group differences"]
-    C --> E["Variation within groups"]
-```
-
-The total variation is separated into the part associated with group differences and the part remaining within groups.
-
----
-
-# 13. Worked Example: Sum of Squares
-
-Use the data:
-
-| Group A | Group B | Group C |
-|---:|---:|---:|
-| 10 | 16 | 22 |
-| 12 | 18 | 24 |
-| 14 | 20 | 26 |
-
-The group means are:
-
-$\bar{x}_A=12$
-
-$\bar{x}_B=18$
-
-$\bar{x}_C=24$
-
-and the grand mean is:
-
-$\bar{x}_{grand}=18$
-
-## Total Sum of Squares
+### Step 4: Calculate the within-group sum of squares
 
 For Group A:
 
-$(10-18)^2+(12-18)^2+(14-18)^2$
+$SS_A = (10-12)^2+(12-12)^2+(14-12)^2$
 
-$=64+36+16$
-
-$=116$
+$SS_A = 4+0+4=8$
 
 For Group B:
 
-$(16-18)^2+(18-18)^2+(20-18)^2$
+$SS_B^{(within)} = (16-18)^2+(18-18)^2+(20-18)^2$
 
-$=4+0+4$
-
-$=8$
+$SS_B^{(within)} = 4+0+4=8$
 
 For Group C:
 
-$(22-18)^2+(24-18)^2+(26-18)^2$
+$SS_C = (22-24)^2+(24-24)^2+(26-24)^2$
 
-$=16+36+64$
-
-$=116$
+$SS_C = 4+0+4=8$
 
 Therefore:
 
-$SS_{Total}=116+8+116$
+$SS_W = 8+8+8$
 
-$\boxed{SS_{Total}=240}$
+**Answer:**
 
----
+$\boxed{SS_W=24}$
 
-# 14. Between-Group Sum of Squares Example
+### Step 5: Calculate the total sum of squares
 
-The group sizes are all:
+$SS_T = SS_B + SS_W$
 
-$n_i=3$
+$SS_T = 216+24$
 
-The group means are:
+**Answer:**
 
-$12,\ 18,\ 24$
+$\boxed{SS_T=240}$
 
-and:
+The sum-of-squares decomposition is verified.
 
-$\bar{x}_{grand}=18$
+## 6. Degrees of Freedom
 
-Therefore:
+Degrees of freedom are used to calculate the mean squares.
 
-$SS_{Between} = 3(12-18)^2 + 3(18-18)^2 + 3(24-18)^2$
+| Source | Formula |
+|---|---|
+| Between groups | `df_B = k - 1` |
+| Within groups | `df_W = N - k` |
+| Total | `df_T = N - 1` |
 
-$= 3(36)+3(0)+3(36)$
+For the worked example, \(k=3\) and \(N=9\).
 
-$=108+0+108$
+Between-group degrees of freedom:
 
-$\boxed{SS_{Between}=216}$
+$df_B = 3-1 = 2$
 
----
+Within-group degrees of freedom:
 
-# 15. Within-Group Sum of Squares Example
+$df_W = 9-3 = 6$
 
-For Group A:
+Total degrees of freedom:
 
-$(10-12)^2+(12-12)^2+(14-12)^2$
-
-$=4+0+4$
-
-$=8$
-
-For Group B:
-
-$(16-18)^2+(18-18)^2+(20-18)^2$
-
-$=4+0+4$
-
-$=8$
-
-For Group C:
-
-$(22-24)^2+(24-24)^2+(26-24)^2$
-
-$=4+0+4$
-
-$=8$
-
-Therefore:
-
-$SS_{Within}=8+8+8$
-
-$\boxed{SS_{Within}=24}$
-
-Check:
-
-$SS_{Total} = SS_{Between}+SS_{Within}$
-
-$240=216+24$
-
-The decomposition is correct.
-
----
-
-# 16. Degrees of Freedom
-
-ANOVA uses degrees of freedom to convert sums of squares into mean squares.
-
-For $k$ groups and $N$ total observations:
-
-### Between groups
-
-$df_{Between}=k-1$
-
-### Within groups
-
-$df_{Within}=N-k$
-
-### Total
-
-$df_{Total}=N-1$
+$df_T = 9-1 = 8$
 
 The relationship is:
 
-$df_{Total} = df_{Between}+df_{Within}$
+$df_T = df_B + df_W$
 
----
+$8 = 2+6$
 
-# 17. Degrees of Freedom in the Worked Example
+## 7. Mean Squares
 
-There are:
-
-$k=3$
-
-groups and:
-
-$N=9$
-
-observations.
-
-Therefore:
-
-$df_{Between}=3-1=2$
-
-$df_{Within}=9-3=6$
-
-and:
-
-$df_{Total}=9-1=8$
-
-Check:
-
-$2+6=8$
-
-So:
-
-$\boxed{df_{Total}=df_{Between}+df_{Within}}$
-
----
-
-# 18. Mean Square
-
-A **mean square** is a sum of squares divided by its corresponding degrees of freedom.
+A mean square is calculated by dividing a sum of squares by its corresponding degrees of freedom.
 
 Between-group mean square:
 
-$MS_{Between} = \frac{SS_{Between}} {df_{Between}}$
+$MS_B = \frac{SS_B}{df_B}$
 
 Within-group mean square:
 
-$MS_{Within} = \frac{SS_{Within}} {df_{Within}}$
+$MS_W = \frac{SS_W}{df_W}$
 
-The word "mean" here refers to averaging the sum of squared deviations over the appropriate degrees of freedom.
+Using the worked example:
 
----
+$MS_B = \frac{216}{2} = 108$
 
-# 19. Worked Example: Mean Squares
+$MS_W = \frac{24}{6} = 4$
 
-From the previous example:
+## 8. F-Statistic
 
-$SS_{Between}=216$
+The F-statistic compares between-group variation with within-group variation.
 
-and:
+$F = \frac{MS_B}{MS_W}$
 
-$df_{Between}=2$
+Using the previous results:
 
-Therefore:
+$F = \frac{108}{4}$
 
-$MS_{Between} = \frac{216}{2}$
-
-$\boxed{MS_{Between}=108}$
-
-For within groups:
-
-$SS_{Within}=24$
-
-and:
-
-$df_{Within}=6$
-
-Therefore:
-
-$MS_{Within} = \frac{24}{6}$
-
-$\boxed{MS_{Within}=4}$
-
----
-
-# 20. F-Statistic
-
-The ANOVA test statistic is the **F-statistic**:
-
-$F= \frac{MS_{Between}} {MS_{Within}}$
-
-The logic is simple:
-
-- large between-group variation suggests differences among means;
-- within-group variation represents ordinary variation inside the groups.
-
-If the between-group variation is much larger than the within-group variation, $F$ becomes large.
-
----
-
-# 21. Worked Example: F-Statistic
-
-From the previous calculations:
-
-$MS_{Between}=108$
-
-and:
-
-$MS_{Within}=4$
-
-Therefore:
-
-$F= \frac{108}{4}$
+**Answer:**
 
 $\boxed{F=27}$
 
-An F-statistic of 27 is large relative to what would usually be expected if all population means were equal.
+A large F-statistic indicates that the variation between group means is large relative to the variation within groups. The final statistical decision depends on the F-distribution and the corresponding degrees of freedom.
 
-The exact decision requires the appropriate F-distribution with:
+## 9. ANOVA Table
 
-$df_1=df_{Between}$
-
-and:
-
-$df_2=df_{Within}$
-
----
-
-# 22. The F-Distribution
-
-The F-statistic is compared with an **F-distribution**.
-
-The F-distribution has two degrees of freedom:
-
-$df_1=df_{Between}$
-
-and:
-
-$df_2=df_{Within}$
-
-The F-distribution is nonnegative:
-
-$F\ge0$
-
-because it is a ratio of variance estimates.
-
-The rejection region for the standard ANOVA F-test is in the **right tail**.
-
-```mermaid
-flowchart LR
-    A["Between-group variation"] --> C["F statistic"]
-    B["Within-group variation"] --> C
-    C --> D["F distribution"]
-    D --> E["Large F → stronger evidence against H₀"]
-```
-
----
-
-# 23. Why Is the ANOVA Test Right-Tailed?
-
-The F-statistic is:
-
-$F= \frac{MS_{Between}} {MS_{Within}}$
-
-Both mean squares are nonnegative.
-
-If the group means are similar, the ratio may be near 1.
-
-If the group means differ substantially relative to within-group variation, the ratio becomes large.
-
-Therefore, unusually **large** F values provide evidence against the null hypothesis.
-
----
-
-# 24. ANOVA Decision Rule
-
-Using the p-value method:
-
-$p\le\alpha \Rightarrow \boxed{\text{Reject }H_0}$
-
-and:
-
-$p>\alpha \Rightarrow \boxed{\text{Fail to reject }H_0}$
-
-Using the critical-value method:
-
-$F>F_{critical} \Rightarrow \boxed{\text{Reject }H_0}$
-
-Otherwise:
-
-$F\le F_{critical} \Rightarrow \boxed{\text{Fail to reject }H_0}$
-
----
-
-# 25. Complete ANOVA Table
-
-A one-way ANOVA table commonly contains:
+The ANOVA table summarises the main calculations.
 
 | Source | Sum of Squares | df | Mean Square | F |
 |---|---:|---:|---:|---:|
-| Between Groups | $SS_B$ | $k-1$ | $MS_B$ | $MS_B/MS_W$ |
-| Within Groups | $SS_W$ | $N-k$ | $MS_W$ | — |
-| Total | $SS_T$ | $N-1$ | — | — |
-
-The F statistic is calculated from:
-
-$F= \frac{MS_B}{MS_W}$
-
----
-
-# 26. Complete ANOVA Table for the Worked Example
-
-We found:
-
-$SS_B=216$
-
-$SS_W=24$
-
-$SS_T=240$
-
-and:
-
-$df_B=2$
-
-$df_W=6$
-
-$df_T=8$
-
-Also:
-
-$MS_B=108$
-
-and:
-
-$MS_W=4$
-
-Therefore:
-
-| Source | SS | df | MS | F |
-|---|---:|---:|---:|---:|
-| Between | 216 | 2 | 108 | 27 |
-| Within | 24 | 6 | 4 | — |
+| Between groups | 216 | 2 | 108 | 27 |
+| Within groups | 24 | 6 | 4 | — |
 | Total | 240 | 8 | — | — |
 
-This table summarises the entire one-way ANOVA calculation.
+The F-statistic is calculated as:
 
----
+$F = \frac{MS_B}{MS_W}$
 
-# 27. Interpreting a Significant ANOVA
+The p-value is obtained from the F-distribution using:
 
-Suppose an ANOVA produces:
+- Numerator degrees of freedom: \(df_B\)
+- Denominator degrees of freedom: \(df_W\)
 
-$p=0.003$
+## 10. Decision Using the p-Value
 
-with:
+The significance level is commonly set to \(\alpha=0.05\), although the appropriate level depends on the analysis.
 
-$\alpha=0.05$
+| Condition | Decision |
+|---|---|
+| \(p \leq \alpha\) | Reject the null hypothesis |
+| \(p > \alpha\) | Fail to reject the null hypothesis |
 
-Since:
+For example, if \(p=0.003\) and \(\alpha=0.05\), reject the null hypothesis. There is statistical evidence that not all population means are equal.
 
-$0.003<0.05$
+If \(p=0.27\) and \(\alpha=0.05\), fail to reject the null hypothesis. There is insufficient evidence to conclude that the population means differ.
 
-we reject:
+**Important:** Failing to reject the null hypothesis does not prove that all population means are identical.
 
-$H_0$
+## 11. Assumptions of One-Way ANOVA
 
-The conclusion is:
+Classical one-way ANOVA relies on three main assumptions.
 
-> There is sufficient statistical evidence that not all population means are equal.
+### 11.1 Independence
 
-It is **not** correct to immediately say that every pair of groups is significantly different.
+Observations should be independent according to the study design. Repeated observations from the same individual may require a different analysis.
 
-ANOVA gives an overall test.
+### 11.2 Normality
 
----
+The errors within each group should be approximately normally distributed. Severe skewness and extreme outliers can affect the analysis, particularly with small samples.
 
-# 28. What Does a Non-Significant ANOVA Mean?
+### 11.3 Homogeneity of Variance
 
-Suppose:
-
-$p=0.27$
-
-and:
-
-$\alpha=0.05$
-
-Since:
-
-$0.27>0.05$
-
-we fail to reject $H_0$.
-
-The appropriate conclusion is:
-
-> There is not sufficient statistical evidence to conclude that the population means differ.
-
-This does not prove that all population means are exactly equal.
-
----
-
-# 29. Post-Hoc Comparisons
-
-If the overall ANOVA is significant, we may want to know which groups differ.
-
-This is where **post-hoc comparisons** are used.
-
-Common methods include:
-
-- Tukey's HSD;
-- Bonferroni-adjusted comparisons;
-- other multiple-comparison procedures.
-
-The purpose is to compare individual groups while controlling the increased false-positive risk caused by making multiple comparisons.
-
----
-
-# 30. Why Not Perform Many t-Tests?
-
-Suppose there are three groups.
-
-The pairwise comparisons are:
-
-$\binom{3}{2}=3$
-
-For five groups:
-
-$\binom{5}{2}=10$
-
-For ten groups:
-
-$\binom{10}{2}=45$
-
-The number of comparisons increases rapidly.
-
-Repeated unadjusted testing increases the chance of false-positive findings.
-
-ANOVA first provides an overall test, and post-hoc procedures provide controlled follow-up comparisons when appropriate.
-
----
-
-# 31. Tukey's HSD
-
-**Tukey's Honestly Significant Difference (HSD)** is a commonly used post-hoc procedure for comparing group means after ANOVA.
-
-For equal group sizes, the basic HSD expression is:
-
-$HSD= q_{\alpha,k,df_W} \sqrt{ \frac{MS_W}{n} }$
-
-where:
-
-- $q$ = studentized-range critical value;
-- $\alpha$ = significance level;
-- $k$ = number of groups;
-- $df_W$ = within-group degrees of freedom;
-- $MS_W$ = within-group mean square;
-- $n$ = group size.
-
-The exact implementation can accommodate unequal group sizes through appropriate procedures.
-
-The key idea is:
-
-> A pairwise mean difference must be sufficiently large relative to the within-group variability to be considered significant under the chosen multiple-comparison procedure.
-
----
-
-# 32. Post-Hoc Interpretation
-
-Suppose an ANOVA is significant for three groups:
-
-| Comparison | Adjusted p-value |
-|---|---:|
-| A vs B | 0.31 |
-| A vs C | 0.002 |
-| B vs C | 0.018 |
-
-At:
-
-$\alpha=0.05$
-
-we would conclude:
-
-- A vs B: not statistically significant;
-- A vs C: statistically significant;
-- B vs C: statistically significant.
-
-Thus, the overall ANOVA tells us that not all means are equal, while post-hoc analysis identifies the specific differences.
-
----
-
-# 33. ANOVA Assumptions
-
-One-way ANOVA relies on important assumptions.
-
-The main assumptions are:
-
-1. independence;
-2. appropriate measurement structure;
-3. approximately normal errors within groups;
-4. homogeneity of variances.
-
-These assumptions support the validity of the F-test.
-
----
-
-# 34. Independence
-
-Observations should be independent within and between groups under the standard one-way ANOVA framework.
-
-Independence is primarily a property of the study design and sampling process.
-
-It cannot be guaranteed simply by looking at a dataset.
-
-For example, repeated measurements from the same person are not automatically independent observations.
-
-If observations are paired or repeated, another design and analysis may be appropriate.
-
----
-
-# 35. Normality
-
-The standard ANOVA model assumes that the errors within groups are approximately normally distributed.
-
-The assumption is especially important for small samples.
-
-With larger samples, ANOVA can often be reasonably robust to moderate departures from normality, particularly when group sizes are balanced.
-
-However, extreme skewness and severe outliers can still cause problems.
-
----
-
-# 36. Homogeneity of Variance
-
-The standard one-way ANOVA assumes that the population variances are approximately equal across groups:
+The population variances should be reasonably equal.
 
 $\sigma_1^2 = \sigma_2^2 = \cdots = \sigma_k^2$
 
-This is called **homogeneity of variance** or **equal variances**.
+Box plots and residual plots can help identify unusual spread, outliers, and other patterns.
 
-The idea is that the within-group variability should be reasonably comparable across groups.
+**Levene's test** can assess evidence against equal variances. Its result should be considered alongside the study design, sample sizes, and graphical diagnostics.
 
----
+## 12. Welch's ANOVA
 
-# 37. Checking Variability Visually
+Welch's ANOVA is an alternative when the assumption of equal population variances is questionable.
 
-Box plots can help compare the spread of groups.
+| Classical One-Way ANOVA | Welch's ANOVA |
+|---|---|
+| Assumes equal population variances | Does not require equal population variances |
+| Uses the standard ANOVA F-test | Uses an adjusted test statistic and degrees of freedom |
+| Suitable when its assumptions are reasonable | Useful when variances differ, particularly with unequal group sizes |
 
-For example, if one group has a much wider spread than all other groups, the equal-variance assumption deserves attention.
+Unequal group sizes alone do not invalidate classical ANOVA. The decision should consider the variance pattern and study design.
 
-A visual check should consider:
+## 13. Post-Hoc Tests
 
-- overall spread;
-- outliers;
-- skewness;
-- differences in group size.
+A significant ANOVA identifies an overall difference but does not identify which groups differ.
 
-No single graph proves an assumption, but visual diagnostics are useful.
+Post-hoc tests perform follow-up comparisons while accounting for multiple testing.
 
----
+**Tukey's Honestly Significant Difference (HSD)** is a common method for comparing all pairs of group means.
 
-# 38. Levene's Test
+For equal group sizes, the critical difference is:
 
-**Levene's test** is commonly used to assess equality of variances.
+$HSD = q_{\alpha,k,df_W}\sqrt{\frac{MS_W}{n}}$
 
-Its null hypothesis is approximately:
+Where:
 
-$H_0:\sigma_1^2=\sigma_2^2=\cdots=\sigma_k^2$
+- \(q\) = critical value from the studentized-range distribution.
+- \(\alpha\) = significance level.
+- \(k\) = number of groups.
+- \(df_W\) = within-group degrees of freedom.
+- \(MS_W\) = within-group mean square.
+- \(n\) = observations per group.
 
-The alternative is that at least one variance differs.
+Tukey's procedure is useful when the goal is to compare all group pairs. Other procedures may be appropriate for different comparison objectives.
 
-A small p-value provides evidence against equal variances.
+## 14. Effect Size in ANOVA
 
-However, an assumption test should not be used mechanically. Study design, sample sizes, graphical diagnostics, and robustness also matter.
+Statistical significance does not indicate how large or practically important a group effect is. Effect sizes help quantify its magnitude.
 
----
+### 14.1 Eta Squared
 
-# 39. Welch's ANOVA
+Eta squared measures the proportion of total variation associated with group differences in a one-way ANOVA.
 
-When group variances are unequal, especially when group sizes are also unequal, the standard one-way ANOVA may not be the best choice.
+$\eta^2 = \frac{SS_B}{SS_T}$
 
-**Welch's ANOVA** provides a more robust alternative when the equal-variance assumption is questionable.
+For the worked example:
 
-The key distinction is:
-
-- classical one-way ANOVA assumes equal variances;
-- Welch's ANOVA does not require the same equal-variance assumption.
-
-The choice should be based on the data structure and assumptions.
-
----
-
-# 40. Balanced vs Unbalanced Designs
-
-A **balanced design** has equal sample sizes in all groups.
-
-For example:
-
-| Group | n |
-|---|---:|
-| A | 30 |
-| B | 30 |
-| C | 30 |
-
-An **unbalanced design** has different sample sizes:
-
-| Group | n |
-|---|---:|
-| A | 20 |
-| B | 30 |
-| C | 45 |
-
-Balanced designs are often easier to analyse and can be more robust to certain assumption violations.
-
-Unequal group sizes are not automatically invalid, but they require more careful attention to variance assumptions and study design.
-
----
-
-# 41. Effect Size in ANOVA
-
-A statistically significant F-test tells us that there is evidence of a difference among population means.
-
-It does not tell us how large the overall group effect is.
-
-Effect-size measures provide additional information.
-
-One common measure is **eta squared**:
-
-$\eta^2= \frac{SS_{Between}} {SS_{Total}}$
-
-It represents the proportion of total variation associated with differences between groups in the one-way ANOVA setting.
-
----
-
-# 42. Worked Example: Eta Squared
-
-From the previous example:
-
-$SS_{Between}=216$
-
-and:
-
-$SS_{Total}=240$
-
-Therefore:
-
-$\eta^2= \frac{216}{240}$
-
-$=0.90$
-
-Thus:
+$\eta^2 = \frac{216}{240}$
 
 $\boxed{\eta^2=0.90}$
 
-In this illustrative dataset, 90% of the total variation is associated with between-group differences.
+The between-group sum of squares accounts for 90% of the total sum of squares in this sample.
 
-This is a very large proportion, and the example was deliberately constructed with clearly separated group means.
+### 14.2 Omega Squared
 
-Effect size should always be interpreted in context rather than using a single universal cutoff without considering the field.
+Omega squared is a less upward-biased estimate of the population effect size.
 
----
+$\omega^2 = \frac{SS_B-(k-1)MS_W}{SS_T+MS_W}$
 
-# 43. Omega Squared
+Using the worked example:
 
-Another effect-size measure is **omega squared**:
+$\omega^2 = \frac{216-(3-1)(4)}{240+4}$
 
-$\omega^2= \frac{ SS_{Between}-(k-1)MS_{Within} }{ SS_{Total}+MS_{Within} }$
+$\omega^2 = \frac{208}{244}$
 
-Omega squared attempts to provide a less biased estimate of the population-level proportion of variance associated with the factor.
+$\boxed{\omega^2 \approx 0.852}$
 
-It is often useful when reporting ANOVA results because eta squared can be somewhat upward biased in finite samples.
+Effect-size interpretation should consider the subject area and practical context rather than relying on a universal threshold.
 
----
+## 15. ANOVA in Python
 
-# 44. Eta Squared vs Omega Squared
+Python libraries such as SciPy, pandas, and statsmodels can perform ANOVA calculations.
 
-| Measure | Formula Idea | Interpretation |
-|---|---|---|
-| $\eta^2$ | $SS_B/SS_T$ | Sample proportion of total variation associated with groups |
-| $\omega^2$ | Bias-adjusted form using $MS_W$ | More conservative population-oriented effect-size estimate |
+### 15.1 Using SciPy
 
-Both are effect-size measures, not substitutes for the F-test itself.
+```python
+from scipy.stats import f_oneway
 
----
+group_a = [10, 12, 14]
+group_b = [16, 18, 20]
+group_c = [22, 24, 26]
 
-# 45. ANOVA and the Two-Group Case
+f_statistic, p_value = f_oneway(
+    group_a,
+    group_b,
+    group_c
+)
 
-When there are exactly two groups, a one-way ANOVA and a corresponding independent-samples t-test are closely related.
+print("F-statistic:", f_statistic)
+print("p-value:", p_value)
 
-For a two-group comparison under equivalent assumptions:
+alpha = 0.05
 
-$F=t^2$
+if p_value <= alpha:
+    print("Reject the null hypothesis.")
+    print("At least one population mean differs.")
+else:
+    print("Fail to reject the null hypothesis.")
+    print("Insufficient evidence of different means.")
+```
 
-This means that the F-test and the two-sided t-test lead to the same overall significance decision in the corresponding two-group setting.
+### 15.2 Using Statsmodels
 
-ANOVA becomes particularly useful when there are three or more groups because it provides one overall test rather than many unadjusted pairwise tests.
+Statsmodels provides an ANOVA table through an ordinary least-squares model.
 
----
+```python
+import pandas as pd
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
 
-# 46. Worked Two-Group Relationship
+df = pd.DataFrame({
+    "score": [
+        10, 12, 14,
+        16, 18, 20,
+        22, 24, 26
+    ],
+    "group": [
+        "A", "A", "A",
+        "B", "B", "B",
+        "C", "C", "C"
+    ]
+})
 
-Suppose:
+model = ols("score ~ C(group)", data=df).fit()
 
-$t=2.5$
+anova_table = sm.stats.anova_lm(model, typ=2)
 
-Then:
+print(anova_table)
+```
 
-$F=t^2$
+Here, `C(group)` tells statsmodels to treat the group variable as categorical.
 
-$F=(2.5)^2$
+### 15.3 Tukey HSD in Python
 
-$\boxed{F=6.25}$
+```python
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
-The corresponding two-sided t-test and one-way ANOVA test are linked through this relationship under the equivalent two-group setup.
+result = pairwise_tukeyhsd(
+    endog=df["score"],
+    groups=df["group"],
+    alpha=0.05
+)
 
----
+print(result)
+```
 
-# 47. ANOVA as a Linear Model
+Tukey HSD identifies which pairs of group means differ significantly while accounting for multiple comparisons.
 
-One-way ANOVA can also be represented using a linear-model framework.
+## 16. Choosing an Appropriate Analysis
 
-For observation $j$ in group $i$:
-
-$x_{ij}=\mu+\tau_i+\epsilon_{ij}$
-
-where:
-
-- $\mu$ = overall mean;
-- $\tau_i$ = effect associated with group $i$;
-- $\epsilon_{ij}$ = random error.
-
-The model separates systematic group differences from unexplained within-group variation.
-
-A common constraint is imposed on the group effects so that the parameters are identifiable.
-
-This connects ANOVA to the broader linear-model framework, but the central one-way ANOVA calculations remain based on sums of squares and the F statistic.
-
----
-
-# 48. ANOVA Model Interpretation
-
-The model:
-
-$x_{ij}=\mu+\tau_i+\epsilon_{ij}$
-
-can be understood as:
-
-$\text{Observation} = \text{Overall Level} + \text{Group Effect} + \text{Random Error}$
-
-If group effects are essentially zero, the group means are similar.
-
-If group effects differ substantially, the group means separate.
-
-The F-test evaluates whether the observed between-group variation is sufficiently large relative to the within-group variation.
-
----
-
-# 49. Complete Manual ANOVA Calculation
-
-Consider:
-
-| Group A | Group B | Group C |
-|---:|---:|---:|
-| 10 | 16 | 22 |
-| 12 | 18 | 24 |
-| 14 | 20 | 26 |
-
-## Step 1: Group means
-
-$\bar{x}_A=12$
-
-$\bar{x}_B=18$
-
-$\bar{x}_C=24$
-
-## Step 2: Grand mean
-
-$\bar{x}_{grand}=18$
-
-## Step 3: Between-group SS
-
-$SS_B=216$
-
-## Step 4: Within-group SS
-
-$SS_W=24$
-
-## Step 5: Total SS
-
-$SS_T=240$
-
-## Step 6: Degrees of freedom
-
-$df_B=2$
-
-$df_W=6$
-
-$df_T=8$
-
-## Step 7: Mean squares
-
-$MS_B=\frac{216}{2}=108$
-
-$MS_W=\frac{24}{6}=4$
-
-## Step 8: F statistic
-
-$F=\frac{108}{4}=27$
-
-Therefore:
-
-$\boxed{F=27}$
-
-The final p-value would be obtained from the F-distribution with:
-
-$df_1=2$
-
-and:
-
-$df_2=6$
-
----
-
-# 50. ANOVA Calculation Flow
-
-A useful memory sequence is:
-
-$\boxed{ SS \rightarrow df \rightarrow MS \rightarrow F \rightarrow p \rightarrow \text{Decision} }$
-
-More specifically:
-
-$SS_B \rightarrow df_B \rightarrow MS_B$
-
-and:
-
-$SS_W \rightarrow df_W \rightarrow MS_W$
-
-then:
-
-$F= \frac{MS_B}{MS_W}$
-
-and finally the F statistic is evaluated using the F-distribution.
-
----
-
-# 51. Common Mistakes in ANOVA
-
-### Mistake 1: Saying ANOVA compares variances rather than means
-
-ANOVA uses variance decomposition to test whether population means differ.
-
-### Mistake 2: Saying a significant ANOVA means every group differs
-
-A significant ANOVA means at least one population mean differs.
-
-### Mistake 3: Ignoring post-hoc analysis
-
-If the overall ANOVA is significant and specific group differences are needed, an appropriate post-hoc procedure is required.
-
-### Mistake 4: Performing many unadjusted t-tests
-
-Multiple comparisons increase false-positive risk.
-
-### Mistake 5: Forgetting the F ratio
-
-The ANOVA statistic is:
-
-$F=\frac{MS_B}{MS_W}$
-
-### Mistake 6: Using the wrong degrees of freedom
-
-For one-way ANOVA:
-
-$df_B=k-1$
-
-$df_W=N-k$
-
-$df_T=N-1$
-
-### Mistake 7: Ignoring unequal variances
-
-When group variances are substantially different, especially with unequal group sizes, a robust alternative such as Welch's ANOVA may be appropriate.
-
-### Mistake 8: Treating statistical significance as practical importance
-
-A significant F-test does not tell us whether the difference is practically meaningful.
-
-### Mistake 9: Ignoring outliers
-
-Extreme observations can strongly influence means and sums of squares.
-
-### Mistake 10: Forgetting independence
-
-Repeated measurements or clustered observations may violate the assumptions of ordinary one-way ANOVA.
-
----
-
-# 52. Reporting an ANOVA Result
-
-A useful report includes:
-
-1. the factor and response variable;
-2. the F statistic;
-3. numerator and denominator degrees of freedom;
-4. the p-value;
-5. the decision;
-6. an effect size when appropriate;
-7. post-hoc results if the overall test is significant.
-
-For example:
-
-> A one-way ANOVA was conducted to compare mean scores across three teaching methods. The analysis produced an F statistic of 27 with 2 and 6 degrees of freedom. The result was statistically significant at the chosen significance level, indicating that not all population means are equal. Post-hoc comparisons should be used to determine which group means differ.
-
-This is more informative than simply saying:
-
-> ANOVA is significant.
-
----
-
-# 53. What ANOVA Does Not Tell Us
-
-A significant ANOVA does not automatically tell us:
-
-- which group is highest;
-- which group is lowest;
-- which pairs differ;
-- how large the practical effect is;
-- whether the result is scientifically important.
-
-These questions require additional analysis.
-
-The overall ANOVA answers the narrower question:
-
-> Is there evidence that not all population means are equal?
-
----
-
-# 54. ANOVA and Multiple Comparisons
-
-Suppose there are four groups.
-
-The number of pairwise comparisons is:
-
-$\binom{4}{2} = \frac{4(3)}{2}$
-
-$=6$
-
-With six comparisons, using an unadjusted 5% significance level for every comparison can inflate the probability of at least one false positive.
-
-Post-hoc procedures such as Tukey's method account for the multiple-comparison problem.
-
----
-
-# 55. Choosing Between ANOVA and a t-Test
-
-If there are exactly two independent groups, a two-sample t-test is usually the more direct presentation.
-
-If there are three or more independent groups and the goal is to compare means, one-way ANOVA provides an overall test.
-
-The two-group relationship:
-
-$F=t^2$
-
-explains why the methods are closely connected.
-
----
-
-# 56. Choosing Between Classical ANOVA and Welch's ANOVA
-
-A simplified decision guide is:
-
-| Situation | Common Choice |
+| Situation | Appropriate approach |
 |---|---|
-| Independent groups, approximately equal variances | One-way ANOVA |
-| Independent groups, unequal variances | Welch's ANOVA |
-| Repeated/paired measurements | Repeated-measures or paired framework |
-| Two independent groups | Two-sample t procedure |
-| Three or more independent groups | One-way ANOVA/Welch depending on assumptions |
-
-The study design should be considered before choosing the test.
-
----
-
-# 57. Nonparametric Alternative
-
-When assumptions for one-way ANOVA are seriously violated and an appropriate transformation or robust method is not suitable, the **Kruskal-Wallis test** can be considered for comparing groups.
-
-The Kruskal-Wallis test is based on ranks rather than the original observations.
-
-Its null hypothesis is broadly that the groups come from the same distribution under the standard interpretation.
-
-It is not simply a universal replacement for ANOVA, and the interpretation differs because it is rank-based.
-
----
-
-# 58. ANOVA and Robustness
-
-ANOVA can be reasonably robust to moderate violations of normality, particularly when:
-
-- groups have similar sample sizes;
-- there are no severe outliers;
-- group variances are reasonably similar.
-
-Severe violations can be more problematic.
-
-Therefore, the goal should not be to mechanically reject or accept ANOVA based on one diagnostic test. Use:
-
-- study design;
-- group sizes;
-- graphical inspection;
-- variance comparisons;
-- subject-matter knowledge.
-
----
-
-# 59. Visualising ANOVA Data
-
-Useful visualisations include:
-
-- box plots;
-- strip plots;
-- jittered scatter plots;
-- group mean plots with uncertainty;
-- residual plots.
-
-A box plot can show:
-
-- median;
-- quartiles;
-- spread;
-- potential outliers.
-
-A group-level visualisation can make the mean differences easier to understand before performing the formal test.
-
----
-
-# 60. Residuals
-
-A residual is the difference between an observed value and its fitted group mean.
-
-For observation $x_{ij}$:
-
-$e_{ij}=x_{ij}-\bar{x}_i$
-
-Residuals represent the within-group deviations that remain after accounting for group membership.
-
-The within-group sum of squares can therefore be written as:
-
-$SS_W= \sum e_{ij}^2$
-
-Residual analysis can help identify:
-
-- nonconstant variance;
-- unusual observations;
-- strong non-normality;
-- structural problems in the model.
-
----
-
-# 61. Residual Example
-
-Suppose Group A has:
-
-$10,\ 12,\ 14$
-
-with:
-
-$\bar{x}_A=12$
-
-Residuals are:
-
-$10-12=-2$
-
-$12-12=0$
-
-$14-12=2$
-
-Squared residuals:
-
-$(-2)^2=4$
-
-$0^2=0$
-
-$2^2=4$
-
-Therefore:
-
-$SS_{Within,A}=8$
-
-This is exactly the within-group contribution from Group A.
-
----
-
-# 62. Balanced ANOVA Example
-
-Consider three groups, each with four observations:
-
-| Group A | Group B | Group C |
-|---:|---:|---:|
-| 12 | 16 | 20 |
-| 13 | 17 | 21 |
-| 11 | 15 | 19 |
-| 14 | 18 | 22 |
-
-Group means:
-
-$\bar{x}_A=12.5$
-
-$\bar{x}_B=16.5$
-
-$\bar{x}_C=20.5$
-
-The means are separated by approximately four units.
-
-The within-group variation is relatively small compared with the between-group separation, so we would expect a relatively large F statistic.
-
-The exact ANOVA should still be calculated rather than judging significance from the means alone.
-
----
-
-# 63. Unequal Group Sizes
-
-Consider:
-
-| Group | n | Mean |
-|---|---:|---:|
-| A | 10 | 70 |
-| B | 20 | 75 |
-| C | 30 | 82 |
-
-The grand mean is not:
-
-$\frac{70+75+82}{3}$
-
-because the groups have different sizes.
-
-Instead:
-
-$\bar{x}_{grand} = \frac{ 10(70)+20(75)+30(82) }{ 10+20+30 }$
-
-$= \frac{700+1500+2460}{60}$
-
-$= \frac{4660}{60}$
-
-$\boxed{\bar{x}_{grand}\approx77.67}$
-
-This illustrates why group sizes matter in ANOVA calculations.
-
----
-
-# 64. Grand Mean as a Weighted Mean
-
-For unequal group sizes:
-
-$\bar{x}_{grand} = \frac{ \sum n_i\bar{x}_i }{ \sum n_i }$
-
-This is a weighted mean.
-
-The larger groups receive greater weight because they contain more observations.
-
-This is an important practical point when calculating ANOVA components manually.
-
----
-
-# 65. Total, Between, and Within Variation
-
-The ANOVA decomposition can be remembered as:
-
-$\boxed{ SS_T=SS_B+SS_W }$
-
-where:
-
-- $SS_T$ = total variation;
-- $SS_B$ = between-group variation;
-- $SS_W$ = within-group variation.
-
-The corresponding degrees of freedom are:
-
-$\boxed{ df_T=df_B+df_W }$
-
-and:
-
-$\boxed{ MS=\frac{SS}{df} }$
-
-Finally:
-
-$\boxed{ F=\frac{MS_B}{MS_W} }$
-
-These four relationships form the mathematical core of one-way ANOVA.
-
----
-
-# 66. Interpreting the F Ratio
-
-Suppose:
-
-$F\approx1$
-
-This suggests that between-group variation is similar to within-group variation.
-
-Suppose:
-
-$F=10$
-
-This means the between-group mean square is ten times the within-group mean square.
-
-Suppose:
-
-$F=25$
-
-The between-group variation is much larger relative to within-group variation.
-
-A large F value is evidence against the null hypothesis, but statistical significance still depends on the appropriate F-distribution and degrees of freedom.
-
----
-
-# 67. ANOVA p-Value
-
-The p-value is calculated from the F-distribution:
-
-$p=P(F_{df_1,df_2}\ge F_{observed})$
-
-Because the F-test is right-tailed, the probability is the area to the right of the observed F statistic.
-
-For example, if:
-
-$F=8.5$
-
-then the p-value is the right-tail probability beyond 8.5 for the appropriate degrees of freedom.
-
----
-
-# 68. Worked Interpretation of an ANOVA Output
-
-Suppose software reports:
-
-```
-F = 6.82
-df_between = 2
-df_within = 57
-p-value = 0.0022
-```
-
-At:
-
-$\alpha=0.05$
-
-we have:
-
-$0.0022<0.05$
-
-Therefore:
-
-$\boxed{\text{Reject }H_0}$
-
-A suitable conclusion is:
-
-> There is sufficient statistical evidence that the population means are not all equal.
-
-The next step, if identifying individual differences is required, is an appropriate post-hoc analysis.
-
----
-
-# 69. ANOVA vs Multiple Pairwise Tests
-
-Suppose there are three groups.
-
-A researcher might perform:
-
-1. A vs B
-2. A vs C
-3. B vs C
-
-ANOVA instead begins with:
-
-$H_0:\mu_A=\mu_B=\mu_C$
-
-This gives a single overall test.
-
-If significant, post-hoc comparisons can then examine the individual group differences with an appropriate multiplicity adjustment.
-
-The advantage is a controlled overall testing strategy rather than a collection of unadjusted comparisons.
-
----
-
-# 70. Practical Interpretation of Effect Size
-
-Suppose an ANOVA is statistically significant and:
-
-$\eta^2=0.04$
-
-The result indicates that the factor is associated with about 4% of the observed total variation in the sample under the eta-squared definition.
-
-Whether 4% is practically important depends on:
-
-- subject area;
-- measurement scale;
-- cost;
-- scientific importance;
-- business importance;
-- consequences of the difference.
-
-No universal percentage should automatically be labelled "important" without context.
-
----
-
-# 71. Common Reporting Structure
-
-A strong ANOVA report can follow:
-
-> A one-way ANOVA was conducted to compare [response variable] across [groups]. The analysis produced $F(df_1,df_2)=...$ with $p=...$. At $\alpha=...$, the null hypothesis was [rejected/not rejected]. The result indicates [contextual conclusion]. The effect size was $\eta^2=...$. When appropriate, post-hoc comparisons showed [specific group differences].
-
-This structure reports both statistical evidence and interpretation.
-
----
-
-# 72. Points to Remember
+| Compare means across independent groups when equal-variance assumptions are reasonable | One-way ANOVA |
+| Compare independent group means when variances are unequal | Welch's ANOVA |
+| Identify which group pairs differ | Appropriate post-hoc procedure, such as Tukey HSD |
+| Compare two independent group means | Appropriate two-sample t-test |
+| Analyse repeated measurements from the same subjects | A method designed for repeated or paired data |
+
+The choice of statistical method should follow the study design, response variable, and assumptions.
+
+## 17. Points to Remember
 
 1. ANOVA stands for Analysis of Variance.
-2. One-way ANOVA compares means across multiple independent groups.
+2. One-way ANOVA compares population means across independent groups.
 3. The null hypothesis states that all population means are equal.
-4. The alternative says that at least one population mean differs.
-5. ANOVA does not automatically tell us which groups differ.
-6. A significant overall ANOVA can be followed by appropriate post-hoc comparisons.
-7. Total variation is decomposed into between-group and within-group variation.
-8. The core identity is:
+4. The alternative states that at least one population mean differs.
+5. Total variation is divided into between-group and within-group variation.
+6. The central identity is `SS_T = SS_B + SS_W`.
+7. The F-statistic is `F = MS_B / MS_W`.
+8. The standard ANOVA F-test uses the right tail of the F-distribution.
+9. A significant ANOVA does not identify which groups differ.
+10. Post-hoc tests can be used for follow-up comparisons.
+11. Independence, normality of errors, and equal variances are important assumptions.
+12. Welch's ANOVA is useful when equal variances are questionable.
+13. Effect sizes describe the magnitude of group differences.
+14. SciPy and statsmodels can perform ANOVA in Python.
+15. Statistical significance and practical importance are not the same.
 
-$SS_T=SS_B+SS_W$
+## 18. Formula Summary
 
-9. Between-group degrees of freedom are:
+### Grand Mean
 
-$df_B=k-1$
+$\bar{x}_{grand} = \frac{\sum_{i=1}^{k}n_i\bar{x}_i}{N}$
 
-10. Within-group degrees of freedom are:
+### Total Sum of Squares
 
-$df_W=N-k$
+$SS_T = \sum_{i=1}^{N}(x_i-\bar{x}_{grand})^2$
 
-11. Total degrees of freedom are:
+### Between-Group Sum of Squares
 
-$df_T=N-1$
+$SS_B = \sum_{i=1}^{k}n_i(\bar{x}_i-\bar{x}_{grand})^2$
 
-12. Mean square equals sum of squares divided by degrees of freedom.
-13. The F statistic is:
+### Within-Group Sum of Squares
 
-$F=\frac{MS_B}{MS_W}$
+$SS_W = \sum_{i=1}^{k}\sum_{j=1}^{n_i}(x_{ij}-\bar{x}_i)^2$
 
-14. The F-test is right-tailed.
-15. A large F statistic provides evidence against equal population means.
-16. Independence is a major assumption.
-17. Standard ANOVA assumes approximately normal errors within groups.
-18. Standard ANOVA assumes reasonably equal population variances.
-19. Welch's ANOVA can be useful when equal variances are questionable.
-20. Eta squared measures the proportion of total variation associated with group differences in the sample.
-21. Omega squared provides a more conservative effect-size estimate.
-22. Statistical significance does not automatically imply practical importance.
-23. Two-group ANOVA is closely related to the two-sample t-test:
+### Sum-of-Squares Identity
 
-$F=t^2$
+$SS_T = SS_B + SS_W$
 
-24. Multiple unadjusted pairwise tests can inflate false-positive risk.
-25. Visual diagnostics should be used along with statistical calculations.
-26. Repeated or paired observations require a different analysis framework.
-27. A significant ANOVA means at least one mean differs, not necessarily that every mean differs.
-28. The study design should be considered before selecting the test.
+### Degrees of Freedom
 
----
+$df_B = k-1$
 
-# 73. Important Formula Summary
+$df_W = N-k$
 
-## Grand Mean
+$df_T = N-1$
 
-$\bar{x}_{grand} = \frac{ \sum_{i=1}^{k}n_i\bar{x}_i }{ N }$
+### Mean Squares
 
-where:
+$MS_B = \frac{SS_B}{df_B}$
 
-$N=\sum_{i=1}^{k}n_i$
+$MS_W = \frac{SS_W}{df_W}$
 
-## Total Sum of Squares
+### F-Statistic
 
-$SS_T = \sum_{i=1}^{N} (x_i-\bar{x}_{grand})^2$
+$F = \frac{MS_B}{MS_W}$
 
-## Between-Group Sum of Squares
+### Eta Squared
 
-$SS_B = \sum_{i=1}^{k} n_i(\bar{x}_i-\bar{x}_{grand})^2$
+$\eta^2 = \frac{SS_B}{SS_T}$
 
-## Within-Group Sum of Squares
+### Omega Squared
 
-$SS_W = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (x_{ij}-\bar{x}_i)^2$
+$\omega^2 = \frac{SS_B-(k-1)MS_W}{SS_T+MS_W}$
 
-## Sum-of-Squares Decomposition
+## 19. Practice Questions
 
-$SS_T=SS_B+SS_W$
+1. What is ANOVA, and why is it used?
+2. Write the null and alternative hypotheses for a one-way ANOVA.
+3. Explain between-group and within-group variation.
+4. Calculate the grand mean for groups with unequal sample sizes.
+5. Explain the relationship between total, between-group, and within-group sums of squares.
+6. Calculate the degrees of freedom for an ANOVA with four groups and 40 observations.
+7. What does a large F-statistic indicate?
+8. Why does a significant ANOVA not identify the exact groups that differ?
+9. Explain the assumptions of classical one-way ANOVA.
+10. When should Welch's ANOVA be considered?
+11. What is the purpose of Tukey HSD?
+12. Calculate eta squared from given sums of squares.
+13. Perform a one-way ANOVA using SciPy.
+14. Generate an ANOVA table using statsmodels.
 
-## Degrees of Freedom
+## 20. References
 
-$df_B=k-1$
-
-$df_W=N-k$
-
-$df_T=N-1$
-
-## Mean Squares
-
-$MS_B=\frac{SS_B}{df_B}$
-
-$MS_W=\frac{SS_W}{df_W}$
-
-## F Statistic
-
-$F=\frac{MS_B}{MS_W}$
-
-## Eta Squared
-
-$\eta^2= \frac{SS_B}{SS_T}$
-
-## Omega Squared
-
-$\omega^2= \frac{ SS_B-(k-1)MS_W }{ SS_T+MS_W }$
-
----
-
-# 74. Chapter Summary
-
-ANOVA provides a structured way to compare the means of multiple groups.
-
-The central question is:
-
-> Are the observed differences among group means large relative to the variability within the groups?
-
-The method begins by defining:
-
-$H_0:\mu_1=\mu_2=\cdots=\mu_k$
-
-against:
-
-$H_a:\text{At least one population mean differs}$
-
-The total variability is divided into:
-
-$SS_T=SS_B+SS_W$
-
-Between-group variation measures how far the group means are from the grand mean. Within-group variation measures how far individual observations are from their own group means.
-
-The sums of squares are converted into mean squares using degrees of freedom:
-
-$MS_B=\frac{SS_B}{k-1}$
-
-and:
-
-$MS_W=\frac{SS_W}{N-k}$
-
-The F statistic is:
-
-$F=\frac{MS_B}{MS_W}$
-
-A large F statistic indicates that the between-group variation is large relative to within-group variation.
-
-The p-value is obtained from the F-distribution. If:
-
-$p\le\alpha$
-
-we reject the null hypothesis and conclude that there is statistical evidence that not all population means are equal.
-
-A significant ANOVA does not identify the exact groups that differ. Appropriate post-hoc procedures, such as Tukey's HSD, can be used for follow-up comparisons.
-
-The validity of the classical one-way ANOVA depends on assumptions including independence, approximately normal errors, and reasonably equal variances. When equal variances are questionable, Welch's ANOVA can be considered.
-
-Finally, effect sizes such as $\eta^2$ and $\omega^2$ provide information about the magnitude of the group effect, which is important because statistical significance alone does not describe practical importance.
-
-The complete logic can be summarised as:
-
-$\boxed{ \text{Group Means} \rightarrow \text{Variance Decomposition} \rightarrow SS_B,SS_W \rightarrow MS_B,MS_W \rightarrow F \rightarrow p \rightarrow \text{Overall Decision} }$
-
----
-
-# 75. References
-
-- OpenStax, *Introductory Statistics*.
-- NIST/SEMATECH, *e-Handbook of Statistical Methods*.
-- Penn State Eberly College of Science, *STAT Online*.
-- Montgomery & Runger, *Applied Statistics and Probability for Engineers*.
-- Casella & Berger, *Statistical Inference*.
+- [OpenStax — Introductory Statistics](https://openstax.org/details/books/introductory-statistics)
+- [NIST/SEMATECH — e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
+- [Penn State — STAT Online](https://online.stat.psu.edu/)
+- [SciPy — `f_oneway`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.f_oneway.html)
+- [Statsmodels — ANOVA](https://www.statsmodels.org/stable/anova.html)
+- [Statsmodels — Tukey HSD](https://www.statsmodels.org/stable/generated/statsmodels.stats.multicomp.pairwise_tukeyhsd.html)
