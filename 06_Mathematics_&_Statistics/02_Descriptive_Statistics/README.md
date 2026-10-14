@@ -1,150 +1,61 @@
 # Descriptive Statistics
 
-Descriptive statistics is the branch of statistics concerned with **organising, summarising, and presenting observed data** in a meaningful form.
+Descriptive statistics is the branch of statistics concerned with **organising, summarising, analysing, and presenting observed data** in a meaningful form.
 
-![Normal distribution and empirical-rule illustration](https://www.leadingedgegroup.com/wp-content/uploads/2023/09/histogram-with-normal-distribution-1024x683.jpg.webp)
+In Data Science, datasets may contain thousands or millions of rows. Examining every observation individually is often impractical. Descriptive statistics helps us understand the centre, spread, distribution, and unusual values of a dataset before making further decisions.
 
-*Visual reference: a normal curve showing the approximate proportions within one, two, and three standard deviations. Source: [Leading Edge Group — Histograms](https://www.leadingedgegroup.com/histograms/).*
+For example, before building a machine learning model to predict house prices, we should understand the average price, the median price, the variation in prices, the presence of unusually expensive houses, and the distribution of important numerical features.
 
-Raw data can contain hundreds, thousands, or millions of observations. Looking at every individual value does not always make the overall pattern easy to understand. Descriptive statistics reduces a large collection of observations into useful summaries such as measures of central tendency, measures of dispersion, position measures, frequency distributions, and graphical representations.
-
-This chapter develops these ideas step by step. The emphasis is on understanding what each measure means, how it is calculated, when it is useful, and how its value should be interpreted.
+This chapter covers the statistical concepts most useful for Data Science, with mathematical formulas, worked examples, Python implementation, and practical connections to Exploratory Data Analysis (EDA).
 
 ---
 
 ## 1. What Is Descriptive Statistics?
 
-Descriptive statistics summarises the characteristics of a dataset without making a general conclusion about an unknown population beyond the data being described.
+Descriptive statistics summarises the data we have observed. It helps us understand what the dataset contains without, by itself, making conclusions about an entire population or proving why a pattern exists.
 
-Suppose the daily sales of a shop for 30 days are available. Instead of listing all 30 values, we can calculate:
+Suppose we have the examination scores of 1,000 students. Instead of examining every score individually, we can calculate the mean, median, minimum, maximum, standard deviation, and percentiles. We can also use graphs to understand the distribution of scores.
 
-- Mean sales
-- Median sales
-- Minimum and maximum sales
-- Range
-- Variance
-- Standard deviation
-- Quartiles
-- Percentiles
-- Frequency distributions
+A typical descriptive analysis follows this process:
 
-We can also represent the data using:
+**Raw Data → Data Organisation → Statistical Summaries → Visualisation → Interpretation**
 
-- Tables
-- Bar charts
-- Histograms
-- Pie charts
-- Box plots
-- Line graphs
-- Scatter plots
+In Data Science, descriptive statistics is one of the first steps in understanding a dataset.
 
-A useful way to think about descriptive statistics is:
+## 2. Main Categories of Descriptive Statistics
 
-```
-Raw Data
-   ↓
-Organise
-   ↓
-Summarise
-   ↓
-Calculate Statistics
-   ↓
-Visualise
-   ↓
-Interpret the Dataset
-```
+Descriptive measures can be organised into four main categories.
 
-Descriptive statistics does not by itself establish why a pattern exists. Its purpose is to make the observed data easier to understand.
+| Category | Purpose | Important Measures |
+|---|---|---|
+| Central tendency | Describes the centre of the data | Mean, median, mode |
+| Dispersion | Describes the spread of the data | Range, variance, standard deviation, IQR |
+| Position | Describes the relative position of observations | Quartiles, percentiles, deciles |
+| Shape | Describes the distribution's characteristics | Skewness, kurtosis |
 
----
+Frequency distributions and graphs are also important because they help us organise and interpret data.
 
-## 2. Types of Descriptive Measures
+A good descriptive analysis usually examines both **central tendency and dispersion**. Two datasets can have the same mean but very different levels of variability.
 
-Descriptive measures can be grouped into several important categories.
-
-### Measures of Central Tendency
-
-These describe the centre or typical value of a dataset.
-
-The main measures are:
-
-- Mean
-- Median
-- Mode
-
-### Measures of Dispersion
-
-These describe how spread out the observations are.
-
-The main measures are:
-
-- Range
-- Variance
-- Standard deviation
-- Interquartile range
-- Coefficient of variation
-
-### Measures of Position
-
-These describe where an observation lies relative to the rest of the dataset.
-
-Important examples are:
-
-- Quartiles
-- Percentiles
-- Deciles
-
-### Measures of Shape
-
-These describe characteristics such as:
-
-- Skewness
-- Kurtosis
-
-A complete descriptive analysis usually considers both the **centre** and the **spread**, rather than relying on a single statistic.
-
----
-
-## 3. Organising Raw Data
+## 3. Organising Data and Frequency Distribution
 
 Consider the following examination scores:
 
-```
-72, 45, 81, 63, 55, 90, 38, 76, 63, 50
-```
+`72, 45, 81, 63, 55, 90, 38, 76, 63, 50`
 
-The raw values are difficult to compare quickly.
+Arranging the observations in ascending order gives:
 
-We can first arrange them in ascending order:
+`38, 45, 50, 55, 63, 63, 72, 76, 81, 90`
 
-```
-38, 45, 50, 55, 63, 63, 72, 76, 81, 90
-```
+The ordered data makes it easier to identify the minimum, maximum, median, and repeated values.
 
-This simple step makes several properties easier to identify.
+### 3.1 Frequency
 
-For example:
+Frequency is the number of times a particular value or category occurs.
 
-- Minimum = 38
-- Maximum = 90
-- Repeated value = 63
-- Number of observations = 10
+Consider the data:
 
-Organising data is often the first step before calculating descriptive statistics.
-
----
-
-## 4. Frequency Distribution
-
-A **frequency distribution** records how often each value or category occurs.
-
-Consider:
-
-```
-10, 20, 20, 30, 20, 40, 30, 20
-```
-
-The frequency distribution is:
+`10, 20, 20, 30, 20, 40, 30, 20`
 
 | Value | Frequency |
 |---:|---:|
@@ -152,53 +63,37 @@ The frequency distribution is:
 | 20 | 4 |
 | 30 | 2 |
 | 40 | 1 |
+| **Total** | **8** |
 
-The total frequency is:
+The value 20 occurs four times.
 
-$1 + 4 + 2 + 1 = 8$
+### 3.2 Relative Frequency
 
-Therefore, there are 8 observations.
+Relative frequency represents the proportion of observations belonging to a particular value or category.
 
-### Relative Frequency
+$$
+\text{Relative Frequency}=\frac{f}{n}
+$$
 
-Relative frequency expresses a frequency as a proportion of the total.
-
-$R = \frac{f}{n}$
-
-where:
-
-- $f$ = frequency of a value or category
-- $n$ = total number of observations
+Here, \(f\) is the frequency and \(n\) is the total number of observations.
 
 For the value 20:
 
-$R = \frac{4}{8}$
+$$
+\text{Relative Frequency}=\frac{4}{8}=0.5
+$$
 
-$R = 0.5$
+The percentage frequency is:
 
-As a percentage:
+$$
+\text{Percentage Frequency}=\frac{f}{n}\times100
+$$
 
-$0.5 \times 100 = 50\%$
+Therefore, the value 20 represents 50% of the observations.
 
-Therefore, 20 represents **50% of the observations**.
+### 3.3 Grouped Frequency Distribution
 
----
-
-## 5. Grouped Frequency Distribution
-
-When a dataset contains many different numerical values, listing every individual value may not be useful. We can group observations into intervals.
-
-Suppose examination scores are:
-
-```
-0–10
-11–20
-21–30
-31–40
-41–50
-```
-
-A grouped frequency table might be:
+When numerical data contains many distinct values, it may be useful to group the observations into intervals.
 
 | Score Interval | Frequency |
 |---|---:|
@@ -208,1319 +103,907 @@ A grouped frequency table might be:
 | 31–40 | 12 |
 | 41–50 | 7 |
 
-The intervals are called **class intervals**.
+Each interval is called a **class interval**. Grouped frequency distributions summarise large datasets, although they lose some detail about individual observations.
 
-### Class Width
+For continuous class boundaries, class width can be calculated as:
 
-A class width describes the size of an interval.
+$$
+\text{Class Width}=\frac{\text{Range}}{\text{Number of Classes}}
+$$
 
-For continuous class boundaries, a common calculation is:
+The exact width convention depends on the class boundaries used.
 
-$\text{Class Width} = \frac{\text{Maximum Value} - \text{Minimum Value}}{\text{Number of Classes}}$
+## 4. Measures of Central Tendency
 
-The exact convention can vary depending on how class boundaries are defined.
+Measures of central tendency describe the centre or typical value of a dataset. The three fundamental measures are the mean, median, and mode.
 
-Grouped distributions are useful because they provide a compact summary of large numerical datasets.
+The appropriate measure depends on the type of data, its distribution, and the presence of outliers.
 
----
+### 4.1 Arithmetic Mean
 
-## 6. Measures of Central Tendency
+The arithmetic mean is the sum of all observations divided by the number of observations.
 
-Measures of central tendency attempt to describe the central or typical value of a dataset.
+For a population:
 
-The three basic measures are:
-
-1. Mean
-2. Median
-3. Mode
-
-No single measure is always best. The appropriate choice depends on the data and its distribution.
-
----
-
-# 7. Arithmetic Mean
-
-The **arithmetic mean** is commonly called the average.
+$$
+\mu=\frac{\sum_{i=1}^{N}x_i}{N}
+$$
 
 For a sample:
 
-$\bar{x} = \frac{\sum_{i=1}^{n}x_i}{n}$
+$$
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+$$
 
-where:
+Here, \(x_i\) represents an observation, \(N\) is the population size, and \(n\) is the sample size.
 
-- $\bar{x}$ = sample mean
-- $x_i$ = the $i$th observation
-- $n$ = number of observations
-- $\sum$ = summation
+**Example**
 
-### Worked Example
+Consider the observations:
 
-Consider:
+`10, 20, 30, 40, 50`
 
-```
-10, 20, 30, 40, 50
-```
+First, calculate the sum:
 
-Step 1: Add all observations.
+$$
+10+20+30+40+50=150
+$$
 
-$10 + 20 + 30 + 40 + 50 = 150$
+There are five observations, so:
 
-Step 2: Count the observations.
+$$
+\bar{x}=\frac{150}{5}=30
+$$
 
-$n = 5$
+The mean is 30.
 
-Step 3: Apply the formula.
+The mean uses every observation, which makes it useful for summarising numerical data. However, it can be strongly affected by extreme values.
 
-$\bar{x} = \frac{150}{5}$
+For example, adding 500 to the original dataset changes the mean to:
 
-Therefore:
+$$
+\bar{x}=\frac{10+20+30+40+50+500}{6}
+$$
 
-$\boxed{\bar{x}=30}$
+$$
+\bar{x}\approx108.33
+$$
 
-The mean is **30**.
+One extreme observation substantially increases the mean.
 
-### Important Property
+### 4.2 Weighted Mean
 
-The arithmetic mean uses every observation. Therefore, an extremely large or extremely small value can strongly affect it.
+A weighted mean is used when different observations contribute unequally to the result.
 
-Consider:
+$$
+\bar{x}_w=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}
+$$
 
-```
-10, 20, 30, 40, 50
-```
+Here, \(x_i\) is an observation and \(w_i\) is its weight.
 
-The mean is:
+**Example**
 
-$\bar{x}=30$
-
-Now add an extreme value of 500:
-
-```
-10, 20, 30, 40, 50, 500
-```
-
-The new mean becomes:
-
-$\bar{x} = \frac{650}{6}$
-
-$\boxed{\bar{x}\approx108.33}$
-
-The mean moved from 30 to approximately 108.33 because of one extreme observation.
-
-This is why the mean should be interpreted carefully when the dataset contains strong outliers.
-
----
-
-# 8. Weighted Mean
-
-A **weighted mean** is used when different observations contribute unequally to the final result.
-
-The formula is:
-
-$\bar{x}_w = \frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
-
-where:
-
-- $x_i$ = observation
-- $w_i$ = weight assigned to the observation
-
-### Worked Example
-
-Suppose a student's final result is based on:
+A student's assessment scores are:
 
 | Assessment | Score | Weight |
 |---|---:|---:|
 | Assignment | 80 | 2 |
 | Midterm | 70 | 3 |
-| Final Exam | 90 | 5 |
+| Final examination | 90 | 5 |
 
-Calculate the weighted score.
+The weighted total is:
 
-First:
-
-$80(2)=160$
-
-$70(3)=210$
-
-$90(5)=450$
-
-Therefore:
-
-$\sum w_i x_i = 160+210+450=820$
+$$
+80(2)+70(3)+90(5)=820
+$$
 
 The total weight is:
 
-$\sum w_i = 2+3+5=10$
-
-Thus:
-
-$\bar{x}_w=\frac{820}{10}$
-
-$\boxed{\bar{x}_w=82}$
-
-The weighted mean is **82**.
-
----
-
-# 9. Median
-
-The **median** is the middle value after the observations are arranged in ascending or descending order.
-
-The median is particularly useful when the dataset contains extreme values because it is less affected by outliers than the mean.
-
-### Case 1: Odd Number of Observations
-
-Consider:
-
-```
-10, 20, 30, 40, 50
-```
-
-There are 5 observations.
-
-The middle observation is:
-
-$30$
+$$
+2+3+5=10
+$$
 
 Therefore:
 
-$\boxed{\text{Median}=30}$
+$$
+\bar{x}_w=\frac{820}{10}=82
+$$
 
-### Case 2: Even Number of Observations
+The weighted mean is 82.
 
-Consider:
+Weighted means are useful when calculating weighted averages, combining observations with different levels of importance, or summarising grouped data when the appropriate weights are known.
 
-```
-10, 20, 30, 40, 50, 60
-```
+### 4.3 Median
 
-There are 6 observations.
+The median is the middle value after observations are arranged in ascending or descending order.
 
-The two middle observations are:
+For an odd number of observations, the median is the single middle value.
 
-$30 \quad \text{and} \quad 40$
+Example:
 
-The median is their average:
+`10, 20, 30, 40, 50`
 
-$\text{Median}=\frac{30+40}{2}$
+The median is 30.
 
-$\boxed{\text{Median}=35}$
+For an even number of observations, the median is the average of the two middle values.
 
-### Why Sorting Is Important
+Example:
 
-Consider:
+`10, 20, 30, 40, 50, 60`
 
-```
-50, 10, 40, 20, 30
-```
+$$
+\text{Median}=\frac{30+40}{2}=35
+$$
 
-The values must first be sorted:
+The median is less affected by extreme values than the mean. It is especially useful when a numerical dataset is strongly skewed or contains large outliers.
 
-```
-10, 20, 30, 40, 50
-```
+### 4.4 Mode
 
-The middle value is 30.
+The mode is the value or category that occurs most frequently.
 
-Therefore:
+Example:
 
-$\boxed{\text{Median}=30}$
+`10, 20, 20, 30, 20, 40`
 
----
+The mode is 20 because it occurs three times.
 
-# 10. Mode
+A dataset may be:
 
-The **mode** is the value or category that occurs most frequently.
+- **Unimodal:** one mode.
+- **Bimodal:** two modes.
+- **Multimodal:** more than two modes.
+- **Without a unique mode:** no value occurs more frequently than the others.
 
-Consider:
+The mode is particularly useful for categorical data, such as the most common product category, payment method, or customer segment.
 
-```
-10, 20, 20, 30, 20, 40
-```
+### 4.5 Comparison of Mean, Median, and Mode
 
-The frequencies are:
-
-| Value | Frequency |
-|---:|---:|
-| 10 | 1 |
-| 20 | 3 |
-| 30 | 1 |
-| 40 | 1 |
-
-The highest frequency is 3.
-
-Therefore:
-
-$\boxed{\text{Mode}=20}$
-
-### Possible Cases
-
-A dataset can be:
-
-- **Unimodal** — one mode
-- **Bimodal** — two modes
-- **Multimodal** — more than two modes
-- **Without a unique mode** — no value occurs more frequently than the others
-
-For categorical data, the mode is often particularly useful because categories may not have meaningful numerical averages.
-
----
-
-# 11. Mean, Median, and Mode Comparison
-
-Consider a roughly symmetric dataset:
-
-```
-10, 20, 30, 40, 50
-```
-
-Here:
-
-$\text{Mean}=30$
-
-$\text{Median}=30$
-
-There is no unique mode.
-
-Now consider:
-
-```
-10, 20, 20, 20, 30, 100
-```
-
-The mean is:
-
-$\bar{x}=\frac{200}{6}$
-
-$\bar{x}\approx33.33$
-
-The median is:
-
-$\text{Median}=\frac{20+20}{2}=20$
-
-The mode is:
-
-$\boxed{\text{Mode}=20}$
-
-The extreme value 100 pulls the mean upward, while the median remains near the centre of the majority of observations.
-
-### General Interpretation
-
-| Measure | Main Idea | Sensitivity to Outliers |
+| Measure | What It Represents | Sensitivity to Extreme Values |
 |---|---|---|
 | Mean | Arithmetic average | High |
 | Median | Middle ordered value | Low |
-| Mode | Most frequent value | Generally low |
+| Mode | Most frequent value or category | Depends on the data |
 
-For a strongly skewed numerical dataset, the median may provide a more representative description of the centre than the mean.
+For a roughly symmetric distribution without strong outliers, the mean may be a useful measure of centre. For strongly skewed data, the median may provide a more representative summary.
 
----
+## 5. Measures of Dispersion
 
-# 12. Measures of Dispersion
-
-Knowing the centre of a dataset is not enough.
+Dispersion describes how far observations are spread out from one another or from a central value.
 
 Consider two datasets:
 
-```
-A: 48, 49, 50, 51, 52
+- Dataset A: `48, 49, 50, 51, 52`
+- Dataset B: `10, 30, 50, 70, 90`
 
-B: 10, 30, 50, 70, 90
-```
+Both have a mean of 50, but Dataset B has much greater spread.
 
-Both have mean 50.
+Important measures of dispersion include range, variance, standard deviation, interquartile range, and coefficient of variation.
 
-However, the observations in dataset B are much more spread out.
+### 5.1 Range
 
-Therefore, descriptive analysis should consider both:
+The range is the difference between the maximum and minimum values.
 
-- **Central tendency**
-- **Dispersion**
+$$
+R=x_{\max}-x_{\min}
+$$
 
-Important measures of dispersion include:
+Example:
 
-- Range
-- Variance
-- Standard deviation
-- Interquartile range
-- Coefficient of variation
+`12, 15, 20, 27, 30`
 
----
-
-# 13. Range
-
-The **range** is the difference between the largest and smallest values.
-
-$R = x_{\max} - x_{\min}$
-
-### Worked Example
-
-Consider:
-
-```
-12, 15, 20, 27, 30
-```
-
-The maximum is:
-
-$x_{\max}=30$
-
-The minimum is:
-
-$x_{\min}=12$
-
-Therefore:
-
-$R=30-12$
-
-$\boxed{R=18}$
+$$
+R=30-12=18
+$$
 
 The range is 18.
 
-### Limitation of Range
+The range is simple to calculate, but it depends only on the two extreme observations and ignores the distribution of the remaining values.
 
-The range uses only two observations:
+### 5.2 Variance
 
-- Minimum
-- Maximum
+Variance measures the average squared deviation from the mean. The population and sample formulas are different.
 
-It ignores all values between them.
+**Population variance**
 
-Therefore, two datasets can have the same range while having very different internal distributions.
+$$
+\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
+$$
 
----
+**Sample variance**
 
-# 14. Variance
+$$
+s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
+$$
 
-Variance measures the average squared deviation of observations from their mean.
+Here, \(\mu\) is the population mean and \(\bar{x}\) is the sample mean.
 
-For a population:
+Squaring the deviations prevents positive and negative differences from cancelling one another.
 
-$\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
-
-For a sample:
-
-$s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
-
-where:
-
-- $\sigma^2$ = population variance
-- $s^2$ = sample variance
-- $x_i$ = observation
-- $\mu$ = population mean
-- $\bar{x}$ = sample mean
-- $N$ = population size
-- $n$ = sample size
-
-### Why Square the Deviations?
-
-If we simply added deviations from the mean, positive and negative deviations would cancel.
-
-For example:
-
-```
--10, -5, 0, 5, 10
-```
-
-The sum is:
-
-$-10-5+0+5+10=0$
-
-Squaring makes every deviation non-negative:
-
-```
-100, 25, 0, 25, 100
-```
-
-This allows us to measure the magnitude of dispersion.
-
-### Worked Sample Example
+**Worked example: sample variance**
 
 Consider:
 
-```
-2, 4, 6
-```
+`2, 4, 6`
 
-Step 1: Calculate the sample mean.
+First, calculate the mean:
 
-$\bar{x}=\frac{2+4+6}{3}$
+$$
+\bar{x}=\frac{2+4+6}{3}=4
+$$
 
-$\bar{x}=4$
+Next, calculate and square the deviations:
 
-Step 2: Calculate deviations.
-
-| $x_i$ | $x_i-\bar{x}$ |
-|---:|---:|
-| 2 | -2 |
-| 4 | 0 |
-| 6 | 2 |
-
-Step 3: Square the deviations.
-
-| $x_i$ | $x_i-\bar{x}$ | $(x_i-\bar{x})^2$ |
+| Observation | Deviation | Squared Deviation |
 |---:|---:|---:|
 | 2 | -2 | 4 |
 | 4 | 0 | 0 |
 | 6 | 2 | 4 |
+| **Total** | | **8** |
 
-Step 4: Add squared deviations.
+Because the observations are treated as a sample, divide by \(n-1\):
 
-$4+0+4=8$
+$$
+s^2=\frac{8}{3-1}=\frac{8}{2}=4
+$$
 
-Step 5: Because these three observations are being treated as a sample, divide by $n-1$.
+The sample variance is 4.
 
-$s^2=\frac{8}{3-1}$
+### 5.3 Population vs Sample Variance
 
-$s^2=\frac{8}{2}$
+Use population variance when the dataset represents the entire population of interest. Use sample variance when the observations are a sample used to estimate population variability.
 
-Therefore:
+The sample variance formula uses \(n-1\), known as **Bessel's correction**, to produce an unbiased estimate of population variance under the usual random-sampling assumptions.
 
-$\boxed{s^2=4}$
+| Feature | Population Variance | Sample Variance |
+|---|---|---|
+| Formula denominator | \(N\) | \(n-1\) |
+| Mean used | Population mean \(\mu\) | Sample mean \(\bar{x}\) |
+| Symbol | \(\sigma^2\) | \(s^2\) |
 
----
-
-# 15. Standard Deviation
+### 5.4 Standard Deviation
 
 Standard deviation is the square root of variance.
 
-For a population:
+**Population standard deviation**
 
-$\sigma = \sqrt{\sigma^2}$
+$$
+\sigma=\sqrt{\sigma^2}
+$$
 
-For a sample:
+**Sample standard deviation**
 
-$s = \sqrt{s^2}$
+$$
+s=\sqrt{s^2}
+$$
 
-Using the previous example:
+In the previous example:
 
-$s^2=4$
+$$
+s=\sqrt{4}=2
+$$
 
-Therefore:
+The sample standard deviation is 2.
 
-$s=\sqrt{4}$
+Unlike variance, standard deviation is expressed in the same units as the original observations. For example, if the data is measured in kilograms, variance is measured in square kilograms, while standard deviation is measured in kilograms.
 
-$\boxed{s=2}$
+A larger standard deviation indicates greater spread around the mean, although its interpretation depends on the context and distribution of the data.
 
-Standard deviation is expressed in the **same units as the original variable**, unlike variance.
+## 6. Quartiles, Percentiles, and Deciles
 
-For example, if the observations represent kilograms:
+These measures describe the relative position of observations within an ordered dataset.
 
-- Variance is expressed in $\text{kg}^2$.
-- Standard deviation is expressed in kg.
-
-A larger standard deviation indicates greater spread around the mean, while a smaller standard deviation indicates that observations tend to be closer to the mean.
-
----
-
-# 16. Population vs Sample Variance
-
-A common source of confusion is the denominator.
-
-### Population Variance
-
-When the entire population is being described:
-
-$\sigma^2 = \frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
-
-### Sample Variance
-
-When the observations represent a sample used to estimate population variability:
-
-$s^2 = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
-
-The use of $n-1$ in the sample variance formula is known as **Bessel's correction**.
-
-It provides an unbiased estimator of the population variance under the standard assumptions of random sampling and finite population variance.
-
----
-
-# 17. Interquartile Range
-
-The **interquartile range (IQR)** measures the spread of the middle 50% of the observations.
-
-It is defined as:
-
-$IQR = Q_3-Q_1$
-
-where:
-
-- $Q_1$ = first quartile
-- $Q_3$ = third quartile
-
-The IQR is less affected by extreme observations than the range.
-
-### Example
-
-Suppose:
-
-$Q_1=20$
-
-and:
-
-$Q_3=50$
-
-Then:
-
-$IQR=50-20$
-
-$\boxed{IQR=30}$
-
-The middle 50% of the data spans 30 units.
-
----
-
-# 18. Quartiles
+### 6.1 Quartiles
 
 Quartiles divide ordered data into four parts.
 
-The main quartiles are:
+- \(Q_1\), the first quartile, represents approximately the 25th percentile.
+- \(Q_2\), the second quartile, is the median.
+- \(Q_3\), the third quartile, represents approximately the 75th percentile.
 
-- $Q_1$ — first quartile
-- $Q_2$ — second quartile
-- $Q_3$ — third quartile
+The exact numerical values can vary depending on the quartile calculation method used by a textbook or software package.
 
-### First Quartile
+### 6.2 Percentiles
 
-$Q_1$ is the value below which approximately 25% of the observations fall.
-
-### Second Quartile
-
-$Q_2$ is the median.
-
-Approximately 50% of observations lie below it.
-
-### Third Quartile
-
-$Q_3$ is the value below which approximately 75% of observations fall.
-
-A useful representation is:
-
-```
-Minimum      Q1          Q2          Q3       Maximum
-   |----------|-----------|-----------|----------|
-       25%         25%         25%         25%
-```
-
-Different software packages may use different interpolation conventions when calculating quartiles, especially for small datasets. Therefore, the exact numerical value can depend on the chosen method.
-
----
-
-# 19. Percentiles
-
-A **percentile** describes the position of an observation relative to the rest of the data.
-
-The $p$th percentile is a value below which approximately $p\%$ of observations fall.
-
-Examples:
-
-- 25th percentile ≈ $Q_1$
-- 50th percentile = median
-- 75th percentile ≈ $Q_3$
-
-Suppose a student is at the 90th percentile in an examination.
-
-This means approximately 90% of the observations are at or below that student's position, depending on the percentile convention used.
-
-A percentile does **not** mean that the student scored 90%.
+The \(p\)th percentile is a value below which approximately \(p\%\) of observations fall, according to the selected percentile convention.
 
 For example:
 
-- Score = 90 marks
-- Percentile = 90th percentile
+- 25th percentile: approximately \(Q_1\).
+- 50th percentile: median.
+- 75th percentile: approximately \(Q_3\).
+- 90th percentile: a value marking the 90th percentile position.
 
-These are different concepts.
+A percentile is not the same as a percentage score. A student at the 90th percentile has a relative position in the score distribution; it does not necessarily mean that the student obtained 90 marks out of 100.
 
----
+### 6.3 Deciles
 
-# 20. Deciles
+Deciles divide ordered data into ten parts. The deciles \(D_1\) through \(D_9\) correspond approximately to the 10th through 90th percentiles.
 
-Deciles divide ordered data into ten parts.
+Quartiles, percentiles, and deciles are useful for understanding rankings, customer spending levels, salary distributions, and the relative position of observations.
 
-They are commonly represented as:
+## 7. Interquartile Range (IQR)
 
-$D_1,D_2,\ldots,D_9$
+The interquartile range measures the spread of the middle 50% of the data.
 
-where:
+$$
+IQR=Q_3-Q_1
+$$
 
-- $D_1$ corresponds approximately to the 10th percentile.
-- $D_5$ corresponds approximately to the 50th percentile.
-- $D_9$ corresponds approximately to the 90th percentile.
+Suppose:
 
-Like quartiles and percentiles, the exact calculation can depend on the selected statistical convention.
+$$
+Q_1=20,\qquad Q_3=50
+$$
 
----
+Then:
 
-# 21. Five-Number Summary
+$$
+IQR=50-20=30
+$$
 
-The **five-number summary** consists of:
+The interquartile range is 30.
+
+Because it uses the first and third quartiles rather than the extreme values, the IQR is generally less affected by outliers than the range or standard deviation.
+
+## 8. Five-Number Summary and Box Plot
+
+The five-number summary gives a compact description of a dataset.
+
+It consists of:
 
 1. Minimum
-2. First quartile ($Q_1$)
-3. Median ($Q_2$)
-4. Third quartile ($Q_3$)
+2. First quartile (\(Q_1\))
+3. Median (\(Q_2\))
+4. Third quartile (\(Q_3\))
 5. Maximum
 
-It provides a compact description of both centre and spread.
-
-For example:
+Example:
 
 | Measure | Value |
 |---|---:|
 | Minimum | 10 |
-| $Q_1$ | 20 |
+| \(Q_1\) | 20 |
 | Median | 35 |
-| $Q_3$ | 50 |
+| \(Q_3\) | 50 |
 | Maximum | 80 |
 
-These five values are particularly useful when constructing and interpreting a box plot.
+A **box plot** visualises quartiles, the median, spread, and possible outliers.
 
----
+The box extends from \(Q_1\) to \(Q_3\), with the median marked inside it. The interquartile range is the width of the box on a horizontal box plot.
 
-# 22. Box Plot
+### 8.1 IQR Rule for Potential Outliers
 
-A **box plot** represents the five-number summary visually.
+A commonly used rule identifies observations outside the following fences as potential outliers:
 
-![Annotated box plot showing quartiles, median, whiskers, and an outlier](../images/boxplot-anatomy.svg)
+**Lower fence**
 
-**How to read this graph:** The box runs from the first quartile (Q1) to the third quartile (Q3), with the median marked inside. The whiskers show the range under the chosen box-plot convention; a separate point can indicate a possible outlier. The interquartile range is $IQR=Q_3-Q_1$.
+$$
+Q_1-1.5(IQR)
+$$
 
-A typical box plot contains:
+**Upper fence**
 
-- Lower whisker
-- First quartile
-- Median
-- Third quartile
-- Upper whisker
+$$
+Q_3+1.5(IQR)
+$$
 
-The box itself represents the interquartile range.
+An observation below the lower fence or above the upper fence is flagged as a potential outlier.
 
-Conceptually:
+These fences are a statistical convention, not proof that an observation is incorrect. Some box-plot implementations draw whiskers only to the most extreme observations within the fences and display observations outside them separately.
 
-```
-Minimum       Q1          Median          Q3       Maximum
-   |-----------[===========|===============]----------|
-               <---- IQR ---->
-```
+## 9. Outliers and Their Effects
 
-Box plots are useful for comparing distributions across groups because they show:
+An outlier is an observation that is unusually distant from the rest of the data.
 
-- Centre
-- Spread
-- Possible outliers
-- Differences between groups
+Example:
 
-### Outlier Rule Based on IQR
-
-A common rule identifies possible outliers using:
-
-$\text{Lower Fence}=Q_1-1.5(IQR)$
-
-$\text{Upper Fence}=Q_3+1.5(IQR)$
-
-Observations outside these fences are commonly flagged as possible outliers.
-
-This rule is a convention for identifying potential outliers; it does not automatically mean that such observations are errors.
-
----
-
-# 23. Outliers
-
-An **outlier** is an observation that is unusually distant from the rest of the data.
-
-Consider:
-
-```
-10, 12, 13, 14, 15, 100
-```
+`10, 12, 13, 14, 15, 100`
 
 The value 100 is much larger than the other observations.
 
-Outliers may occur because of:
+Outliers can occur because of data-entry errors, measurement errors, rare events, unusual but genuine behaviour, or differences between groups.
 
-- Measurement error
-- Data entry error
-- Unusual but genuine behaviour
-- Rare events
-- Different populations or subgroups
-
-An outlier should not automatically be deleted.
-
-A better approach is to investigate why it exists.
-
-### Effect on Descriptive Measures
-
-Outliers can strongly affect:
+Outliers may strongly affect:
 
 - Mean
+- Range
 - Variance
 - Standard deviation
-- Range
 
 They generally have less influence on:
 
 - Median
-- IQR
+- Interquartile range
 
-This difference is one reason robust measures are useful for skewed datasets.
+In Data Science, investigate outliers before removing them. An unusual house price might be a data error, but it might also represent a genuine luxury property. Removing valid observations without understanding them can introduce bias into an analysis or model.
 
----
+## 10. Coefficient of Variation (CV)
 
-# 24. Coefficient of Variation
+The coefficient of variation measures variability relative to the mean.
 
-The **coefficient of variation (CV)** measures relative variability.
+For a sample with a non-zero mean:
 
-It is commonly defined as:
+$$
+CV=\frac{s}{\bar{x}}\times100\%
+$$
 
-$CV = \frac{s}{\bar{x}}\times100$
+For a population with a non-zero mean:
 
-for a sample, where:
+$$
+CV=\frac{\sigma}{\mu}\times100\%
+$$
 
-- $s$ = sample standard deviation
-- $\bar{x}$ = sample mean
+Suppose the sample mean is 50 and the sample standard deviation is 5.
 
-### Worked Example
+$$
+CV=\frac{5}{50}\times100\%=10\%
+$$
 
-Suppose:
+The coefficient of variation is 10%.
 
-$\bar{x}=50$
+CV can help compare relative variability between datasets measured on comparable ratio scales, even when their means or units differ. It should be interpreted carefully when the mean is zero, close to zero, negative, or when the measurement scale does not have a meaningful zero.
 
-and:
+## 11. Distribution Shape: Skewness
 
-$s=5$
+Skewness describes the asymmetry of a distribution.
 
-Then:
+### 11.1 Symmetric Distribution
 
-$CV=\frac{5}{50}\times100$
+A distribution is approximately symmetric when its left and right sides have similar shapes.
 
-$CV=10\%$
+For a symmetric, unimodal distribution, the mean and median are often close to each other. They are also equal to the mode in some idealised distributions, such as a perfectly symmetric normal distribution.
 
-Therefore:
+### 11.2 Right-Skewed Distribution
 
-$\boxed{CV=10\%}$
+A right-skewed distribution has a longer tail toward larger values.
 
-The coefficient of variation is useful when comparing relative variability between datasets with different scales or means.
+The mean is often greater than the median because large observations pull the mean to the right.
 
-It should be used carefully when the mean is zero or very close to zero, because the ratio becomes unstable or undefined.
+Examples can include income, house prices, and customer spending.
 
----
+### 11.3 Left-Skewed Distribution
 
-# 25. Skewness
+A left-skewed distribution has a longer tail toward smaller values.
 
-**Skewness** describes the asymmetry of a distribution.
+The mean is often less than the median because small observations pull the mean to the left.
 
-A perfectly symmetric distribution has approximately equal left and right sides around its centre.
+The relationship between mean and median is a useful clue, but it is not sufficient on its own to establish skewness. A histogram or another distribution plot should also be examined.
 
-![Comparison of negative skew, symmetric, and positive skew](../images/skewness-comparison.svg)
+## 12. Kurtosis
 
-**How to read this graph:** The left panel has a longer tail toward smaller values (negative skew); the middle panel is approximately balanced; the right panel has a longer tail toward larger values (positive skew). In many common distributions, the mean is pulled toward the longer tail, so mean < median for negative skew and mean > median for positive skew. These are useful patterns, not universal rules.
+Kurtosis describes aspects of a distribution's tail behaviour and shape.
 
-### Positive Skewness
+Common classifications include:
 
-A positively skewed distribution has a longer tail toward larger values.
+- **Mesokurtic:** kurtosis similar to the normal distribution under the selected definition.
+- **Leptokurtic:** higher kurtosis than the normal distribution, often associated with heavier tails.
+- **Platykurtic:** lower kurtosis than the normal distribution, often associated with lighter tails.
 
+Kurtosis is frequently misunderstood as a measure of peak height alone. In statistical analysis, tail behaviour is an important part of its interpretation.
+
+For Data Science, the practical lesson is to examine distribution plots and investigate extreme observations rather than relying only on a single shape statistic. Detailed distribution theory belongs in the Probability Distributions section.
+
+## 13. Choosing the Right Descriptive Measure
+
+Different datasets require different summaries.
+
+| Situation | Useful Measure |
+|---|---|
+| General numerical data without strong outliers | Mean and standard deviation |
+| Strongly skewed data | Median and IQR |
+| Most common category | Mode |
+| Quick measure of total spread | Range |
+| Spread around the mean | Variance and standard deviation |
+| Spread of the middle 50% | IQR |
+| Relative position in a distribution | Percentile |
+| Compact summary of centre and spread | Five-number summary |
+| Relative variability between suitable datasets | Coefficient of variation |
+
+No single measure is always best. The choice should reflect the data type, distribution, and purpose of the analysis.
+
+## 14. Visualising Descriptive Statistics
+
+Visualisation makes patterns easier to recognise and helps identify issues that a numerical summary might hide.
+
+### 14.1 Histogram
+
+A histogram displays the distribution of numerical data by grouping values into bins. It helps reveal concentration, spread, skewness, gaps, and possible multiple peaks.
+
+### 14.2 Bar Chart
+
+A bar chart compares values across categories, such as the number of customers in each region or the frequency of each product type.
+
+### 14.3 Box Plot
+
+A box plot summarises the median, quartiles, and potential outliers. It is especially useful for comparing numerical distributions across groups.
+
+### 14.4 Choosing a Visualisation
+
+| Data or Question | Suitable Visualisation |
+|---|---|
+| Distribution of a numerical feature | Histogram |
+| Compare categorical counts | Bar chart |
+| Compare spread across groups | Box plot |
+| Change over time | Line graph |
+| Relationship between two numerical variables | Scatter plot |
+
+The scatter plot is useful during EDA, but the strength and direction of relationships between numerical variables are studied more directly in the Correlation folder.
+
+## 15. Descriptive Statistics with Python
+
+Python libraries make descriptive analysis easier to reproduce and apply to real datasets.
+
+### 15.1 Using NumPy
+
+NumPy provides functions for calculating the mean, median, variance, and standard deviation.
+
+```python
+import numpy as np
+
+data = np.array([10, 20, 30, 40, 50])
+
+print("Mean:", np.mean(data))
+print("Median:", np.median(data))
+print("Population variance:", np.var(data, ddof=0))
+print("Sample variance:", np.var(data, ddof=1))
+print("Population standard deviation:", np.std(data, ddof=0))
+print("Sample standard deviation:", np.std(data, ddof=1))
 ```
-Frequency
-   ^
-   |       ███
-   |     █████
-   |   ███████
-   | ███████
-   +-------------------->
-              Long right tail
+
+Expected output:
+
+```text
+Mean: 30.0
+Median: 30.0
+Population variance: 200.0
+Sample variance: 250.0
+Population standard deviation: 14.142135623730951
+Sample standard deviation: 15.811388300841896
 ```
 
-For many positively skewed distributions:
+**Important:** NumPy uses `ddof=0` by default, which divides by \(n\). Setting `ddof=1` divides by \(n-1\), giving the usual sample variance and sample standard deviation.
 
-$\text{Mean} > \text{Median}$
+The correct setting depends on whether you intend to describe the complete population or estimate variability from a sample.
 
-### Negative Skewness
+### 15.2 Calculating Percentiles and IQR
 
-A negatively skewed distribution has a longer tail toward smaller values.
+```python
+import numpy as np
 
-For many negatively skewed distributions:
+data = np.array([10, 12, 15, 18, 20, 22, 25, 30])
 
-$\text{Mean} < \text{Median}$
+q1 = np.percentile(data, 25)
+median = np.percentile(data, 50)
+q3 = np.percentile(data, 75)
 
-### Important Note
+iqr = q3 - q1
 
-The relationship between mean and median is a useful descriptive clue, but it should not be treated as a universal mathematical rule for every distribution.
+print("Q1:", q1)
+print("Median:", median)
+print("Q3:", q3)
+print("IQR:", iqr)
+```
 
----
+NumPy's percentile results depend on the chosen percentile method. If you are comparing results with a textbook or another library, ensure that the same convention is being used.
 
-# 26. Kurtosis
+### 15.3 Using pandas
 
-**Kurtosis** describes aspects of the shape of a distribution, particularly the behaviour of its tails relative to a reference distribution.
+pandas is especially useful when working with tabular datasets.
 
-Three common descriptive terms are:
+```python
+import pandas as pd
 
-- Mesokurtic
-- Leptokurtic
-- Platykurtic
+df = pd.DataFrame({
+    "Marks": [45, 55, 60, 70, 80, 90],
+    "Study_Hours": [1, 2, 2, 3, 4, 5]
+})
 
-In statistical software, kurtosis may be reported using different conventions, including **excess kurtosis**.
+print(df.describe())
+```
 
-Because conventions differ, the definition and reference value should always be checked before interpreting a numerical kurtosis value.
+The `describe()` method provides descriptive summaries of numerical columns, including count, mean, standard deviation, minimum, quartiles, and maximum.
 
-The important practical idea is that kurtosis is related to the distribution's tail behaviour and the occurrence of extreme observations.
+Individual statistics can also be calculated:
 
----
+```python
+print(df["Marks"].mean())
+print(df["Marks"].median())
+print(df["Marks"].std())
+print(df["Marks"].min())
+print(df["Marks"].max())
+print(df["Marks"].quantile(0.75))
+```
 
-# 27. Measures of Shape
+By default, pandas uses sample standard deviation for a Series, equivalent to `ddof=1`.
 
-Descriptive analysis can therefore examine three broad characteristics:
+For categorical columns, `describe()` reports different information, such as the number of non-missing observations, unique values, most frequent value, and its frequency.
 
-### Centre
+## 16. Descriptive Statistics in Exploratory Data Analysis (EDA)
 
-Where the observations are concentrated.
+Exploratory Data Analysis is the process of examining a dataset to understand its structure, quality, patterns, and unusual observations before building a model.
 
-Examples:
+Descriptive statistics is an important part of EDA.
 
-- Mean
-- Median
-- Mode
+A practical initial workflow is:
 
-### Spread
-
-How far observations vary around the centre.
-
-Examples:
-
-- Range
-- Variance
-- Standard deviation
-- IQR
-
-### Shape
-
-How the distribution is arranged.
-
-Examples:
-
-- Skewness
-- Kurtosis
-
-A good descriptive summary considers these characteristics together.
-
----
-
-# 28. Data Visualisation
-
-Numerical summaries are important, but visualisations often reveal patterns that are difficult to see from a table of values.
-
-The appropriate graph depends on the type of variable and the question being asked.
-
-### Bar Chart
-
-A bar chart is commonly used for categorical data.
+1. Inspect the dataset's rows, columns, and data types.
+2. Check the number of missing values.
+3. Calculate descriptive statistics for numerical columns.
+4. Examine categorical frequencies.
+5. Plot numerical distributions.
+6. Investigate potential outliers.
+7. Decide whether further data cleaning or transformation is justified.
 
 Example:
 
-```
-Department    Students
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
 
-CSE           █████████████
-ECE           ████████
-ME            █████
-```
+df = pd.read_csv("data.csv")
 
-The bars represent categories and their frequencies.
+# Inspect the dataset
+print(df.head())
+print(df.shape)
+print(df.dtypes)
 
-### Histogram
+# Check missing values
+print(df.isnull().sum())
 
-A histogram is used to represent the distribution of numerical data using intervals.
+# Summarise numerical columns
+print(df.describe())
 
-Unlike a standard bar chart, the horizontal axis represents numerical intervals.
-
-### Box Plot
-
-A box plot summarises the distribution using quartiles, median, and possible outliers.
-
-### Scatter Plot
-
-A scatter plot represents the relationship between two numerical variables.
-
-For example:
-
-- Study hours
-- Examination score
-
-Each point represents one observation.
-
-### Line Graph
-
-A line graph is commonly used when observations are ordered over time.
-
-For example:
-
-```
-Month → Sales
-Jan   → 100
-Feb   → 120
-Mar   → 135
-Apr   → 150
+# Visualise one numerical feature
+df["feature_name"].hist()
+plt.xlabel("Value")
+plt.ylabel("Frequency")
+plt.title("Distribution of Feature")
+plt.show()
 ```
 
-The graph helps show the direction and pattern of change.
+Replace `"data.csv"` and `"feature_name"` with the actual file name and column name.
 
----
+Descriptive statistics can help identify unusual ranges, highly skewed variables, possible data-entry problems, and differences in scale. However, the statistics do not automatically determine how missing values or outliers should be treated. Those decisions require context and validation.
 
-# 29. Histogram vs Bar Chart
+## 17. Standardisation and Normalisation: A Machine Learning Preview
 
-These two graphs are often confused.
+Standardisation and normalisation are feature-scaling techniques used to change the scale of numerical features. They are related to descriptive analysis because they depend on understanding the range, mean, and standard deviation of the data.
 
-| Feature | Histogram | Bar Chart |
-|---|---|---|
-| Typical data | Numerical | Categorical |
-| Horizontal axis | Numerical intervals | Categories |
-| Bars | Usually touch | Usually separated |
-| Purpose | Show distribution | Compare categories |
+### 17.1 Standardisation
 
-For example:
+Standardisation converts a value into a z-score by subtracting the mean and dividing by the standard deviation.
 
-- Age distribution → Histogram
-- Number of students by branch → Bar chart
+$$
+z=\frac{x-\mu}{\sigma}
+$$
 
-Choosing the wrong graph can make the data difficult to interpret.
+When applied to a sample, the sample mean and sample standard deviation may be used according to the chosen convention.
 
----
+A standardised value indicates how far an observation lies from the mean in standard-deviation units.
 
-# 30. Central Tendency and Distribution Shape
+### 17.2 Min-Max Normalisation
 
-The relationship between mean and median can provide useful information about distribution shape.
+Min-max scaling transforms values to a chosen range, commonly 0 to 1.
 
-### Approximately Symmetric Distribution
+$$
+x'=\frac{x-x_{\min}}{x_{\max}-x_{\min}}
+$$
 
-The mean and median may be close:
+This formula requires \(x_{\max}\ne x_{\min}\).
 
-$\text{Mean} \approx \text{Median}$
+### 17.3 Python Example
 
-### Positively Skewed Distribution
+```python
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import numpy as np
 
-The mean is often pulled toward the longer right tail:
+data = np.array([[10], [20], [30], [40], [50]])
 
-$\text{Mean} > \text{Median}$
+standard_scaler = StandardScaler()
+standardised = standard_scaler.fit_transform(data)
 
-### Negatively Skewed Distribution
+minmax_scaler = MinMaxScaler()
+normalised = minmax_scaler.fit_transform(data)
 
-The mean is often pulled toward the longer left tail:
+print("Standardised values:")
+print(standardised)
 
-$\text{Mean} < \text{Median}$
-
-These are useful descriptive patterns, not universal laws.
-
----
-
-# 31. Worked Example — Complete Descriptive Summary
-
-Consider the dataset:
-
-```
-4, 5, 6, 6, 7, 8, 10, 12, 15, 20
+print("Normalised values:")
+print(normalised)
 ```
 
-There are:
+Standardisation and min-max scaling are not the same operation. The appropriate technique depends on the feature, the algorithm, and the data distribution.
 
-$n=10$
+**Important for machine learning:** fit the scaler on the training data and then use that fitted scaler to transform validation or test data. Fitting it on the complete dataset before splitting can leak information from the test set into training. Detailed feature-scaling workflows can be developed further in the Machine Learning section of the repository.
 
-observations.
+## 18. Common Mistakes in Descriptive Statistics
 
-### Step 1: Mean
+### Mistake 1: Using the Mean Without Checking Outliers
 
-First calculate the sum:
+The mean may be misleading when a dataset contains extreme values. Examine the median and distribution as well.
 
-$4+5+6+6+7+8+10+12+15+20=93$
+### Mistake 2: Confusing Variance and Standard Deviation
 
-Therefore:
+Variance is expressed in squared units. Standard deviation is expressed in the original units.
 
-$\bar{x}=\frac{93}{10}$
+### Mistake 3: Using the Wrong Variance Formula
 
-$\boxed{\bar{x}=9.3}$
+Population variance divides by \(N\). The usual sample variance estimator divides by \(n-1\).
 
-### Step 2: Median
+### Mistake 4: Assuming Every Outlier Is an Error
 
-There are 10 observations, so take the average of the 5th and 6th values.
+Outliers can represent valid and important observations. Investigate their source before deciding how to handle them.
 
-The 5th value is 7.
+### Mistake 5: Confusing Percentile and Percentage
 
-The 6th value is 8.
+The 90th percentile describes relative position in a distribution. It does not mean a score of 90%.
 
-Therefore:
+### Mistake 6: Assuming the Mean Describes Every Dataset Well
 
-$\text{Median}=\frac{7+8}{2}$
+For strongly skewed data, the median and IQR may provide a more useful summary.
 
-$\boxed{\text{Median}=7.5}$
+### Mistake 7: Ignoring Missing Values
 
-### Step 3: Mode
+A statistic calculated after missing observations have been excluded may describe a different set of observations than expected. Always understand how missing values are handled.
 
-The value 6 occurs twice.
+### Mistake 8: Fitting a Scaler Before Splitting the Dataset
 
-All other values occur once.
+In predictive modelling, fitting a scaler on both training and test data can cause data leakage. Fit preprocessing steps using training data only.
 
-Therefore:
-
-$\boxed{\text{Mode}=6}$
-
-### Step 4: Range
-
-Maximum:
-
-$x_{\max}=20$
-
-Minimum:
-
-$x_{\min}=4$
-
-Therefore:
-
-$R=20-4$
-
-$\boxed{R=16}$
-
-### Step 5: Interpretation
-
-The mean is 9.3, while the median is 7.5.
-
-The mean is larger because the higher values, particularly 15 and 20, pull the arithmetic average upward.
-
-This suggests that the distribution has some right-side skewness.
-
-A complete analysis would continue with quartiles, IQR, standard deviation, and a visualisation before drawing a stronger conclusion about the distribution.
-
----
-
-# 32. Comparing Two Datasets
-
-Consider:
-
-```
-Dataset A:
-48, 49, 50, 51, 52
-
-Dataset B:
-10, 30, 50, 70, 90
-```
-
-### Mean of Dataset A
-
-$\bar{x}_A=\frac{48+49+50+51+52}{5}$
-
-$\boxed{\bar{x}_A=50}$
-
-### Mean of Dataset B
-
-$\bar{x}_B=\frac{10+30+50+70+90}{5}$
-
-$\boxed{\bar{x}_B=50}$
-
-The means are identical.
-
-However, Dataset B is much more spread out.
-
-Therefore:
-
-> **A measure of centre alone is not enough to describe a dataset.**
-
-We also need a measure of dispersion such as standard deviation or IQR.
-
-This is one of the most important ideas in descriptive statistics.
-
----
-
-# 33. Choosing the Appropriate Measure
-
-The choice of descriptive statistic depends on the data.
-
-### For Nominal Data
-
-Useful measure:
-
-- Mode
-- Frequency
-- Proportion
-
-### For Ordinal Data
-
-Useful measures may include:
-
-- Median
-- Mode
-- Percentiles
-- Frequencies
-
-### For Numerical Data
-
-Useful measures may include:
-
-- Mean
-- Median
-- Range
-- Variance
-- Standard deviation
-- Quartiles
-- IQR
-
-For strongly skewed numerical data, the **median and IQR** can provide a more robust summary than the mean and standard deviation.
-
----
-
-# 34. Common Mistakes
-
-### Mistake 1: Calculating the Mean Without Inspecting the Data
-
-The mean can be strongly affected by outliers.
-
-### Mistake 2: Confusing Median and Mean
-
-The mean is an arithmetic average, while the median is the middle ordered value.
-
-### Mistake 3: Forgetting to Sort Before Finding the Median
-
-The median depends on the ordered position of observations.
-
-### Mistake 4: Treating Variance and Standard Deviation as the Same
-
-Standard deviation is the square root of variance.
-
-### Mistake 5: Ignoring Units
-
-Variance has squared units, while standard deviation has the original units.
-
-### Mistake 6: Removing Outliers Automatically
-
-An outlier may be a genuine observation.
-
-### Mistake 7: Confusing Percentile With Percentage
-
-A 90th percentile position is not the same thing as scoring 90%.
-
-### Mistake 8: Using a Bar Chart for a Numerical Distribution
-
-A histogram is generally more appropriate for continuous numerical distributions.
-
-### Mistake 9: Reporting Only the Mean
-
-A mean without information about spread can hide important differences between datasets.
-
----
-
-# 35. Points to Remember
+## 19. Points to Remember
 
 1. Descriptive statistics summarises observed data.
-2. The mean is the arithmetic average.
-3. The median is the middle ordered value.
-4. The mode is the most frequently occurring value or category.
-5. The mean is sensitive to extreme observations.
-6. The median is generally more resistant to outliers.
-7. Range is the difference between maximum and minimum.
-8. Variance measures squared deviation from the mean.
-9. Standard deviation is the square root of variance.
-10. Sample variance uses $n-1$ in the denominator.
-11. IQR measures the spread of the middle 50% of observations.
-12. Quartiles divide ordered data into four parts.
-13. Percentiles describe relative position in a dataset.
-14. The five-number summary contains minimum, $Q_1$, median, $Q_3$, and maximum.
-15. A box plot is based on the five-number summary.
-16. Outliers should be investigated rather than automatically removed.
-17. Skewness describes asymmetry.
-18. Kurtosis describes aspects of tail behaviour and distribution shape.
-19. A measure of central tendency should usually be considered together with a measure of dispersion.
-20. The correct visualisation depends on the type and structure of the data.
+2. Mean, median, and mode measure central tendency.
+3. Range, variance, standard deviation, and IQR measure dispersion.
+4. The mean is sensitive to extreme observations.
+5. The median is generally more resistant to outliers.
+6. Sample variance commonly uses \(n-1\) in the denominator.
+7. Standard deviation is the square root of variance.
+8. Quartiles divide ordered data into four parts.
+9. Percentiles describe relative position in a dataset.
+10. The five-number summary contains the minimum, \(Q_1\), median, \(Q_3\), and maximum.
+11. Box plots help compare distributions and flag potential outliers.
+12. Skewness describes asymmetry; kurtosis describes aspects of distribution shape and tail behaviour.
+13. pandas `describe()` is useful for initial numerical summaries.
+14. NumPy's `ddof` determines the variance and standard-deviation denominator convention.
+15. EDA should include numerical summaries, visualisation, and checks for data quality.
+16. Outliers should be investigated rather than automatically deleted.
+17. Standardisation and normalisation are different feature-scaling techniques.
+18. Preprocessing must be fitted on training data only when evaluating a predictive model.
 
----
+## 20. Important Formula Summary
 
-# 36. Important Formula Summary
+**Arithmetic mean**
 
-### Arithmetic Mean
+$$
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+$$
 
-$\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}$
+**Weighted mean**
 
-### Weighted Mean
+$$
+\bar{x}_w=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}
+$$
 
-$\bar{x}_w=\frac{\sum_{i=1}^{n}w_i x_i}{\sum_{i=1}^{n}w_i}$
+**Relative frequency**
 
-### Range
+$$
+\text{Relative Frequency}=\frac{f}{n}
+$$
 
-$R=x_{\max}-x_{\min}$
+**Percentage frequency**
 
-### Population Variance
+$$
+\text{Percentage Frequency}=\frac{f}{n}\times100
+$$
 
-$\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}$
+**Range**
 
-### Sample Variance
+$$
+R=x_{\max}-x_{\min}
+$$
 
-$s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}$
+**Population variance**
 
-### Population Standard Deviation
+$$
+\sigma^2=\frac{\sum_{i=1}^{N}(x_i-\mu)^2}{N}
+$$
 
-$\sigma=\sqrt{\sigma^2}$
+**Sample variance**
 
-### Sample Standard Deviation
+$$
+s^2=\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n-1}
+$$
 
-$s=\sqrt{s^2}$
+**Population standard deviation**
 
-### Interquartile Range
+$$
+\sigma=\sqrt{\sigma^2}
+$$
 
-$IQR=Q_3-Q_1$
+**Sample standard deviation**
 
-### Lower IQR Fence
+$$
+s=\sqrt{s^2}
+$$
 
-$Q_1-1.5(IQR)$
+**Interquartile range**
 
-### Upper IQR Fence
+$$
+IQR=Q_3-Q_1
+$$
 
-$Q_3+1.5(IQR)$
+**Lower IQR fence**
 
-### Coefficient of Variation
+$$
+Q_1-1.5(IQR)
+$$
 
-$CV=\frac{s}{\bar{x}}\times100$
+**Upper IQR fence**
 
-### Relative Frequency
+$$
+Q_3+1.5(IQR)
+$$
 
-$R=\frac{f}{n}$
+**Coefficient of variation for a sample**
 
-### Percentage
+$$
+CV=\frac{s}{\bar{x}}\times100\%
+$$
 
-$P=\frac{f}{n}\times100$
+**Z-score standardisation**
 
----
+$$
+z=\frac{x-\mu}{\sigma}
+$$
 
-# 37. Quick Concept Comparison
+**Min-max normalisation**
 
-| Concept | What It Describes |
-|---|---|
-| Mean | Arithmetic centre |
-| Median | Middle ordered value |
-| Mode | Most frequent value |
-| Range | Total distance between minimum and maximum |
-| Variance | Average squared dispersion |
-| Standard Deviation | Typical spread measured in original units |
-| Quartiles | Positions dividing ordered data into four parts |
-| IQR | Spread of middle 50% |
-| Percentile | Relative position |
-| Skewness | Asymmetry |
-| Kurtosis | Tail and shape characteristics |
-| Frequency | Number of occurrences |
-| Relative Frequency | Proportion of occurrences |
-| Five-Number Summary | Compact distribution summary |
-| Box Plot | Visual summary of centre, spread, and possible outliers |
+$$
+x'=\frac{x-x_{\min}}{x_{\max}-x_{\min}}
+$$
 
----
+## 21. Chapter Summary
 
-# 38. Chapter Summary
+Descriptive statistics provides the foundation for understanding a dataset before applying more advanced statistical methods or machine learning algorithms.
 
-Descriptive statistics provides the tools needed to turn raw observations into an understandable summary.
+Measures of central tendency describe the centre of the data, while measures of dispersion describe its variability. Quartiles, percentiles, and the five-number summary help explain relative position and spread. Skewness and kurtosis provide additional information about distribution shape.
 
-The first question is often **where the centre of the data lies**, which leads to the mean, median, and mode. The next question is **how much the observations vary**, which leads to range, variance, standard deviation, and IQR. We can then study **where observations lie relative to one another** using quartiles and percentiles and examine the **shape of the distribution** using skewness and kurtosis.
+In practical Data Science, these concepts are used alongside Python, NumPy, pandas, and visualisation libraries to perform initial data exploration. The results help identify unusual values, understand feature distributions, and guide further investigation.
 
-Visualisation complements numerical summaries. Histograms show numerical distributions, bar charts compare categories, box plots summarise distributions using quartiles, and scatter plots display pairs of numerical observations.
+Descriptive statistics does not replace data cleaning, inferential statistics, or model evaluation. Instead, it provides the understanding needed to use those methods appropriately.
 
-The most important principle is that **no single descriptive statistic completely describes a dataset**. A meaningful summary usually combines measures of centre, spread, position, and shape with an appropriate visual representation.
+## 22. References and Further Reading
 
----
+The following resources provide additional explanations and examples.
 
-# 39. References
+### GeeksforGeeks
 
-1. Standard introductory statistics material covering descriptive statistics, measures of central tendency, dispersion, position, and distribution shape.
-2. Open educational resources for statistics and data analysis.
-3. Course notes and classroom material used for the Mathematics & Statistics section of this repository.
+- [Descriptive Statistics](https://www.geeksforgeeks.org/maths/descriptive-statistics/)
+- [Mean, Median and Mode](https://www.geeksforgeeks.org/maths/mean-median-mode/)
+
+### OpenStax
+
+- [Measures of the Spread of the Data](https://openstax.org/books/introductory-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data)
+- [Box Plots](https://openstax.org/books/introductory-statistics-2e/pages/2-4-box-plots)
+- [Histograms, Frequency Polygons, and Time Series Graphs](https://openstax.org/books/introductory-statistics-2e/pages/2-2-histograms-frequency-polygons-and-time-series-graphs)
+- [Skewness and the Mean, Median, and Mode](https://openstax.org/books/introductory-statistics-2e/pages/2-6-skewness-and-the-mean-median-and-mode)
+
+### Python Libraries
+
+- [NumPy — Statistical Functions](https://numpy.org/doc/stable/reference/routines.statistics.html)
+- [pandas — Descriptive Statistics](https://pandas.pydata.org/docs/user_guide/basics.html#descriptive-statistics)
+- [Matplotlib — Pyplot Tutorial](https://matplotlib.org/stable/tutorials/pyplot.html)
+- [scikit-learn — Preprocessing Data](https://scikit-learn.org/stable/modules/preprocessing.html)
+
+### Related Topics in This Repository
+
+- Probability
+- Probability Distributions
+- Inferential Statistics
+- Hypothesis Testing
+- ANOVA
+- Correlation
+- Regression
+- Regression Model Evaluation
+- Statistics for Machine Learning
