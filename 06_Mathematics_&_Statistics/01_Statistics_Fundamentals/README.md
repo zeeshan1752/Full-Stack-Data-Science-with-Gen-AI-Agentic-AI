@@ -425,11 +425,11 @@ Unstructured data does not follow a predefined tabular structure.
 
 Examples include:
 
-- Images.
-- Audio.
-- Video.
-- Free-form text.
-- Documents.
+- Images
+- Audio
+- Video
+- Free-form text
+- Documents
 
 Different structures may require different storage, processing, and analytical techniques. For example, a CSV file can often be analysed using pandas, whereas image datasets may require image-processing libraries.
 
@@ -494,11 +494,11 @@ A properly designed experiment can help investigate cause-and-effect relationshi
 
 Data may also be collected automatically from:
 
-- Transaction databases.
-- Application logs.
-- Sensors.
-- Websites.
-- Enterprise software.
+- Transaction databases
+- Application logs
+- Sensors
+- Websites
+- Enterprise software
 
 The collection method should always be considered when evaluating the quality, meaning, and limitations of a dataset.
 
@@ -528,21 +528,21 @@ Systematic sampling selects observations at regular intervals after an appropria
 
 The sampling interval is commonly calculated as:
 
-\[
-k=\frac{N}{n}
-\]
+$$
+k = \frac{N}{n}
+$$
 
 where:
 
-- \(N\) = population size.
-- \(n\) = required sample size.
-- \(k\) = sampling interval.
+- $N$ = population size
+- $n$ = required sample size
+- $k$ = sampling interval
 
 Suppose the population contains 10,000 customers and the required sample size is 1,000.
 
-\[
-k=\frac{10000}{1000}=10
-\]
+$$
+k = \frac{10000}{1000} = 10
+$$
 
 After selecting a suitable starting point, every 10th customer can be selected.
 
@@ -554,29 +554,29 @@ In stratified sampling, the population is divided into meaningful groups called 
 
 Suppose a university consists of:
 
-- 60% CSE students.
-- 25% ECE students.
-- 15% Mechanical Engineering students.
+- 60% CSE students
+- 25% ECE students
+- 15% Mechanical Engineering students
 
 A proportional stratified sample of 1,000 students would contain:
 
-\[
-n_{\text{CSE}}=1000\times0.60=600
-\]
+$$
+n_{\text{CSE}} = 1000 \times 0.60 = 600
+$$
 
-\[
-n_{\text{ECE}}=1000\times0.25=250
-\]
+$$
+n_{\text{ECE}} = 1000 \times 0.25 = 250
+$$
 
-\[
-n_{\text{Mechanical}}=1000\times0.15=150
-\]
+$$
+n_{\text{Mechanical}} = 1000 \times 0.15 = 150
+$$
 
 Therefore:
 
-\[
-600+250+150=1000
-\]
+$$
+600 + 250 + 150 = 1000
+$$
 
 Stratified sampling is useful when important subgroups need appropriate representation.
 
@@ -601,7 +601,7 @@ It is fast and inexpensive, but it can introduce substantial selection bias beca
 | Method | Basic Idea | Main Advantage | Main Limitation |
 |---|---|---|---|
 | Simple random | Randomly select individuals | Straightforward selection | Requires a suitable sampling frame |
-| Systematic | Select every \(k\)th observation | Easy to implement | Periodic patterns can cause problems |
+| Systematic | Select every $k$th observation | Easy to implement | Periodic patterns can cause problems |
 | Stratified | Sample from important subgroups | Supports subgroup representation | Requires information about strata |
 | Cluster | Select groups or clusters | Can reduce collection cost | Selected clusters may not represent all groups |
 | Convenience | Select easily available observations | Fast and inexpensive | High risk of selection bias |
@@ -618,11 +618,11 @@ If club members have different experiences from other students, the results may 
 
 Common sources of sampling bias include:
 
-- Convenience sampling.
-- Undercoverage of important population groups.
-- Voluntary response.
-- Non-response.
-- An incomplete or unsuitable sampling frame.
+- Convenience sampling
+- Undercoverage of important population groups
+- Voluntary response
+- Non-response
+- An incomplete or unsuitable sampling frame
 
 Sampling bias is important because increasing the sample size does not necessarily eliminate systematic bias. A very large biased sample can still produce biased estimates.
 
@@ -634,21 +634,21 @@ Even when sampling is conducted appropriately, a sample may not exactly match th
 
 Suppose the population mean is:
 
-\[
-\mu=50
-\]
+$$
+\mu = 50
+$$
 
 A sample produces:
 
-\[
-\bar{x}=48
-\]
+$$
+\bar{x} = 48
+$$
 
 The difference between the sample mean and population mean is:
 
-\[
-\bar{x}-\mu=48-50=-2
-\]
+$$
+\bar{x} - \mu = 48 - 50 = -2
+$$
 
 The sample mean is two units below the population mean.
 
@@ -690,8 +690,8 @@ A value is incorrectly entered into a database.
 
 For example:
 
-- Correct age: 21.
-- Entered age: 211.
+- Correct age: 21
+- Entered age: 211
 
 ### 15.5 Processing Error
 
@@ -732,47 +732,47 @@ Statistical notation provides a compact way to represent observations and calcul
 
 Suppose a dataset contains:
 
-\[
-x_1,x_2,x_3,\ldots,x_n
-\]
+$$
+x_1, x_2, x_3, \ldots, x_n
+$$
 
-Here, \(x_i\) represents the \(i\)th observation and \(n\) is the number of observations.
+Here, $x_i$ represents the $i$th observation and $n$ is the number of observations.
 
 ### 17.1 Summation Notation
 
-The symbol \(\sum\) represents addition.
+The symbol $\sum$ represents addition.
 
 For example:
 
-\[
-\sum_{i=1}^{n}x_i
-\]
+$$
+\sum_{i=1}^{n} x_i
+$$
 
 means:
 
-\[
-x_1+x_2+x_3+\cdots+x_n
-\]
+$$
+x_1 + x_2 + x_3 + \cdots + x_n
+$$
 
 If the observations are 10, 20, and 30:
 
-\[
-\sum_{i=1}^{3}x_i=10+20+30=60
-\]
+$$
+\sum_{i=1}^{3} x_i = 10 + 20 + 30 = 60
+$$
 
 ### 17.2 Sample and Population Notation
 
 The sample mean is:
 
-\[
-\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
-\]
+$$
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
 
 The population mean is:
 
-\[
-\mu=\frac{\sum_{i=1}^{N}x_i}{N}
-\]
+$$
+\mu = \frac{\sum_{i=1}^{N} x_i}{N}
+$$
 
 The symbols remind us whether a calculation describes a sample or an entire population.
 
@@ -788,27 +788,27 @@ This section introduces a few basic calculations to demonstrate how notation is 
 
 The sample arithmetic mean is:
 
-\[
-\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
-\]
+$$
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
 
 For the observations 10, 20, 30, 40, and 50:
 
-\[
-\sum x_i=10+20+30+40+50=150
-\]
+$$
+\sum x_i = 10 + 20 + 30 + 40 + 50 = 150
+$$
 
 There are five observations:
 
-\[
-n=5
-\]
+$$
+n = 5
+$$
 
 Therefore:
 
-\[
-\bar{x}=\frac{150}{5}=30
-\]
+$$
+\bar{x} = \frac{150}{5} = 30
+$$
 
 The sample mean is 30.
 
@@ -816,11 +816,11 @@ The sample mean is 30.
 
 A weighted mean is used when observations contribute unequally to a result.
 
-\[
-\bar{x}_w=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}
-\]
+$$
+\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+$$
 
-Here, \(x_i\) is an observation and \(w_i\) is its weight.
+Here, $x_i$ is an observation and $w_i$ is its weight.
 
 For example, suppose three assessments have the following scores and weights:
 
@@ -832,21 +832,21 @@ For example, suppose three assessments have the following scores and weights:
 
 The weighted total is:
 
-\[
-80(2)+70(3)+90(5)=820
-\]
+$$
+80(2) + 70(3) + 90(5) = 820
+$$
 
 The total weight is:
 
-\[
-2+3+5=10
-\]
+$$
+2 + 3 + 5 = 10
+$$
 
 Therefore:
 
-\[
-\bar{x}_w=\frac{820}{10}=82
-\]
+$$
+\bar{x}_w = \frac{820}{10} = 82
+$$
 
 The weighted mean is 82.
 
@@ -854,27 +854,27 @@ The weighted mean is 82.
 
 A proportion represents the fraction of a whole.
 
-\[
-p=\frac{\text{Part}}{\text{Whole}}
-\]
+$$
+p = \frac{\text{Part}}{\text{Whole}}
+$$
 
 A percentage expresses the proportion as a value out of 100.
 
-\[
-P=\frac{\text{Part}}{\text{Whole}}\times100
-\]
+$$
+P = \frac{\text{Part}}{\text{Whole}} \times 100
+$$
 
 Suppose 72 out of 90 students pass an examination.
 
-\[
-p=\frac{72}{90}=0.8
-\]
+$$
+p = \frac{72}{90} = 0.8
+$$
 
 The corresponding percentage is:
 
-\[
-P=0.8\times100=80\%
-\]
+$$
+P = 0.8 \times 100 = 80\%
+$$
 
 Relative frequency is one application of proportion and percentage. Its detailed treatment belongs in the Descriptive Statistics chapter.
 
@@ -914,8 +914,8 @@ For example, income could mean monthly income, annual income, individual income,
 
 Consider the following height measurements:
 
-- 170 cm.
-- 1.75 m.
+- 170 cm
+- 1.75 m
 
 These values use different units. They must be converted to a consistent unit before comparing or combining them.
 
@@ -933,17 +933,17 @@ Collecting data from every student may require substantial time and resources, s
 
 The population contains all 10,000 students.
 
-\[
-N=10000
-\]
+$$
+N = 10000
+$$
 
 ### Step 2: Identify the Sample
 
 The selected sample contains 500 students.
 
-\[
-n=500
-\]
+$$
+n = 500
+$$
 
 ### Step 3: Identify the Variable
 
@@ -955,21 +955,21 @@ It is quantitative and is generally treated as continuous.
 
 Suppose the sum of study hours recorded across the 500 students is 1,750.
 
-\[
-\sum_{i=1}^{500}x_i=1750
-\]
+$$
+\sum_{i=1}^{500} x_i = 1750
+$$
 
 The sample mean is:
 
-\[
-\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
-\]
+$$
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
 
 Substituting the values:
 
-\[
-\bar{x}=\frac{1750}{500}=3.5
-\]
+$$
+\bar{x} = \frac{1750}{500} = 3.5
+$$
 
 The average study time in the sample is 3.5 hours per day.
 
@@ -993,9 +993,9 @@ A sample is only a subset of the population. Results calculated from a sample sh
 
 Suppose:
 
-- 1 = CSE.
-- 2 = ECE.
-- 3 = Mechanical Engineering.
+- 1 = CSE
+- 2 = ECE
+- 3 = Mechanical Engineering
 
 These numbers are category labels. Their arithmetic mean does not generally have a meaningful interpretation.
 
@@ -1053,41 +1053,41 @@ Incomplete, inaccurate, or poorly collected data can lead to misleading conclusi
 
 ### Sampling Interval
 
-\[
-k=\frac{N}{n}
-\]
+$$
+k = \frac{N}{n}
+$$
 
-Where \(N\) is the population size and \(n\) is the required sample size. This is a common interval calculation for systematic sampling when the population size is divisible by the sample size.
+Here, $N$ is the population size and $n$ is the required sample size. This is a common interval calculation for systematic sampling when the population size is divisible by the sample size.
 
 ### Sample Mean
 
-\[
-\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
-\]
+$$
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
 
 ### Population Mean
 
-\[
-\mu=\frac{\sum_{i=1}^{N}x_i}{N}
-\]
+$$
+\mu = \frac{\sum_{i=1}^{N} x_i}{N}
+$$
 
 ### Weighted Mean
 
-\[
-\bar{x}_w=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}
-\]
+$$
+\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+$$
 
 ### Proportion
 
-\[
-p=\frac{\text{Part}}{\text{Whole}}
-\]
+$$
+p = \frac{\text{Part}}{\text{Whole}}
+$$
 
 ### Percentage
 
-\[
-P=\frac{\text{Part}}{\text{Whole}}\times100
-\]
+$$
+P = \frac{\text{Part}}{\text{Whole}} \times 100
+$$
 
 These formulas are included as a basic reference. Detailed descriptive-statistics formulas are covered in the next chapter.
 
@@ -1144,9 +1144,3 @@ These formulas are included as a basic reference. Detailed descriptive-statistic
 The resources above provide additional explanations of introductory statistics, data collection, sampling, and data analysis.
 
 ---
-
-## Chapter Summary
-
-Statistics begins with understanding **what the data represents and how it was obtained**. Before calculating a statistic or applying a machine learning algorithm, we need to identify the population, sample, variables, measurement scales, sampling method, and possible sources of error.
-
-These fundamentals provide the base for the remaining chapters in this repository, including Descriptive Statistics, Probability, Probability Distributions, Inferential Statistics, Hypothesis Testing, ANOVA, Correlation, Regression, and Statistics for Machine Learning.
