@@ -631,8 +631,6 @@ $\boxed{ P(A\mid B)= \frac{P(B\mid A)P(A)} {P(B\mid A)P(A)+P(B\mid A^c)P(A^c)} }
 
 Bayes' theorem is especially important when we want to update a prior belief after observing new evidence.
 
-![Bayes theorem probability illustration](https://media.geeksforgeeks.org/wp-content/uploads/20250222144920592095/stat.webp)
-
 ---
 
 ## 20. Bayes' Theorem — Worked Example
