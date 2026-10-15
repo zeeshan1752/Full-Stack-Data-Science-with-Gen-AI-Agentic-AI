@@ -1,37 +1,55 @@
 # Statistics Fundamentals
 
-Statistics is the foundation of Data Science, Data Analysis, and Machine Learning. Before applying statistical methods or building predictive models, we need to understand what data represents, how it was collected, how variables are measured, and how conclusions can be drawn from observations.
+## Chapter Overview
 
-For example, before predicting customer behaviour, we should understand who the customers are, how the data was collected, whether the dataset represents the target population, and whether errors or biases may affect the results.
+Statistics is the foundation of Data Science, Data Analysis, and Machine Learning. Before analysing a dataset or building a predictive model, we need to understand what the data represents, how it was collected, whether it represents the population of interest, and what limitations may affect the conclusions.
 
-This chapter introduces the fundamental concepts needed to work with real-world datasets. It focuses on statistical thinking, data classification, sampling, data collection, data quality, and the basic language of statistics.
+For example, before predicting customer behaviour, a Data Scientist should understand which customers are represented in the dataset, how customer information was collected, whether important observations are missing, and whether the data contains systematic bias.
+
+This chapter introduces the fundamental concepts required to understand and work with real-world datasets. Detailed descriptive-statistics calculations, probability theory, and statistical inference are covered in their respective chapters.
+
+### Learning Objectives
+
+After completing this chapter, you should be able to:
+
+- Explain the role of statistics in Data Science and Machine Learning.
+- Distinguish between populations, samples, parameters, and statistics.
+- Identify different types of data and variables.
+- Understand the four levels of measurement.
+- Distinguish structured, semi-structured, and unstructured data.
+- Understand data collection methods and sampling techniques.
+- Recognise sampling bias, sampling error, and non-sampling errors.
+- Differentiate observational studies from experiments.
+- Evaluate basic data quality before performing statistical analysis.
 
 ---
 
 ## 1. Introduction to Statistics
 
-Statistics is the science of **collecting, organising, summarising, analysing, interpreting, and communicating data**.
+Statistics is the science of collecting, organising, summarising, analysing, interpreting, and communicating data.
 
-Data in its raw form may not provide an immediate understanding of a problem. Statistics helps us identify patterns, understand uncertainty, evaluate evidence, and make informed decisions.
+Raw data does not always provide a clear understanding of a problem. Statistical methods help us identify patterns, understand variation, evaluate evidence, and make informed decisions.
 
 In Data Science, statistics helps answer questions such as:
 
 - What does a dataset represent?
-- Is the sample representative of the population?
-- Which statistical methods are appropriate for a particular variable?
+- Is the dataset suitable for the problem being investigated?
+- Is the sample representative of the target population?
+- Which statistical methods are appropriate for the available variables?
 - Could errors or bias affect the results?
-- How much uncertainty is present in a conclusion?
-- Can information from a sample help us understand a larger population?
+- How reliable are the conclusions drawn from the data?
 
-Statistics is broadly divided into two major branches.
+Statistics is commonly divided into two major branches.
 
 ### 1.1 Descriptive Statistics
 
-Descriptive statistics summarises the observations available in a dataset.
+Descriptive statistics summarises and describes the observations available in a dataset.
 
-Examples include mean, median, mode, variance, standard deviation, frequency distributions, and graphical summaries.
+It includes measures such as mean, median, mode, variance, standard deviation, frequency distributions, and graphical summaries.
 
-The detailed calculations and Python implementations are covered in `02_Descriptive_Statistics`.
+For example, a company may summarise the average order value and distribution of customer purchases.
+
+Detailed explanations, formulas, worked examples, and Python implementations are covered in `02_Descriptive_Statistics`.
 
 ### 1.2 Inferential Statistics
 
@@ -39,9 +57,11 @@ Inferential statistics uses sample data to estimate population characteristics o
 
 For example, a university with 20,000 students may survey 500 selected students to estimate the average daily study time of all its students.
 
-The estimate is based on the sample and involves uncertainty. Confidence intervals, hypothesis testing, and related methods are covered in the Inferential Statistics and Hypothesis Testing chapters.
+Because the estimate is based on a sample, uncertainty must be considered.
 
-**Key distinction:** Descriptive statistics summarises observed data, while inferential statistics uses data to draw conclusions about a broader population.
+Sampling distributions, estimation, and confidence intervals are covered in `05_Inferential_Statistics`. Statistical tests are covered in `06_Hypothesis_Testing`.
+
+**Key distinction:** Descriptive statistics describes the available observations, while inferential statistics uses data to draw conclusions about a broader population.
 
 ---
 
@@ -51,7 +71,7 @@ The estimate is based on the sample and involves uncertainty. Confidence interva
 
 Data is a collection of recorded facts, measurements, values, or observations gathered for a particular purpose.
 
-Consider this student dataset:
+Consider the following student dataset.
 
 | Student | Age | Study Hours | Department |
 |---|---:|---:|---|
@@ -71,23 +91,32 @@ In a typical tabular dataset:
 - Each row represents an observation.
 - Each column represents a variable or feature.
 
-For example, a dataset containing 1,000 students will generally have 1,000 observations if each student is represented by one row.
+For example, a dataset containing information about 1,000 customers will generally have 1,000 observations if each customer is represented by one row.
+
+The structure can be different for time-series data, transaction records, images, and other data formats, so the meaning of an observation depends on the dataset.
 
 ### 2.3 Variable
 
 A **variable** is a characteristic that can take different values across observations.
 
-Examples include age, salary, height, product category, study hours, and customer status.
+Examples include:
 
-In Machine Learning, variables used as model inputs are commonly called **features**. The variable that a model is trained to predict is commonly called the **target** or **label**.
+- Age
+- Salary
+- Product category
+- Study hours
+- Customer status
+- Number of purchases
 
-The meanings of these terms depend on the problem being solved.
+In Machine Learning, variables used as model inputs are commonly called **features**. The variable a model is trained to predict is called the **target** or **label**.
+
+For example, a customer churn model might use account age, monthly spending, and support requests as features to predict whether a customer will leave.
 
 ---
 
 ## 3. Population and Sample
 
-One of the most important concepts in statistics is the distinction between a population and a sample.
+The distinction between a population and a sample is fundamental to statistical analysis.
 
 ### 3.1 Population
 
@@ -97,11 +126,11 @@ Examples include:
 
 - All students enrolled at a university.
 - All customers of a company.
-- All transactions recorded by a bank during a year.
+- All transactions recorded by a bank during a specified period.
 - All houses in a city.
-- All products manufactured during a specified period.
+- All products manufactured during a particular month.
 
-The population does not necessarily consist of people. It is the complete group about which we want to learn.
+A population does not necessarily consist of people. It is the complete group about which we want to learn.
 
 ### 3.2 Sample
 
@@ -109,40 +138,47 @@ A **sample** is a subset of the population selected for analysis.
 
 Suppose a university has 20,000 students and collects information from 500 selected students.
 
-- **Population:** 20,000 students
-- **Sample:** 500 selected students
+- Population: 20,000 students.
+- Sample: 500 selected students.
 
-The relationship can be represented as:
+The relationship can be expressed as:
 
 $$
 \text{Sample} \subseteq \text{Population}
 $$
 
+The process can be represented as:
+
 ```mermaid
 flowchart TD
-    A["Population: 20,000 students"] --> B["Select a sample"]
-    B --> C["Sample: 500 students"]
-    C --> D["Analyse the sample"]
-    D --> E["Estimate population characteristics"]
+    A["Target Population"] --> B["Select a Sample"]
+    B --> C["Collect Data"]
+    C --> D["Analyse Observations"]
+    D --> E["Draw Appropriate Conclusions"]
 ```
 
 ### 3.3 Why Do We Use Samples?
 
-Studying an entire population may be expensive, time-consuming, or impractical. Sampling allows researchers and Data Scientists to analyse a manageable portion of the population.
+Studying an entire population may be expensive, time-consuming, or impractical.
+
+Sampling allows researchers and Data Scientists to analyse a manageable portion of the population.
 
 However, a large sample is not automatically representative. If the sampling method systematically excludes important groups, the resulting conclusions may still be misleading.
 
 ### 3.4 Census
 
-A **census** collects information from every member of the population being studied. A sample survey collects information from only a selected subset.
+A **census** attempts to collect information from every member of the population being studied.
+
+A sample survey collects information from only a selected subset.
 
 | Census | Sample Survey |
 |---|---|
 | Attempts to cover the entire population | Studies a subset of the population |
 | Often requires more resources | Often requires fewer resources |
-| Avoids sampling error when coverage is complete, but other errors can remain | Has sampling error as well as possible non-sampling errors |
+| Can avoid sampling error when coverage is complete | Has sampling variability |
+| Can still contain measurement and recording errors | Can contain sampling and non-sampling errors |
 
-A census can still contain missing data, measurement errors, and other problems. Collecting information from everyone does not automatically guarantee perfect data quality.
+A census does not automatically guarantee perfect data quality. Missing records, inaccurate measurements, and data-processing mistakes can still occur.
 
 ---
 
@@ -152,36 +188,28 @@ A **parameter** is a numerical value describing a population.
 
 A **statistic** is a numerical value calculated from a sample.
 
-Suppose we want to know the average height of every student at a university.
+Suppose we want to know the average height of all students at a university.
 
 - The average height of all university students is a population parameter.
 - The average height of selected students is a sample statistic.
 
-Common notation includes:
+Common statistical notation includes:
 
-| Quantity | Population | Sample |
+| Quantity | Population Notation | Sample Notation |
 |---|---|---|
 | Mean | $\mu$ | $\bar{x}$ |
 | Standard deviation | $\sigma$ | $s$ |
 | Variance | $\sigma^2$ | $s^2$ |
 | Size | $N$ | $n$ |
-| Proportion | $P$ or $\pi$, depending on notation | $\hat{p}$ |
+| Proportion | $P$ or $\pi$ | $\hat{p}$ |
 
-The sample mean is:
+Here, \(N\) represents population size, while \(n\) represents sample size.
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
-$$
+The notation helps distinguish quantities describing an entire population from quantities calculated using a sample.
 
-The population mean is:
+Sample statistics are often used to estimate unknown population parameters. Because different samples can produce different statistics, the estimate may not equal the true population parameter.
 
-$$
-\mu = \frac{\sum_{i=1}^{N} x_i}{N}
-$$
-
-Here, $x_i$ represents an observation, $n$ is the sample size, and $N$ is the population size.
-
-Sample statistics are often used to estimate unknown population parameters. The difference between a sample statistic and its corresponding population parameter is important when studying statistical uncertainty.
+Detailed descriptive-statistics formulas are covered in `02_Descriptive_Statistics`.
 
 ---
 
@@ -189,11 +217,11 @@ Sample statistics are often used to estimate unknown population parameters. The 
 
 Understanding the type of data is essential because different statistical methods are appropriate for different variables.
 
-Data can first be divided into qualitative and quantitative data.
+Data can first be classified as qualitative or quantitative.
 
 ### 5.1 Qualitative Data
 
-Qualitative data represents categories, labels, or qualities rather than numerical measurements.
+**Qualitative data** represents categories, labels, or qualities rather than numerical measurements.
 
 Examples include:
 
@@ -219,7 +247,7 @@ Categories may be encoded numerically, such as `1 = Cash`, `2 = UPI`, and `3 = C
 
 ### 5.2 Quantitative Data
 
-Quantitative data represents numerical quantities that can be counted or measured.
+**Quantitative data** represents numerical quantities that can be counted or measured.
 
 Examples include:
 
@@ -238,26 +266,26 @@ Quantitative data is commonly divided into discrete and continuous data.
 
 ### 6.1 Discrete Data
 
-Discrete data consists of distinct, countable values.
+**Discrete data** consists of distinct, countable values.
 
 Examples include:
 
-- Number of students in a classroom
-- Number of products sold
-- Number of defects in a manufactured item
-- Number of calls received by a support centre
+- Number of students in a classroom.
+- Number of products sold.
+- Number of defects in a batch.
+- Number of calls received by a support centre.
 
 A count might take values such as:
 
 $$
-0, 1, 2, 3, 4, \ldots
+0,1,2,3,4,\ldots
 $$
 
 A count of complete products sold is normally a whole number rather than a fraction of a product.
 
 ### 6.2 Continuous Data
 
-Continuous data represents measurements that can take values throughout a range, subject to the precision of the measurement process.
+**Continuous data** represents measurements that can take values throughout a range, subject to the precision of the measurement process.
 
 Examples include:
 
@@ -267,17 +295,17 @@ Examples include:
 - Time duration
 - Distance
 
-For example, a measured height could be recorded as 170 cm, 170.2 cm, or 170.25 cm.
+For example, a measured height might be recorded as 170 cm, 170.2 cm, or 170.25 cm.
 
 The number of decimal places recorded depends on the measuring instrument and the required precision.
 
-### Comparison
+### 6.3 Comparison
 
 | Property | Discrete Data | Continuous Data |
 |---|---|---|
 | Nature | Countable values | Measured values |
-| Typical examples | Number of purchases, number of errors | Height, weight, time |
-| Possible values | Usually separate count values | Values throughout a range |
+| Examples | Number of purchases, errors | Height, weight, time |
+| Typical values | Separate count values | Values throughout a range |
 | Common source | Counting | Measurement |
 
 Some variables require careful classification. Age, for example, can be recorded as completed years, making the recorded values discrete, even though elapsed time since birth is continuous.
@@ -290,7 +318,7 @@ The **level of measurement** describes the mathematical properties of a variable
 
 The four commonly used levels are nominal, ordinal, interval, and ratio.
 
-![Four levels of measurement](https://media.geeksforgeeks.org/wp-content/uploads/20251206123755209876/the_four_level_of_measu.webp)
+<image src="https://media.geeksforgeeks.org/wp-content/uploads/20251206123755209876/the_four_level_of_measu.webp" alt="Four levels of measurement" />
 
 ### 7.1 Nominal Scale
 
@@ -341,15 +369,15 @@ However, 20°C is not twice as hot as 10°C because Celsius has an arbitrary zer
 
 Ratio data has:
 
-- Meaningful order
-- Equal intervals
-- A meaningful zero
+- Meaningful order.
+- Equal intervals.
+- A meaningful zero.
 
 Examples include weight, height, distance, elapsed time, and income when measured as an amount with a meaningful zero.
 
 For example, 20 kg is twice 10 kg because zero kilograms represents the absence of mass.
 
-### Summary
+### 7.5 Summary
 
 | Scale | Natural Order | Equal Differences | Meaningful True Zero |
 |---|---|---|---|
@@ -364,7 +392,7 @@ The level of measurement helps guide statistical analysis. Calculating the arith
 
 ## 8. Independent and Dependent Variables
 
-A variable can also be described according to its role in a study or prediction task.
+Variables can also be described according to their roles in a study or prediction task.
 
 ### 8.1 Independent Variable
 
@@ -372,12 +400,12 @@ An **independent variable** is a variable that is changed, controlled, or used a
 
 ### 8.2 Dependent Variable
 
-A **dependent variable** is the outcome or response being measured or predicted.
+A **dependent variable** is the outcome or response being measured.
 
 Suppose we investigate whether study time is associated with examination scores.
 
-- **Study hours:** Predictor or independent variable
-- **Examination score:** Outcome or dependent variable
+- Study hours: predictor or independent variable.
+- Examination score: outcome or dependent variable.
 
 In Machine Learning, predictor variables are commonly called **features**, while the variable being predicted is called the **target**.
 
@@ -395,11 +423,13 @@ Structured data follows a defined format, commonly rows and columns.
 
 | ID | Age | Salary |
 |---|---:|---:|
-| 101 | 24 | 35,000 |
-| 102 | 26 | 42,000 |
-| 103 | 23 | 30,000 |
+| 101 | 24 | 35000 |
+| 102 | 26 | 42000 |
+| 103 | 23 | 30000 |
 
 Examples include relational database tables, spreadsheets, and many CSV datasets.
+
+Structured data is often convenient to analyse using tools such as pandas and SQL.
 
 ### 9.2 Semi-Structured Data
 
@@ -417,7 +447,7 @@ Example JSON:
 }
 ```
 
-In this example, the keys `name`, `age`, and `city` provide structure, but the data is not stored as a traditional relational table.
+The keys `name`, `age`, and `city` provide structure, even though the data is not stored as a traditional relational table.
 
 ### 9.3 Unstructured Data
 
@@ -431,7 +461,9 @@ Examples include:
 - Free-form text
 - Documents
 
-Different structures may require different storage, processing, and analytical techniques. For example, a CSV file can often be analysed using pandas, whereas image datasets may require image-processing libraries.
+Different data structures may require different storage, processing, and analytical techniques. For example, CSV files can often be analysed using pandas, whereas image datasets may require image-processing libraries.
+
+This classification is particularly relevant when selecting tools and designing Data Science workflows.
 
 ---
 
@@ -439,17 +471,28 @@ Different structures may require different storage, processing, and analytical t
 
 ### 10.1 Primary Data
 
-Primary data is collected directly by a researcher or organisation for a particular study.
+**Primary data** is collected directly by a researcher or organisation for a particular study.
 
-Examples include conducting surveys, interviewing customers, running experiments, and recording measurements.
+Examples include:
+
+- Conducting surveys.
+- Interviewing customers.
+- Running experiments.
+- Recording measurements.
 
 ### 10.2 Secondary Data
 
-Secondary data has already been collected by another person, organisation, or system and is reused for a different analysis.
+**Secondary data** has already been collected by another person, organisation, or system and is reused for a different analysis.
 
-Examples include government datasets, published research datasets, company reports, historical records, and existing databases.
+Examples include:
 
-### Comparison
+- Government datasets.
+- Published research datasets.
+- Company reports.
+- Historical records.
+- Existing databases.
+
+### 10.3 Comparison
 
 | Primary Data | Secondary Data |
 |---|---|
@@ -458,7 +501,9 @@ Examples include government datasets, published research datasets, company repor
 | Greater control over the collection process | Less control over the original collection |
 | Can require more time and resources | Can be faster and less expensive to obtain |
 
-Before using secondary data, examine its source, definitions, collection method, time period, missing values, and limitations. A dataset that was suitable for its original purpose may not be suitable for a new research question.
+Before using secondary data, examine its source, definitions, collection method, time period, missing values, and limitations.
+
+A dataset that was suitable for its original purpose may not be suitable for a new research question.
 
 ---
 
@@ -494,11 +539,11 @@ A properly designed experiment can help investigate cause-and-effect relationshi
 
 Data may also be collected automatically from:
 
-- Transaction databases
-- Application logs
-- Sensors
-- Websites
-- Enterprise software
+- Transaction databases.
+- Application logs.
+- Sensors.
+- Websites.
+- Enterprise software.
 
 The collection method should always be considered when evaluating the quality, meaning, and limitations of a dataset.
 
@@ -510,7 +555,7 @@ The collection method should always be considered when evaluating the quality, m
 
 The sampling method should be chosen according to the research question, population structure, available resources, and required level of representativeness.
 
-![Sampling methods](https://media.geeksforgeeks.org/wp-content/uploads/20250801183937885065/sampling-method_.webp)
+<image src="https://media.geeksforgeeks.org/wp-content/uploads/20250801183937885065/sampling-method_.webp" alt="Common sampling methods" />
 
 ### 12.1 Simple Random Sampling
 
@@ -529,22 +574,22 @@ Systematic sampling selects observations at regular intervals after an appropria
 The sampling interval is commonly calculated as:
 
 $$
-k = \frac{N}{n}
+k=\frac{N}{n}
 $$
 
-where:
+Where:
 
-- $N$ = population size
-- $n$ = required sample size
-- $k$ = sampling interval
+- \(N\) = population size.
+- \(n\) = required sample size.
+- \(k\) = sampling interval.
 
 Suppose the population contains 10,000 customers and the required sample size is 1,000.
 
 $$
-k = \frac{10000}{1000} = 10
+k=\frac{10000}{1000}=10
 $$
 
-After selecting a suitable starting point, every 10th customer can be selected.
+After selecting a suitable starting point, every tenth customer can be selected.
 
 Systematic sampling is easy to implement, but it can be problematic when the ordering of the population contains periodic patterns that align with the sampling interval.
 
@@ -554,28 +599,28 @@ In stratified sampling, the population is divided into meaningful groups called 
 
 Suppose a university consists of:
 
-- 60% CSE students
-- 25% ECE students
-- 15% Mechanical Engineering students
+- 60% CSE students.
+- 25% ECE students.
+- 15% Mechanical Engineering students.
 
 A proportional stratified sample of 1,000 students would contain:
 
 $$
-n_{\text{CSE}} = 1000 \times 0.60 = 600
+n_{\text{CSE}}=1000\times0.60=600
 $$
 
 $$
-n_{\text{ECE}} = 1000 \times 0.25 = 250
+n_{\text{ECE}}=1000\times0.25=250
 $$
 
 $$
-n_{\text{Mechanical}} = 1000 \times 0.15 = 150
+n_{\text{Mechanical}}=1000\times0.15=150
 $$
 
-Therefore:
+The total sample size is:
 
 $$
-600 + 250 + 150 = 1000
+600+250+150=1000
 $$
 
 Stratified sampling is useful when important subgroups need appropriate representation.
@@ -592,18 +637,18 @@ Cluster sampling can reduce collection costs, particularly when population membe
 
 Convenience sampling selects observations that are easy to access.
 
-Examples include surveying friends, collecting responses from people at one easily accessible location, or using volunteers who respond to an online post.
+Examples include surveying friends, collecting responses from people at one accessible location, or using volunteers who respond to an online post.
 
 It is fast and inexpensive, but it can introduce substantial selection bias because the sample may not represent the target population.
 
-### Comparison of Sampling Methods
+### 12.6 Comparison of Sampling Methods
 
 | Method | Basic Idea | Main Advantage | Main Limitation |
 |---|---|---|---|
 | Simple random | Randomly select individuals | Straightforward selection | Requires a suitable sampling frame |
-| Systematic | Select every $k$th observation | Easy to implement | Periodic patterns can cause problems |
+| Systematic | Select every \(k\)th observation | Easy to implement | Periodic patterns can cause problems |
 | Stratified | Sample from important subgroups | Supports subgroup representation | Requires information about strata |
-| Cluster | Select groups or clusters | Can reduce collection cost | Selected clusters may not represent all groups |
+| Cluster | Select groups or clusters | Can reduce collection costs | Selected clusters may not represent all groups |
 | Convenience | Select easily available observations | Fast and inexpensive | High risk of selection bias |
 
 ---
@@ -612,19 +657,32 @@ It is fast and inexpensive, but it can introduce substantial selection bias beca
 
 **Sampling bias** occurs when the sampling process systematically produces a sample that does not adequately represent the target population.
 
-Suppose a university conducts a student satisfaction survey only among students who visit a particular student club. Students who never visit the club have no opportunity to participate.
+Suppose a university conducts a student satisfaction survey only among students who visit a particular student club.
 
-If club members have different experiences from other students, the results may not represent the entire university.
+Students who never visit the club have no opportunity to participate. If club members have different experiences from other students, the results may not represent the entire university.
 
 Common sources of sampling bias include:
 
-- Convenience sampling
-- Undercoverage of important population groups
-- Voluntary response
-- Non-response
-- An incomplete or unsuitable sampling frame
+- Convenience sampling.
+- Undercoverage of important population groups.
+- Voluntary response.
+- Non-response.
+- An incomplete or unsuitable sampling frame.
 
 Sampling bias is important because increasing the sample size does not necessarily eliminate systematic bias. A very large biased sample can still produce biased estimates.
+
+### Reducing Sampling Bias
+
+Potential approaches include:
+
+1. Define the target population clearly.
+2. Use an appropriate sampling frame.
+3. Select observations using a suitable sampling method.
+4. Ensure important population groups are not systematically excluded.
+5. Investigate non-response and missing records.
+6. Document the limitations of the collected data.
+
+These steps can reduce some sources of bias, but no sampling method automatically guarantees a representative sample.
 
 ---
 
@@ -635,19 +693,19 @@ Even when sampling is conducted appropriately, a sample may not exactly match th
 Suppose the population mean is:
 
 $$
-\mu = 50
+\mu=50
 $$
 
-A sample produces:
+A sample produces the mean:
 
 $$
-\bar{x} = 48
+\bar{x}=48
 $$
 
 The difference between the sample mean and population mean is:
 
 $$
-\bar{x} - \mu = 48 - 50 = -2
+\bar{x}-\mu=48-50=-2
 $$
 
 The sample mean is two units below the population mean.
@@ -663,6 +721,8 @@ Sampling error is a consequence of studying a sample rather than the entire popu
 | Usually decreases with larger samples under suitable conditions | Does not necessarily disappear as sample size increases |
 
 These concepts should not be confused. Increasing sample size can reduce random sampling variability, but it does not automatically correct a systematically unrepresentative sample.
+
+A detailed treatment of sampling distributions and the quantification of sampling uncertainty belongs in `05_Inferential_Statistics`.
 
 ---
 
@@ -690,14 +750,14 @@ A value is incorrectly entered into a database.
 
 For example:
 
-- Correct age: 21
-- Entered age: 211
+- Correct age: 21.
+- Entered age: 211.
 
 ### 15.5 Processing Error
 
 An error occurs during data transformation, aggregation, or computation.
 
-These errors can affect descriptive statistics, statistical inference, and machine learning results. Data validation and quality checks are therefore important parts of a reliable data workflow.
+These errors can affect descriptive statistics, statistical inference, and Machine Learning results. Data validation and quality checks are therefore important parts of a reliable data workflow.
 
 ---
 
@@ -724,6 +784,8 @@ Suppose we want to investigate whether a new teaching method improves examinatio
 
 An association between two variables does not automatically prove causation. Other variables, reverse causality, or coincidence may explain an observed relationship.
 
+Randomisation and appropriate experimental design can strengthen causal conclusions, but experiments must still be conducted and analysed correctly.
+
 ---
 
 ## 17. Statistical Notation
@@ -733,197 +795,97 @@ Statistical notation provides a compact way to represent observations and calcul
 Suppose a dataset contains:
 
 $$
-x_1, x_2, x_3, \ldots, x_n
+x_1,x_2,x_3,\ldots,x_n
 $$
 
-Here, $x_i$ represents the $i$th observation and $n$ is the number of observations.
+Here, \(x_i\) represents the \(i\)th observation, and \(n\) is the number of observations.
 
 ### 17.1 Summation Notation
 
-The symbol $\sum$ represents addition.
+The symbol \(\sum\) represents addition.
 
 For example:
 
 $$
-\sum_{i=1}^{n} x_i
+\sum_{i=1}^{n}x_i
 $$
 
 means:
 
 $$
-x_1 + x_2 + x_3 + \cdots + x_n
+x_1+x_2+x_3+\cdots+x_n
 $$
 
 If the observations are 10, 20, and 30:
 
 $$
-\sum_{i=1}^{3} x_i = 10 + 20 + 30 = 60
+\sum_{i=1}^{3}x_i=10+20+30=60
 $$
 
 ### 17.2 Sample and Population Notation
 
-The sample mean is:
+The sample mean is represented by \(\bar{x}\), while the population mean is represented by \(\mu\).
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
-$$
+The sample size is represented by \(n\), while the population size is represented by \(N\).
 
-The population mean is:
-
-$$
-\mu = \frac{\sum_{i=1}^{N} x_i}{N}
-$$
-
-The symbols remind us whether a calculation describes a sample or an entire population.
+This notation helps us distinguish calculations describing a sample from quantities describing an entire population.
 
 Detailed descriptive measures and their calculations are covered in `02_Descriptive_Statistics`. This section introduces the notation needed to understand the formulas in later chapters.
 
 ---
 
-## 18. Basic Statistical Calculations
-
-This section introduces a few basic calculations to demonstrate how notation is applied. Detailed explanations and additional worked examples belong in `02_Descriptive_Statistics`.
-
-### 18.1 Arithmetic Mean
-
-The sample arithmetic mean is:
-
-$$
-\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
-$$
-
-For the observations 10, 20, 30, 40, and 50:
-
-$$
-\sum x_i = 10 + 20 + 30 + 40 + 50 = 150
-$$
-
-There are five observations:
-
-$$
-n = 5
-$$
-
-Therefore:
-
-$$
-\bar{x} = \frac{150}{5} = 30
-$$
-
-The sample mean is 30.
-
-### 18.2 Weighted Mean
-
-A weighted mean is used when observations contribute unequally to a result.
-
-$$
-\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
-$$
-
-Here, $x_i$ is an observation and $w_i$ is its weight.
-
-For example, suppose three assessments have the following scores and weights:
-
-| Assessment | Score | Weight |
-|---|---:|---:|
-| Assignment | 80 | 2 |
-| Midterm | 70 | 3 |
-| Final | 90 | 5 |
-
-The weighted total is:
-
-$$
-80(2) + 70(3) + 90(5) = 820
-$$
-
-The total weight is:
-
-$$
-2 + 3 + 5 = 10
-$$
-
-Therefore:
-
-$$
-\bar{x}_w = \frac{820}{10} = 82
-$$
-
-The weighted mean is 82.
-
-### 18.3 Proportion and Percentage
-
-A proportion represents the fraction of a whole.
-
-$$
-p = \frac{\text{Part}}{\text{Whole}}
-$$
-
-A percentage expresses the proportion as a value out of 100.
-
-$$
-P = \frac{\text{Part}}{\text{Whole}} \times 100
-$$
-
-Suppose 72 out of 90 students pass an examination.
-
-$$
-p = \frac{72}{90} = 0.8
-$$
-
-The corresponding percentage is:
-
-$$
-P = 0.8 \times 100 = 80\%
-$$
-
-Relative frequency is one application of proportion and percentage. Its detailed treatment belongs in the Descriptive Statistics chapter.
-
----
-
-## 19. Data Quality and Statistical Thinking
+## 18. Data Quality and Statistical Thinking
 
 Statistical analysis is only as reliable as the data and reasoning behind it.
 
 Before analysing a dataset, consider the following questions.
 
-### Is the data relevant?
+### 18.1 Is the Data Relevant?
 
 Does the dataset actually measure the question being investigated?
 
-### Is the data accurate?
+For example, total website visits may not be sufficient to understand customer satisfaction.
+
+### 18.2 Is the Data Accurate?
 
 Are the recorded values correct, and are the measurement methods reliable?
 
-### Is the data complete?
+### 18.3 Is the Data Complete?
 
 Are important observations or variables missing?
 
-### Is the sample representative?
+Missing data can affect the conclusions, particularly when the missingness is related to the outcome or other variables.
+
+### 18.4 Is the Sample Representative?
 
 Does the sample reasonably represent the target population?
 
-### How was the data collected?
+A dataset containing only active customers, for example, may not adequately represent customers who have already stopped using a service.
+
+### 18.5 How Was the Data Collected?
 
 Could the collection process introduce bias, measurement errors, or non-response problems?
 
-### Are the variables clearly defined?
+### 18.6 Are the Variables Clearly Defined?
 
 For example, income could mean monthly income, annual income, individual income, or household income.
 
-### Are the units consistent?
+The definition must be clear before the variable is analysed.
 
-Consider the following height measurements:
+### 18.7 Are the Units Consistent?
+
+Consider these two height measurements:
 
 - 170 cm
 - 1.75 m
 
-These values use different units. They must be converted to a consistent unit before comparing or combining them.
+The values use different units. They must be converted to a consistent unit before comparing or combining them.
 
 Statistical thinking means looking beyond a calculated number and asking where it came from, what it represents, and what limitations apply to it.
 
 ---
 
-## 20. Practical Example: Statistics in a Data Science Problem
+## 19. Practical Example: Statistics in a Data Science Problem
 
 Consider a university with 10,000 students. The university wants to estimate the average number of hours students spend studying each day.
 
@@ -933,17 +895,9 @@ Collecting data from every student may require substantial time and resources, s
 
 The population contains all 10,000 students.
 
-$$
-N = 10000
-$$
-
 ### Step 2: Identify the Sample
 
 The selected sample contains 500 students.
-
-$$
-n = 500
-$$
 
 ### Step 3: Identify the Variable
 
@@ -951,39 +905,35 @@ The variable is daily study time, measured in hours.
 
 It is quantitative and is generally treated as continuous.
 
-### Step 4: Calculate the Sample Mean
+### Step 4: Identify the Data Collection Method
 
-Suppose the sum of study hours recorded across the 500 students is 1,750.
+The university records the study hours reported by the selected students.
 
-$$
-\sum_{i=1}^{500} x_i = 1750
-$$
+The reliability of the result depends partly on whether the students provide accurate responses and whether the sample represents the target population.
 
-The sample mean is:
+### Step 5: Interpret the Sample
 
-$$
-\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
-$$
+Suppose the average study time calculated from the sample is 3.5 hours per day.
 
-Substituting the values:
-
-$$
-\bar{x} = \frac{1750}{500} = 3.5
-$$
-
-The average study time in the sample is 3.5 hours per day.
-
-### Step 5: Interpret the Result
-
-The value 3.5 hours describes the sample directly. If the sample was selected appropriately and represents the population reasonably well, it may provide a useful estimate of the population's average study time.
+This value describes the sample directly. If the sample was selected appropriately and represents the population reasonably well, it may provide a useful estimate of the population's average study time.
 
 However, the sample mean is not automatically equal to the true population mean.
 
-This example demonstrates how population, sample, variable type, and statistical notation are connected in a real analysis.
+### Step 6: Consider Limitations
+
+Before generalising the result, the university should consider:
+
+- How the students were selected.
+- Whether important groups were excluded.
+- Whether study hours were measured consistently.
+- Whether students reported their study time accurately.
+- How much uncertainty remains in the estimate.
+
+This example demonstrates how population, sample, variable type, sampling, and data quality are connected in a real Data Science problem.
 
 ---
 
-## 21. Common Mistakes
+## 20. Common Mistakes
 
 ### Mistake 1: Confusing Population and Sample
 
@@ -1019,9 +969,13 @@ A calculation may be numerically correct but practically misleading if units are
 
 Incomplete, inaccurate, or poorly collected data can lead to misleading conclusions.
 
+### Mistake 8: Choosing a Statistical Method Without Understanding the Variable
+
+A method suitable for numerical measurements may not be suitable for nominal categories. Understand the variable and its measurement properties before selecting a statistical technique.
+
 ---
 
-## 22. Points to Remember
+## 21. Points to Remember
 
 1. Statistics provides methods for collecting, analysing, interpreting, and communicating data.
 2. Descriptive statistics summarises observed data.
@@ -1049,51 +1003,79 @@ Incomplete, inaccurate, or poorly collected data can lead to misleading conclusi
 
 ---
 
-## 23. Important Formula Summary
+## 22. Important Formula Summary
 
-### Sampling Interval
+This chapter focuses on statistical foundations. Only the basic formulas needed to understand sampling and statistical notation are included here. Detailed descriptive-statistics formulas belong in `02_Descriptive_Statistics`.
 
-$$
-k = \frac{N}{n}
-$$
-
-Here, $N$ is the population size and $n$ is the required sample size. This is a common interval calculation for systematic sampling when the population size is divisible by the sample size.
-
-### Sample Mean
+### 22.1 Sampling Interval
 
 $$
-\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+k=\frac{N}{n}
 $$
 
-### Population Mean
+Where:
+
+- \(k\) = sampling interval.
+- \(N\) = population size.
+- \(n\) = required sample size.
+
+This is a common interval calculation for systematic sampling when the population size is divisible by the sample size.
+
+### 22.2 Sample Mean
 
 $$
-\mu = \frac{\sum_{i=1}^{N} x_i}{N}
+\bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
 $$
 
-### Weighted Mean
+Where:
+
+- \(\bar{x}\) = sample mean.
+- \(x_i\) = individual observation.
+- \(n\) = sample size.
+
+### 22.3 Population Mean
 
 $$
-\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+\mu=\frac{\sum_{i=1}^{N}x_i}{N}
 $$
 
-### Proportion
+Where:
+
+- \(\mu\) = population mean.
+- \(x_i\) = individual population observation.
+- \(N\) = population size.
+
+### 22.4 Weighted Mean
 
 $$
-p = \frac{\text{Part}}{\text{Whole}}
+\bar{x}_w=\frac{\sum_{i=1}^{n}w_ix_i}{\sum_{i=1}^{n}w_i}
 $$
 
-### Percentage
+Where:
+
+- \(\bar{x}_w\) = weighted mean.
+- \(x_i\) = observation.
+- \(w_i\) = corresponding weight.
+
+The detailed explanation of the weighted mean belongs in `02_Descriptive_Statistics`.
+
+### 22.5 Proportion
 
 $$
-P = \frac{\text{Part}}{\text{Whole}} \times 100
+p=\frac{\text{Part}}{\text{Whole}}
 $$
 
-These formulas are included as a basic reference. Detailed descriptive-statistics formulas are covered in the next chapter.
+### 22.6 Percentage
+
+$$
+P=\frac{\text{Part}}{\text{Whole}}\times100
+$$
+
+These formulas are included as a basic reference. Detailed frequency distributions, proportions, percentages, and descriptive measures are covered in the next chapter.
 
 ---
 
-## 24. Quick Concept Comparison
+## 23. Quick Concept Comparison
 
 | Concept | Meaning |
 |---|---|
@@ -1120,7 +1102,7 @@ These formulas are included as a basic reference. Detailed descriptive-statistic
 
 ---
 
-## 25. References and Further Reading
+## 24. References and Further Reading
 
 ### GeeksforGeeks
 
@@ -1141,6 +1123,4 @@ These formulas are included as a basic reference. Detailed descriptive-statistic
 - [pandas Documentation](https://pandas.pydata.org/docs/)
 - [NumPy Documentation](https://numpy.org/doc/stable/)
 
-The resources above provide additional explanations of introductory statistics, data collection, sampling, and data analysis.
-
----
+These resources provide further explanations of introductory statistics, data collection, sampling, and data analysis.
