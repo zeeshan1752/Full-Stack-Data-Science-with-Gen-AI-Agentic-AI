@@ -9,8 +9,6 @@ A model with high bias may be too simple to capture important patterns. A model 
 
 The objective is to balance these sources of error and achieve good predictive performance.
 
-![Bias–Variance Trade-Off](../images/bias-variance-tradeoff.svg)
-
 ---
 
 # 1. Learning Objectives
