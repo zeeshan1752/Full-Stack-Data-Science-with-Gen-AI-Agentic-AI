@@ -1,31 +1,12 @@
 # Regression Model Evaluation
 
-A regression model produces predictions, but fitting a model is only the beginning of an analysis. We also need to determine **how well the model performs**, where it makes errors, and whether its performance is likely to generalise to new observations.
+A regression model generates predictions, but fitting a model is only the beginning of the analysis. We must also determine how accurately it predicts new observations, where its errors occur, and whether its performance is reliable.
 
-This chapter focuses specifically on **regression model evaluation**.
+Regression model evaluation is an essential part of Data Science and Machine Learning because a model that performs well on training data may perform poorly on unseen data.
 
-The main topics are:
+This chapter covers prediction errors, regression metrics, residual analysis, \(R^2\), adjusted \(R^2\), train-test splitting, cross-validation, overfitting, underfitting, generalisation, data leakage, and practical evaluation workflows.
 
-- fitted values and prediction errors,
-- residual analysis,
-- Sum of Squared Errors,
-- Mean Squared Error,
-- Root Mean Squared Error,
-- Mean Absolute Error,
-- Mean Absolute Percentage Error,
-- coefficient of determination,
-- adjusted $R^2$,
-- training and testing data,
-- generalisation,
-- underfitting and overfitting,
-- validation data,
-- cross-validation,
-- residual plots,
-- error interpretation,
-- comparing regression models,
-- and practical evaluation workflows.
-
-The construction of regression equations, interpretation of slopes and intercepts, categorical predictors, interaction terms, and polynomial regression are covered in **Folder 10 — Regression**.
+**Scope:** Regression equations, coefficient interpretation, and model construction are covered in `10_Regression`. Detailed bias-variance theory is covered in `14_Bias_and_Variance`.
 
 ---
 
@@ -33,1164 +14,459 @@ The construction of regression equations, interpretation of slopes and intercept
 
 After completing this chapter, you should be able to:
 
-1. Explain why regression models need to be evaluated.
-2. Define prediction error and residual.
-3. Calculate SSE.
-4. Calculate MSE.
-5. Calculate RMSE.
-6. Calculate MAE.
-7. Understand MAPE and its limitations.
-8. Explain $R^2$.
-9. Explain adjusted $R^2$.
-10. Understand the difference between training and testing data.
-11. Explain generalisation.
-12. Identify the basic ideas of underfitting and overfitting.
-13. Understand validation data.
-14. Explain cross-validation.
-15. Calculate and interpret residuals.
-16. Use residual plots to identify systematic problems.
-17. Compare regression models using appropriate metrics.
-18. Understand why a single metric should not be used blindly.
-19. Implement regression evaluation in Python.
-20. Build a basic model-evaluation workflow.
-
----
+1. Explain why regression models require evaluation.
+2. Calculate residuals, SSE, MSE, RMSE, and MAE.
+3. Understand MAPE and its limitations.
+4. Calculate and interpret \(R^2\) and adjusted \(R^2\).
+5. Distinguish training, validation, and test data.
+6. Explain generalisation, overfitting, and underfitting.
+7. Understand k-fold cross-validation.
+8. Interpret residual plots and actual-versus-predicted plots.
+9. Compare models using appropriate evaluation metrics.
+10. Identify data leakage and avoid common evaluation mistakes.
+11. Implement regression evaluation using Python and scikit-learn.
 
 # 2. Why Do We Evaluate a Regression Model?
 
 Suppose a model predicts examination marks.
 
-The model may produce:
+The predicted mark is 60, while the actual mark is 65.
 
-$\hat{Y}=60$
+The prediction error is:
 
-for a student whose actual mark is:
+$$
+e = y-\hat{y}
+$$
 
-$Y=65$
+$$
+e = 65-60=5
+$$
 
-The prediction is not exact.
+The model underpredicted the actual mark by 5.
 
-Therefore:
+A regression model usually makes many predictions. We therefore need evaluation measures to understand the size of its errors, its performance on unseen observations, and whether it is better than alternative models.
 
-$\text{Error}=Y-\hat{Y}$
+# 3. Prediction Errors, Absolute Errors, and Squared Errors
 
-$\text{Error}=65-60=5$
+For observation \(i\), the residual or prediction error is:
 
-A model can make many such predictions.
+$$
+e_i=y_i-\hat{y}_i
+$$
 
-We need summary measures that tell us:
+Here, \(y_i\) is the actual value and \(\hat{y}_i\) is the predicted value.
 
-- how large the errors are,
-- whether errors are systematically biased,
-- how well the model fits observed data,
-- how well it performs on unseen data,
-- whether one model is better than another.
+A positive residual means the model underpredicted the observation. A negative residual means the model overpredicted it.
 
-This is the purpose of regression model evaluation.
+The absolute error measures the magnitude of the error without considering its direction:
 
----
-
-# 3. Prediction Error
-
-For observation $i$:
-
-$e_i=y_i-\hat{y}_i$
-
-where:
-
-- $y_i$ = actual response,
-- $\hat{y}_i$ = predicted response,
-- $e_i$ = prediction error or residual.
-
-The sign tells us the direction of the error.
-
-### Positive error
-
-$e_i>0$
-
-means:
-
-$y_i>\hat{y}_i$
-
-The model underpredicted.
-
-### Negative error
-
-$e_i<0$
-
-means:
-
-$y_i<\hat{y}_i$
-
-The model overpredicted.
-
----
-
-# 4. Absolute Error
-
-The absolute error is:
-
-$|e_i|=|y_i-\hat{y}_i|$
-
-Absolute error ignores the direction and measures only the size of the error.
-
-For example, if:
-
-$e=-7$
-
-then:
-
-$|e|=7$
-
----
-
-# 5. Squared Error
+$$
+|e_i|=|y_i-\hat{y}_i|
+$$
 
 The squared error is:
 
-$e_i^2=(y_i-\hat{y}_i)^2$
+$$
+e_i^2=(y_i-\hat{y}_i)^2
+$$
 
-Squaring removes the sign and gives greater weight to large errors.
+Squaring prevents positive and negative errors from cancelling and gives larger errors greater influence.
 
-For example:
+For example, an error of 2 produces a squared error of 4, whereas an error of 10 produces a squared error of 100.
 
-$e=2 \Rightarrow e^2=4$
+## 3.1 Worked Example
 
-while:
+Consider the following actual and predicted values.
 
-$e=10 \Rightarrow e^2=100$
-
-Therefore, metrics based on squared errors are particularly sensitive to large prediction errors.
-
----
-
-# 6. Example: Prediction Errors
-
-Suppose the actual and predicted values are:
-
-| Observation | Actual ($y$) | Predicted ($\hat{y}$) |
+| Observation | Actual | Predicted |
 |---|---:|---:|
 | 1 | 50 | 48 |
 | 2 | 60 | 63 |
 | 3 | 70 | 68 |
 | 4 | 80 | 76 |
 
-Calculate:
+The errors are:
 
-$e_i=y_i-\hat{y}_i$
+$$
+e=[2,-3,2,4]
+$$
 
-| Observation | Actual | Predicted | Error | Absolute Error | Squared Error |
-|---|---:|---:|---:|---:|---:|
-| 1 | 50 | 48 | 2 | 2 | 4 |
-| 2 | 60 | 63 | -3 | 3 | 9 |
-| 3 | 70 | 68 | 2 | 2 | 4 |
-| 4 | 80 | 76 | 4 | 4 | 16 |
+The absolute errors are:
 
-These values form the basis for several evaluation metrics.
+$$
+|e|=[2,3,2,4]
+$$
 
----
+The squared errors are:
 
-# 7. Sum of Squared Errors
+$$
+e^2=[4,9,4,16]
+$$
 
-The **Sum of Squared Errors** is:
+These quantities form the basis of several regression evaluation metrics.
 
-$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+# 4. Sum of Squared Errors (SSE)
 
-Using the example:
+The Sum of Squared Errors measures the total squared difference between actual and predicted values.
 
-$SSE=4+9+4+16$
+$$
+SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
-$\boxed{SSE=33}$
+Using the previous example:
 
-A smaller SSE indicates smaller total squared prediction error for the same dataset.
+$$
+SSE=4+9+4+16
+$$
 
-However, SSE depends on sample size and the units of the response.
+$$
+SSE=33
+$$
 
----
+A lower SSE indicates a smaller total squared error on the same evaluation dataset. However, SSE depends on the number of observations and the scale of the response.
 
-# 8. Mean Squared Error
+# 5. Mean Squared Error (MSE)
 
-The **Mean Squared Error** is:
+Mean Squared Error is the average of the squared prediction errors.
 
-$MSE= \frac{1}{n} \sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+$$
+MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
-Since:
+Since \(SSE=33\) and \(n=4\):
 
-$SSE=33$
+$$
+MSE=\frac{33}{4}=8.25
+$$
 
-and:
+MSE is measured in squared response units. If the response is measured in marks, MSE is measured in squared marks.
 
-$n=4$
+# 6. Root Mean Squared Error (RMSE)
 
-we obtain:
+Root Mean Squared Error is the square root of MSE.
 
-$MSE=\frac{33}{4}$
+$$
+RMSE=\sqrt{MSE}
+$$
 
-$\boxed{MSE=8.25}$
+Using the previous result:
 
-MSE is the average squared prediction error.
+$$
+RMSE=\sqrt{8.25}
+$$
 
-Its units are the **square of the response units**.
+$$
+RMSE\approx2.87
+$$
 
----
+RMSE is expressed in the same units as the response, making it easier to interpret than MSE.
 
-# 9. Root Mean Squared Error
+RMSE penalises large errors more heavily because it is based on squared errors.
 
-The **Root Mean Squared Error** is:
+# 7. Mean Absolute Error (MAE)
 
-$RMSE=\sqrt{MSE}$
+Mean Absolute Error calculates the average magnitude of prediction errors without squaring them.
 
-For:
+$$
+MAE=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat{y}_i|
+$$
 
-$MSE=8.25$
+Using the absolute errors from the example:
 
-we obtain:
+$$
+MAE=\frac{2+3+2+4}{4}
+$$
 
-$RMSE=\sqrt{8.25}$
+$$
+MAE=\frac{11}{4}=2.75
+$$
 
-$\boxed{RMSE\approx2.87}$
+MAE is measured in the original response units and is often straightforward to communicate.
 
-RMSE is useful because it is expressed in the same units as the response variable.
+## 7.1 MAE vs MSE vs RMSE
 
-For example, if $Y$ is measured in marks, RMSE is measured in marks.
-
----
-
-# 10. Why RMSE Is Sensitive to Large Errors
-
-Because RMSE is based on squared errors, large errors receive more weight.
-
-Suppose two models have errors:
-
-Model A:
-
-$[1,1,1,10]$
-
-Model B:
-
-$[3,3,3,3]$
-
-Model A has one very large error.
-
-Squared errors for Model A:
-
-$1^2+1^2+1^2+10^2=103$
-
-Squared errors for Model B:
-
-$3^2+3^2+3^2+3^2=36$
-
-Therefore, RMSE strongly penalises the large error in Model A.
-
----
-
-# 11. Mean Absolute Error
-
-The **Mean Absolute Error** is:
-
-$MAE= \frac{1}{n} \sum_{i=1}^{n}|y_i-\hat{y}_i|$
-
-For the example:
-
-$MAE= \frac{2+3+2+4}{4}$
-
-$MAE=\frac{11}{4}$
-
-$\boxed{MAE=2.75}$
-
-MAE is expressed in the same units as the response.
-
----
-
-# 12. MAE vs RMSE
-
-| Metric | Formula basis | Units | Large-error sensitivity |
+| Metric | What it measures | Units | Sensitivity to large errors |
 |---|---|---|---|
-| MAE | Absolute errors | Same as $Y$ | Lower |
-| MSE | Squared errors | Squared units | High |
-| RMSE | Square root of MSE | Same as $Y$ | High |
+| MAE | Average absolute error | Original units | Lower than squared-error metrics |
+| MSE | Average squared error | Squared units | High |
+| RMSE | Square root of average squared error | Original units | High |
 
-If large errors are especially undesirable, RMSE can be useful.
+MAE is useful when average absolute error is easy to interpret. RMSE is useful when large errors should receive greater penalty.
 
-If we want an easier-to-interpret average error magnitude, MAE is often useful.
+## 7.2 Python: Calculate Regression Metrics
 
----
+```python
+import numpy as np
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error
+)
 
-# 13. Mean Absolute Percentage Error
+y_actual = np.array([50, 60, 70, 80])
+y_predicted = np.array([48, 63, 68, 76])
 
-The **Mean Absolute Percentage Error** is commonly written as:
+mae = mean_absolute_error(y_actual, y_predicted)
+mse = mean_squared_error(y_actual, y_predicted)
+rmse = np.sqrt(mse)
 
-$MAPE= \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|$
+print("MAE:", mae)
+print("MSE:", mse)
+print("RMSE:", rmse)
+```
 
-MAPE expresses average absolute error relative to the actual value.
+The expected results are MAE = 2.75, MSE = 8.25, and RMSE approximately 2.87.
 
-For example, if the actual value is 100 and the prediction is 90:
+# 8. Mean Absolute Percentage Error (MAPE)
 
-$\left|\frac{100-90}{100}\right| =0.10$
+Mean Absolute Percentage Error expresses absolute prediction errors relative to actual values.
 
-or:
+$$
+MAPE=\frac{100}{n}
+\sum_{i=1}^{n}
+\left|\frac{y_i-\hat{y}_i}{y_i}\right|
+$$
 
-$10\%$
+For an actual value of 100 and a prediction of 90:
 
----
+$$
+\left|\frac{100-90}{100}\right|\times100=10\%
+$$
 
-# 14. Limitation of MAPE
+The percentage error is 10%.
 
-MAPE has an important problem when actual values are zero:
+## 8.1 Limitations of MAPE
 
-$y_i=0$
+MAPE has important limitations:
 
-because division by zero is undefined.
+- It is undefined when an actual value is zero.
+- It can become extremely large when actual values are close to zero.
+- It can behave asymmetrically for overpredictions and underpredictions.
+- Percentage errors may not be meaningful for every response variable.
 
-MAPE can also behave poorly when actual values are very close to zero.
+Therefore, MAPE should be used only when percentage-based errors make sense for the application.
 
-Therefore, MAPE should not be used blindly.
+# 9. Choosing an Error Metric
 
-The suitability of percentage-based errors depends on the response variable and application.
+There is no universally best regression metric.
 
----
+Use MAE when an interpretable average absolute error is important. Use RMSE when large prediction errors should be penalised more heavily. Use MAPE when relative percentage errors are meaningful and zero or near-zero actual values do not cause problems.
 
-# 15. Worked Comparison of MAE, MSE, and RMSE
+Two models can have different rankings under MAE and RMSE. The preferred metric should reflect the practical consequences of prediction errors.
 
-Consider:
+# 10. Coefficient of Determination (\(R^2\))
 
-| Actual | Predicted |
-|---:|---:|
-| 10 | 8 |
-| 20 | 22 |
-| 30 | 27 |
+The coefficient of determination measures how much variation in the response is accounted for by the fitted model relative to a mean-only baseline, under the standard regression formulation.
 
-Errors:
+$$
+R^2=1-\frac{SSE}{SST}
+$$
 
-$[2,-2,3]$
-
-Absolute errors:
-
-$[2,2,3]$
-
-Squared errors:
-
-$[4,4,9]$
-
-### MAE
-
-$MAE= \frac{2+2+3}{3}$
-
-$\boxed{MAE=\frac{7}{3}\approx2.33}$
-
-### MSE
-
-$MSE= \frac{4+4+9}{3}$
-
-$\boxed{MSE=\frac{17}{3}\approx5.67}$
-
-### RMSE
-
-$RMSE=\sqrt{5.67}$
-
-$\boxed{RMSE\approx2.38}$
-
----
-
-# 16. Choosing an Error Metric
-
-There is no universally best metric.
-
-Use **MAE** when:
-
-- you want a straightforward average absolute error,
-- all errors should be treated more evenly,
-- interpretability in response units is important.
-
-Use **RMSE** when:
-
-- large errors should receive greater penalty,
-- large mistakes are especially important,
-- the squared-error framework is appropriate.
-
-Use **MAPE** only when percentage error is meaningful and zero or near-zero actual values are not problematic.
-
----
-
-# 17. Coefficient of Determination
-
-The **coefficient of determination** is:
-
-$R^2$
-
-In the standard regression setting:
-
-$R^2= 1-\frac{SSE}{SST}$
-
-where:
-
-- $SSE$ = residual sum of squares,
-- $SST$ = total sum of squares.
+Here, \(SSE\) is the residual sum of squares and \(SST\) is the total sum of squares.
 
 The total sum of squares is:
 
-$SST= \sum_{i=1}^{n}(y_i-\bar{y})^2$
+$$
+SST=\sum_{i=1}^{n}(y_i-\bar{y})^2
+$$
 
----
+Where \(\bar{y}\) is the mean of the actual response values.
 
-# 18. Understanding $SST$
-
-The total sum of squares measures total variation in the observed response around its mean.
-
-$SST= \sum(y_i-\bar{y})^2$
-
-For example, if:
-
-$y=[10,20,30]$
-
-then:
-
-$\bar{y}=20$
-
-and:
-
-$SST=(10-20)^2+(20-20)^2+(30-20)^2$
-
-$SST=100+0+100$
-
-$\boxed{SST=200}$
-
----
-
-# 19. Interpretation of $R^2$
+## 10.1 Worked Example: Calculating \(R^2\)
 
 Suppose:
 
-$R^2=0.80$
-
-In the standard regression interpretation, the fitted model accounts for 80% of the observed variation in the response relative to the mean-only baseline.
-
-The remaining 20% is not accounted for by that fitted relationship.
-
-It is incorrect to automatically say:
-
-> The model causes 80% of the outcome.
-
-$R^2$ is about variation explained by the fitted model, not causation.
-
----
-
-# 20. Worked Example: $R^2$
-
-Suppose:
-
-$SSE=40$
-
-and:
-
-$SST=200$
+$$
+SSE=40,\qquad SST=200
+$$
 
 Then:
 
-$R^2= 1-\frac{40}{200}$
+$$
+R^2=1-\frac{40}{200}
+$$
 
-$R^2=1-0.20$
+$$
+R^2=1-0.20=0.80
+$$
 
-$\boxed{R^2=0.80}$
+The fitted model accounts for 80% of the observed variation relative to the mean-only baseline.
 
-Thus, the fitted model accounts for 80% of the variation relative to the mean-only baseline.
+This does **not** mean that the model causes 80% of the outcome. \(R^2\) describes a statistical relationship, not causation.
 
----
+## 10.2 Interpreting \(R^2\)
 
-# 21. Relationship Between $R^2$ and Correlation
+An \(R^2\) of 0.80 indicates that the fitted model accounts for 80% of the observed variation under the stated formulation.
 
-For simple linear regression with an intercept:
+However, a high \(R^2\) does not automatically imply low prediction error on unseen data. A model may have a high \(R^2\) while still producing errors that are too large for its intended application.
 
-$R^2=r^2$
+For some regression settings, especially models without an intercept or evaluations on different datasets, \(R^2\) may be negative. It should therefore be interpreted in the context of the model and evaluation procedure.
 
-For example, if:
+## 10.3 Relationship Between \(R^2\) and Correlation
 
-$r=0.80$
+For simple linear regression with an intercept, evaluated on the same observations used to calculate the Pearson correlation:
 
-then:
+$$
+R^2=r^2
+$$
 
-$R^2=(0.80)^2$
+For example, if \(r=0.80\):
 
-$\boxed{R^2=0.64}$
+$$
+R^2=(0.80)^2=0.64
+$$
 
-This direct relationship applies to simple linear regression with an intercept.
+This relationship does not mean that \(R^2\) in multiple regression equals the square of any single pairwise correlation.
 
-In multiple regression, $R^2$ is not simply the square of one pairwise correlation.
+# 11. Adjusted \(R^2\)
 
----
+Ordinary \(R^2\) cannot decrease when additional predictors are added to a nested ordinary least-squares model fitted to the same observations.
 
-# 22. Adjusted $R^2$
+A predictor can therefore increase \(R^2\) even when its practical contribution is small.
 
-Adding predictors to a regression model cannot decrease ordinary $R^2$.
+Adjusted \(R^2\) introduces a penalty based on the number of predictors.
 
-Even a weak or irrelevant predictor can cause $R^2$ to increase slightly.
+$$
+R^2_{\text{adj}}
+=
+1-\frac{(1-R^2)(n-1)}{n-p-1}
+$$
 
-Adjusted $R^2$ introduces a penalty for model complexity.
+Where:
 
-A common formula is:
+- \(n\) is the number of observations.
+- \(p\) is the number of predictors, excluding the intercept.
+- \(R^2\) is the ordinary coefficient of determination.
 
-$R^2_{\text{adj}} = 1- \frac{(1-R^2)(n-1)} {n-p-1}$
-
-where:
-
-- $n$ = sample size,
-- $p$ = number of predictors,
-- $R^2$ = ordinary coefficient of determination.
-
-Adjusted $R^2$ can decrease when an additional predictor does not provide enough improvement.
-
----
-
-# 23. Worked Example: Adjusted $R^2$
+## 11.1 Worked Example
 
 Suppose:
 
-$R^2=0.80$
+$$
+R^2=0.80,\quad n=100,\quad p=3
+$$
 
-with:
+Substituting into the formula:
 
-$n=100$
+$$
+R^2_{\text{adj}}
+=
+1-\frac{(1-0.80)(100-1)}{100-3-1}
+$$
 
-and:
+$$
+R^2_{\text{adj}}
+=
+1-\frac{19.8}{96}
+$$
 
-$p=3$
+$$
+R^2_{\text{adj}}\approx0.794
+$$
 
-Then:
+The adjusted value is slightly lower than ordinary \(R^2\).
 
-$R^2_{\text{adj}} = 1- \frac{(1-0.80)(100-1)} {100-3-1}$
+Adjusted \(R^2\) is useful when comparing models with different numbers of predictors, but it is not a substitute for evaluating predictive performance on unseen data.
 
-$= 1- \frac{0.20(99)} {96}$
+## 11.2 Python: Calculate \(R^2\) and Adjusted \(R^2\)
 
-$= 1-\frac{19.8}{96}$
+```python
+from sklearn.metrics import r2_score
 
-$\boxed{R^2_{\text{adj}}\approx0.794}$
+y_actual = [10, 20, 30, 40, 50]
+y_predicted = [12, 19, 31, 38, 49]
 
-The adjusted value is slightly lower because the model contains multiple predictors.
+n = len(y_actual)
+p = 2
 
----
+r2 = r2_score(y_actual, y_predicted)
 
-# 24. $R^2$ vs Adjusted $R^2$
+if n > p + 1:
+    adjusted_r2 = (
+        1 - (1 - r2) * (n - 1) / (n - p - 1)
+    )
+else:
+    adjusted_r2 = float("nan")
 
-| Feature | $R^2$ | Adjusted $R^2$ |
-|---|---|---|
-| Measures model variation explained | Yes | Yes |
-| Penalises number of predictors | No | Yes |
-| Can decrease when predictor is added | No | Yes |
-| Useful for comparing models with different predictor counts | Limited | More useful |
+print("R-squared:", r2)
+print("Adjusted R-squared:", adjusted_r2)
+```
 
-Neither measure should be interpreted as a complete evaluation of predictive performance.
+This calculation assumes the usual definition of adjusted \(R^2\) for a regression model with an intercept and \(p\) predictors.
 
----
+# 12. Training Error and Test Error
 
-# 25. Training Error
+**Training error** measures model performance on the observations used to fit the model.
 
-Suppose a model is fitted using a training dataset.
+**Test error** measures performance on a separate set of observations that were not used to fit the final model.
 
-The predictions on that same dataset are called **training predictions**.
+A model with very low training error may still perform poorly on unseen data.
 
-Training error measures how well the model fits data it has already seen.
-
-For example:
-
-$RMSE_{\text{train}}$
-
-measures prediction error on the training data.
-
-A very flexible model can have very small training error while performing poorly on new data.
-
----
-
-# 26. Test Error
-
-A **test dataset** contains observations that were not used to fit the final model.
-
-Test error measures performance on unseen data.
-
-For example:
-
-$RMSE_{\text{test}}$
-
-is calculated from test-set predictions.
-
-A model that performs well on unseen data is more useful for prediction than one that only fits the training observations.
-
----
-
-# 27. Training vs Test Performance
-
-Suppose two models have:
+Consider the following example:
 
 | Model | Training RMSE | Test RMSE |
 |---|---:|---:|
 | Model A | 2.0 | 2.5 |
 | Model B | 0.8 | 6.0 |
 
-Model B fits the training data much better, but its test performance is much worse.
+Model B fits the training data more closely, but its test error is much higher. This suggests that Model B may have overfit the training observations.
 
-This is a warning sign of **overfitting**.
+# 13. Generalisation, Overfitting, and Underfitting
 
-Model A may generalise better.
+**Generalisation** means performing reasonably well on new observations from the relevant population or data-generating process.
 
----
+The goal of predictive modelling is not simply to minimise training error. It is to build a model that performs well on relevant unseen data.
 
-# 28. Generalisation
+## 13.1 Overfitting
 
-**Generalisation** means that a model performs reasonably well on new observations from the same relevant population or data-generating process.
+Overfitting occurs when a model learns noise or peculiarities in the training dataset rather than a pattern that generalises.
 
-The goal of predictive modelling is not merely:
+A common pattern is:
 
-$\text{minimise training error}$
+- Training error is very low.
+- Test error is substantially higher.
 
-but rather to obtain a model that performs well on appropriate unseen data.
+More complex models are not necessarily better models.
 
-Conceptually:
+## 13.2 Underfitting
 
-$\boxed{ \text{Good model} \Rightarrow \text{Good performance on relevant unseen data} }$
+Underfitting occurs when a model is too simple to capture important patterns in the data.
 
----
+Typical signs include high training error, high test error, and systematic patterns in residual plots.
 
-# 29. Overfitting
-
-**Overfitting** occurs when a model captures noise or idiosyncrasies in the training data rather than learning a pattern that generalises well.
-
-Typical pattern:
-
-$\text{Training error}\downarrow$
-
-while:
-
-$\text{Test error}\uparrow$
-
-As model complexity increases, training performance often improves, but test performance may eventually deteriorate.
-
----
-
-# 30. Underfitting
-
-**Underfitting** occurs when a model is too simple to capture important structure in the data.
-
-Typical signs include:
-
-- high training error,
-- high test error,
-- systematic patterns remaining in residuals.
-
-A useful conceptual comparison is:
-
-| Situation | Training Error | Test Error |
-|---|---:|---:|
+| Situation | Training error | Test error |
+|---|---|---|
 | Underfitting | High | High |
-| Good generalisation | Low/moderate | Low |
+| Good generalisation | Low or moderate | Low |
 | Overfitting | Very low | High |
 
 These are conceptual patterns rather than strict numerical rules.
 
----
+## 13.3 Bias-Variance Perspective
 
-# 31. Bias-Variance Perspective
+The bias-variance trade-off provides another way to understand model complexity.
 
-Prediction error can be understood through the bias-variance trade-off.
+A model that is too simple may have high bias. A highly flexible model may have high variance and respond strongly to changes in the training data.
 
-A highly simple model may have:
+The objective is to select a suitable level of complexity for the available data and prediction task.
 
-- high bias,
-- low variance.
+Detailed theory is covered in `14_Bias_and_Variance`.
 
-A highly flexible model may have:
+# 14. Train-Test Split
 
-- low bias,
-- high variance.
+A train-test split divides the dataset into separate portions.
 
-The goal is to find a level of complexity that balances these sources of error.
+- The training set is used to fit the model.
+- The test set is reserved for final evaluation.
 
-The detailed Bias and Variance chapter is covered separately in **Folder 14**.
+An example split is 80% training data and 20% test data. The appropriate proportions depend on the dataset size and the problem.
 
----
+## 14.1 Why the Test Set Must Be Protected
 
-# 32. Train-Test Split
+If the test set is repeatedly used to choose models, tune hyperparameters, or make modelling decisions, the final evaluation can become overly optimistic.
 
-A common evaluation workflow is to divide the dataset into:
+A better approach is to use validation data or cross-validation for model selection and reserve the test set for final assessment.
 
-- training set,
-- test set.
-
-For example:
-
-$80\%$
-
-training and:
-
-$20\%$
-
-testing.
-
-The model is fitted on the training set and evaluated on the test set.
-
-The exact split depends on the dataset size, problem, and evaluation strategy.
-
----
-
-# 33. Why the Test Set Must Be Protected
-
-If we repeatedly use the test set to choose the model, tune hyperparameters, or make many decisions, the test set is no longer an unbiased final evaluation.
-
-Therefore:
-
-> The test set should ideally be used for final performance assessment after the modelling choices have been made.
-
-When repeated model selection is necessary, validation or cross-validation should be used.
-
----
-
-# 34. Validation Set
-
-A three-way split can contain:
-
-1. training set,
-2. validation set,
-3. test set.
-
-The training set is used to fit models.
-
-The validation set is used to compare or tune modelling choices.
-
-The test set is reserved for final evaluation.
-
-Conceptually:
-
-$\text{Data} \rightarrow \begin{cases} \text{Training}\\ \text{Validation}\\ \text{Test} \end{cases}$
-
-For small datasets, using a separate validation set may waste too much data, which motivates cross-validation.
-
----
-
-# 35. Cross-Validation
-
-**Cross-validation** repeatedly divides the training data into fitting and validation portions.
-
-The most common form is **$k$-fold cross-validation**.
-
-The dataset is divided into $k$ approximately equal folds.
-
-For each round:
-
-- one fold is used for validation,
-- the remaining $k-1$ folds are used for training.
-
-This process is repeated until every fold has served as the validation fold.
-
----
-
-# 36. Five-Fold Cross-Validation
-
-For:
-
-$k=5$
-
-the process is:
-
-| Round | Training Folds | Validation Fold |
-|---|---|---|
-| 1 | 2,3,4,5 | 1 |
-| 2 | 1,3,4,5 | 2 |
-| 3 | 1,2,4,5 | 3 |
-| 4 | 1,2,3,5 | 4 |
-| 5 | 1,2,3,4 | 5 |
-
-Each observation is used for validation exactly once.
-
----
-
-# 37. Cross-Validation Score
-
-Suppose the five validation RMSE values are:
-
-$2.1,\quad2.4,\quad2.0,\quad2.3,\quad2.2$
-
-The mean cross-validation RMSE is:
-
-$RMSE_{CV} = \frac{2.1+2.4+2.0+2.3+2.2}{5}$
-
-$RMSE_{CV} = \frac{11.0}{5}$
-
-$\boxed{RMSE_{CV}=2.2}$
-
-The variation among fold scores can also provide useful information about model stability.
-
----
-
-# 38. Standard Deviation of Cross-Validation Scores
-
-Suppose validation scores vary substantially across folds.
-
-This may indicate that model performance depends strongly on which observations are used for validation.
-
-Therefore, it is often useful to report:
-
-$\text{mean CV score}$
-
-along with:
-
-$\text{standard deviation of CV scores}$
-
-For example:
-
-$2.20\pm0.15$
-
-can summarise the average and variation across folds, depending on the reporting convention.
-
----
-
-# 39. Cross-Validation and the Test Set
-
-A common workflow is:
-
-1. split data into training and test sets,
-2. perform cross-validation only on the training data,
-3. choose or tune the model,
-4. fit the final selected model on the training data,
-5. evaluate once on the untouched test set.
-
-This helps keep the final test estimate separate from model-selection decisions.
-
----
-
-# 40. Residual Analysis
-
-A residual is:
-
-$e_i=y_i-\hat{y}_i$
-
-Residual analysis examines whether residuals show systematic patterns.
-
-A useful residual analysis asks:
-
-- Are residuals centred around zero?
-- Is the spread reasonably stable?
-- Is there curvature?
-- Are there unusual observations?
-- Is there dependence?
-- Does the model systematically underpredict or overpredict in certain regions?
-
----
-
-# 41. Residuals vs Fitted Values
-
-A residual-versus-fitted plot places:
-
-- fitted values on the horizontal axis,
-- residuals on the vertical axis.
-
-A well-behaved pattern often resembles a random cloud around:
-
-$e=0$
-
-A systematic curve may indicate that the model has not captured the relationship adequately.
-
-A funnel shape may indicate changing error variance.
-
----
-
-# 42. Example of a Good Residual Pattern
-
-Conceptually:
-
-```
-Residual
-   │  •     •
-   │     •
- 0 ├ •   •    •
-   │    •
-   │ •      •
-   └──────────────── Fitted
-```
-
-There is no obvious systematic shape.
-
-This does not prove that every assumption is satisfied, but it is more consistent with a reasonable model form.
-
----
-
-# 43. Example of a Curved Residual Pattern
-
-Conceptually:
-
-```
-Residual
-   │ •           •
-   │   •       •
- 0 ├     •   •
-   │       •
-   │
-   └──────────────── Fitted
-```
-
-A systematic curve suggests that a straight-line model may not adequately capture the relationship.
-
-Possible remedies depend on the context and may include a different functional form or additional predictors.
-
----
-
-# 44. Example of Heteroscedasticity
-
-Conceptually:
-
-```
-Residual
-   │       •
-   │     •   •
- 0 ├  • •     •
-   │ •       •   •
-   │             •
-   └──────────────── Fitted
-```
-
-If residual spread grows with fitted values, the variance may not be constant.
-
-This is a possible sign of heteroscedasticity.
-
----
-
-# 45. Residual Mean
-
-For ordinary least squares with an intercept:
-
-$\sum e_i=0$
-
-Therefore:
-
-$\bar{e}=0$
-
-This is a mathematical property of the fitted model.
-
-It does not prove that the model is good.
-
-A model can have residuals that sum to zero while still having large or systematically structured errors.
-
----
-
-# 46. Comparing Models Using MAE
-
-Suppose:
-
-| Model | MAE |
-|---|---:|
-| A | 4.2 |
-| B | 3.1 |
-| C | 3.8 |
-
-Lower MAE indicates smaller average absolute prediction error.
-
-Therefore, among these models:
-
-$3.1<3.8<4.2$
-
-Model B has the smallest MAE.
-
-However, model selection should consider the evaluation dataset, metric suitability, uncertainty, and model purpose.
-
----
-
-# 47. Comparing Models Using RMSE
-
-Suppose:
-
-| Model | RMSE |
-|---|---:|
-| A | 5.8 |
-| B | 4.2 |
-| C | 4.9 |
-
-The lowest RMSE is:
-
-$4.2$
-
-Therefore, Model B has the lowest RMSE among the three models on this evaluation dataset.
-
-Because RMSE penalises large errors, it may prefer a model that avoids particularly large mistakes.
-
----
-
-# 48. Metric Choice Changes Model Ranking
-
-Two models may have different rankings under different metrics.
-
-For example:
-
-| Model | MAE | RMSE |
-|---|---:|---:|
-| A | 2.0 | 5.0 |
-| B | 2.3 | 3.2 |
-
-Model A has lower MAE.
-
-Model B has lower RMSE.
-
-This may happen because Model A makes one or more unusually large errors.
-
-Therefore, metric selection should reflect what kinds of errors matter.
-
----
-
-# 49. Error Distribution
-
-It is useful to examine the distribution of residuals.
-
-A histogram can show:
-
-- centre,
-- spread,
-- skewness,
-- unusual values.
-
-However, a histogram alone cannot establish that regression assumptions are satisfied.
-
-Residual plots and subject-matter knowledge should also be considered.
-
----
-
-# 50. Actual vs Predicted Plot
-
-An actual-vs-predicted plot compares:
-
-- actual response values,
-- predicted values.
-
-A good predictive relationship generally places points near the diagonal line:
-
-$y=\hat{y}$
-
-Conceptually:
-
-```
-Actual
-  │             •
-  │          •
-  │       •
-  │    •
-  │ •
-  └──────────────── Predicted
-```
-
-Large deviations from the diagonal represent larger prediction errors.
-
----
-
-# 51. Error in Original Units
-
-One advantage of MAE and RMSE is that they can be interpreted in the response's original units.
-
-Suppose:
-
-$RMSE=4.5$
-
-and $Y$ is measured in marks.
-
-Then a typical model error, interpreted through RMSE, is on the scale of approximately 4.5 marks.
-
-This is often easier to communicate than:
-
-$MSE=20.25$
-
-because MSE is measured in squared marks.
-
----
-
-# 52. Baseline Model
-
-A regression model should often be compared with a simple baseline.
-
-For a basic regression problem, a mean-prediction baseline predicts:
-
-$\hat{y}_i=\bar{y}_{train}$
-
-for every observation.
-
-The model should demonstrate useful predictive improvement over a meaningful baseline.
-
-This is particularly important when $R^2$ or another metric is considered in isolation.
-
----
-
-# 53. Baseline Example
-
-Suppose the training mean is:
-
-$\bar{y}=50$
-
-The baseline predicts:
-
-$\hat{y}=50$
-
-for every test observation.
-
-If a complex regression model has almost the same test error as this baseline, the additional model complexity may not provide much predictive value.
-
----
-
-# 54. Out-of-Sample Evaluation
-
-The most important predictive evaluation is usually performance on observations not used to fit the model.
-
-This is called **out-of-sample evaluation**.
-
-The goal is to estimate how the model will behave on future or otherwise unseen observations from the relevant population.
-
----
-
-# 55. Data Leakage
-
-**Data leakage** occurs when information that should not be available during model fitting or model selection enters the modelling process.
-
-Examples include:
-
-- using test-set information while tuning the model,
-- calculating preprocessing statistics from the full dataset before splitting,
-- using future information to predict the past.
-
-Leakage can make evaluation results look much better than real-world performance.
-
----
-
-# 56. Preprocessing and Cross-Validation
-
-Suppose a preprocessing step calculates the mean of a feature.
-
-If the mean is calculated using the entire dataset before cross-validation, validation folds can indirectly influence the training process.
-
-A safer workflow is to perform preprocessing inside the cross-validation pipeline.
-
-In scikit-learn, a `Pipeline` can help keep preprocessing and modelling together.
-
----
-
-# 57. Model Evaluation With Python
-
-A basic evaluation workflow can use scikit-learn:
-
-```python
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
-import numpy as np
-
-mae = mean_absolute_error(y_test, y_pred)
-
-mse = mean_squared_error(y_test, y_pred)
-
-rmse = np.sqrt(mse)
-
-r2 = r2_score(y_test, y_pred)
-
-print("MAE:", mae)
-print("MSE:", mse)
-print("RMSE:", rmse)
-print("R2:", r2)
-```
-
----
-
-# 58. Train-Test Split in Python
+## 14.2 Python: Train-Test Split
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -1203,45 +479,74 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 ```
 
-The `random_state` makes the split reproducible.
+The `random_state` makes the random split reproducible. For time-series problems, a chronological split is often more appropriate than a random split.
 
----
+# 15. Validation Data
 
-# 59. Fit and Evaluate a Regression Model
+A modelling workflow may use three separate datasets.
+
+| Dataset | Purpose |
+|---|---|
+| Training | Fit model parameters |
+| Validation | Compare models and tune modelling choices |
+| Test | Estimate final performance on held-out data |
+
+The validation set helps select a model without repeatedly consulting the final test set.
+
+For small datasets, a separate validation set may leave too few observations for fitting. Cross-validation can provide a more data-efficient alternative.
+
+# 16. K-Fold Cross-Validation
+
+K-fold cross-validation divides the available training data into \(k\) approximately equal folds.
+
+For each round:
+
+1. One fold is used for validation.
+2. The remaining \(k-1\) folds are used for training.
+3. The process is repeated until each fold has been used for validation.
+
+For five-fold cross-validation:
+
+| Round | Validation fold | Training folds |
+|---|---|---|
+| 1 | 1 | 2, 3, 4, 5 |
+| 2 | 2 | 1, 3, 4, 5 |
+| 3 | 3 | 1, 2, 4, 5 |
+| 4 | 4 | 1, 2, 3, 5 |
+| 5 | 5 | 1, 2, 3, 4 |
+
+Each observation serves as validation data once.
+
+## 16.1 Mean Cross-Validation Score
+
+Suppose the validation RMSE scores are:
+
+$$
+2.1,\quad2.4,\quad2.0,\quad2.3,\quad2.2
+$$
+
+The mean score is:
+
+$$
+RMSE_{CV}=\frac{2.1+2.4+2.0+2.3+2.2}{5}
+$$
+
+$$
+RMSE_{CV}=\frac{11.0}{5}=2.2
+$$
+
+The mean summarises average performance across the folds. The standard deviation of the fold scores provides information about how much the scores vary.
+
+Cross-validation scores are estimates, not guarantees of future performance.
+
+## 16.2 Python: K-Fold Cross-Validation
 
 ```python
+import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import KFold, cross_val_score
 
 model = LinearRegression()
-
-model.fit(X_train, y_train)
-
-y_train_pred = model.predict(X_train)
-y_test_pred = model.predict(X_test)
-```
-
-Then calculate metrics separately for training and testing data.
-
-```python
-train_rmse = np.sqrt(
-    mean_squared_error(y_train, y_train_pred)
-)
-
-test_rmse = np.sqrt(
-    mean_squared_error(y_test, y_test_pred)
-)
-
-print("Training RMSE:", train_rmse)
-print("Test RMSE:", test_rmse)
-```
-
----
-
-# 60. K-Fold Cross-Validation in Python
-
-```python
-from sklearn.model_selection import KFold
-from sklearn.model_selection import cross_val_score
 
 kf = KFold(
     n_splits=5,
@@ -1251,8 +556,8 @@ kf = KFold(
 
 scores = cross_val_score(
     model,
-    X,
-    y,
+    X_train,
+    y_train,
     cv=kf,
     scoring="neg_mean_squared_error"
 )
@@ -1262,56 +567,50 @@ rmse_scores = np.sqrt(mse_scores)
 
 print("Fold RMSE:", rmse_scores)
 print("Mean CV RMSE:", rmse_scores.mean())
-print("Std CV RMSE:", rmse_scores.std())
+print("Standard deviation:", rmse_scores.std())
 ```
 
-Scikit-learn returns negative loss values for certain scoring functions because its scoring convention treats larger scores as better. Therefore, the sign must be reversed before interpreting MSE.
+Scikit-learn uses negative values for certain loss-based scoring functions so that larger scores consistently indicate better performance. Reverse the sign before interpreting the MSE values.
 
----
+For grouped or time-dependent data, use a validation strategy that respects the data structure rather than automatically applying shuffled random folds.
 
-# 61. Cross-Validation With MAE
+# 17. Residual Analysis
 
-```python
-mae_scores = -cross_val_score(
-    model,
-    X,
-    y,
-    cv=kf,
-    scoring="neg_mean_absolute_error"
-)
+A residual is:
 
-print("Fold MAE:", mae_scores)
-print("Mean CV MAE:", mae_scores.mean())
-```
+$$
+e_i=y_i-\hat{y}_i
+$$
 
----
+Residual analysis examines whether prediction errors show systematic patterns that a single metric might hide.
 
-# 62. Cross-Validation With $R^2$
+Useful questions include:
 
-```python
-r2_scores = cross_val_score(
-    model,
-    X,
-    y,
-    cv=kf,
-    scoring="r2"
-)
+- Are residuals centred around zero?
+- Does their spread change across fitted values?
+- Is there a curved pattern?
+- Are there unusual observations?
+- Are errors dependent on time or group?
+- Does the model systematically overpredict or underpredict in certain regions?
 
-print("Fold R2:", r2_scores)
-print("Mean CV R2:", r2_scores.mean())
-```
+## 17.1 Residuals vs Fitted Values
 
-Because $R^2$ is already represented as a higher-is-better score, no sign reversal is required.
+A residual-versus-fitted plot places predicted values on the horizontal axis and residuals on the vertical axis.
 
----
+A reasonably suitable model often produces a cloud of points around the zero line without a clear systematic pattern.
 
-# 63. Residual Plot in Python
+A curved pattern may indicate that the model form is inadequate. A funnel-shaped pattern may indicate changing error variance.
+
+These plots help diagnose problems, but no single plot proves that every assumption is satisfied.
+
+## 17.2 Python: Residual Plot
 
 ```python
+import matplotlib.pyplot as plt
+
 residuals = y_test - y_test_pred
 
 plt.scatter(y_test_pred, residuals)
-
 plt.axhline(0, linestyle="--")
 
 plt.xlabel("Predicted Values")
@@ -1321,14 +620,31 @@ plt.title("Residuals vs Predicted Values")
 plt.show()
 ```
 
-Look for systematic patterns rather than expecting all residuals to be exactly zero.
+Look for patterns in the residuals rather than expecting every residual to equal zero.
 
----
+# 18. Actual vs Predicted Plot
 
-# 64. Actual vs Predicted Plot in Python
+An actual-versus-predicted plot compares actual response values with model predictions.
+
+A useful reference is the diagonal line:
+
+$$
+y=\hat{y}
+$$
+
+Points close to this line have relatively small prediction errors. Larger distances from the line indicate larger errors.
+
+## 18.1 Python: Actual vs Predicted
 
 ```python
+import matplotlib.pyplot as plt
+
 plt.scatter(y_test, y_test_pred)
+
+lower = min(min(y_test), min(y_test_pred))
+upper = max(max(y_test), max(y_test_pred))
+
+plt.plot([lower, upper], [lower, upper], linestyle="--")
 
 plt.xlabel("Actual Values")
 plt.ylabel("Predicted Values")
@@ -1337,318 +653,336 @@ plt.title("Actual vs Predicted")
 plt.show()
 ```
 
-A closer alignment with the diagonal relationship:
+The plot complements numerical metrics by revealing prediction patterns that may not be obvious from an average error score.
 
-$y=\hat{y}$
+# 19. Comparing Regression Models
 
-generally indicates smaller prediction errors.
+Models should be compared using the same evaluation dataset and a metric appropriate to the task.
 
----
+Suppose three models produce the following MAE values:
 
-# 65. Evaluation Workflow
+| Model | MAE |
+|---|---:|
+| A | 4.2 |
+| B | 3.1 |
+| C | 3.8 |
 
-A practical evaluation workflow can be organised as:
+Model B has the lowest MAE among these models.
 
-### Step 1: Define the prediction task
+Now suppose the RMSE values are:
 
-Clearly identify the response and what constitutes a useful prediction.
+| Model | RMSE |
+|---|---:|
+| A | 5.8 |
+| B | 4.2 |
+| C | 4.9 |
 
-### Step 2: Create an appropriate data split
+Model B also has the lowest RMSE in this example.
 
-Keep a final test set separate when possible.
+However, a model may rank differently under MAE and RMSE because the metrics penalise errors differently. Model selection should consider the application, error costs, evaluation data, and model complexity.
 
-### Step 3: Fit the model using training data
+# 20. Baseline Models
 
-Do not use test information during fitting.
+A regression model should often be compared with a simple baseline.
 
-### Step 4: Use validation or cross-validation
+For a basic regression problem, a mean-prediction baseline predicts the mean response calculated from the training data for every observation:
 
-Use training data to compare model choices.
+$$
+\hat{y}_i=\bar{y}_{train}
+$$
 
-### Step 5: Select the model
+If a complex model performs almost the same as this baseline on unseen data, its additional complexity may provide little predictive benefit.
 
-Choose based on appropriate metrics and practical considerations.
+A baseline gives a useful reference point for determining whether a model provides meaningful improvement.
 
-### Step 6: Fit the selected model appropriately
+# 21. Out-of-Sample Evaluation
 
-Use the available training data according to the evaluation plan.
+Out-of-sample evaluation measures model performance on observations not used to fit the model.
 
-### Step 7: Evaluate on the untouched test set
+Its purpose is to estimate how well the model may perform on future or otherwise unseen observations from the relevant population.
 
-Calculate the final out-of-sample metrics.
+A good training score alone does not establish good out-of-sample performance.
 
-### Step 8: Inspect errors
+The reliability of the estimate also depends on how representative the evaluation dataset is of the intended deployment setting.
 
-Use residual plots and other diagnostics.
+# 22. Data Leakage
 
-### Step 9: Report limitations
+Data leakage occurs when information that would not legitimately be available during training or prediction enters the modelling process.
 
-Explain the data, metric, split, and assumptions.
+Examples include:
 
----
+- Using test-set information to tune the model.
+- Calculating preprocessing statistics from the full dataset before splitting.
+- Using future information to predict an earlier outcome.
+- Performing feature selection using information from the held-out test set.
 
-# 66. A Complete Evaluation Example
+Leakage can make evaluation scores appear much better than real-world performance.
 
-Suppose a model produces the following test results:
+## 22.1 Preprocessing and Cross-Validation
 
-| Actual | Predicted |
-|---:|---:|
-| 50 | 48 |
-| 60 | 63 |
-| 70 | 68 |
-| 80 | 76 |
+Suppose a preprocessing step calculates a feature's mean and uses it to standardise the feature.
 
-We already have:
+If that mean is calculated using the full dataset before cross-validation, validation observations can influence the preprocessing applied during training.
 
-$MAE=2.75$
+A safer approach is to put preprocessing and the model inside a scikit-learn `Pipeline`. This ensures that preprocessing is fitted separately within each training fold.
 
-and:
+# 23. Python: Complete Regression Evaluation Workflow
 
-$MSE=8.25$
+The following example combines splitting, model fitting, prediction, and evaluation.
 
-Therefore:
+```python
+import numpy as np
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score
+)
 
-$RMSE=\sqrt{8.25}$
+# Create an example regression dataset
+X, y = make_regression(
+    n_samples=300,
+    n_features=5,
+    noise=15,
+    random_state=42
+)
 
-$\boxed{RMSE\approx2.87}$
+# Split the data
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
 
-Suppose the total variation is:
+# Fit the model
+model = LinearRegression()
+model.fit(X_train, y_train)
 
-$SST=200$
+# Generate predictions
+y_train_pred = model.predict(X_train)
+y_test_pred = model.predict(X_test)
 
-and:
+# Training metrics
+train_mae = mean_absolute_error(y_train, y_train_pred)
+train_rmse = np.sqrt(
+    mean_squared_error(y_train, y_train_pred)
+)
 
-$SSE=33$
+# Test metrics
+test_mae = mean_absolute_error(y_test, y_test_pred)
+test_mse = mean_squared_error(y_test, y_test_pred)
+test_rmse = np.sqrt(test_mse)
+test_r2 = r2_score(y_test, y_test_pred)
 
-Then:
+print("Training MAE:", train_mae)
+print("Training RMSE:", train_rmse)
 
-$R^2= 1-\frac{33}{200}$
+print("Test MAE:", test_mae)
+print("Test MSE:", test_mse)
+print("Test RMSE:", test_rmse)
+print("Test R-squared:", test_r2)
+```
 
-$\boxed{R^2=0.835}$
+The training metrics describe performance on the observations used for fitting. The test metrics describe performance on the held-out test observations.
 
-The model therefore has:
+# 24. Reporting Evaluation Results
 
-- MAE = 2.75 response units,
-- RMSE $\approx2.87$ response units,
-- $R^2\approx0.835$ under the stated regression formulation.
+A useful evaluation report should state:
 
-These metrics answer different questions and should be interpreted together.
+- Which dataset was used for evaluation.
+- Which metrics were calculated.
+- The numerical results.
+- Whether residual diagnostics were examined.
+- Any important limitations.
 
----
+For example:
 
-# 67. Model Evaluation Report
+> The regression model was evaluated on a held-out test set. MAE and RMSE were used to summarise prediction error, while \(R^2\) was used to describe variation accounted for relative to a baseline. Residual plots were also examined for systematic patterns. These results describe performance on the available evaluation sample and do not establish a causal relationship.
 
-A useful report might say:
+# 25. Common Regression Evaluation Mistakes
 
-> The regression model was evaluated on a held-out test set. The model achieved an MAE of 2.75 units and an RMSE of approximately 2.87 units. The fitted model had an $R^2$ of approximately 0.835 relative to the mean-only baseline. Residual plots were also examined for systematic patterns. These results describe performance on the available evaluation sample and should not automatically be interpreted as evidence of causal relationships.
+**Evaluating only on training data.** This can hide overfitting.
 
----
+**Repeatedly using the test set for model selection.** This can contaminate the final performance estimate.
 
-# 68. What a Good Evaluation Does Not Mean
+**Reporting only \(R^2\).** A high \(R^2\) does not guarantee low prediction error in useful units.
 
-A model with a low test RMSE does not automatically mean:
+**Using only one error metric.** Different metrics emphasise different aspects of model performance.
 
-- the model is causal,
-- the model is universally accurate,
-- the model will work on a different population,
-- the data contain no bias,
-- the model satisfies every assumption,
-- the model is the simplest or most useful choice.
+**Ignoring residual plots.** A single metric can hide systematic patterns.
 
-Evaluation results are conditional on the dataset, target, metric, and evaluation procedure.
+**Using MAPE with zero actual values.** The formula is undefined when an actual value equals zero.
 
----
+**Assuming lower training error always means a better model.** A flexible model may fit training data closely and generalise poorly.
 
-# 69. Common Mistakes
+**Ignoring data leakage.** Leakage can create unrealistically optimistic evaluation scores.
 
-### Mistake 1: Evaluating only on training data
+**Comparing models on different evaluation datasets.** Use comparable data and evaluation procedures.
 
-This can hide overfitting.
+**Ignoring practical consequences.** A numerical improvement may not be meaningful for the intended application.
 
-### Mistake 2: Using the test set repeatedly
+# 26. Important Formula Summary
 
-Repeated test-set decisions can contaminate the final evaluation.
+### Residual
 
-### Mistake 3: Reporting only $R^2$
-
-A high $R^2$ does not necessarily imply low prediction error in useful units.
-
-### Mistake 4: Reporting only one error metric
-
-Different metrics emphasise different aspects of prediction error.
-
-### Mistake 5: Ignoring residual patterns
-
-A single summary metric can hide systematic errors.
-
-### Mistake 6: Using MAPE with zero actual values
-
-MAPE is undefined when the actual value is zero.
-
-### Mistake 7: Treating lower training error as automatically better
-
-A flexible model can achieve low training error while generalising poorly.
-
-### Mistake 8: Data leakage
-
-Using information from validation or test data during training can produce overly optimistic results.
-
-### Mistake 9: Comparing metrics from different datasets
-
-Metrics should be compared on comparable evaluation data.
-
-### Mistake 10: Ignoring the practical meaning of an error
-
-A numerical improvement may not matter if it is too small for the application.
-
----
-
-# 70. Important Formula Summary
-
-### Prediction error / residual
-
-$e_i=y_i-\hat{y}_i$
+$$
+e_i=y_i-\hat{y}_i
+$$
 
 ### Absolute error
 
-$|e_i|=|y_i-\hat{y}_i|$
+$$
+|e_i|=|y_i-\hat{y}_i|
+$$
 
 ### Squared error
 
-$e_i^2=(y_i-\hat{y}_i)^2$
+$$
+e_i^2=(y_i-\hat{y}_i)^2
+$$
 
 ### Sum of Squared Errors
 
-$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+$$
+SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
 ### Mean Squared Error
 
-$MSE= \frac{1}{n} \sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+$$
+MSE=\frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
 ### Root Mean Squared Error
 
-$RMSE=\sqrt{MSE}$
+$$
+RMSE=\sqrt{MSE}
+$$
 
 ### Mean Absolute Error
 
-$MAE= \frac{1}{n} \sum_{i=1}^{n}|y_i-\hat{y}_i|$
+$$
+MAE=\frac{1}{n}\sum_{i=1}^{n}|y_i-\hat{y}_i|
+$$
 
 ### Mean Absolute Percentage Error
 
-$MAPE= \frac{100}{n} \sum_{i=1}^{n} \left| \frac{y_i-\hat{y}_i}{y_i} \right|$
+$$
+MAPE=\frac{100}{n}
+\sum_{i=1}^{n}
+\left|\frac{y_i-\hat{y}_i}{y_i}\right|
+$$
 
 ### Total Sum of Squares
 
-$SST= \sum_{i=1}^{n}(y_i-\bar{y})^2$
+$$
+SST=\sum_{i=1}^{n}(y_i-\bar{y})^2
+$$
 
 ### Coefficient of determination
 
-$R^2= 1-\frac{SSE}{SST}$
+$$
+R^2=1-\frac{SSE}{SST}
+$$
 
 ### Simple regression relationship
 
-$R^2=r^2$
+$$
+R^2=r^2
+$$
 
-for simple linear regression with an intercept.
+This relationship applies to simple linear regression with an intercept when correlation and \(R^2\) are calculated on the same observations.
 
-### Adjusted $R^2$
+### Adjusted \(R^2\)
 
-$R^2_{\text{adj}} = 1- \frac{(1-R^2)(n-1)} {n-p-1}$
+$$
+R^2_{\text{adj}}
+=
+1-\frac{(1-R^2)(n-1)}{n-p-1}
+$$
 
----
-
-# 71. Quick Concept Comparison
+# 27. Quick Concept Comparison
 
 | Concept | Main purpose |
 |---|---|
 | Residual | Individual prediction error |
 | SSE | Total squared error |
 | MSE | Average squared error |
-| RMSE | Square-rooted average squared error |
+| RMSE | Square root of average squared error |
 | MAE | Average absolute error |
 | MAPE | Average absolute percentage error |
-| $R^2$ | Variation accounted for relative to a mean-only baseline |
-| Adjusted $R^2$ | $R^2$ with a predictor-complexity penalty |
-| Training error | Performance on data used for fitting |
-| Validation error | Performance used during model selection/tuning |
-| Test error | Final performance on held-out data |
-| Cross-validation | Repeated training/validation evaluation |
-| Residual plot | Visual diagnostic for systematic error patterns |
+| \(R^2\) | Variation accounted for relative to a mean-only baseline |
+| Adjusted \(R^2\) | \(R^2\) adjusted for predictor count |
+| Training error | Performance on fitting data |
+| Validation error | Performance used for model selection |
+| Test error | Performance on held-out data |
+| Cross-validation | Repeated training and validation |
+| Residual plot | Visual diagnostic for systematic errors |
+| Data leakage | Improper use of information during modelling |
 
----
-
-# 72. Points to Remember
+# 28. Points to Remember
 
 1. A regression model must be evaluated, not merely fitted.
-2. Residuals are:
-   $$
-   e_i=y_i-\hat{y}_i
-   $$
-3. MAE measures average absolute error.
-4. MSE measures average squared error.
-5. RMSE is in the original response units.
-6. RMSE penalises large errors more strongly than MAE.
-7. MAPE can be problematic with zero or near-zero actual values.
-8. $R^2$ measures variation accounted for relative to a mean-only baseline.
-9. Adjusted $R^2$ accounts for the number of predictors.
-10. Training performance can be overly optimistic.
-11. Test performance estimates out-of-sample performance.
-12. Cross-validation helps evaluate model choices using repeated validation folds.
-13. The final test set should be protected from repeated model selection.
-14. Residual plots can reveal curvature, changing variance, and unusual observations.
-15. Lower error is generally better when the same metric and evaluation data are used.
-16. A metric should be selected according to the practical cost of prediction errors.
-17. Data leakage can produce unrealistically good evaluation results.
-18. No single metric completely describes model quality.
-19. Evaluation performance does not establish causation.
-20. Folder 11 evaluates regression models; regression construction belongs to Folder 10.
+2. MAE measures average absolute error.
+3. MSE measures average squared error.
+4. RMSE is expressed in the original response units.
+5. RMSE penalises large errors more heavily than MAE.
+6. MAPE is problematic when actual values are zero or close to zero.
+7. \(R^2\) describes variation accounted for relative to a mean-only baseline.
+8. Adjusted \(R^2\) accounts for the number of predictors.
+9. Training performance may be overly optimistic.
+10. Cross-validation helps compare models using repeated validation folds.
+11. The final test set should be protected from model-selection decisions.
+12. Residual plots can reveal curvature, changing variance, and unusual observations.
+13. Lower error is generally preferable when the same metric and evaluation data are used.
+14. Metric selection should reflect the practical cost of prediction errors.
+15. Data leakage can produce misleadingly good evaluation results.
+16. No single metric completely describes model quality.
+17. Evaluation performance does not establish causation.
+18. Regression construction belongs in Folder 10; regression evaluation belongs here.
 
----
+# 29. Chapter Summary
 
-# 73. Chapter Summary
+Regression model evaluation determines how well a fitted model performs and whether its predictions are likely to generalise to unseen observations.
 
-Regression model evaluation determines how well a fitted model performs and whether its predictions are likely to generalise.
+MAE measures average absolute error, MSE measures average squared error, and RMSE expresses the square root of average squared error in the original response units. \(R^2\) describes variation accounted for relative to a baseline, while adjusted \(R^2\) introduces a penalty for the number of predictors.
 
-The fundamental prediction error is:
+Reliable evaluation also requires separating training data from validation and test data, using cross-validation appropriately, protecting the test set, and avoiding data leakage.
 
-$e_i=y_i-\hat{y}_i$
-
-From these errors we obtain several important metrics.
-
-MAE measures average absolute error:
-
-$MAE= \frac{1}{n}\sum|y_i-\hat{y}_i|$
-
-MSE averages squared errors:
-
-$MSE= \frac{1}{n}\sum(y_i-\hat{y}_i)^2$
-
-RMSE converts MSE back to the original response scale:
-
-$RMSE=\sqrt{MSE}$
-
-$R^2$ compares residual variation with total variation:
-
-$R^2=1-\frac{SSE}{SST}$
-
-Adjusted $R^2$ introduces a penalty for the number of predictors.
-
-Good evaluation also requires separating training performance from unseen-data performance. Train-test splits, validation sets, and cross-validation help estimate how well a model generalises.
-
-Finally, numerical metrics should be combined with residual analysis. A model with a good average metric can still have systematic errors, outliers, or changing variance.
+Finally, numerical metrics should be combined with residual analysis. A good average score does not guarantee that a model has no systematic errors or that it will perform well in every deployment setting.
 
 The central principle is:
 
-$\boxed{ \text{Good regression evaluation} = \text{appropriate metrics} + \text{unseen-data testing} + \text{residual analysis} + \text{careful interpretation} }$
+$$
+\text{Good evaluation}
+=
+\text{Appropriate metrics}
++
+\text{Unseen-data testing}
++
+\text{Residual analysis}
++
+\text{Careful interpretation}
+$$
 
----
+# 30. References and Further Reading
 
-# 74. References
+- [OpenStax — Introductory Statistics](https://openstax.org/details/books/introductory-statistics)
+- [Penn State — STAT Online](https://online.stat.psu.edu/)
+- [NIST/SEMATECH — e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
+- [scikit-learn — Model Evaluation](https://scikit-learn.org/stable/modules/model_evaluation.html)
+- [scikit-learn — Cross-Validation](https://scikit-learn.org/stable/modules/cross_validation.html)
+- [pandas Documentation](https://pandas.pydata.org/docs/)
+- [NumPy Documentation](https://numpy.org/doc/)
 
-- OpenStax, *Introductory Statistics*.
-- Penn State University, STAT Online resources.
-- NIST/SEMATECH, *e-Handbook of Statistical Methods*.
-- scikit-learn Documentation, Model Evaluation.
-- pandas Documentation.
-- NumPy Documentation.
-- GeeksforGeeks, educational resources on regression metrics and model evaluation.
+# 31. Related Topics
+
+- `10_Regression` — Regression equations, coefficients, and model construction.
+- `12_Linear_Algebra` — Vectors, matrices, and matrix operations.
+- `14_Bias_and_Variance` — Underfitting, overfitting, and the bias-variance trade-off.
+- `15_Statistics_for_Machine_Learning` — Statistical concepts used in Machine Learning.
+
+**Recommended file path:** `11_Regression_Model_Evaluation/README.md`
