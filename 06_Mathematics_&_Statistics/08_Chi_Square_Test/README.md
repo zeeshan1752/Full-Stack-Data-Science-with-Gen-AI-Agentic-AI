@@ -1,280 +1,195 @@
 # Chi-Square Test
 
-The **chi-square ($\chi^2$) test** is a family of statistical methods used primarily with **categorical data**.
+## Introduction
 
-Categorical data place observations into categories rather than measuring them on a continuous numerical scale. Examples include:
+The **Chi-Square Test ($\chi^2$ test)** is a statistical method used primarily to analyse categorical data. It compares observed frequencies with expected frequencies to determine whether the differences are consistent with a specified statistical model.
 
-- gender category;
-- product preference;
-- payment method;
-- pass/fail status;
-- education level;
-- customer satisfaction category.
+Categorical data represent groups or categories rather than continuous numerical measurements. Examples include payment methods, product preferences, pass/fail status, education levels, and customer satisfaction categories.
 
-Chi-square methods compare **observed frequencies** with frequencies expected under a statistical model or compare the pattern of frequencies across categorical variables.
+The three main applications of chi-square tests are:
 
-The three main applications covered in this chapter are:
+1. **Chi-Square Goodness-of-Fit Test:** Determines whether observed frequencies agree with a specified distribution.
+2. **Chi-Square Test of Independence:** Determines whether two categorical variables are associated.
+3. **Chi-Square Test of Homogeneity:** Determines whether different populations or groups have the same categorical distribution.
 
-1. **Chi-square goodness-of-fit test** — whether observed category frequencies are consistent with a specified distribution.
-2. **Chi-square test of independence** — whether two categorical variables are associated in a population.
-3. **Chi-square test of homogeneity** — whether different populations or groups have the same distribution of a categorical variable.
+The general formula is:
 
-The calculations are based on:
+$$
+\chi^2=\sum\frac{(O-E)^2}{E}
+$$
 
-$\chi^2 = \sum \frac{(O-E)^2}{E}$
+Where:
 
-where:
-
-- $O$ = observed frequency;
+- $O$ = observed frequency.
 - $E$ = expected frequency.
+- $\sum$ = sum across all categories or cells.
 
-This chapter focuses only on chi-square methods and their foundations. It does not cover ANOVA, correlation, regression, or unrelated hypothesis-testing procedures.
+A large chi-square statistic indicates a greater discrepancy between observed and expected frequencies.
 
----
+## 1. Categorical Data and Frequencies
 
-# 1. Categorical Data and Frequencies
+Categorical data classify observations into distinct groups.
 
-Before studying chi-square tests, it is important to understand the type of data being analysed.
-
-Suppose a survey asks 100 customers which payment method they prefer:
+For example, suppose 100 customers report their preferred payment method.
 
 | Payment Method | Frequency |
 |---|---:|
 | Cash | 25 |
 | Card | 45 |
 | UPI | 30 |
+| Total | 100 |
 
-The observations are categorical because each customer belongs to one category.
-
-A **frequency** tells us how many observations fall into a category.
+The frequency indicates how many observations belong to a category.
 
 The total sample size is:
 
-$N=25+45+30$
+$$
+N=25+45+30=100
+$$
 
-$\boxed{N=100}$
+Chi-square tests generally use frequency counts rather than percentages alone.
 
-Chi-square methods work primarily with these frequency counts.
+## 2. Observed and Expected Frequencies
 
----
+### Observed Frequency
 
-# 2. Observed Frequency
+The **observed frequency**, represented by $O$, is the actual number of observations recorded in a category.
 
-The **observed frequency**, denoted by $O$, is the actual number of observations recorded in a category.
+For example, if 45 customers prefer card payments:
 
-For example, if 45 customers prefer card payment:
+$$
+O=45
+$$
 
-$O=45$
+Observed frequencies are obtained from collected data.
 
-Observed frequencies come directly from the collected data.
+### Expected Frequency
 
----
-
-# 3. Expected Frequency
-
-The **expected frequency**, denoted by $E$, is the frequency we would expect under the null hypothesis.
-
-Expected frequencies are not necessarily whole numbers.
+The **expected frequency**, represented by $E$, is the frequency predicted under the null hypothesis.
 
 For example:
 
-$E=25.5$
+$$
+E=25.5
+$$
 
-is perfectly valid as an expected frequency.
+An expected frequency can be a decimal because it represents a theoretical expected count, not necessarily an actual count.
 
 The chi-square statistic measures the difference between observed and expected frequencies relative to the expected frequency.
 
----
+## 3. Understanding the Chi-Square Formula
 
-# 4. Basic Chi-Square Statistic
+The formula is:
 
-The general chi-square statistic is:
+$$
+\chi^2=\sum\frac{(O-E)^2}{E}
+$$
 
-$\chi^2 = \sum \frac{(O-E)^2}{E}$
+The calculation involves four steps:
 
-For each category:
-
-1. Calculate $O-E$.
+1. Subtract the expected frequency from the observed frequency.
 2. Square the difference.
-3. Divide by $E$.
-4. Add the contributions across categories.
+3. Divide the squared difference by the expected frequency.
+4. Add the contributions from all categories or cells.
 
-A large difference between observed and expected frequencies produces a larger contribution to $\chi^2$.
-
----
-
-# 5. Understanding One Chi-Square Contribution
+### Worked Example
 
 Suppose:
 
-$O=30$
+$$
+O=30,\qquad E=25
+$$
 
-and:
+Calculate the difference:
 
-$E=25$
-
-Then:
-
-$O-E=30-25$
-
-$=5$
+$$
+O-E=30-25=5
+$$
 
 Square the difference:
 
-$(5)^2=25$
+$$
+(O-E)^2=5^2=25
+$$
 
-Divide by expected frequency:
+Divide by the expected frequency:
 
-$\frac{25}{25}=1$
+$$
+\frac{25}{25}=1
+$$
 
-Therefore, this category contributes:
+Therefore, this category contributes $1$ to the total chi-square statistic.
 
-$\boxed{1}$
+### Why Is the Difference Squared?
 
-to the total chi-square statistic.
+The difference $O-E$ can be positive or negative. Squaring prevents positive and negative differences from cancelling each other.
 
----
+$$
+(O-E)^2\geq0
+$$
 
-# 6. Why the Difference Is Squared
+Consequently:
 
-The difference:
+$$
+\chi^2\geq0
+$$
 
-$O-E$
+A chi-square statistic of zero occurs when every observed frequency equals its corresponding expected frequency.
 
-can be positive or negative.
+## 4. Hypothesis Testing in Chi-Square Analysis
 
-If we simply added these differences, positive and negative deviations could cancel each other.
+Every chi-square test involves a null hypothesis and an alternative hypothesis. Their exact meanings depend on the type of test.
 
-Squaring makes every contribution nonnegative:
+### Null Hypothesis ($H_0$)
 
-$(O-E)^2\ge0$
+The **null hypothesis** describes the assumed situation under which expected frequencies are calculated.
 
-Therefore:
+Examples include:
 
-$\chi^2\ge0$
+- Goodness-of-fit: The population follows the specified categorical distribution.
+- Independence: The two categorical variables are independent.
+- Homogeneity: The categorical distribution is the same across the populations or groups.
 
-A value of zero occurs only when observed frequencies exactly equal expected frequencies in every category.
+### Alternative Hypothesis ($H_a$)
 
----
+The **alternative hypothesis** describes a departure from the null hypothesis.
 
-# 7. Chi-Square Test Workflow
+Examples include:
 
-```mermaid
-flowchart LR
-    A["Categorical Data"] --> B["State H₀ and Hₐ"]
-    B --> C["Calculate Expected Frequencies"]
-    C --> D["Calculate χ² Statistic"]
-    D --> E["Determine Degrees of Freedom"]
-    E --> F["Find p-value"]
-    F --> G["Decision"]
-    G --> H["Interpret in Context"]
-```
+- Goodness-of-fit: The population distribution differs from the specified distribution.
+- Independence: The two categorical variables are associated.
+- Homogeneity: At least one population or group has a different categorical distribution.
 
-The exact null hypothesis depends on the type of chi-square test being performed.
+### General Decision Rule
 
----
+Choose a significance level, commonly:
 
-# 8. Main Types of Chi-Square Tests
+$$
+\alpha=0.05
+$$
 
-| Test | Main Question |
+After calculating the chi-square statistic and its degrees of freedom, obtain the p-value.
+
+- If $p<\alpha$, reject $H_0$.
+- If $p\geq\alpha$, fail to reject $H_0$.
+
+Failing to reject the null hypothesis does not prove that it is true.
+
+## 5. Types of Chi-Square Tests
+
+| Test | Research Question |
 |---|---|
 | Goodness-of-fit | Does one categorical variable follow a specified distribution? |
 | Independence | Are two categorical variables associated? |
-| Homogeneity | Do different populations/groups have the same categorical distribution? |
+| Homogeneity | Do different populations have the same categorical distribution? |
 
-Although the calculations are closely related, the interpretation of the hypotheses is different.
+Although the calculations for independence and homogeneity are closely related, the research questions and sampling designs differ.
 
----
+## 6. Chi-Square Goodness-of-Fit Test
 
-# 9. Chi-Square Goodness-of-Fit Test
+The **goodness-of-fit test** determines whether observed frequencies are consistent with a specified theoretical distribution.
 
-The **goodness-of-fit test** is used when there is one categorical variable and we want to determine whether its observed distribution agrees with a specified theoretical or expected distribution.
-
-For example, suppose a company expects:
-
-- 50% of customers to choose Product A;
-- 30% to choose Product B;
-- 20% to choose Product C.
-
-A sample can be tested to determine whether its observed category counts are consistent with these proportions.
-
----
-
-# 10. Goodness-of-Fit Hypotheses
-
-Suppose the expected category proportions are:
-
-$p_1,\ p_2,\ldots,p_k$
-
-The null hypothesis states:
-
-$H_0: \text{The population category proportions follow the specified distribution}$
-
-The alternative states:
-
-$H_a: \text{The population category proportions do not follow the specified distribution}$
-
-The null hypothesis defines the expected frequencies.
-
----
-
-# 11. Expected Frequency in Goodness-of-Fit
-
-If the total sample size is $N$ and the expected proportion for category $i$ is $p_i$, then:
-
-$E_i=Np_i$
-
-where:
-
-- $N$ = total number of observations;
-- $p_i$ = expected proportion for category $i$;
-- $E_i$ = expected frequency for category $i$.
-
----
-
-# 12. Worked Example: Expected Frequencies
-
-Suppose:
-
-$N=200$
-
-and the expected proportions are:
-
-| Category | Expected Proportion |
-|---|---:|
-| A | 0.50 |
-| B | 0.30 |
-| C | 0.20 |
-
-For Category A:
-
-$E_A=200(0.50)$
-
-$\boxed{E_A=100}$
-
-For Category B:
-
-$E_B=200(0.30)$
-
-$\boxed{E_B=60}$
-
-For Category C:
-
-$E_C=200(0.20)$
-
-$\boxed{E_C=40}$
-
-Check:
-
-$100+60+40=200$
-
-The expected frequencies must add to the total sample size.
-
----
-
-# 13. Complete Goodness-of-Fit Example
-
-Suppose a company expects customer choices to follow:
+Suppose a company expects its customers to choose products according to the following proportions:
 
 | Product | Expected Proportion |
 |---|---:|
@@ -282,131 +197,216 @@ Suppose a company expects customer choices to follow:
 | B | 0.30 |
 | C | 0.20 |
 
-A sample of 200 customers produces:
+A sample can be analysed to determine whether the observed product choices are consistent with these proportions.
 
-| Product | Observed |
-|---|---:|
-| A | 90 |
-| B | 70 |
-| C | 40 |
+### Hypotheses
 
-Expected frequencies are:
+The null hypothesis states that the population category proportions follow the specified distribution.
 
-| Product | Observed $O$ | Expected $E$ |
+$$
+H_0:\text{The specified distribution is correct}
+$$
+
+The alternative hypothesis states that the population distribution differs from the specified distribution.
+
+$$
+H_a:\text{The population distribution differs}
+$$
+
+More formally, if the specified proportions are $p_1,p_2,\ldots,p_k$, the null hypothesis specifies those category probabilities, while the alternative states that at least one probability differs.
+
+### Expected Frequency Formula
+
+For category $i$:
+
+$$
+E_i=Np_i
+$$
+
+Where:
+
+- $E_i$ = expected frequency for category $i$.
+- $N$ = total sample size.
+- $p_i$ = specified probability for category $i$.
+
+### Worked Example: Expected Frequencies
+
+Suppose the sample contains 200 customers.
+
+$$
+N=200
+$$
+
+For Product A:
+
+$$
+E_A=200(0.50)=100
+$$
+
+For Product B:
+
+$$
+E_B=200(0.30)=60
+$$
+
+For Product C:
+
+$$
+E_C=200(0.20)=40
+$$
+
+The expected frequencies are:
+
+| Product | Expected Proportion | Expected Frequency |
+|---|---:|---:|
+| A | 0.50 | 100 |
+| B | 0.30 | 60 |
+| C | 0.20 | 40 |
+| Total | 1.00 | 200 |
+
+The expected frequencies must add up to the sample size.
+
+### Python Implementation
+
+```python
+import numpy as np
+
+sample_size = 200
+expected_proportions = np.array([0.50, 0.30, 0.20])
+
+expected_frequencies = sample_size * expected_proportions
+
+print("Expected frequencies:", expected_frequencies)
+print("Total:", expected_frequencies.sum())
+```
+
+### Complete Goodness-of-Fit Example
+
+Suppose the observed frequencies are:
+
+| Product | Observed Frequency | Expected Frequency |
 |---|---:|---:|
 | A | 90 | 100 |
 | B | 70 | 60 |
 | C | 40 | 40 |
+| Total | 200 | 200 |
 
----
+Calculate the contribution for Product A:
 
-# 14. Goodness-of-Fit Chi-Square Calculation
-
-For Product A:
-
-$\frac{(90-100)^2}{100}$
-
-$= \frac{100}{100}$
-
-$=1$
+$$
+\frac{(90-100)^2}{100}=1
+$$
 
 For Product B:
 
-$\frac{(70-60)^2}{60}$
-
-$= \frac{100}{60}$
-
-$\approx1.6667$
+$$
+\frac{(70-60)^2}{60}\approx1.6667
+$$
 
 For Product C:
 
-$\frac{(40-40)^2}{40}$
-
-$=0$
+$$
+\frac{(40-40)^2}{40}=0
+$$
 
 Therefore:
 
-$\chi^2 = 1+1.6667+0$
+$$
+\chi^2=1+1.6667+0
+$$
 
-$\boxed{\chi^2\approx2.667}$
+$$
+\chi^2\approx2.667
+$$
 
----
+### Degrees of Freedom
 
-# 15. Degrees of Freedom for Goodness-of-Fit
+When the expected proportions are specified in advance and no parameters are estimated from the sample:
 
-If there are $k$ categories and no parameters are estimated from the data, the degrees of freedom are:
+$$
+df=k-1
+$$
 
-$df=k-1$
+Where $k$ is the number of categories.
 
 For three categories:
 
-$df=3-1$
+$$
+df=3-1=2
+$$
 
-$\boxed{df=2}$
+If $m$ independent parameters are estimated from the data to determine the expected probabilities, the degrees of freedom are generally adjusted to:
 
-When parameters are estimated from the same data, the degrees of freedom may need adjustment.
+$$
+df=k-1-m
+$$
 
-A general form is:
+### Python Implementation and Decision
 
-$df=k-1-m$
+```python
+from scipy.stats import chisquare
 
-where $m$ is the number of independently estimated parameters used to determine the expected probabilities.
+observed = [90, 70, 40]
+expected = [100, 60, 40]
 
----
+chi2_stat, p_value = chisquare(
+    f_obs=observed,
+    f_exp=expected
+)
 
-# 16. Goodness-of-Fit Decision
+print("Chi-square statistic:", chi2_stat)
+print("P-value:", p_value)
 
-For the previous example:
+alpha = 0.05
 
-$\chi^2\approx2.667$
+if p_value < alpha:
+    print("Reject the null hypothesis.")
+else:
+    print("Fail to reject the null hypothesis.")
+```
 
-and:
+The statistic is approximately $2.667$, and the p-value is approximately $0.264$.
 
-$df=2$
+Because:
 
-The p-value is obtained from the chi-square distribution.
+$$
+0.264>0.05
+$$
 
-Using the chi-square survival probability:
+we fail to reject the null hypothesis. There is insufficient evidence that the observed distribution differs from the specified distribution.
 
-$p=P(\chi^2_2\ge2.667)$
+## 7. Chi-Square Test of Independence
 
-which is approximately:
+The **chi-square test of independence** determines whether two categorical variables are associated in a population.
 
-$p\approx0.264$
+Examples include:
 
-At:
+- Customer type and payment preference.
+- Education category and employment category.
+- Product preference and customer segment.
+- Study method and pass/fail status.
 
-$\alpha=0.05$
+The data are organised in a contingency table.
 
-we have:
+### Hypotheses
 
-$0.264>0.05$
+The null hypothesis states that the variables are independent.
 
-Therefore:
+$$
+H_0:\text{The variables are independent}
+$$
 
-$\boxed{\text{Fail to reject }H_0}$
+The alternative hypothesis states that the variables are associated.
 
-There is not sufficient statistical evidence that the observed product distribution differs from the specified expected distribution.
+$$
+H_a:\text{The variables are associated}
+$$
 
----
+Independence means that knowing the category of one variable does not provide information about the category of the other variable under the population model.
 
-# 17. Chi-Square Test of Independence
+### Contingency Table
 
-The **chi-square test of independence** is used to determine whether two categorical variables are associated.
-
-For example:
-
-- payment method and age group;
-- product preference and gender category;
-- education category and employment category.
-
-The data are organised in a **contingency table**.
-
----
-
-# 18. Contingency Table
-
-Suppose we record preferred payment method and customer type:
+Suppose 200 customers are classified by customer type and preferred payment method.
 
 | Customer Type | Cash | Card | UPI | Total |
 |---|---:|---:|---:|---:|
@@ -414,502 +414,437 @@ Suppose we record preferred payment method and customer type:
 | Returning | 30 | 40 | 30 | 100 |
 | Total | 50 | 70 | 80 | 200 |
 
-The rows represent one categorical variable.
+Rows represent customer type, columns represent payment method, and the cells contain observed frequencies.
 
-The columns represent another categorical variable.
+### Expected Frequency Formula
 
-The cells contain observed frequencies.
+For cell $(i,j)$:
 
----
+$$
+E_{ij}=\frac{R_iC_j}{N}
+$$
 
-# 19. Independence Hypotheses
+Where:
 
-For a test of independence:
+- $R_i$ = total for row $i$.
+- $C_j$ = total for column $j$.
+- $N$ = grand total.
+- $E_{ij}$ = expected frequency for the cell.
 
-$H_0: \text{The two categorical variables are independent}$
+### Worked Example: Expected Cell Frequency
 
-and:
+For new customers who prefer cash:
 
-$H_a: \text{The two categorical variables are associated}$
-
-Independence means that knowing the category of one variable does not provide information about the category of the other variable, under the population model.
-
----
-
-# 20. Expected Frequency in a Contingency Table
-
-For each cell:
-
-$E_{ij} = \frac{ (\text{Row Total})(\text{Column Total}) }{ \text{Grand Total} }$
-
-This is one of the most important formulas in the chi-square test of independence.
-
----
-
-# 21. Worked Example: Expected Cell Frequency
-
-Using the previous table, consider the cell:
-
-> New customers who prefer Cash.
-
-The row total is:
-
-$100$
-
-The Cash column total is:
-
-$50$
-
-The grand total is:
-
-$200$
+$$
+R_i=100,\qquad C_j=50,\qquad N=200
+$$
 
 Therefore:
 
-$E= \frac{100(50)}{200}$
+$$
+E=\frac{100(50)}{200}=25
+$$
 
-$=\frac{5000}{200}$
+The observed frequency is 20, which is lower than the expected frequency of 25 under independence.
 
-$\boxed{E=25}$
-
-The observed frequency was 20.
-
-Thus, the observed count is below the count expected under independence.
-
----
-
-# 22. Complete Expected Frequency Table
-
-Observed table:
-
-| Customer Type | Cash | Card | UPI | Total |
-|---|---:|---:|---:|---:|
-| New | 20 | 30 | 50 | 100 |
-| Returning | 30 | 40 | 30 | 100 |
-| Total | 50 | 70 | 80 | 200 |
-
-Expected frequencies:
-
-### New–Cash
-
-$E=\frac{100(50)}{200}=25$
-
-### New–Card
-
-$E=\frac{100(70)}{200}=35$
-
-### New–UPI
-
-$E=\frac{100(80)}{200}=40$
-
-For Returning customers, the row total is also 100:
-
-$E_{Returning,Cash}=25$
-
-$E_{Returning,Card}=35$
-
-$E_{Returning,UPI}=40$
-
-Expected table:
+### Complete Expected Frequency Table
 
 | Customer Type | Cash | Card | UPI |
 |---|---:|---:|---:|
 | New | 25 | 35 | 40 |
 | Returning | 25 | 35 | 40 |
 
----
+For new customers:
 
-# 23. Chi-Square Calculation for Independence
+$$
+E_{\text{Cash}}=\frac{100(50)}{200}=25
+$$
 
-The statistic remains:
+$$
+E_{\text{Card}}=\frac{100(70)}{200}=35
+$$
 
-$\chi^2 = \sum \frac{(O-E)^2}{E}$
+$$
+E_{\text{UPI}}=\frac{100(80)}{200}=40
+$$
 
-Calculate each cell contribution.
+The returning-customer expected frequencies are the same because their row total is also 100.
 
-For New–Cash:
+### Chi-Square Calculation
 
-$\frac{(20-25)^2}{25} = \frac{25}{25} = 1$
+For the six cells, the contributions are:
 
-For New–Card:
+$$
+\frac{(20-25)^2}{25}=1
+$$
 
-$\frac{(30-35)^2}{35} = \frac{25}{35} \approx0.7143$
+$$
+\frac{(30-35)^2}{35}\approx0.7143
+$$
 
-For New–UPI:
+$$
+\frac{(50-40)^2}{40}=2.5
+$$
 
-$\frac{(50-40)^2}{40} = \frac{100}{40} = 2.5$
+$$
+\frac{(30-25)^2}{25}=1
+$$
 
-For Returning–Cash:
+$$
+\frac{(40-35)^2}{35}\approx0.7143
+$$
 
-$\frac{(30-25)^2}{25} =1$
+$$
+\frac{(30-40)^2}{40}=2.5
+$$
 
-For Returning–Card:
+Adding the contributions:
 
-$\frac{(40-35)^2}{35} \approx0.7143$
+$$
+\chi^2\approx8.4286
+$$
 
-For Returning–UPI:
+### Degrees of Freedom
 
-$\frac{(30-40)^2}{40} =2.5$
+For a contingency table:
 
-Therefore:
+$$
+df=(r-1)(c-1)
+$$
 
-$\chi^2 = 1+0.7143+2.5+1+0.7143+2.5$
+Where $r$ is the number of rows and $c$ is the number of columns, excluding the totals.
 
-$\boxed{\chi^2\approx8.4286}$
+For a table with two rows and three columns:
 
----
+$$
+df=(2-1)(3-1)=2
+$$
 
-# 24. Degrees of Freedom for Independence
+### Python Implementation
 
-For a contingency table with:
+```python
+import numpy as np
+from scipy.stats import chi2_contingency
 
-- $r$ rows;
-- $c$ columns;
+observed = np.array([
+    [20, 30, 50],
+    [30, 40, 30]
+])
 
-the degrees of freedom are:
+chi2_stat, p_value, df, expected = chi2_contingency(
+    observed,
+    correction=False
+)
 
-$df=(r-1)(c-1)$
+print("Chi-square statistic:", chi2_stat)
+print("Degrees of freedom:", df)
+print("P-value:", p_value)
 
-For the 2 × 3 table:
+print("\nExpected frequencies:")
+print(expected)
 
-$df=(2-1)(3-1)$
+alpha = 0.05
 
-$=1(2)$
+if p_value < alpha:
+    print("Reject the null hypothesis.")
+    print("Evidence of an association exists.")
+else:
+    print("Fail to reject the null hypothesis.")
+```
 
-$\boxed{df=2}$
+The chi-square statistic is approximately $8.43$, with $df=2$ and $p\approx0.0148$.
 
----
+Because the p-value is below 0.05, we reject the null hypothesis. There is evidence of an association between customer type and preferred payment method.
 
-# 25. Interpreting the Independence Test
+**Important:** Association does not establish causation.
 
-Suppose the test produces:
+## 8. Chi-Square Test of Homogeneity
 
-$\chi^2=8.43$
+The **chi-square test of homogeneity** determines whether different populations or groups share the same distribution of a categorical variable.
 
-with:
+For example, a researcher may compare transport preferences across three cities:
 
-$df=2$
+- Bus.
+- Car.
+- Metro.
 
-and:
+The objective is to determine whether the distribution of transport preferences is the same across the cities.
 
-$p\approx0.0148$
+### Hypotheses
 
-At:
+The null hypothesis states that the categorical distribution is the same across all groups.
 
-$\alpha=0.05$
+$$
+H_0:\text{All groups have the same distribution}
+$$
 
-we have:
+The alternative hypothesis states that at least one group has a different distribution.
 
-$0.0148<0.05$
+$$
+H_a:\text{At least one group has a different distribution}
+$$
 
-Therefore:
+The expected-frequency formula, chi-square statistic, and degrees-of-freedom formula are the same as those used for a test of independence.
 
-$\boxed{\text{Reject }H_0}$
-
-There is sufficient statistical evidence of an association between customer type and preferred payment method.
-
-This does **not** establish causation.
-
----
-
-# 26. Independence Does Not Mean Causation
-
-Suppose a chi-square test finds an association between:
-
-- education category;
-- employment category.
-
-A significant result means that the observed categorical distributions are not consistent with independence.
-
-It does not prove that education category **causes** employment category.
-
-Statistical association and causal relationships are different concepts.
-
----
-
-# 27. Chi-Square Test of Homogeneity
-
-The **chi-square test of homogeneity** is used to determine whether different populations or groups have the same distribution of a categorical variable.
-
-For example, suppose three cities are surveyed about preferred transport:
-
-- Bus
-- Car
-- Metro
-
-We may ask whether the distribution of transport preference is the same across the three cities.
-
----
-
-# 28. Homogeneity Hypotheses
-
-The null hypothesis is:
-
-$H_0: \text{The categorical distribution is the same across the groups}$
-
-The alternative is:
-
-$H_a: \text{At least one group has a different categorical distribution}$
-
-The calculation is the same general chi-square framework used for contingency tables.
-
-The interpretation of the research question is what distinguishes homogeneity from independence.
-
----
-
-# 29. Independence vs Homogeneity
-
-These tests can use the same mathematical machinery.
+### Independence vs Homogeneity
 
 | Independence | Homogeneity |
 |---|---|
-| One population is classified by two categorical variables | Multiple groups/populations are compared on one categorical variable |
-| Asks whether variables are associated | Asks whether distributions are the same |
-| Uses a contingency table | Uses a contingency table |
-| Same expected-frequency formula | Same expected-frequency formula |
-| Same chi-square statistic | Same chi-square statistic |
+| Examines two categorical variables in one population. | Compares a categorical outcome across different populations or groups. |
+| Asks whether variables are associated. | Asks whether distributions are the same. |
+| Often samples individuals from one population. | Often samples individuals separately from each group or population. |
+| Uses a contingency table. | Uses a contingency table. |
 
-The distinction is primarily in how the data were collected and how the question is framed.
+The distinction is primarily based on the study design and research question.
 
----
+## 9. Pearson Residuals and Cell Contributions
 
-# 30. General Contingency Table Structure
+A significant overall chi-square test does not identify exactly which cells contribute most to the discrepancy.
 
-A contingency table can be represented as:
+The contribution of a cell is:
 
-| | Category 1 | Category 2 | ... | Category $c$ | Total |
-|---|---:|---:|---:|---:|---:|
-| Group 1 | $O_{11}$ | $O_{12}$ | ... | $O_{1c}$ | $R_1$ |
-| Group 2 | $O_{21}$ | $O_{22}$ | ... | $O_{2c}$ | $R_2$ |
-| $\vdots$ | $\vdots$ | $\vdots$ | | $\vdots$ | $\vdots$ |
-| Group $r$ | $O_{r1}$ | $O_{r2}$ | ... | $O_{rc}$ | $R_r$ |
-| Total | $C_1$ | $C_2$ | ... | $C_c$ | $N$ |
+$$
+Contribution_{ij}=\frac{(O_{ij}-E_{ij})^2}{E_{ij}}
+$$
 
-The expected frequency for cell $(i,j)$ is:
+A larger contribution indicates that the cell contributes more to the total chi-square statistic.
 
-$E_{ij} = \frac{R_iC_j}{N}$
+### Pearson Residual
 
----
+The Pearson residual standardises the difference between observed and expected frequencies:
 
-# 31. Why Expected Frequencies Matter
+$$
+r_{ij}=\frac{O_{ij}-E_{ij}}{\sqrt{E_{ij}}}
+$$
 
-The chi-square statistic asks:
+The chi-square statistic can be expressed as the sum of squared Pearson residuals:
 
-> How different are the observed frequencies from what would be expected if the null hypothesis were true?
+$$
+\chi^2=\sum r_{ij}^2
+$$
 
-If:
+A positive residual indicates that the observed frequency exceeds the expected frequency. A negative residual indicates that the observed frequency is below expectation.
 
-$O=E$
+### Python Implementation
 
-then:
+```python
+import numpy as np
+from scipy.stats import chi2_contingency
 
-$\frac{(O-E)^2}{E}=0$
+observed = np.array([
+    [20, 30, 50],
+    [30, 40, 30]
+])
 
-No discrepancy is contributed.
+chi2_stat, p_value, df, expected = chi2_contingency(
+    observed,
+    correction=False
+)
 
-If $O$ is far from $E$, the contribution becomes larger.
+pearson_residuals = (
+    observed - expected
+) / np.sqrt(expected)
 
-Therefore, the total $\chi^2$ statistic measures the overall discrepancy between observed and expected frequencies.
+cell_contributions = (
+    (observed - expected) ** 2
+) / expected
 
----
+print("Pearson residuals:")
+print(np.round(pearson_residuals, 3))
 
-# 32. Standardised Cell Contributions
+print("\nCell contributions:")
+print(np.round(cell_contributions, 3))
+```
 
-For each cell, we can calculate:
+Residual analysis can help identify where discrepancies occur. Formal cell-level conclusions may require adjusted residuals and correction for multiple comparisons.
 
-$Contribution_{ij} = \frac{(O_{ij}-E_{ij})^2}{E_{ij}}$
+## 10. Expected Frequency Conditions
 
-A large contribution means that the cell contributes substantially to the overall chi-square statistic.
+The ordinary chi-square approximation works best when expected frequencies are sufficiently large.
 
-However, a large contribution does not by itself establish the overall test conclusion. The full statistic and appropriate degrees of freedom determine the p-value.
+A commonly taught guideline is:
 
----
+$$
+E\geq5
+$$
 
-# 33. Pearson Residuals
+This is a practical rule, not a universal requirement for every chi-square analysis. Suitability depends on the test, table dimensions, and distribution of expected counts.
 
-A useful diagnostic for contingency tables is the Pearson residual:
+When expected frequencies are very small, consider:
 
-$r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}}$
+- Collecting more data.
+- Combining logically similar categories when scientifically justified.
+- Using an exact test where appropriate.
+- Using a simulation-based method.
+- Choosing a procedure designed for sparse contingency tables.
 
-The squared Pearson residual is:
+Do not combine categories merely to satisfy a numerical rule if doing so destroys meaningful information.
 
-$r_{ij}^2 = \frac{(O_{ij}-E_{ij})^2} {E_{ij}}$
+### Fisher's Exact Test
 
-Therefore, the chi-square statistic can be written as:
+Fisher's exact test is particularly useful for small $2\times2$ contingency tables when the chi-square approximation may be unreliable.
 
-$\chi^2 = \sum r_{ij}^2$
+```python
+from scipy.stats import fisher_exact
 
-Large positive residuals indicate observed counts above expectation.
+observed = [
+    [8, 2],
+    [1, 9]
+]
 
-Large negative residuals indicate observed counts below expectation.
+odds_ratio, p_value = fisher_exact(
+    observed,
+    alternative="two-sided"
+)
 
----
+print("Odds ratio:", odds_ratio)
+print("P-value:", p_value)
+```
 
-# 34. Expected Frequency Conditions
+The exact test calculates probabilities under the null hypothesis rather than relying on the ordinary large-sample chi-square approximation.
 
-The chi-square approximation works best when expected frequencies are sufficiently large.
+## 11. Yates' Continuity Correction
 
-A commonly taught rule is that expected frequencies should generally not be too small, with many introductory treatments using:
+For a $2\times2$ contingency table, Yates' continuity correction is sometimes used to adjust the Pearson chi-square statistic.
 
-$E\ge5$
+$$
+\chi_Y^2=\sum\frac{(|O-E|-0.5)^2}{E}
+$$
 
-as a practical guideline.
+The correction generally makes the test more conservative. Whether it is appropriate depends on the sample size, analysis context, and software method. Fisher's exact test may be preferable for some sparse tables.
 
-More refined rules depend on the test, table dimensions, and software/method.
+In SciPy, the correction is available through `chi2_contingency` for the appropriate $2\times2$ case:
 
-The important point is:
+```python
+from scipy.stats import chi2_contingency
 
-> Do not automatically apply the ordinary chi-square approximation when expected cell counts are extremely small.
+observed = [
+    [70, 30],
+    [50, 50]
+]
 
----
+chi2_stat, p_value, df, expected = chi2_contingency(
+    observed,
+    correction=True
+)
 
-# 35. What to Do with Small Expected Frequencies
+print("Corrected chi-square:", chi2_stat)
+print("P-value:", p_value)
+```
 
-Possible approaches include:
+## 12. Effect Size: Cramer's V
 
-- combine logically similar categories when scientifically justified;
-- collect more data;
-- use an exact test where appropriate;
-- use a simulation-based method;
-- choose a method specifically designed for sparse contingency tables.
+A statistically significant chi-square result does not automatically indicate a strong association.
 
-Categories should not be combined merely to make the test work if doing so destroys meaningful information.
+**Cramer's V** measures the strength of association between categorical variables.
 
----
+$$
+V=\sqrt{\frac{\chi^2}{N\min(r-1,c-1)}}
+$$
 
-# 36. Yates' Continuity Correction
+Where:
 
-For a 2 × 2 contingency table, a continuity correction such as **Yates' correction** has historically been used in some settings.
-
-The corrected statistic is:
-
-$\chi^2_Y = \sum \frac{ (|O-E|-0.5)^2 }{E}$
-
-The correction reduces the discrepancy slightly.
-
-Modern practice often depends on sample size, software defaults, and whether an exact method is preferred.
-
-The key foundation is understanding the ordinary Pearson chi-square test first.
-
----
-
-# 37. Fisher's Exact Test
-
-For small 2 × 2 contingency tables, **Fisher's exact test** can be used instead of relying on the large-sample chi-square approximation.
-
-It calculates probabilities based on the exact distribution of the table under the null hypothesis.
-
-It is especially useful when expected counts are small.
-
-The important distinction is:
-
-- Pearson chi-square uses an approximate sampling distribution;
-- Fisher's exact test uses an exact probability calculation for the specified 2 × 2 setup.
-
----
-
-# 38. Effect Size for Chi-Square
-
-A statistically significant chi-square result indicates evidence of a departure from the null hypothesis.
-
-It does not automatically tell us how strong the association is.
-
-For a contingency table, a common effect-size measure is **Cramer's V**.
-
-For a table with $r$ rows and $c$ columns:
-
-$V= \sqrt{ \frac{\chi^2} {N\min(r-1,c-1)} }$
-
-where:
-
-- $\chi^2$ = chi-square statistic;
-- $N$ = total sample size;
-- $r$ = number of rows;
+- $\chi^2$ = Pearson chi-square statistic.
+- $N$ = total sample size.
+- $r$ = number of rows.
 - $c$ = number of columns.
 
----
+Cramer's V is nonnegative. Its maximum possible value is 1, and 0 indicates no association in the table.
 
-# 39. Cramer's V Worked Example
+### Worked Example
 
 Suppose:
 
-$\chi^2=8.4286$
+$$
+\chi^2=8.4286
+$$
 
-for a 2 × 3 table with:
+$$
+N=200,\qquad r=2,\qquad c=3
+$$
 
-$N=200$
+First, calculate:
 
-Then:
-
-$\min(r-1,c-1) = \min(1,2) = 1$
-
-Therefore:
-
-$V= \sqrt{ \frac{8.4286} {200(1)} }$
-
-$= \sqrt{0.042143}$
-
-$\approx0.205$
-
-Therefore:
-
-$\boxed{V\approx0.205}$
-
-The size of an association should be interpreted using context rather than applying universal labels mechanically.
-
----
-
-# 40. Phi Coefficient for a 2 × 2 Table
-
-For a 2 × 2 table, the **phi coefficient** can be written as:
-
-$\phi= \sqrt{ \frac{\chi^2}{N} }$
-
-For a 2 × 2 table, phi and Cramer's V are equivalent in magnitude.
-
-Phi can range from:
-
-$-1\le\phi\le1$
-
-when interpreted as a signed association measure under appropriate coding, while the Cramer's V formulation is nonnegative.
-
----
-
-# 41. Chi-Square Test vs Proportion Test
-
-A chi-square test can be related to tests of proportions in certain 2 × 2 settings.
-
-For a 2 × 2 table, the Pearson chi-square statistic and the corresponding two-sided two-proportion z-test are closely related:
-
-$\chi^2=z^2$
-
-under the equivalent large-sample setup.
-
-This relationship helps connect categorical-data methods.
-
----
-
-# 42. Worked Relationship
-
-Suppose a two-proportion test produces:
-
-$z=2$
+$$
+\min(r-1,c-1)=\min(1,2)=1
+$$
 
 Then:
 
-$\chi^2=z^2$
+$$
+V=\sqrt{\frac{8.4286}{200(1)}}
+$$
 
-$=2^2$
+$$
+V\approx0.205
+$$
 
-$\boxed{\chi^2=4}$
+This value should be interpreted in the context of the research question, table dimensions, and field of application rather than through universal cut-offs alone.
 
-The corresponding two-sided tests lead to equivalent large-sample significance conclusions under the same setup.
+### Python Implementation
 
----
+```python
+import numpy as np
+from scipy.stats import chi2_contingency
 
-# 43. Complete Independence Example
+observed = np.array([
+    [20, 30, 50],
+    [30, 40, 30]
+])
 
-Consider:
+chi2_stat, p_value, df, expected = chi2_contingency(
+    observed,
+    correction=False
+)
+
+n = observed.sum()
+rows, columns = observed.shape
+
+cramers_v = np.sqrt(
+    chi2_stat /
+    (n * min(rows - 1, columns - 1))
+)
+
+print("Chi-square statistic:", chi2_stat)
+print("P-value:", p_value)
+print("Cramer's V:", cramers_v)
+```
+
+### Phi Coefficient
+
+For a $2\times2$ contingency table, the magnitude of the phi coefficient is related to the chi-square statistic by:
+
+$$
+|\phi|=\sqrt{\frac{\chi^2}{N}}
+$$
+
+Phi and Cramer's V are equivalent in magnitude for a $2\times2$ table. The formula above gives a nonnegative magnitude; a signed phi coefficient depends on the coding and arrangement of the categories.
+
+## 13. Relationship Between Chi-Square and Proportion Tests
+
+For a $2\times2$ table, Pearson's chi-square test and the corresponding two-sided, pooled two-proportion z-test have an important large-sample relationship under equivalent assumptions:
+
+$$
+\chi^2=z^2
+$$
+
+For example, if the equivalent z-statistic is:
+
+$$
+z=2
+$$
+
+then:
+
+$$
+\chi^2=2^2=4
+$$
+
+This relationship connects categorical-data analysis with hypothesis testing for proportions.
+
+## 14. Additional Worked Example: Study Method and Exam Results
+
+Suppose a researcher wants to investigate whether study method is associated with pass/fail status.
 
 | Study Method | Pass | Fail | Total |
 |---|---:|---:|---:|
@@ -917,810 +852,554 @@ Consider:
 | Method B | 50 | 50 | 100 |
 | Total | 120 | 80 | 200 |
 
-We want to test whether study method and pass/fail status are independent.
+### Hypotheses
 
-Hypotheses:
+$$
+H_0:\text{Study method and outcome are independent}
+$$
 
-$H_0: \text{Study method and outcome are independent}$
+$$
+H_a:\text{Study method and outcome are associated}
+$$
 
-$H_a: \text{Study method and outcome are associated}$
+### Expected Frequencies
 
----
+For Method A and Pass:
 
-# 44. Expected Frequencies for the Pass/Fail Example
+$$
+E=\frac{100(120)}{200}=60
+$$
 
-For Method A–Pass:
+For Method A and Fail:
 
-$E= \frac{100(120)}{200}$
+$$
+E=\frac{100(80)}{200}=40
+$$
 
-$=60$
-
-For Method A–Fail:
-
-$E= \frac{100(80)}{200}$
-
-$=40$
-
-Because Method B also has a row total of 100:
-
-$E_{B,Pass}=60$
-
-and:
-
-$E_{B,Fail}=40$
-
-Expected table:
+The expected frequencies for Method B are also 60 for Pass and 40 for Fail.
 
 | Study Method | Pass | Fail |
 |---|---:|---:|
 | A | 60 | 40 |
 | B | 60 | 40 |
 
----
+### Chi-Square Statistic
 
-# 45. Chi-Square Calculation for the Pass/Fail Example
+$$
+\chi^2=
+\frac{(70-60)^2}{60}
++\frac{(30-40)^2}{40}
++\frac{(50-60)^2}{60}
++\frac{(50-40)^2}{40}
+$$
 
-Contributions:
-
-Method A–Pass:
-
-$\frac{(70-60)^2}{60} = \frac{100}{60} \approx1.6667$
-
-Method A–Fail:
-
-$\frac{(30-40)^2}{40} = \frac{100}{40} =2.5$
-
-Method B–Pass:
-
-$\frac{(50-60)^2}{60} \approx1.6667$
-
-Method B–Fail:
-
-$\frac{(50-40)^2}{40} =2.5$
-
-Therefore:
-
-$\chi^2 = 1.6667+2.5+1.6667+2.5$
-
-$\boxed{\chi^2\approx8.3334}$
+$$
+\chi^2\approx8.333
+$$
 
 Degrees of freedom:
 
-$df=(2-1)(2-1)$
+$$
+df=(2-1)(2-1)=1
+$$
 
-$\boxed{df=1}$
+The p-value is below 0.05, so the null hypothesis is rejected. There is evidence of an association between study method and pass/fail status.
 
-This would provide evidence of an association at the 5% level because the corresponding p-value is below 0.05.
+This observational result does not, by itself, establish that the study method caused the difference in outcomes.
 
----
+### Python Implementation
 
-# 46. Goodness-of-Fit vs Independence
+```python
+import numpy as np
+from scipy.stats import chi2_contingency
 
-| Goodness-of-Fit | Independence |
-|---|---|
-| One categorical variable | Two categorical variables |
-| Compare observed counts with specified proportions | Compare observed counts with counts expected under independence |
-| Expected counts come from specified proportions | Expected counts come from row/column totals |
-| $df$ commonly $k-1$ | $df=(r-1)(c-1)$ |
+observed = np.array([
+    [70, 30],
+    [50, 50]
+])
 
-The same chi-square formula is used, but expected frequencies are determined differently.
+chi2_stat, p_value, df, expected = chi2_contingency(
+    observed,
+    correction=False
+)
 
----
+print("Chi-square statistic:", chi2_stat)
+print("Degrees of freedom:", df)
+print("P-value:", p_value)
+print("Expected frequencies:")
+print(expected)
+```
 
-# 47. Goodness-of-Fit vs Homogeneity
+## 15. Chi-Square Distribution and Degrees of Freedom
 
-| Goodness-of-Fit | Homogeneity |
-|---|---|
-| One population/category variable | Multiple groups/populations |
-| Compare with a specified distribution | Compare category distributions across groups |
-| Expected counts from stated proportions | Expected counts from marginal totals |
-| One categorical variable | One categorical outcome across groups |
+The chi-square distribution is a probability distribution used to evaluate the chi-square statistic.
 
-The distinction is primarily based on the study design and research question.
+It is nonnegative and generally right-skewed for small degrees of freedom. As the degrees of freedom increase, its shape becomes more symmetric.
 
----
+The standard chi-square tests use the right tail because larger values indicate greater discrepancies between observed and expected frequencies.
 
-# 48. Independence vs Homogeneity
+### Degrees of Freedom for Goodness-of-Fit
 
-The numerical calculations can be identical.
+For $k$ categories with specified probabilities:
 
-For example, a 3 × 4 table can be analysed with the same:
+$$
+df=k-1
+$$
 
-$\chi^2 = \sum \frac{(O-E)^2}{E}$
+This accounts for the constraint that the category counts add up to a fixed total.
 
-and:
+If parameters are estimated from the same data, an adjustment may be necessary.
 
-$df=(r-1)(c-1)$
+### Degrees of Freedom for Contingency Tables
 
-The difference is how the data were sampled and how the question is phrased.
+For $r$ rows and $c$ columns, excluding totals:
 
-### Independence
+$$
+df=(r-1)(c-1)
+$$
 
-One population is classified according to two categorical variables.
+For a table with four rows and three columns:
 
-### Homogeneity
+$$
+df=(4-1)(3-1)=6
+$$
 
-Several populations or groups are compared on one categorical variable.
+The calculated statistic is evaluated against the chi-square distribution with the appropriate degrees of freedom.
 
----
+## 16. Complete Goodness-of-Fit Example: Fair Die
 
-# 49. Assumptions and Conditions
+Suppose a die is claimed to be fair. Each face should have probability:
 
-Before using a chi-square test, check:
+$$
+p_i=\frac{1}{6}
+$$
 
-### Categorical counts
+The hypotheses are:
 
-The data should be frequency counts in meaningful categories.
+$$
+H_0:p_1=p_2=\cdots=p_6=\frac{1}{6}
+$$
 
-### Independence
+$$
+H_a:\text{The die does not follow the fair-die distribution}
+$$
 
-Observations should be independent under the intended sampling design.
+Suppose the die is rolled 600 times. The expected frequency for each face is:
 
-### Adequate expected frequencies
+$$
+E=600\left(\frac{1}{6}\right)=100
+$$
 
-Expected counts should generally be sufficiently large for the chi-square approximation.
+Observed frequencies:
 
-### Mutually exclusive categories
+| Face | Observed | Expected |
+|---:|---:|---:|
+| 1 | 90 | 100 |
+| 2 | 110 | 100 |
+| 3 | 95 | 100 |
+| 4 | 105 | 100 |
+| 5 | 120 | 100 |
+| 6 | 80 | 100 |
 
-Each observation should contribute to the appropriate category according to the table design.
+The individual contributions are:
 
-### Exhaustive categories
+$$
+\frac{(90-100)^2}{100}=1
+$$
+
+$$
+\frac{(110-100)^2}{100}=1
+$$
+
+$$
+\frac{(95-100)^2}{100}=0.25
+$$
+
+$$
+\frac{(105-100)^2}{100}=0.25
+$$
+
+$$
+\frac{(120-100)^2}{100}=4
+$$
+
+$$
+\frac{(80-100)^2}{100}=4
+$$
+
+Therefore:
+
+$$
+\chi^2=1+1+0.25+0.25+4+4
+$$
+
+$$
+\chi^2=10.5
+$$
+
+Degrees of freedom:
+
+$$
+df=6-1=5
+$$
+
+### Python Implementation
+
+```python
+from scipy.stats import chisquare
+
+observed = [90, 110, 95, 105, 120, 80]
+expected = [100, 100, 100, 100, 100, 100]
+
+chi2_stat, p_value = chisquare(
+    f_obs=observed,
+    f_exp=expected
+)
+
+print("Chi-square statistic:", chi2_stat)
+print("Degrees of freedom:", len(observed) - 1)
+print("P-value:", p_value)
+```
+
+Use the resulting p-value and chosen significance level to decide whether the observed outcomes provide evidence against the fair-die model.
+
+## 17. Assumptions and Conditions
+
+Before performing a chi-square test, check the following conditions.
+
+### Categorical Frequency Data
+
+The analysis should use meaningful category counts. Continuous measurements should not be inserted directly into a standard categorical chi-square test without an appropriate categorisation or alternative method.
+
+### Independent Observations
+
+Observations should be independent under the intended sampling design. Repeated observations from the same individual or complex survey sampling may require specialised methods.
+
+### Mutually Exclusive Categories
+
+Each observation should be assigned to the appropriate category without being counted multiple times within the same variable's classification.
+
+### Exhaustive Categories
 
 The categories should account for the observations included in the analysis.
 
----
+### Adequate Expected Frequencies
 
-# 50. Observations vs Percentages
+Expected counts should be sufficient for the chi-square approximation to be reliable. Very small expected counts may call for exact or simulation-based procedures.
 
-Chi-square tests are normally performed using **counts**, not percentages alone.
+### Appropriate Expected Frequencies
 
-For example:
+For goodness-of-fit, expected counts must follow the specified null distribution. For independence and homogeneity, expected counts are derived from the row and column totals.
+
+## 18. Counts, Percentages, and Survey Data
+
+Chi-square tests are normally calculated using counts.
+
+For example, the following table contains usable frequency data:
 
 | Group | Yes | No |
 |---|---:|---:|
 | A | 40 | 60 |
 | B | 50 | 50 |
 
-is directly usable.
+If only percentages are available, the sample sizes are needed to reconstruct the frequencies.
 
-If only percentages are reported, the corresponding sample sizes are needed to reconstruct the counts.
+Complex survey data may require weights and adjustments for clustering and stratification. Ordinary chi-square formulas should not automatically be applied to complex survey designs.
 
-The sample size matters because the chi-square statistic depends on frequencies.
+Expected frequencies must be nonnegative. A zero expected frequency makes the ordinary contribution formula undefined because it requires division by zero; the category specification or statistical method must be reconsidered.
 
----
+## 19. Sample Size, Significance, and Effect Size
 
-# 51. Weighted and Survey Data
+A larger sample can make relatively small discrepancies statistically significant. With a smaller sample, a noticeable difference may not provide sufficient statistical evidence to reject the null hypothesis.
 
-Simple chi-square formulas assume ordinary frequency counts under the specified sampling framework.
+The p-value and effect size answer different questions:
 
-Complex survey designs may require:
+- **P-value:** How incompatible are the observed data with the null hypothesis under the test's assumptions?
+- **Effect size:** How strong is the association or discrepancy?
+- **Practical importance:** Does the result matter in the real-world context?
 
-- survey weights;
-- clustering adjustments;
-- stratification adjustments;
-- specialised survey chi-square procedures.
+For contingency tables, Cramer's V can complement the p-value. A significant result does not automatically imply a strong or practically important association.
 
-Therefore, ordinary chi-square formulas should not automatically be applied to complex survey data.
+## 20. Multiple Comparisons and Follow-Up Analysis
 
----
+A significant overall chi-square test indicates an overall departure from the null hypothesis. It does not prove that every cell differs from expectation or identify every specific group difference.
 
-# 52. Zero Expected Frequencies
+Possible follow-up methods include:
 
-An expected frequency of zero creates a problem because:
+- Examining Pearson or adjusted residuals.
+- Performing pairwise proportion comparisons with multiplicity adjustment.
+- Conducting scientifically planned comparisons.
+- Performing category-specific analyses.
 
-$\frac{(O-E)^2}{E}$
+When multiple follow-up tests are performed, account for multiple comparisons to reduce the risk of false-positive conclusions.
 
-would involve division by zero.
-
-A valid chi-square model therefore requires positive expected frequencies for the cells included in the calculation.
-
-A zero expected probability may indicate that the category specification or model needs to be reconsidered.
-
----
-
-# 53. Negative Frequencies Are Impossible
-
-Observed and expected frequencies represent counts or expected counts.
-
-Therefore:
-
-$O\ge0$
-
-and:
-
-$E\ge0$
-
-Negative frequencies are not meaningful.
-
-The expected frequencies must also be derived from a valid probability model or contingency-table structure.
-
----
-
-# 54. Why Sample Size Matters
-
-With very large samples, even a small difference between observed and expected proportions can produce a statistically significant chi-square result.
-
-With small samples, a substantial-looking difference may not produce enough evidence to reject the null hypothesis.
-
-Therefore:
-
-> Statistical significance depends on both the size of the discrepancy and the amount of information in the sample.
-
-This is why effect size and practical context should accompany the p-value whenever appropriate.
-
----
-
-# 55. Statistical Significance vs Strength of Association
-
-Suppose two analyses produce:
-
-### Analysis A
-
-$p<0.001$
-
-with:
-
-$V=0.08$
-
-### Analysis B
-
-$p=0.02$
-
-with:
-
-$V=0.35$
-
-Analysis A may have stronger statistical evidence because of a larger sample, while Analysis B may show a stronger association.
-
-The p-value and effect size answer different questions.
-
----
-
-# 56. Residual Analysis in Contingency Tables
-
-After a significant chi-square test, cell-level residuals can help identify where the discrepancies occur.
-
-The Pearson residual is:
-
-$r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}}$
-
-A positive residual indicates:
-
-$O_{ij}>E_{ij}$
-
-A negative residual indicates:
-
-$O_{ij}<E_{ij}$
-
-Large absolute residuals identify cells that contribute substantially to the overall discrepancy.
-
-Adjusted residuals may be used when making more formal cell-level interpretations.
-
----
-
-# 57. Practical Interpretation of a Cell
-
-Suppose:
-
-$O=70$
-
-and:
-
-$E=60$
-
-Then:
-
-$O-E=10$
-
-The cell contains more observations than would be expected under the null model.
-
-The Pearson residual is:
-
-$r= \frac{10}{\sqrt{60}}$
-
-$\approx1.291$
-
-This suggests a positive contribution to the overall chi-square statistic.
-
-Cell-level interpretation should be performed carefully, especially when many cells are examined.
-
----
-
-# 58. Multiple Comparisons After Chi-Square
-
-A significant overall chi-square test does not necessarily identify which categories or groups are responsible.
-
-Possible follow-up approaches include:
-
-- examination of residuals;
-- pairwise proportion comparisons with multiplicity adjustment;
-- planned comparisons;
-- category-specific analyses.
-
-Any follow-up testing should account for multiple comparisons.
-
----
-
-# 59. Continuity Correction in 2 × 2 Tables
-
-For a 2 × 2 table, the uncorrected Pearson statistic is:
-
-$\chi^2 = \sum \frac{(O-E)^2}{E}$
-
-A continuity-corrected version uses:
-
-$\chi^2_Y = \sum \frac{ (|O-E|-0.5)^2 }{E}$
-
-The correction generally makes the test more conservative.
-
-Whether it should be used depends on the context, sample size, software method, and whether an exact test is more appropriate.
-
----
-
-# 60. Fisher's Exact Test vs Chi-Square
-
-| Chi-Square Test | Fisher's Exact Test |
-|---|---|
-| Uses chi-square approximation | Uses exact probability calculation |
-| Appropriate with adequate expected counts | Useful for small 2 × 2 samples |
-| Fast and widely used | Particularly useful for sparse tables |
-| Common large-sample method | Exact method for the specified setup |
-
-The ordinary chi-square test should not be used automatically when expected frequencies are extremely small.
-
----
-
-# 61. Chi-Square Distribution
-
-The chi-square distribution depends on degrees of freedom.
-
-For:
-
-$df$
-
-degrees of freedom, we write:
-
-$\chi^2_{df}$
-
-The distribution is nonnegative:
-
-$\chi^2\ge0$
-
-It is generally right-skewed for small degrees of freedom and becomes more symmetric as degrees of freedom increase.
-
-The right tail is used for the standard chi-square test because large values indicate a large discrepancy between observed and expected frequencies.
-
----
-
-# 62. Degrees of Freedom Intuition
-
-Degrees of freedom represent the number of independent pieces of information available after accounting for constraints.
-
-For goodness-of-fit with $k$ categories and fixed expected proportions:
-
-$df=k-1$
-
-The reason is that once $k-1$ category counts are known, the final category is determined by the fixed total.
-
-For a contingency table:
-
-$df=(r-1)(c-1)$
-
-because row and column totals impose constraints.
-
----
-
-# 63. Worked Degrees of Freedom Example
-
-Suppose a contingency table has:
-
-$r=4$
-
-rows and:
-
-$c=3$
-
-columns.
-
-Then:
-
-$df=(4-1)(3-1)$
-
-$=3(2)$
-
-$\boxed{df=6}$
-
-The chi-square statistic is compared with a chi-square distribution with 6 degrees of freedom.
-
----
-
-# 64. Complete Goodness-of-Fit Workflow
-
-Suppose a die is claimed to be fair.
-
-The categories are:
-
-$1,2,3,4,5,6$
-
-The null hypothesis is:
-
-$H_0: p_1=p_2=p_3=p_4=p_5=p_6=\frac16$
-
-The alternative is:
-
-$H_a: \text{The die does not follow the specified fair-die distribution}$
-
-If 600 rolls are observed, the expected frequency for each face is:
-
-$E=600\left(\frac16\right)$
-
-$\boxed{E=100}$
-
-Observed counts can then be compared with 100 using:
-
-$\chi^2 = \sum_{i=1}^{6} \frac{(O_i-100)^2}{100}$
-
-Degrees of freedom:
-
-$df=6-1=5$
-
----
-
-# 65. Worked Fair-Die Example
-
-Suppose the observed frequencies are:
-
-| Face | Observed |
-|---:|---:|
-| 1 | 90 |
-| 2 | 110 |
-| 3 | 95 |
-| 4 | 105 |
-| 5 | 120 |
-| 6 | 80 |
-
-Each expected frequency is:
-
-$E=100$
-
-Calculate contributions:
-
-$\frac{(90-100)^2}{100}=1$
-
-$\frac{(110-100)^2}{100}=1$
-
-$\frac{(95-100)^2}{100}=0.25$
-
-$\frac{(105-100)^2}{100}=0.25$
-
-$\frac{(120-100)^2}{100}=4$
-
-$\frac{(80-100)^2}{100}=4$
-
-Therefore:
-
-$\chi^2 = 1+1+0.25+0.25+4+4$
-
-$\boxed{\chi^2=10.5}$
-
-Degrees of freedom:
-
-$df=5$
-
-The corresponding p-value can be obtained from the chi-square distribution.
-
----
-
-# 66. Complete Independence Workflow
-
-For a contingency table:
-
-### Step 1
-
-State:
-
-$H_0:\text{variables are independent}$
-
-and:
-
-$H_a:\text{variables are associated}$
-
-### Step 2
-
-Calculate row totals, column totals, and grand total.
-
-### Step 3
-
-Calculate each expected frequency:
-
-$E_{ij}= \frac{R_iC_j}{N}$
-
-### Step 4
-
-Calculate:
-
-$\chi^2= \sum \frac{(O-E)^2}{E}$
-
-### Step 5
-
-Calculate:
-
-$df=(r-1)(c-1)$
-
-### Step 6
-
-Find the p-value.
-
-### Step 7
-
-Compare p-value with $\alpha$.
-
-### Step 8
-
-Interpret the result in context.
-
----
-
-# 67. Goodness-of-Fit Workflow
-
-For a goodness-of-fit test:
-
-### Step 1
-
-State the expected population proportions.
-
-### Step 2
-
-Calculate expected frequencies:
-
-$E_i=Np_i$
-
-### Step 3
-
-Calculate:
-
-$\chi^2 = \sum \frac{(O_i-E_i)^2}{E_i}$
-
-### Step 4
-
-Calculate degrees of freedom.
-
-For fixed expected proportions:
-
-$df=k-1$
-
-### Step 5
-
-Find the p-value.
-
-### Step 6
-
-Make the statistical decision.
-
-### Step 7
-
-Interpret the result in the original context.
-
----
-
-# 68. Common Mistakes
+## 21. Common Mistakes
 
 ### Mistake 1: Using percentages without sample sizes
 
-Chi-square calculations require frequencies or enough information to reconstruct them.
+Counts or enough information to reconstruct the counts are needed.
 
-### Mistake 2: Using observed frequencies to calculate expected frequencies
+### Mistake 2: Calculating expected frequencies from observed counts alone
 
-Expected frequencies must come from the null hypothesis.
+Expected frequencies must be derived from the null hypothesis.
 
-### Mistake 3: Forgetting that expected frequencies need not be integers
+### Mistake 3: Assuming expected frequencies must be integers
 
 Expected counts can be decimals.
 
-### Mistake 4: Using the wrong degrees of freedom
+### Mistake 4: Using incorrect degrees of freedom
 
 For a contingency table:
 
-$df=(r-1)(c-1)$
+$$
+df=(r-1)(c-1)
+$$
 
-### Mistake 5: Saying a significant independence test proves causation
+For a goodness-of-fit test with fixed specified probabilities:
 
-Association does not establish causation.
+$$
+df=k-1
+$$
+
+### Mistake 5: Claiming that association proves causation
+
+A significant test of independence identifies evidence of association, not causation.
 
 ### Mistake 6: Ignoring small expected frequencies
 
-The chi-square approximation can be unreliable with sparse tables.
+The ordinary chi-square approximation may be unreliable with sparse tables.
 
-### Mistake 7: Treating a significant test as proof that every cell differs
+### Mistake 7: Assuming a significant test identifies every cell difference
 
-A significant overall test indicates an overall departure from the null model.
+The overall statistic measures a combined discrepancy. Follow-up analysis is needed to investigate individual cells.
 
-### Mistake 8: Forgetting the direction of interpretation
+### Mistake 8: Reporting only the p-value
 
-Large chi-square values indicate larger discrepancies between observed and expected frequencies.
+Include the test type, chi-square statistic, degrees of freedom, p-value, and interpretation. Include effect size where appropriate.
 
-### Mistake 9: Reporting only the p-value
+### Mistake 9: Combining categories without justification
 
-Include the test, degrees of freedom, chi-square statistic, p-value, and contextual interpretation.
+Categories should only be combined when doing so is scientifically or substantively meaningful.
 
-### Mistake 10: Combining categories without justification
+## 22. Reporting Chi-Square Results
 
-Categories should be combined only when scientifically or substantively meaningful.
+A report should generally include:
 
----
+- The test performed.
+- The chi-square statistic.
+- The degrees of freedom.
+- The p-value.
+- The statistical decision.
+- The interpretation in context.
+- An effect size when appropriate.
 
-# 69. Reporting a Chi-Square Test
+### Example: Test of Independence
 
-A standard report can include:
+A chi-square test of independence was conducted to examine the association between customer type and preferred payment method. The test produced:
 
-- test type;
-- chi-square statistic;
-- degrees of freedom;
-- p-value;
-- decision;
-- contextual interpretation;
-- effect size where appropriate.
+$$
+\chi^2(2)\approx8.43
+$$
 
-Example:
+$$
+p\approx0.015
+$$
 
-> A chi-square test of independence was conducted to examine the association between customer type and payment preference. The test produced $\chi^2(2)=8.43$, with $p\approx0.015$. At the 5% significance level, the null hypothesis of independence was rejected, providing evidence of an association between the two categorical variables.
+At the 5% significance level, the null hypothesis of independence was rejected. The results provide evidence of an association between customer type and preferred payment method. The result does not establish causation.
 
-If relevant, report Cramer's V as well.
+### Example: Goodness-of-Fit Test
 
----
+A chi-square goodness-of-fit test was conducted to determine whether observed product choices were consistent with the specified distribution. The test produced:
 
-# 70. Example of a Goodness-of-Fit Report
+$$
+\chi^2(2)\approx2.67
+$$
 
-> A chi-square goodness-of-fit test was conducted to determine whether the observed product choices were consistent with the specified distribution. The test produced $\chi^2(2)=2.67$, with $p\approx0.264$. At the 5% significance level, the null hypothesis was not rejected. There was not sufficient evidence that the observed distribution differed from the specified distribution.
+$$
+p\approx0.264
+$$
 
-This interpretation avoids saying that the expected distribution has been "proved correct."
+At the 5% significance level, the null hypothesis was not rejected. There was insufficient evidence that the observed product distribution differed from the specified distribution.
 
----
+This conclusion does not prove that the specified distribution is correct.
 
-# 71. Chi-Square Test Selection Guide
+## 23. Chi-Square Test Selection Guide
 
-| Research Question | Test |
+| Research Question | Appropriate Method |
 |---|---|
-| Does one categorical variable follow specified proportions? | Goodness-of-fit |
-| Are two categorical variables associated? | Independence |
-| Do several groups have the same categorical distribution? | Homogeneity |
-| Very small 2 × 2 table | Consider Fisher's exact test |
-| Unequal variances | Not a chi-square issue; choose a method appropriate to the actual data |
+| Does one categorical variable follow specified proportions? | Goodness-of-fit test |
+| Are two categorical variables associated? | Test of independence |
+| Do multiple populations have the same categorical distribution? | Test of homogeneity |
+| Is a small-sample $2\times2$ table being analysed? | Consider Fisher's exact test |
+| Are observations from a complex survey? | Consider a survey-adjusted procedure |
 
----
+Choose the method according to the research question, data collection design, and assumptions.
 
-# 72. Points to Remember
+## 24. Important Formula Summary
 
-1. Chi-square tests are primarily used with categorical frequency data.
-2. The basic statistic is:
+### General Chi-Square Statistic
 
-$\chi^2= \sum\frac{(O-E)^2}{E}$
+$$
+\chi^2=\sum\frac{(O-E)^2}{E}
+$$
 
-3. $O$ represents observed frequency.
-4. $E$ represents expected frequency.
-5. Expected frequencies are determined by the null hypothesis.
-6. A large chi-square statistic indicates a large discrepancy between observed and expected frequencies.
-7. The chi-square statistic is always nonnegative.
-8. Goodness-of-fit tests compare observed frequencies with specified proportions.
-9. Independence tests examine association between two categorical variables.
-10. Homogeneity tests compare categorical distributions across groups.
-11. For a goodness-of-fit test with fixed expected proportions:
+### Expected Frequency for Goodness-of-Fit
 
-$df=k-1$
+$$
+E_i=Np_i
+$$
 
-12. For a contingency table:
+### Goodness-of-Fit Degrees of Freedom
 
-$df=(r-1)(c-1)$
+For fixed specified probabilities:
 
-13. For an independence test:
+$$
+df=k-1
+$$
 
-$E_{ij} = \frac{R_iC_j}{N}$
+When $m$ independent parameters are estimated from the data:
 
-14. A significant chi-square independence test indicates association, not causation.
-15. Small expected frequencies can make the ordinary chi-square approximation unreliable.
-16. Fisher's exact test can be useful for small 2 × 2 tables.
-17. Cramer's V measures association strength for contingency tables.
-18. Statistical significance and effect size answer different questions.
-19. A significant overall chi-square test does not identify every specific cell difference.
-20. Residuals can help identify cells contributing strongly to the overall statistic.
-21. Multiple follow-up comparisons should account for multiplicity.
-22. Chi-square tests require attention to the study design and independence of observations.
-23. Counts are generally preferable to percentages for performing the calculation.
-24. Large sample size can make small discrepancies statistically significant.
-25. Always interpret the result in the context of the original research question.
+$$
+df=k-1-m
+$$
 
----
+### Expected Frequency for Contingency Tables
 
-# 73. Important Formula Summary
+$$
+E_{ij}=\frac{R_iC_j}{N}
+$$
 
-## Chi-Square Statistic
+### Degrees of Freedom for Independence and Homogeneity
 
-$\boxed{ \chi^2= \sum \frac{(O-E)^2}{E} }$
+$$
+df=(r-1)(c-1)
+$$
 
-## Goodness-of-Fit Expected Frequency
+### Pearson Residual
 
-$\boxed{ E_i=Np_i }$
+$$
+r_{ij}=\frac{O_{ij}-E_{ij}}{\sqrt{E_{ij}}}
+$$
 
-## Goodness-of-Fit Degrees of Freedom
+### Cramer's V
 
-$\boxed{ df=k-1 }$
+$$
+V=\sqrt{\frac{\chi^2}{N\min(r-1,c-1)}}
+$$
 
-for fixed expected proportions.
+### Phi Coefficient Magnitude for a $2\times2$ Table
 
-## Contingency-Table Expected Frequency
+$$
+|\phi|=\sqrt{\frac{\chi^2}{N}}
+$$
 
-$\boxed{ E_{ij} = \frac{R_iC_j}{N} }$
+### Yates' Continuity-Corrected Statistic
 
-## Independence/Homogeneity Degrees of Freedom
+$$
+\chi_Y^2=\sum\frac{(|O-E|-0.5)^2}{E}
+$$
 
-$\boxed{ df=(r-1)(c-1) }$
+### Relationship to an Equivalent Two-Proportion Test
 
-## Pearson Residual
+$$
+\chi^2=z^2
+$$
 
-$\boxed{ r_{ij} = \frac{O_{ij}-E_{ij}} {\sqrt{E_{ij}}} }$
+This relationship applies to the corresponding two-sided large-sample tests under equivalent assumptions.
 
-## Cramer's V
+## 25. Points to Remember
 
-$\boxed{ V= \sqrt{ \frac{\chi^2} {N\min(r-1,c-1)} } }$
+1. Chi-square tests are primarily used for categorical frequency data.
+2. $O$ represents the observed frequency.
+3. $E$ represents the expected frequency under the null hypothesis.
+4. The chi-square statistic is nonnegative.
+5. Large chi-square values indicate greater discrepancies between observed and expected frequencies.
+6. Goodness-of-fit compares observed counts with a specified distribution.
+7. Independence examines whether two categorical variables are associated.
+8. Homogeneity compares categorical distributions across populations or groups.
+9. Expected frequencies for goodness-of-fit are calculated using $E_i=Np_i$.
+10. Expected frequencies for contingency tables are calculated using $E_{ij}=R_iC_j/N$.
+11. Goodness-of-fit degrees of freedom depend on the number of categories and any parameters estimated.
+12. Contingency-table degrees of freedom are $(r-1)(c-1)$.
+13. A significant independence test indicates association, not causation.
+14. Small expected frequencies require special care.
+15. Fisher's exact test can be useful for appropriate small $2\times2$ tables.
+16. Cramer's V measures association strength in contingency tables.
+17. Statistical significance and practical importance are different.
+18. Residuals can help identify cells that contribute strongly to the overall discrepancy.
+19. Follow-up comparisons may require multiplicity adjustment.
+20. Always interpret the result in the context of the original research question.
 
-## Phi Coefficient for 2 × 2
+## 26. Chapter Summary
 
-$\boxed{ \phi= \sqrt{ \frac{\chi^2}{N} } }$
-
-## Yates' Corrected Statistic
-
-$\boxed{ \chi^2_Y = \sum \frac{(|O-E|-0.5)^2}{E} }$
-
-## Relationship for Equivalent 2 × 2 Large-Sample Tests
-
-$\boxed{ \chi^2=z^2 }$
-
----
-
-# 74. Chapter Summary
-
-The chi-square family provides important methods for analysing categorical frequency data.
+The chi-square test family provides methods for analysing categorical frequency data.
 
 The central calculation compares observed frequencies with expected frequencies:
 
-$\chi^2= \sum \frac{(O-E)^2}{E}$
+$$
+\chi^2=\sum\frac{(O-E)^2}{E}
+$$
 
-The **goodness-of-fit test** is used when one categorical variable is compared with a specified theoretical distribution.
-
-The **test of independence** examines whether two categorical variables are associated.
-
-The **test of homogeneity** examines whether different groups or populations have the same distribution of a categorical outcome.
+The goodness-of-fit test compares one categorical variable with a specified distribution. The test of independence examines whether two categorical variables are associated. The test of homogeneity compares categorical distributions across populations or groups.
 
 For contingency tables, expected frequencies are calculated using:
 
-$E_{ij} = \frac{R_iC_j}{N}$
+$$
+E_{ij}=\frac{R_iC_j}{N}
+$$
 
-and degrees of freedom are:
+The degrees of freedom are:
 
-$df=(r-1)(c-1)$
+$$
+df=(r-1)(c-1)
+$$
 
-A large chi-square statistic indicates that observed frequencies differ substantially from those expected under the null hypothesis.
+The calculated statistic is evaluated using the chi-square distribution and the appropriate degrees of freedom. When the p-value is below the significance level, the null hypothesis is rejected.
 
-The result is evaluated using the chi-square distribution. If:
+However, statistical significance does not automatically establish causation or indicate a strong association. Effect sizes, assumptions, expected frequencies, study design, and practical context should also be considered.
 
-$p\le\alpha$
+The complete workflow is:
 
-we reject the null hypothesis.
+**Categorical Data → Observed Frequencies → Expected Frequencies → Chi-Square Statistic → Degrees of Freedom → P-value → Decision → Interpretation**
 
-However, statistical significance does not automatically indicate a strong or practically important association. Measures such as Cramer's V can provide additional information about association strength.
+## 27. Practice Questions
 
-Small expected frequencies require special care. Exact procedures such as Fisher's exact test may be preferable for appropriate small 2 × 2 tables.
+1. What is a chi-square test, and what types of data does it analyse?
+2. Explain the difference between observed and expected frequencies.
+3. State the formula for the chi-square statistic.
+4. What is the purpose of the goodness-of-fit test?
+5. A sample contains 300 observations divided into three categories with expected proportions of 0.40, 0.35, and 0.25. Calculate the expected frequencies.
+6. Explain the null and alternative hypotheses for a test of independence.
+7. A contingency table has four rows and three columns, excluding totals. Calculate the degrees of freedom.
+8. What is the difference between independence and homogeneity tests?
+9. Why can a significant chi-square result not establish causation?
+10. What problems can arise when expected frequencies are very small?
+11. Explain Pearson residuals and Cramer's V.
+12. When might Fisher's exact test be preferred over the ordinary chi-square approximation?
+13. Why should effect size accompany statistical significance when appropriate?
+14. What information should be included when reporting a chi-square result?
+15. Explain the relationship between Pearson's chi-square test and a two-proportion z-test in an equivalent $2\times2$ setting.
 
-The complete logic can be summarised as:
+## 28. References and Further Reading
 
-$\boxed{ \text{Categorical Data} \rightarrow \text{Observed Frequencies} \rightarrow \text{Expected Frequencies} \rightarrow \chi^2 \rightarrow df \rightarrow p\text{-value} \rightarrow \text{Decision} \rightarrow \text{Interpretation} }$
-
----
-
-# 75. References
-
-- OpenStax, *Introductory Statistics*.
-- NIST/SEMATECH, *e-Handbook of Statistical Methods*.
-- Penn State Eberly College of Science, *STAT Online*.
+- [OpenStax — Introductory Statistics](https://openstax.org/details/books/introductory-statistics)
+- [NIST/SEMATECH — e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
+- [Penn State — Statistics Online](https://online.stat.psu.edu/)
+- [SciPy — Statistical Functions](https://docs.scipy.org/doc/scipy/reference/stats.html)
+- [SciPy — `chi2_contingency`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chi2_contingency.html)
+- [SciPy — `chisquare`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.chisquare.html)
 - Agresti, *An Introduction to Categorical Data Analysis*.
-- Montgomery & Runger, *Applied Statistics and Probability for Engineers*.
+- Montgomery and Runger, *Applied Statistics and Probability for Engineers*.
+
+## Related Topics
+
+- Statistics Fundamentals
+- Descriptive Statistics
+- Probability
+- Probability Distributions
+- Inferential Statistics
+- Hypothesis Testing
+- ANOVA
+- Correlation
+- Regression Model Evaluation
+- Statistics for Machine Learning
