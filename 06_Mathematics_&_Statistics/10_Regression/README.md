@@ -1,32 +1,16 @@
 # Regression
 
-Regression is a statistical method used to describe and model the relationship between a **response variable** and one or more **predictor variables**.
+Regression is a statistical method used to describe and model the relationship between a **response variable** and one or more **predictor variables**. It is widely used in Statistics, Data Science, Machine Learning, forecasting, and predictive analytics.
+
+Correlation measures the strength and direction of association between two variables. Regression goes further by estimating a mathematical relationship that can be used to explain patterns and predict the response from predictor information.
 
 ![Linear regression line with observed points and residuals](https://miro.medium.com/1%2AjTznOE9Gq6QVrGJ5eVQI4A.png)
 
 *Visual reference: observed data points, a fitted line, and residual errors. Source: [Simple Linear Regression Using Example](https://medium.com/%40sachin.hs20/simple-linear-regression-using-example-e4e2a89df54c).*
 
-Correlation describes the strength and direction of association between two variables. Regression goes one step further by describing a mathematical relationship that can be used to estimate the expected value of a response from predictor information.
+This chapter covers simple linear regression, least squares, coefficient interpretation, residuals, multiple regression, categorical predictors, interaction terms, polynomial regression, transformations, prediction, and basic assumptions.
 
-This chapter focuses on the **fundamentals of regression**:
-
-- regression terminology,
-- simple linear regression,
-- the regression equation,
-- slope and intercept,
-- least squares estimation,
-- fitted values and residuals,
-- interpretation of coefficients,
-- multiple linear regression,
-- categorical predictors,
-- interaction terms,
-- polynomial terms,
-- transformations,
-- prediction,
-- interpolation and extrapolation,
-- and the basic assumptions behind regression.
-
-Detailed model-evaluation measures such as MAE, MSE, RMSE, $R^2$, adjusted $R^2$, and cross-validation are reserved for the dedicated **Regression Model Evaluation** chapter.
+**Scope:** Detailed model-evaluation metrics such as MAE, MSE, RMSE, R-squared, adjusted R-squared, and cross-validation are covered in `11_Regression_Model_Evaluation`.
 
 ---
 
@@ -34,1251 +18,833 @@ Detailed model-evaluation measures such as MAE, MSE, RMSE, $R^2$, adjusted $R^2$
 
 After completing this chapter, you should be able to:
 
-1. Explain what regression is.
-2. Distinguish response and predictor variables.
-3. Understand simple linear regression.
-4. Write a regression equation.
-5. Interpret the intercept and slope.
-6. Calculate a regression line using least squares.
-7. Understand fitted values and residuals.
-8. Explain why least squares is used.
-9. Make predictions using a regression equation.
-10. Distinguish interpolation from extrapolation.
-11. Understand multiple linear regression.
-12. Interpret coefficients while holding other predictors constant.
-13. Represent categorical variables using indicator variables.
-14. Understand interaction terms.
-15. Understand polynomial regression as a regression model with transformed predictors.
-16. Understand transformations at a basic level.
-17. Distinguish correlation from regression.
-18. Understand the basic assumptions required for regression.
-19. Interpret regression coefficients responsibly.
-20. Implement regression using Python.
-
----
+1. Explain regression and its applications.
+2. Identify response and predictor variables.
+3. Understand simple and multiple linear regression.
+4. Interpret regression slopes and intercepts.
+5. Calculate a regression equation using least squares.
+6. Understand fitted values, residuals, and residual sum of squares.
+7. Make predictions using a fitted model.
+8. Distinguish interpolation from extrapolation.
+9. Represent categorical predictors using indicator variables.
+10. Understand interaction terms and polynomial regression.
+11. Explain the basic assumptions of linear regression.
+12. Implement regression using Python and scikit-learn.
 
 # 2. What Is Regression?
 
-Regression is a statistical approach for describing how a response variable changes in relation to one or more predictor variables.
+Regression models how a response variable changes in relation to one or more predictor variables.
 
-Suppose:
+For example, a university may want to study the relationship between study hours and examination marks.
 
-- $X$ = study hours
-- $Y$ = examination marks
+Here:
 
-We may want to describe how marks tend to change as study hours change.
+- \(X\) represents study hours.
+- \(Y\) represents examination marks.
 
-A simple linear regression model can be written as:
+A simple linear regression model is:
 
-$Y=\beta_0+\beta_1X+\varepsilon$
+$$
+Y = \beta_0 + \beta_1 X + \varepsilon
+$$
 
-where:
+Where:
 
-- $Y$ = response variable,
-- $X$ = predictor variable,
-- $\beta_0$ = population intercept,
-- $\beta_1$ = population slope,
-- $\varepsilon$ = random error.
+- \(Y\) is the response variable.
+- \(X\) is the predictor variable.
+- \(\beta_0\) is the population intercept.
+- \(\beta_1\) is the population slope.
+- \(\varepsilon\) is the random error.
 
-The fitted sample regression equation is:
+After estimating the model from observed data, the fitted regression equation is:
 
-$\hat{Y}=b_0+b_1X$
+$$
+\hat{Y} = b_0 + b_1 X
+$$
 
-where:
+Here, \(\hat{Y}\) is the predicted response, while \(b_0\) and \(b_1\) are the estimated intercept and slope.
 
-- $\hat{Y}$ = predicted or fitted value,
-- $b_0$ = estimated intercept,
-- $b_1$ = estimated slope.
-
----
-
-# 3. Regression Terminology
-
-Different fields use different names for the same basic roles.
+## 2.1 Regression Terminology
 
 | Term | Meaning |
 |---|---|
-| Response variable | Variable being explained or predicted |
-| Outcome variable | Another name for response |
-| Dependent variable | Traditional regression terminology |
-| Predictor variable | Variable used to explain or predict the response |
-| Explanatory variable | Another name for predictor |
-| Independent variable | Traditional terminology |
-| Feature | Common machine-learning terminology |
+| Response variable | Variable being predicted or explained |
+| Outcome variable | Another name for the response |
+| Dependent variable | Traditional term for the response |
+| Predictor variable | Variable used to predict the response |
+| Explanatory variable | Another name for a predictor |
+| Independent variable | Traditional term for a predictor |
+| Feature | Common Machine Learning term for a predictor |
 
-For this chapter, we will mainly use **response** and **predictor**.
+In this chapter, the terms **response** and **predictor** are used to make the roles of the variables clear.
 
----
+# 3. Simple Linear Regression
 
-# 4. Simple Linear Regression
+Simple linear regression uses one predictor and represents its systematic relationship with the response using a straight line.
 
-When there is one predictor variable and the relationship is modelled by a straight line, we have **simple linear regression**.
+The fitted equation is:
 
-The population model is:
+$$
+\hat{Y} = b_0 + b_1 X
+$$
 
-$Y=\beta_0+\beta_1X+\varepsilon$
+The equation contains two coefficients: the intercept and the slope.
 
-The fitted regression equation is:
+## 3.1 Understanding the Intercept
 
-$\hat{Y}=b_0+b_1X$
+The intercept \(b_0\) is the predicted response when the predictor equals zero.
 
-The model assumes that the systematic part of the relationship can be represented by a straight line.
+Starting with:
 
----
+$$
+\hat{Y} = b_0 + b_1 X
+$$
 
-# 5. Meaning of the Intercept
+When \(X=0\):
 
-The intercept is:
-
-$b_0$
-
-In:
-
-$\hat{Y}=b_0+b_1X$
-
-the intercept is the predicted value of $Y$ when:
-
-$X=0$
+$$
+\hat{Y} = b_0 + b_1(0)
+$$
 
 Therefore:
 
-$\hat{Y}=b_0+b_1(0)$
+$$
+\hat{Y} = b_0
+$$
 
-$\hat{Y}=b_0$
+For example, consider:
 
-### Important caution
+$$
+\hat{Y} = 35 + 6X
+$$
 
-The intercept may not always have a meaningful real-world interpretation.
+The intercept is 35. The model predicts 35 marks when study hours equal zero.
 
-If $X=0$ is impossible or far outside the observed range, the mathematical intercept can still be useful for defining the fitted line but may not have a practical interpretation.
+**Important:** An intercept may not have a meaningful practical interpretation if zero lies outside the observed data range or has no real-world meaning.
 
----
+## 3.2 Understanding the Slope
 
-# 6. Meaning of the Slope
+The slope \(b_1\) describes the estimated change in the predicted response for a one-unit increase in the predictor.
 
-The slope is:
+For the equation:
 
-$b_1$
+$$
+\hat{Y} = 35 + 6X
+$$
 
-It describes the expected change in the predicted response for a one-unit increase in the predictor.
+The slope is 6. According to this model, one additional hour of study is associated with an increase of 6 marks in the predicted response.
 
-If:
+A positive slope indicates an increasing fitted relationship, while a negative slope indicates a decreasing fitted relationship.
 
-$b_1=4$
+## 3.3 Units of the Slope
 
-then a one-unit increase in $X$ is associated with an estimated increase of 4 units in predicted $Y$.
+The slope has units equal to the units of the response divided by the units of the predictor.
 
-If:
+$$
+\text{Slope units} =
+\frac{\text{Units of }Y}{\text{Units of }X}
+$$
 
-$b_1=-4$
+If marks are measured in marks and study time in hours, the slope is measured in marks per hour.
 
-then a one-unit increase in $X$ is associated with an estimated decrease of 4 units in predicted $Y$.
+Changing the measurement unit of a predictor changes the numerical value of its coefficient.
 
----
+## 3.4 Predicting from a Regression Equation
 
-# 7. Units of the Slope
+Suppose the fitted equation is:
 
-The slope has units:
+$$
+\hat{Y} = 35 + 6X
+$$
 
-$\frac{\text{units of }Y}{\text{units of }X}$
+For a student who studies five hours:
 
-For example, if:
+$$
+\hat{Y} = 35 + 6(5)
+$$
 
-- $Y$ = marks,
-- $X$ = hours,
+$$
+\hat{Y} = 35 + 30
+$$
 
-then the slope has units:
+$$
+\hat{Y} = 65
+$$
 
-$\frac{\text{marks}}{\text{hour}}$
+The predicted mark is 65. This is an estimate, not a guarantee of the student's actual result.
 
-If:
+# 4. Fitted Values and Residuals
 
-$b_1=5$
+A fitted value is the response predicted by the regression equation for an observed predictor value.
 
-the model predicts an increase of approximately 5 marks for each additional hour of the predictor, within the model's relevant range.
+For observation \(i\):
 
----
+$$
+\hat{y}_i = b_0 + b_1 x_i
+$$
 
-# 8. Worked Example: Interpreting a Regression Equation
+The residual is the difference between the observed response and the fitted response.
 
-Suppose:
+$$
+e_i = y_i - \hat{y}_i
+$$
 
-$\hat{Y}=35+6X$
+Where:
 
-where:
+- \(e_i\) is the residual.
+- \(y_i\) is the observed response.
+- \(\hat{y}_i\) is the fitted response.
 
-- $X$ = study hours,
-- $Y$ = marks.
+A residual represents the part of an observed value not captured by the fitted prediction.
 
-### Intercept
+## 4.1 Interpreting Residuals
 
-When:
+- **Positive residual:** The observed value is above the fitted value.
+- **Negative residual:** The observed value is below the fitted value.
+- **Zero residual:** The observed value equals the fitted value.
 
-$X=0$
+For example, suppose:
 
-we obtain:
+$$
+\hat{Y} = 20 + 5X
+$$
 
-$\hat{Y}=35$
+For \(X=6\):
 
-So the fitted intercept is 35 marks.
+$$
+\hat{Y} = 20 + 5(6) = 50
+$$
 
-### Slope
+If the observed response is 56, then:
 
-The slope is:
+$$
+e = 56 - 50 = 6
+$$
 
-$b_1=6$
+The model underpredicts the observed value by 6 units.
 
-Therefore, for each additional hour of study, the predicted mark increases by approximately 6 marks according to the fitted model.
+## 4.2 Python: Calculate Fitted Values and Residuals
 
----
+```python
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
-# 9. Prediction From a Regression Equation
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([42, 48, 55, 63, 70])
 
-Suppose:
+model = LinearRegression()
+model.fit(X, y)
 
-$\hat{Y}=35+6X$
+predictions = model.predict(X)
+residuals = y - predictions
 
-A student studies:
-
-$X=5$
-
-Substitute:
-
-$\hat{Y}=35+6(5)$
-
-$\hat{Y}=35+30$
-
-Therefore:
-
-$\boxed{\hat{Y}=65}$
-
-The model predicts a mark of 65 for $X=5$.
-
-This is a **prediction from the fitted model**, not a guarantee of the student's actual mark.
-
----
-
-# 10. The Regression Line
-
-A fitted regression line represents the systematic pattern estimated from the observed data.
-
-Conceptually:
-
+print("Fitted values:", predictions)
+print("Residuals:", residuals)
 ```
-Y
-│                         •
-│                    •
-│               •
-│          •
-│     •
-│  •
-└──────────────────────────── X
-```
 
-The line summarises the average linear trend rather than passing through every observation.
+The residuals can help reveal whether a regression model captures the systematic pattern in the data. Detailed residual diagnostics belong in the Regression Model Evaluation chapter.
 
-Real observations usually lie above or below the fitted line.
+# 5. Least Squares Method
 
----
-
-# 11. Observed Values and Fitted Values
-
-For observation $i$:
-
-- observed response = $y_i$
-- fitted response = $\hat{y}_i$
-
-The fitted value is the value predicted by the regression equation.
-
-$\hat{y}_i=b_0+b_1x_i$
-
-The difference between observed and fitted values is the residual.
-
-![Regression line with observed points and residuals](../images/regression-residuals.svg)
-
-**How to read this graph:** The blue line represents the fitted regression model. Each red point is an observed value, and the vertical gap between the point and its fitted value is the residual $e_i=y_i-\hat{y}_i$. Positive residuals lie above the fitted line; negative residuals lie below it.
-
----
-
-# 12. Residual
-
-A residual is:
-
-$e_i=y_i-\hat{y}_i$
-
-where:
-
-- $e_i$ = residual,
-- $y_i$ = observed value,
-- $\hat{y}_i$ = fitted value.
-
-If:
-
-$e_i>0$
-
-the observed value is above the regression line.
-
-If:
-
-$e_i<0$
-
-the observed value is below the regression line.
-
-If:
-
-$e_i=0$
-
-the observation lies exactly on the fitted line.
-
----
-
-# 13. Worked Example: Residual
-
-Suppose:
-
-$\hat{Y}=20+5X$
-
-For:
-
-$X=6$
-
-the fitted value is:
-
-$\hat{Y}=20+5(6)$
-
-$\hat{Y}=50$
-
-Suppose the observed value is:
-
-$Y=56$
-
-Then:
-
-$e=Y-\hat{Y}$
-
-$e=56-50$
-
-$\boxed{e=6}$
-
-The observation is 6 units above the fitted value.
-
----
-
-# 14. Positive and Negative Residuals
-
-A positive residual means:
-
-$y_i>\hat{y}_i$
-
-A negative residual means:
-
-$y_i<\hat{y}_i$
-
-Residuals are important because they show the part of the observed response not captured by the fitted regression line.
-
----
-
-# 15. Why Do We Need Least Squares?
-
-Many different lines can be drawn through a scatter plot.
-
-We need a mathematical rule for selecting one line.
-
-The **least squares method** chooses the line that minimises the sum of squared residuals.
+Several straight lines may describe the general pattern in a scatter plot. The **ordinary least squares (OLS)** method selects coefficients by minimising the sum of squared residuals.
 
 The residual sum of squares is:
 
-$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+$$
+SSE = \sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
-The fitted regression line is chosen to minimise:
+The fitted coefficients are selected to minimise this quantity.
 
-$\boxed{\sum_{i=1}^{n}(y_i-\hat{y}_i)^2}$
+## 5.1 Why Are Residuals Squared?
 
-This is the fundamental idea behind ordinary least squares regression.
+Suppose two residuals are 5 and -5.
 
----
+Adding them directly gives:
 
-# 16. Why Are Residuals Squared?
+$$
+5 + (-5) = 0
+$$
 
-If we simply added residuals:
+This result hides the fact that both observations differ from their fitted values.
 
-$\sum e_i$
+After squaring:
 
-positive and negative residuals could cancel.
+$$
+5^2 + (-5)^2 = 50
+$$
 
-For example:
+Squaring prevents positive and negative residuals from cancelling and penalises larger errors more heavily.
 
-$5+(-5)=0$
-
-even though the two errors are not zero.
-
-Squaring removes the sign:
-
-$5^2=25$
-
-and:
-
-$(-5)^2=25$
-
-Therefore:
-
-$\sum e_i^2$
-
-provides a measure of total squared discrepancy.
-
----
-
-# 17. Deriving the Slope
+# 6. Calculating the Least-Squares Regression Line
 
 For simple linear regression, the least-squares slope is:
 
-$b_1= \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})} {\sum_{i=1}^{n}(x_i-\bar{x})^2}$
+$$
+b_1 =
+\frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}
+{\sum_{i=1}^{n}(x_i-\bar{x})^2}
+$$
 
-The numerator measures joint variation between $X$ and $Y$.
+The intercept is:
 
-The denominator measures variation in $X$.
+$$
+b_0 = \bar{y} - b_1\bar{x}
+$$
 
-This can also be written as:
+Where:
 
-$b_1=\frac{s_{XY}}{s_X^2}$
+- \(\bar{x}\) is the mean of the predictor.
+- \(\bar{y}\) is the mean of the response.
+- \(b_1\) is the estimated slope.
+- \(b_0\) is the estimated intercept.
 
-where:
+The final fitted equation is:
 
-- $s_{XY}$ = sample covariance,
-- $s_X^2$ = sample variance of $X$.
+$$
+\hat{Y} = b_0 + b_1 X
+$$
 
----
+The slope can also be expressed using sample covariance and sample variance:
 
-# 18. Deriving the Intercept
+$$
+b_1 = \frac{s_{XY}}{s_X^2}
+$$
 
-Once the slope is known, the intercept is:
+## 6.1 Worked Example: Finding the Regression Equation
 
-$b_0=\bar{y}-b_1\bar{x}$
+Consider the following data.
 
-where:
-
-- $\bar{x}$ = mean of predictor,
-- $\bar{y}$ = mean of response.
-
-Therefore, the fitted line is:
-
-$\boxed{\hat{Y}=b_0+b_1X}$
-
----
-
-# 19. Worked Example: Finding the Regression Line
-
-Consider:
-
-| $X$ | $Y$ |
+| \(X\) | \(Y\) |
 |---:|---:|
 | 1 | 2 |
 | 2 | 4 |
 | 3 | 5 |
 | 4 | 8 |
 
-### Step 1: Calculate means
+**Step 1: Calculate the means.**
 
-$\bar{x}=2.5$
+$$
+\bar{x} = \frac{1+2+3+4}{4} = 2.5
+$$
 
-$\bar{y}=4.75$
+$$
+\bar{y} = \frac{2+4+5+8}{4} = 4.75
+$$
 
-### Step 2: Calculate cross-products
+**Step 2: Calculate the cross-products of deviations.**
 
-From the deviation table:
+$$
+\sum (x_i-\bar{x})(y_i-\bar{y}) = 9.5
+$$
 
-$\sum(X-\bar{x})(Y-\bar{y})=9.5$
+**Step 3: Calculate the squared deviations of \(X\).**
 
-### Step 3: Calculate squared deviations of $X$
+$$
+\sum (x_i-\bar{x})^2 = 5
+$$
 
-$\sum(X-\bar{x})^2=5$
+**Step 4: Calculate the slope.**
 
-### Step 4: Calculate slope
+$$
+b_1 = \frac{9.5}{5} = 1.9
+$$
 
-$b_1= \frac{9.5}{5}$
+**Step 5: Calculate the intercept.**
 
-$\boxed{b_1=1.9}$
+$$
+b_0 = 4.75 - (1.9)(2.5)
+$$
 
-### Step 5: Calculate intercept
+$$
+b_0 = 0
+$$
 
-$b_0=\bar{y}-b_1\bar{x}$
+Therefore, the fitted regression equation is:
 
-$b_0=4.75-(1.9)(2.5)$
+$$
+\hat{Y} = 1.9X
+$$
 
-$b_0=4.75-4.75$
+**Step 6: Calculate a fitted value and residual.**
 
-$\boxed{b_0=0}$
+For \(X=3\):
 
-Therefore:
+$$
+\hat{Y} = 1.9(3) = 5.7
+$$
 
-$\boxed{\hat{Y}=1.9X}$
+The observed value is \(Y=5\).
 
----
+$$
+e = 5 - 5.7 = -0.7
+$$
 
-# 20. Checking the Regression Line
+The residual is -0.7, meaning the observed value is 0.7 units below the fitted value.
 
-For:
+## 6.2 Python: Calculate the Regression Coefficients
 
-$X=3$
+```python
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
-the predicted value is:
+X = np.array([[1], [2], [3], [4]])
+y = np.array([2, 4, 5, 8])
 
-$\hat{Y}=1.9(3)$
+model = LinearRegression()
+model.fit(X, y)
 
-$\hat{Y}=5.7$
+print("Intercept:", model.intercept_)
+print("Slope:", model.coef_[0])
+print("Regression equation:")
+print(f"Y_hat = {model.intercept_:.2f} + "
+      f"{model.coef_[0]:.2f}X")
+```
 
-The observed value is:
+The fitted line passes through the point \((\bar{x},\bar{y})\) when an intercept is included. For ordinary least squares with an intercept, the residuals also sum to zero, subject to numerical precision.
 
-$Y=5$
+# 7. Regression and Correlation
 
-Therefore:
+Correlation and regression are mathematically related, but they serve different purposes.
 
-$e=5-5.7$
+For simple linear regression, the slope can be expressed in terms of Pearson correlation:
 
-$\boxed{e=-0.7}$
+$$
+b_1 = r\frac{s_Y}{s_X}
+$$
 
-The observation lies 0.7 units below the fitted line.
+Where \(r\) is the Pearson correlation coefficient, \(s_Y\) is the sample standard deviation of \(Y\), and \(s_X\) is the sample standard deviation of \(X\).
 
----
+For example, suppose:
 
-# 21. Important Property of the Least-Squares Line
-
-When an intercept is included, the least-squares regression line passes through the point:
-
-$(\bar{x},\bar{y})$
-
-Therefore:
-
-$\boxed{\hat{Y}\text{ at }X=\bar{x}\text{ equals }\bar{y}}$
-
-This is an important property of ordinary least squares simple linear regression.
-
----
-
-# 22. Sum of Residuals
-
-For an ordinary least-squares regression with an intercept:
-
-$\sum e_i=0$
-
-Therefore:
-
-$\sum(y_i-\hat{y}_i)=0$
-
-This occurs because the fitted line balances the residuals around zero.
-
----
-
-# 23. Residual Mean
-
-Because:
-
-$\sum e_i=0$
-
-the average residual is:
-
-$\bar{e}=0$
-
-for an ordinary least-squares model containing an intercept.
-
-This does not mean every residual is zero.
-
-It means positive and negative residuals balance overall.
-
----
-
-# 24. Regression and Correlation
-
-For simple linear regression, the slope can be connected to Pearson correlation:
-
-$b_1=r\frac{s_Y}{s_X}$
-
-where:
-
-- $r$ = Pearson correlation,
-- $s_Y$ = standard deviation of $Y$,
-- $s_X$ = standard deviation of $X$.
-
-This shows why correlation and regression are mathematically related.
-
-However, they are not the same thing.
-
-Correlation is symmetric:
-
-$r_{XY}=r_{YX}$
-
-Regression assigns roles to variables.
-
-In:
-
-$\hat{Y}=b_0+b_1X$
-
-$Y$ is the response and $X$ is the predictor.
-
----
-
-# 25. Regression vs Correlation
-
-| Feature | Correlation | Regression |
-|---|---|---|
-| Main purpose | Describe association | Model response using predictor(s) |
-| Variable roles | Symmetric | Response and predictor have different roles |
-| Output | Correlation coefficient | Equation with coefficients |
-| Prediction | Not directly | Yes |
-| Slope | No | Yes |
-| Units | Correlation is unitless | Coefficients have units |
-| Direction | Yes | Yes through slope |
-| Causation | Not established | Not automatically established |
-
----
-
-# 26. Multiple Linear Regression
-
-Simple linear regression uses one predictor.
-
-When two or more predictors are used, we have **multiple linear regression**.
-
-The population model is:
-
-$Y= \beta_0+ \beta_1X_1+ \beta_2X_2+ \cdots+ \beta_pX_p+ \varepsilon$
-
-The fitted equation is:
-
-$\hat{Y}= b_0+ b_1X_1+ b_2X_2+ \cdots+ b_pX_p$
-
-where $p$ is the number of predictors.
-
----
-
-# 27. Interpreting Multiple Regression Coefficients
-
-Suppose:
-
-$\hat{Y}=20+3X_1+5X_2$
-
-where:
-
-- $X_1$ = study hours,
-- $X_2$ = attendance percentage,
-- $Y$ = marks.
-
-The coefficient:
-
-$b_1=3$
-
-means that a one-unit increase in study hours is associated with an increase of 3 units in predicted marks **holding attendance constant**.
-
-The coefficient:
-
-$b_2=5$
-
-means that a one-unit increase in the attendance predictor is associated with an increase of 5 units in predicted marks **holding study hours constant**.
-
-The phrase **holding other predictors constant** is essential in multiple regression interpretation.
-
----
-
-# 28. Worked Multiple Regression Prediction
-
-Suppose:
-
-$\hat{Y}=20+3X_1+5X_2$
-
-A student has:
-
-$X_1=5$
-
-and:
-
-$X_2=4$
+$$
+r = 0.80,\quad s_X = 2,\quad s_Y = 10
+$$
 
 Then:
 
-$\hat{Y}=20+3(5)+5(4)$
+$$
+b_1 = 0.80\frac{10}{2}
+$$
 
-$\hat{Y}=20+15+20$
+$$
+b_1 = 4
+$$
 
-$\boxed{\hat{Y}=55}$
+Correlation is unitless, while the regression slope depends on the units of the variables.
 
----
+| Feature | Correlation | Regression |
+|---|---|---|
+| Main purpose | Describe association | Model a response using predictors |
+| Variable roles | Symmetric | Response and predictors have distinct roles |
+| Output | Correlation coefficient | Equation and coefficients |
+| Units | Unitless | Coefficients may have units |
+| Prediction | Does not directly provide a fitted response equation | Provides fitted values and predictions |
+| Causation | Does not establish causation | Does not automatically establish causation |
 
-# 29. Multiple Regression and Confounding
+A strong correlation does not prove that one variable causes the other. Causal conclusions depend on study design and additional assumptions.
 
-Adding relevant predictors can help account for variables that are associated with both the response and another predictor.
+# 8. Multiple Linear Regression
 
-For example:
+Simple linear regression uses one predictor. **Multiple linear regression** uses two or more predictors to model a response.
 
-- $X_1$ = exercise,
-- $X_2$ = age,
-- $Y$ = health measure.
+The population model is:
 
-A multiple regression model can include both exercise and age.
+$$
+Y = \beta_0 + \beta_1X_1 + \beta_2X_2
++ \cdots + \beta_pX_p + \varepsilon
+$$
 
-However, including a variable in a regression equation does not automatically establish causal control.
+The fitted equation is:
 
-The validity of causal interpretation depends on the study design and assumptions.
+$$
+\hat{Y} = b_0 + b_1X_1 + b_2X_2
++ \cdots + b_pX_p
+$$
 
----
+Here, \(p\) is the number of predictors.
 
-# 30. Categorical Predictors
+For example, examination marks might be modelled using study hours, attendance, and assignment scores.
 
-Regression can also include categorical predictors.
+## 8.1 Interpreting Multiple Regression Coefficients
 
-Suppose:
+Suppose the fitted equation is:
 
-$\text{Study Mode}= \begin{cases} 0 & \text{Online}\\ 1 & \text{Offline} \end{cases}$
+$$
+\hat{Y} = 20 + 3X_1 + 5X_2
+$$
 
-A model may be:
+Where:
 
-$\hat{Y}=b_0+b_1X+b_2D$
+- \(X_1\) represents study hours.
+- \(X_2\) represents an attendance measure.
+- \(Y\) represents marks.
 
-where:
+The coefficient of \(X_1\) is 3. Holding \(X_2\) constant, a one-unit increase in \(X_1\) is associated with a three-unit increase in predicted marks.
 
-- $X$ = study hours,
-- $D$ = indicator for study mode.
+The coefficient of \(X_2\) is 5. Holding \(X_1\) constant, a one-unit increase in \(X_2\) is associated with a five-unit increase in predicted marks.
 
-Here, $D$ is called a **dummy variable** or **indicator variable**.
+The phrase **holding the other included predictors constant** is essential when interpreting multiple regression coefficients.
 
----
-
-# 31. Interpreting a Dummy Variable
-
-Suppose:
-
-$\hat{Y}=40+5X+8D$
-
-where:
-
-$D= \begin{cases} 0 & \text{Online}\\ 1 & \text{Offline} \end{cases}$
-
-For online students:
-
-$D=0$
-
-so:
-
-$\hat{Y}=40+5X$
-
-For offline students:
-
-$D=1$
-
-so:
-
-$\hat{Y}=40+5X+8$
-
-$\hat{Y}=48+5X$
-
-Therefore, the offline group has a predicted response that is 8 units higher than the online group **at the same value of $X$**, under this model.
-
----
-
-# 32. Reference Category
-
-When a categorical variable has several categories, one category is normally selected as the **reference category**.
-
-For example:
-
-| Study Mode | Indicator |
-|---|---|
-| Online | Reference |
-| Offline | $D_1=1$ |
-| Hybrid | $D_2=1$ |
-
-The coefficients for the other categories are interpreted relative to the reference category.
-
-For $k$ categories, a common coding approach uses:
-
-$k-1$
-
-indicator variables when an intercept is included.
-
----
-
-# 33. Interaction Terms
-
-Sometimes the effect of one predictor depends on another predictor.
-
-This can be represented using an interaction term.
-
-For two predictors:
-
-$\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2$
-
-The term:
-
-$X_1X_2$
-
-is the interaction term.
-
----
-
-# 34. Interpreting an Interaction
+## 8.2 Worked Multiple Regression Prediction
 
 Suppose:
 
-$\hat{Y}=20+4X+3D+2XD$
+$$
+\hat{Y} = 20 + 3X_1 + 5X_2
+$$
 
-where:
+For \(X_1=5\) and \(X_2=4\):
 
-$D= \begin{cases} 0 & \text{Group A}\\ 1 & \text{Group B} \end{cases}$
+$$
+\hat{Y} = 20 + 3(5) + 5(4)
+$$
 
-For Group A:
+$$
+\hat{Y} = 20 + 15 + 20
+$$
 
-$D=0$
+$$
+\hat{Y} = 55
+$$
 
-so:
+The predicted response is 55.
 
-$\hat{Y}=20+4X$
+## 8.3 Python: Multiple Linear Regression
 
-For Group B:
+```python
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 
-$D=1$
+df = pd.DataFrame({
+    "study_hours": [1, 2, 3, 4, 5, 6],
+    "attendance": [60, 65, 70, 75, 80, 85],
+    "marks": [42, 48, 55, 63, 70, 76]
+})
 
-so:
+X = df[["study_hours", "attendance"]]
+y = df["marks"]
 
-$\hat{Y}=20+4X+3+2X$
+model = LinearRegression()
+model.fit(X, y)
 
-$\hat{Y}=23+6X$
+print("Intercept:", model.intercept_)
+print("Coefficients:", model.coef_)
 
-The interaction changes the slope.
+new_student = pd.DataFrame({
+    "study_hours": [4],
+    "attendance": [75]
+})
 
-Therefore, the relationship between $X$ and $Y$ differs between the two groups.
+print("Prediction:", model.predict(new_student)[0])
+```
 
----
+Each coefficient corresponds to the predictor in the same order as the columns in `X`.
 
-# 35. Polynomial Regression
+# 9. Categorical Predictors
 
-A relationship does not always have to be represented by a straight line in the original predictor.
+Regression can include categorical predictors, such as study mode, department, or product category. These variables are commonly represented using **indicator variables**, also called dummy variables.
 
-A polynomial regression model can include terms such as:
+Suppose study mode has two categories:
 
-$X^2$
+- Online: \(D=0\)
+- Offline: \(D=1\)
 
-or:
+A model containing study hours and study mode can be written as:
 
-$X^3$
+$$
+\hat{Y} = b_0 + b_1X + b_2D
+$$
 
-For example:
+Here, \(b_2\) represents the estimated difference between offline and online groups at the same value of \(X\), assuming the model contains no interaction between study mode and study hours.
 
-$\hat{Y}=b_0+b_1X+b_2X^2$
+## 9.1 Interpreting an Indicator Variable
 
-This model is nonlinear in $X$, but it is still a regression model that is linear in its coefficients $b_0,b_1,b_2$.
+Suppose:
 
----
+$$
+\hat{Y} = 40 + 5X + 8D
+$$
 
-# 36. Why Polynomial Terms Are Used
+For online students, \(D=0\):
 
-Suppose a scatter plot suggests that $Y$ increases at first but then levels off or curves.
+$$
+\hat{Y} = 40 + 5X
+$$
 
-A straight line may not describe the pattern adequately.
+For offline students, \(D=1\):
 
-Adding a squared term can allow curvature:
+$$
+\hat{Y} = 48 + 5X
+$$
 
-$\hat{Y}=b_0+b_1X+b_2X^2$
+At the same value of \(X\), the model predicts a response eight units higher for the offline group.
 
-The coefficient $b_2$ controls the curvature of the fitted relationship.
+For a categorical variable with \(k\) categories, a common approach uses \(k-1\) indicator variables when the model includes an intercept. The omitted category becomes the **reference category**.
 
-Polynomial regression should still be interpreted carefully, especially near the boundaries of the observed predictor range.
+## 9.2 Python: Encode Categorical Predictors
 
----
+```python
+import pandas as pd
 
-# 37. Transformations
+df = pd.DataFrame({
+    "study_hours": [2, 3, 4, 5],
+    "study_mode": ["Online", "Offline", "Online", "Offline"],
+    "marks": [45, 52, 58, 67]
+})
 
-Sometimes a transformation makes a relationship easier to model.
+df_encoded = pd.get_dummies(
+    df,
+    columns=["study_mode"],
+    drop_first=True,
+    dtype=int
+)
+
+print(df_encoded)
+```
+
+The omitted category is used as the reference category. Interpret the resulting coefficients according to the category coding and the fitted model.
+
+# 10. Interaction Terms
+
+An interaction occurs when the relationship between one predictor and the response depends on another predictor.
+
+A model containing two predictors and their interaction is:
+
+$$
+\hat{Y} = b_0 + b_1X_1 + b_2X_2 + b_3X_1X_2
+$$
+
+The product \(X_1X_2\) is the interaction term.
+
+For example, the relationship between study hours and marks may differ between two study modes.
+
+Suppose \(D=0\) represents Group A and \(D=1\) represents Group B:
+
+$$
+\hat{Y} = 20 + 4X + 3D + 2XD
+$$
+
+For Group A, \(D=0\):
+
+$$
+\hat{Y} = 20 + 4X
+$$
+
+For Group B, \(D=1\):
+
+$$
+\hat{Y} = 23 + 6X
+$$
+
+The slope is 4 for Group A and 6 for Group B. The interaction allows the fitted slope to differ between the groups.
+
+## 10.1 Python: Create an Interaction Term
+
+```python
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+
+df = pd.DataFrame({
+    "study_hours": [1, 2, 3, 4, 5, 6],
+    "offline": [0, 1, 0, 1, 0, 1],
+    "marks": [40, 48, 50, 61, 60, 72]
+})
+
+df["interaction"] = (
+    df["study_hours"] * df["offline"]
+)
+
+X = df[["study_hours", "offline", "interaction"]]
+y = df["marks"]
+
+model = LinearRegression()
+model.fit(X, y)
+
+print("Intercept:", model.intercept_)
+print("Coefficients:", model.coef_)
+```
+
+The interaction coefficient describes how the slope associated with study hours changes for the group coded as 1 relative to the reference group.
+
+# 11. Polynomial Regression
+
+A straight-line relationship may not adequately represent data that curve. Polynomial regression introduces powers of predictors to represent curvature.
+
+A quadratic regression model is:
+
+$$
+\hat{Y} = b_0 + b_1X + b_2X^2
+$$
+
+The squared term allows the fitted relationship to curve. Higher-degree models can include terms such as \(X^3\), although more complex polynomials can overfit the data.
+
+Polynomial regression is nonlinear in the original predictor \(X\), but it is linear in the coefficients \(b_0\), \(b_1\), and \(b_2\).
+
+## 11.1 Python: Polynomial Regression
+
+```python
+import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+X = np.array([[1], [2], [3], [4], [5], [6]])
+y = np.array([3, 6, 11, 18, 27, 38])
+
+model = make_pipeline(
+    PolynomialFeatures(degree=2),
+    LinearRegression()
+)
+
+model.fit(X, y)
+
+print("Predictions:", model.predict(X))
+```
+
+The pipeline first generates polynomial features and then fits a linear regression model. For predictive work, model complexity should be assessed using appropriate validation methods in the Regression Model Evaluation chapter.
+
+# 12. Transformations
+
+Transformations change the representation of variables to help model a relationship or satisfy modelling requirements.
 
 Common transformations include:
 
-$\log(X)$
+$$
+\log(X),\qquad \sqrt{X},\qquad X^2
+$$
 
-$\sqrt{X}$
+For example, a model using the logarithm of a predictor can be written as:
 
-and:
+$$
+\hat{Y} = b_0 + b_1\log(X)
+$$
 
-$X^2$
+The interpretation of \(b_1\) depends on the transformation used. A logarithm also requires values in its domain; the natural logarithm is defined for positive \(X\).
 
-A model may therefore be written as:
+Transformations should be selected for a statistical or substantive reason, not simply to obtain a preferred numerical result.
 
-$\hat{Y}=b_0+b_1\log(X)$
+# 13. Interpolation and Extrapolation
 
-The interpretation of $b_1$ depends on which variable has been transformed.
+Regression predictions should be interpreted in relation to the range of the observed predictor values.
 
-Transformations should be selected because they help represent the data-generating relationship or meet modelling requirements, not simply because they improve a numerical result.
+**Interpolation** means predicting within the observed range. If the available study-hour values range from 1 to 6, predicting at 4 hours is interpolation.
 
----
+**Extrapolation** means predicting outside the observed range. Using the same data to predict at 20 hours is extrapolation.
 
-# 38. Prediction
+Extrapolation can be unreliable because the relationship observed in the available data may not continue beyond that range.
 
-Regression can be used to estimate the expected response for a given predictor value.
+# 14. Regression Through the Origin
 
-For:
+A regression model without an intercept is written as:
 
-$\hat{Y}=10+2X$
+$$
+\hat{Y} = b_1X
+$$
 
-if:
+This forces the fitted line through \((0,0)\).
 
-$X=8$
+Such a model should only be used when there is a strong substantive or theoretical reason for the response to be zero when the predictor is zero. Removing the intercept merely to obtain a particular coefficient or result is generally inappropriate.
 
-then:
+# 15. Matrix Form of Linear Regression
 
-$\hat{Y}=10+2(8)$
+Multiple linear regression can be represented compactly using matrix notation:
 
-$\hat{Y}=26$
+$$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta}
++ \boldsymbol{\varepsilon}
+$$
 
-Therefore:
+Where:
 
-$\boxed{\hat{Y}=26}$
-
-The prediction is based on the fitted relationship and should be interpreted within the context and range of the data.
-
----
-
-# 39. Interpolation
-
-**Interpolation** means predicting within the range of observed predictor values.
-
-Suppose the observed $X$ values range from:
-
-$10\le X\le50$
-
-Predicting at:
-
-$X=30$
-
-is interpolation.
-
-Interpolation is generally safer than extrapolation because the model is being used where data were actually observed.
-
----
-
-# 40. Extrapolation
-
-**Extrapolation** means predicting outside the observed range.
-
-If:
-
-$10\le X\le50$
-
-and we predict at:
-
-$X=100$
-
-we are extrapolating.
-
-The relationship may change outside the observed range, so extrapolated predictions can be unreliable.
-
----
-
-# 41. Regression Through the Origin
-
-A model can be specified without an intercept:
-
-$\hat{Y}=b_1X$
-
-This forces the regression line through:
-
-$(0,0)$
-
-Such a model should only be used when there is a strong substantive or theoretical reason that the response must be zero when the predictor is zero.
-
-Removing the intercept merely to obtain a particular numerical result is generally inappropriate.
-
----
-
-# 42. Least Squares Geometry
-
-The least-squares method can be viewed geometrically.
-
-The observed response vector is:
-
-$\mathbf{y}$
+- \(\mathbf{y}\) is the response vector.
+- \(\mathbf{X}\) is the design matrix.
+- \(\boldsymbol{\beta}\) is the coefficient vector.
+- \(\boldsymbol{\varepsilon}\) is the error vector.
 
 The fitted response vector is:
 
-$\hat{\mathbf{y}}$
+$$
+\hat{\mathbf{y}} = \mathbf{X}\mathbf{b}
+$$
 
-The residual vector is:
+When the design matrix has full column rank, the ordinary least-squares coefficient estimator can be written as:
 
-$\mathbf{e}=\mathbf{y}-\hat{\mathbf{y}}$
+$$
+\mathbf{b} =
+(\mathbf{X}^{T}\mathbf{X})^{-1}
+\mathbf{X}^{T}\mathbf{y}
+$$
 
-Ordinary least squares chooses coefficients so that the squared length of the residual vector is minimised:
+The design matrix includes one row per observation and one column per model term. When an intercept is included, the first column contains ones.
 
-$\|\mathbf{e}\|^2$
+This matrix representation is the mathematical foundation of many linear regression implementations.
 
-This provides a geometric interpretation of least squares as a projection of the response onto the space spanned by the model predictors.
+# 16. Basic Regression Assumptions
 
----
+Regression assumptions depend on the model and the intended analysis. Common considerations for ordinary least-squares regression include the following.
 
-# 43. Matrix Form of Linear Regression
+## 16.1 Linearity
 
-Multiple linear regression can be written compactly as:
-
-$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}$
-
-where:
-
-- $\mathbf{y}$ = response vector,
-- $\mathbf{X}$ = design matrix,
-- $\boldsymbol{\beta}$ = coefficient vector,
-- $\boldsymbol{\varepsilon}$ = error vector.
-
-The fitted model is:
-
-$\hat{\mathbf{y}}=\mathbf{X}\mathbf{b}$
-
-Under the standard ordinary least-squares conditions and when the required inverse exists:
-
-$\mathbf{b} = (\mathbf{X}^{T}\mathbf{X})^{-1} \mathbf{X}^{T}\mathbf{y}$
-
-This matrix form provides the mathematical foundation for multiple linear regression.
-
----
-
-# 44. Design Matrix Example
-
-For the model:
-
-$Y=\beta_0+\beta_1X_1+\beta_2X_2+\varepsilon$
-
-the design matrix has the form:
-
-$\mathbf{X} = \begin{bmatrix} 1 & x_{11} & x_{12}\\ 1 & x_{21} & x_{22}\\ \vdots & \vdots & \vdots\\ 1 & x_{n1} & x_{n2} \end{bmatrix}$
-
-The first column of ones represents the intercept.
-
-The coefficient vector is:
-
-$\boldsymbol{\beta} = \begin{bmatrix} \beta_0\\ \beta_1\\ \beta_2 \end{bmatrix}$
-
-This notation becomes especially useful when working with multiple predictors.
-
----
-
-# 45. Basic Regression Assumptions
-
-Regression assumptions depend on the exact inferential goal, but common ordinary least-squares considerations include:
-
-### 45.1 Linearity
-
-The systematic relationship should be appropriately represented by the model.
-
-### 45.2 Independent Errors
-
-The error terms should generally be independent for standard inference.
-
-### 45.3 Constant Variance
-
-The variability of errors should be reasonably stable across relevant predictor values when standard inference is used.
-
-This is often called **homoscedasticity**.
-
-### 45.4 Normality of Errors
-
-For small-sample classical inference, normally distributed errors may be important.
-
-Normality is generally more relevant to inference than to the computation of least-squares coefficients itself.
-
-### 45.5 Appropriate Data Structure
-
-The observations and variables should be collected in a way that supports the intended regression analysis.
-
----
-
-# 46. Linearity
-
-A linear regression model assumes the systematic part of the relationship has the form represented by the model.
+The systematic relationship should be appropriately represented by the specified model.
 
 For simple linear regression:
 
-$E(Y|X)=\beta_0+\beta_1X$
+$$
+E(Y\mid X) = \beta_0 + \beta_1X
+$$
 
-If the true pattern is strongly curved, a straight-line model may be inadequate.
+A strongly curved relationship may require transformations, polynomial terms, or another model form.
 
-A scatter plot and residual plot can help reveal such problems.
+## 16.2 Independence of Errors
 
----
+The error terms should generally be independent for standard classical inference.
 
-# 47. Homoscedasticity
+This assumption may be problematic in time-series data, repeated measurements, or observations clustered within groups.
 
-Homoscedasticity means that the conditional variance of the errors is approximately constant.
+## 16.3 Constant Error Variance
 
-Conceptually:
+Homoscedasticity means the conditional variance of the errors is approximately constant.
 
-$Var(\varepsilon|X)=\sigma^2$
+$$
+\mathrm{Var}(\varepsilon\mid X) = \sigma^2
+$$
 
-for relevant values of $X$.
+If the spread of residuals changes systematically across predictor values, the data may exhibit heteroscedasticity. This can affect conventional standard errors and inference.
 
-If the spread of residuals grows or shrinks systematically as $X$ changes, the data may exhibit **heteroscedasticity**.
+## 16.4 Normality of Errors
 
-The regression coefficients can still be calculated, but standard errors and classical inference may be affected.
+Normally distributed errors can be important for exact small-sample classical inference. Normality is not generally required to calculate the ordinary least-squares coefficients.
 
-Detailed evaluation of residual patterns belongs to the Regression Model Evaluation chapter.
+The assumption concerns the conditional error distribution, not a requirement that every predictor or the raw response be normally distributed.
 
----
+## 16.5 Appropriate Data Structure
 
-# 48. Independence of Errors
+The observations should be collected and organised in a way that supports the intended analysis. Dependence, sampling bias, measurement error, and missing data can affect the validity of regression conclusions.
 
-Suppose observations are collected over time.
+# 17. Multicollinearity
 
-Errors from neighbouring observations may be related.
+In multiple regression, multicollinearity occurs when predictors are strongly related to one another.
 
-For example:
+For example, including height in centimetres and the same height in metres as separate predictors creates redundant information.
 
-$\varepsilon_t$
+Multicollinearity can make individual coefficient estimates unstable and difficult to interpret. It does not automatically mean that the model cannot predict well, but it can make the contribution of individual predictors difficult to separate.
 
-may be correlated with:
+# 18. Missing Data and Causal Interpretation
 
-$\varepsilon_{t-1}$
+Regression requires a clearly defined analytical dataset. Missing observations should not be removed automatically without considering why the values are missing and how the removal might affect the analysis.
 
-This violates the usual independence assumption used by standard regression inference.
+The appropriate approach depends on the missing-data mechanism, the variables involved, and the purpose of the analysis.
 
-Therefore, time ordering and repeated measurements should be considered before applying ordinary regression methods.
+Likewise, adding predictors to a regression model does not automatically establish causality or eliminate confounding. Causal interpretation requires appropriate study design and additional assumptions.
 
----
+Ordinary linear regression is designed for a quantitative response. For a binary response, such as an outcome coded 0 or 1, logistic regression is often more appropriate and is outside the scope of this chapter.
 
-# 49. Normality of Errors
+# 19. A Complete Regression Example
 
-For ordinary least squares, the coefficients can be estimated without requiring normally distributed errors.
+Consider the following data describing study hours and examination marks.
 
-However, normality can be important for exact small-sample inference such as classical confidence intervals and hypothesis tests.
-
-The relevant assumption concerns the **errors**, not necessarily the raw response variable itself.
-
----
-
-# 50. Multicollinearity
-
-In multiple regression, predictors may be strongly related to one another.
-
-For example:
-
-- height in centimetres,
-- height in metres,
-
-would be almost perfectly redundant if both were included as separate predictors.
-
-More generally, strong relationships among predictors are called **multicollinearity**.
-
-Multicollinearity can make individual coefficient estimates unstable and difficult to interpret.
-
----
-
-# 51. Regression Coefficients and Units
-
-Suppose:
-
-$\hat{Y}=10+2X$
-
-If $X$ is measured in hours and $Y$ in marks, then the slope has units:
-
-$\frac{\text{marks}}{\text{hour}}$
-
-If the predictor is changed from hours to minutes, the numerical coefficient changes because the units have changed.
-
-Unlike correlation, regression coefficients are not unitless.
-
----
-
-# 52. Regression and Standardisation
-
-If both $X$ and $Y$ are standardised, the simple linear regression slope becomes closely related to Pearson correlation.
-
-For standardised variables:
-
-$Z_X=\frac{X-\bar{X}}{s_X}$
-
-and:
-
-$Z_Y=\frac{Y-\bar{Y}}{s_Y}$
-
-the fitted simple regression can be written as:
-
-$\widehat{Z_Y}=rZ_X$
-
-This provides a useful connection between standardisation, correlation, and regression.
-
----
-
-# 53. Regression and Multiple Predictors
-
-Suppose we predict salary using:
-
-- years of experience,
-- education level,
-- job role.
-
-A multiple regression model may be:
-
-$\hat{Y} = b_0+ b_1X_1+ b_2X_2+ b_3X_3$
-
-Each coefficient describes the association between its predictor and the predicted response while holding the other included predictors constant.
-
-The interpretation therefore depends on the full model, not only on one coefficient viewed independently.
-
----
-
-# 54. Regression With Categorical Outcomes
-
-Ordinary linear regression is designed for a quantitative response.
-
-If the response is binary, such as:
-
-$Y\in\{0,1\}$
-
-other regression methods, such as logistic regression, are usually more appropriate.
-
-Logistic regression is outside the scope of this chapter because this folder focuses on linear regression fundamentals.
-
----
-
-# 55. Regression With Missing Data
-
-Regression requires appropriate handling of missing observations.
-
-Possible approaches depend on:
-
-- why data are missing,
-- how much data are missing,
-- which variables are missing,
-- the analysis goal.
-
-Simply deleting rows without understanding the missing-data mechanism can introduce bias.
-
-The regression model should therefore be fitted to a clearly defined analytical dataset.
-
----
-
-# 56. Correlation and Regression: A Worked Comparison
-
-Suppose:
-
-$r=0.80$
-
-and:
-
-$s_X=2,\qquad s_Y=10$
-
-The simple regression slope is:
-
-$b_1=r\frac{s_Y}{s_X}$
-
-Substitute:
-
-$b_1=0.80\frac{10}{2}$
-
-$b_1=0.80(5)$
-
-$\boxed{b_1=4}$
-
-Thus, although correlation is unitless, the regression slope depends on the scales of $X$ and $Y$.
-
----
-
-# 57. A Complete Simple Regression Example
-
-Suppose:
-
-| Study Hours ($X$) | Marks ($Y$) |
+| Study Hours (\(X\)) | Marks (\(Y\)) |
 |---:|---:|
 | 1 | 42 |
 | 2 | 48 |
@@ -1286,81 +852,73 @@ Suppose:
 | 4 | 63 |
 | 5 | 70 |
 
-The goal is to describe marks as a function of study hours.
+The objective is to describe the fitted relationship between study hours and marks.
 
-### Step 1: Calculate means
+**Step 1: Calculate the means.**
 
-$\bar{x}=\frac{1+2+3+4+5}{5}=3$
+$$
+\bar{x} = \frac{1+2+3+4+5}{5} = 3
+$$
 
-$\bar{y}=\frac{42+48+55+63+70}{5}=55.6$
+$$
+\bar{y} = \frac{42+48+55+63+70}{5} = 55.6
+$$
 
-### Step 2: Calculate cross-products
+**Step 2: Calculate the sum of cross-products.**
 
-The deviation table gives:
+$$
+\sum (x_i-\bar{x})(y_i-\bar{y}) = 70
+$$
 
-$\sum(X-\bar{x})(Y-\bar{y})=70$
+**Step 3: Calculate the sum of squared predictor deviations.**
 
-### Step 3: Calculate squared deviations
+$$
+\sum (x_i-\bar{x})^2 = 10
+$$
 
-$\sum(X-\bar{x})^2=10$
+**Step 4: Calculate the slope.**
 
-### Step 4: Calculate slope
+$$
+b_1 = \frac{70}{10} = 7
+$$
 
-$b_1=\frac{70}{10}$
+**Step 5: Calculate the intercept.**
 
-$\boxed{b_1=7}$
+$$
+b_0 = 55.6 - 7(3)
+$$
 
-### Step 5: Calculate intercept
+$$
+b_0 = 34.6
+$$
 
-$b_0=\bar{y}-b_1\bar{x}$
+The fitted regression equation is:
 
-$b_0=55.6-(7)(3)$
+$$
+\hat{Y} = 34.6 + 7X
+$$
 
-$b_0=34.6$
+**Step 6: Predict marks for four study hours.**
 
-Therefore:
+$$
+\hat{Y} = 34.6 + 7(4)
+$$
 
-$\boxed{\hat{Y}=34.6+7X}$
+$$
+\hat{Y} = 62.6
+$$
 
-### Step 6: Predict for $X=4$
+The model predicts approximately 62.6 marks.
 
-$\hat{Y}=34.6+7(4)$
+The observed mark for four study hours is 63, so the residual is:
 
-$\hat{Y}=34.6+28$
+$$
+e = 63 - 62.6 = 0.4
+$$
 
-$\boxed{\hat{Y}=62.6}$
+The model underpredicts this observation by 0.4 marks.
 
-The fitted model predicts approximately 62.6 marks for four hours of study.
-
----
-
-# 58. Residuals in the Complete Example
-
-For the student with:
-
-$X=4$
-
-the predicted value is:
-
-$\hat{Y}=62.6$
-
-The observed mark is:
-
-$Y=63$
-
-Therefore:
-
-$e=63-62.6$
-
-$\boxed{e=0.4}$
-
-The model slightly underpredicts this observation.
-
----
-
-# 59. Regression With Python
-
-A simple regression model can be fitted using scikit-learn.
+## 19.1 Python: Fit and Predict
 
 ```python
 import numpy as np
@@ -1374,331 +932,193 @@ model.fit(X, y)
 
 print("Intercept:", model.intercept_)
 print("Slope:", model.coef_[0])
-```
 
-The fitted model can be used for prediction:
-
-```python
 prediction = model.predict([[4]])
-
 print("Predicted marks:", prediction[0])
+
+fitted_values = model.predict(X)
+residuals = y - fitted_values
+
+print("Fitted values:", fitted_values)
+print("Residuals:", residuals)
 ```
 
----
+# 20. Common Regression Mistakes
 
-# 60. Regression With pandas Data
+**Confusing slope with correlation.** The slope has units, while correlation is unitless.
 
-```python
-import pandas as pd
+**Interpreting the intercept without context.** A value at \(X=0\) may not be meaningful if zero is outside the relevant data range.
 
-df = pd.DataFrame({
-    "study_hours": [1, 2, 3, 4, 5],
-    "marks": [42, 48, 55, 63, 70]
-})
+**Treating predictions as guarantees.** Fitted values are estimates and may differ from observed outcomes.
 
-X = df[["study_hours"]]
-y = df["marks"]
-```
+**Extrapolating too far.** A relationship observed within a particular range may not continue outside it.
 
-The double brackets keep the predictor as a two-dimensional feature table, which is the expected format for scikit-learn.
+**Claiming that regression proves causation.** Regression describes a modelled relationship; causal conclusions require additional evidence and assumptions.
 
----
+**Ignoring the roles of predictors.** Multiple-regression coefficients must be interpreted while holding the other included predictors constant.
 
-# 61. Multiple Regression in Python
+**Ignoring multicollinearity.** Strongly related predictors can make individual coefficients unstable.
 
-```python
-from sklearn.linear_model import LinearRegression
+**Assuming predictors must be normally distributed.** Classical regression assumptions primarily concern the error structure and model specification, not normality of every predictor.
 
-X = df[["study_hours", "attendance"]]
-y = df["marks"]
+**Removing the intercept without justification.** A no-intercept model imposes a meaningful restriction on the fitted line.
 
-model = LinearRegression()
-model.fit(X, y)
-
-print("Intercept:", model.intercept_)
-print("Coefficients:", model.coef_)
-```
-
-Each coefficient corresponds to the predictor in the same column order.
-
----
-
-# 62. Categorical Predictors in Python
-
-Categorical predictors can be converted to indicator variables using pandas:
-
-```python
-df_encoded = pd.get_dummies(
-    df,
-    columns=["study_mode"],
-    drop_first=True
-)
-```
-
-The `drop_first=True` option can create a reference category when an intercept is included.
-
----
-
-# 63. Interaction Terms in Python
-
-Interaction terms can be created explicitly.
-
-```python
-df["interaction"] = (
-    df["study_hours"] *
-    df["offline"]
-)
-```
-
-The model can then include:
-
-```python
-X = df[
-    ["study_hours", "offline", "interaction"]
-]
-```
-
-The coefficient of the interaction term describes how the effect of study hours differs between the groups under the specified model.
-
----
-
-# 64. Polynomial Regression in Python
-
-Polynomial terms can be created with scikit-learn:
-
-```python
-from sklearn.preprocessing import PolynomialFeatures
-from sklearn.linear_model import LinearRegression
-
-poly = PolynomialFeatures(degree=2)
-
-X_poly = poly.fit_transform(X)
-
-model = LinearRegression()
-model.fit(X_poly, y)
-```
-
-A quadratic model includes:
-
-$1,\quad X,\quad X^2$
-
-in the design matrix.
-
----
-
-# 65. Regression Prediction Workflow
-
-A basic workflow is:
-
-1. identify the response,
-2. identify predictors,
-3. inspect the data,
-4. visualise relationships,
-5. select an appropriate regression form,
-6. fit the model,
-7. inspect coefficients,
-8. calculate predictions,
-9. examine residual behaviour,
-10. report the model responsibly.
-
-Detailed numerical model evaluation is handled separately in Folder 11.
-
----
-
-# 66. Common Regression Mistakes
-
-### Mistake 1: Confusing slope and correlation
-
-The slope has units; correlation does not.
-
-### Mistake 2: Interpreting the intercept without checking $X=0$
-
-The intercept may be outside the meaningful data range.
-
-### Mistake 3: Treating prediction as certainty
-
-A fitted value is an estimate, not a guaranteed outcome.
-
-### Mistake 4: Extrapolating too far
-
-Predictions outside the observed range can be unreliable.
-
-### Mistake 5: Saying regression proves causation
-
-A regression relationship is not automatically causal.
-
-### Mistake 6: Ignoring predictor roles
-
-In regression, response and predictors have different roles.
-
-### Mistake 7: Ignoring multicollinearity
-
-Strongly related predictors can make individual coefficients difficult to interpret.
-
-### Mistake 8: Assuming normal predictors are required
-
-For classical linear regression inference, assumptions concern the error structure rather than requiring every predictor itself to be normally distributed.
-
-### Mistake 9: Removing the intercept without justification
-
-A no-intercept model forces the fitted line through the origin and should have a substantive reason.
-
----
-
-# 67. Points to Remember
+# 21. Points to Remember
 
 1. Regression models a response using one or more predictors.
 2. Simple linear regression uses one predictor.
-3. The population model is:
-   $$
-   Y=\beta_0+\beta_1X+\varepsilon
-   $$
-4. The fitted model is:
-   $$
-   \hat{Y}=b_0+b_1X
-   $$
-5. The slope describes the change in predicted response per unit change in the predictor.
-6. The intercept is the predicted response when the predictor equals zero.
-7. The least-squares line minimises:
-   $$
-   \sum e_i^2
-   $$
-8. A residual is:
-   $$
-   e_i=y_i-\hat{y}_i
-   $$
-9. With an intercept, the least-squares line passes through $(\bar{x},\bar{y})$.
-10. With an intercept:
-    $$
-    \sum e_i=0
-    $$
-11. Multiple regression uses two or more predictors.
-12. Multiple-regression coefficients are interpreted while holding other included predictors constant.
-13. Categorical predictors can be represented with indicator variables.
-14. Interaction terms allow the effect of one predictor to depend on another.
-15. Polynomial regression allows curved relationships.
-16. Interpolation occurs within the observed predictor range.
-17. Extrapolation occurs outside the observed range and can be risky.
-18. Regression does not automatically establish causation.
-19. Regression coefficients have units; correlation does not.
-20. Detailed model-evaluation measures belong to the dedicated Regression Model Evaluation chapter.
+3. Multiple linear regression uses two or more predictors.
+4. The slope describes the change in predicted response for a one-unit increase in a predictor.
+5. The intercept is the predicted response when the predictor equals zero.
+6. Least squares minimises the sum of squared residuals.
+7. A residual equals the observed value minus the fitted value.
+8. The least-squares line with an intercept passes through \((\bar{x},\bar{y})\).
+9. With an intercept, the residuals sum to zero, subject to numerical precision.
+10. Multiple-regression coefficients are interpreted while holding other included predictors constant.
+11. Indicator variables represent categorical predictors.
+12. Interaction terms allow relationships to differ across predictor values or groups.
+13. Polynomial regression can represent curvature.
+14. Interpolation is prediction within the observed range.
+15. Extrapolation is prediction outside the observed range and may be unreliable.
+16. Regression does not automatically establish causation.
+17. Regression coefficients have units; correlation does not.
+18. Detailed model evaluation belongs in `11_Regression_Model_Evaluation`.
 
----
-
-# 68. Important Formula Summary
+# 22. Important Formula Summary
 
 ### Simple linear regression model
 
-$Y=\beta_0+\beta_1X+\varepsilon$
+$$
+Y = \beta_0 + \beta_1X + \varepsilon
+$$
 
 ### Fitted regression equation
 
-$\hat{Y}=b_0+b_1X$
+$$
+\hat{Y} = b_0 + b_1X
+$$
 
 ### Residual
 
-$e_i=y_i-\hat{y}_i$
+$$
+e_i = y_i - \hat{y}_i
+$$
 
-### Residual sum of squares
+### Sum of squared residuals
 
-$SSE=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2$
+$$
+SSE = \sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+$$
 
 ### Least-squares slope
 
-$b_1= \frac{\sum(x_i-\bar{x})(y_i-\bar{y})} {\sum(x_i-\bar{x})^2}$
+$$
+b_1 =
+\frac{\sum(x_i-\bar{x})(y_i-\bar{y})}
+{\sum(x_i-\bar{x})^2}
+$$
 
 ### Least-squares intercept
 
-$b_0=\bar{y}-b_1\bar{x}$
+$$
+b_0 = \bar{y} - b_1\bar{x}
+$$
 
 ### Slope using covariance and variance
 
-$b_1=\frac{s_{XY}}{s_X^2}$
+$$
+b_1 = \frac{s_{XY}}{s_X^2}
+$$
 
 ### Slope using correlation
 
-$b_1=r\frac{s_Y}{s_X}$
+$$
+b_1 = r\frac{s_Y}{s_X}
+$$
 
-### Multiple regression
+### Multiple linear regression
 
-$\hat{Y} = b_0+b_1X_1+\cdots+b_pX_p$
+$$
+\hat{Y} = b_0 + b_1X_1 + \cdots + b_pX_p
+$$
 
 ### Interaction model
 
-$\hat{Y}=b_0+b_1X_1+b_2X_2+b_3X_1X_2$
+$$
+\hat{Y} = b_0 + b_1X_1 + b_2X_2 + b_3X_1X_2
+$$
 
 ### Quadratic regression
 
-$\hat{Y}=b_0+b_1X+b_2X^2$
+$$
+\hat{Y} = b_0 + b_1X + b_2X^2
+$$
 
 ### Matrix form
 
-$\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}$
+$$
+\mathbf{y} = \mathbf{X}\boldsymbol{\beta}
++ \boldsymbol{\varepsilon}
+$$
 
 ### Ordinary least-squares estimator
 
-$\mathbf{b} = (\mathbf{X}^{T}\mathbf{X})^{-1} \mathbf{X}^{T}\mathbf{y}$
+$$
+\mathbf{b} =
+(\mathbf{X}^{T}\mathbf{X})^{-1}
+\mathbf{X}^{T}\mathbf{y}
+$$
 
-when the required inverse exists.
+This estimator requires the design matrix to have full column rank.
 
----
-
-# 69. Quick Concept Comparison
+# 23. Quick Concept Comparison
 
 | Concept | Main purpose |
 |---|---|
-| Correlation | Describe strength and direction of association |
+| Correlation | Describe the strength and direction of association |
 | Regression | Model a response using predictor variables |
 | Intercept | Predicted response at predictor value zero |
 | Slope | Change in predicted response per predictor unit |
-| Residual | Observed minus fitted value |
-| Least squares | Choose coefficients by minimising squared residuals |
-| Simple regression | One predictor |
-| Multiple regression | Two or more predictors |
-| Dummy variable | Represent a categorical predictor numerically |
-| Interaction | Allow one predictor's effect to depend on another |
-| Polynomial regression | Represent curvature using powers of predictors |
-| Interpolation | Prediction within observed range |
-| Extrapolation | Prediction outside observed range |
+| Residual | Observed value minus fitted value |
+| Least squares | Estimate coefficients by minimising squared residuals |
+| Simple regression | Model with one predictor |
+| Multiple regression | Model with two or more predictors |
+| Indicator variable | Numerically represent a category |
+| Interaction | Allow one predictor's relationship to depend on another |
+| Polynomial regression | Represent curvature using predictor powers |
+| Interpolation | Predict within the observed range |
+| Extrapolation | Predict outside the observed range |
 
----
+# 24. Chapter Summary
 
-# 70. Chapter Summary
+Regression provides a mathematical framework for describing how a response changes with one or more predictors. Simple linear regression uses a straight-line equation, while multiple regression incorporates several predictors.
 
-Regression provides a mathematical framework for describing how a response changes with one or more predictors.
-
-The basic simple linear regression model is:
-
-$Y=\beta_0+\beta_1X+\varepsilon$
-
-and the fitted equation is:
-
-$\hat{Y}=b_0+b_1X$
-
-The slope describes the expected change in predicted response for a one-unit increase in the predictor. The intercept gives the predicted response at $X=0$, although its practical interpretation depends on whether zero is meaningful.
-
-Ordinary least squares chooses coefficients that minimise:
-
-$\sum(y_i-\hat{y}_i)^2$
-
-The resulting residuals help describe the differences between observed and fitted values.
-
-Regression can be extended to multiple predictors, categorical variables, interaction terms, and polynomial terms. Predictions should be made carefully, especially when extrapolating beyond the observed data.
+Ordinary least squares estimates coefficients by minimising the sum of squared residuals. The resulting equation can be used to calculate fitted values and make predictions. Regression can also incorporate categorical predictors, interaction terms, and polynomial terms.
 
 The central idea is:
 
-$\boxed{ \text{Regression} = \text{Model the response} \text{ using predictor information} }$
+$$
+\text{Regression} =
+\text{Model the response using predictor information}
+$$
 
-Regression and correlation are closely related, but regression assigns roles to variables and provides an explicit equation for estimation and prediction.
+Regression is a fundamental tool in Data Science and Machine Learning, but its conclusions depend on the quality of the data, the model specification, and the assumptions supporting the intended analysis.
 
----
+# 25. References and Further Reading
 
-# 71. References
+- [OpenStax — Introductory Statistics](https://openstax.org/details/books/introductory-statistics)
+- [Penn State — STAT Online](https://online.stat.psu.edu/)
+- [NIST/SEMATECH — e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/)
+- [scikit-learn — Linear Models](https://scikit-learn.org/stable/modules/linear_model.html)
+- [pandas Documentation](https://pandas.pydata.org/docs/)
+- [NumPy Documentation](https://numpy.org/doc/)
+- [GeeksforGeeks — Linear Regression](https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/)
 
-- OpenStax, *Introductory Statistics*.
-- Penn State University, STAT Online resources.
-- NIST/SEMATECH, *e-Handbook of Statistical Methods*.
-- scikit-learn Documentation, Linear Models.
-- pandas Documentation.
-- NumPy Documentation.
-- GeeksforGeeks, educational resources on linear regression.
+# 26. Related Topics
+
+- `09_Correlation` — Correlation and association between variables.
+- `11_Regression_Model_Evaluation` — Regression metrics, residual evaluation, model comparison, and validation.
+- `12_Linear_Algebra` — Vectors, matrices, and matrix operations used in regression.
+- `13_Calculus` — Derivatives and optimisation foundations.
+- `14_Bias_and_Variance` — Underfitting, overfitting, and the bias–variance trade-off.
+- `15_Statistics_for_Machine_Learning` — Statistical concepts used in Machine Learning.
