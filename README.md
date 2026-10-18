@@ -94,21 +94,21 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] SQL vs NoSQL
 
 ### Mathematics & Statistics
-- [x] Statistics Fundamentals
-- [x] Descriptive Statistics
-- [x] Probability
-- [x] Probability Distributions
-- [x] Inferential Statistics
-- [x] Hypothesis Testing
-- [x] ANOVA
-- [x] Chi-Square Test
-- [x] Correlation
-- [x] Regression
-- [x] Regression Model Evaluation
-- [x] Linear Algebra
-- [x] Calculus
-- [x] Bias and Variance
-- [x] Statistics for Machine Learning
+- [x] [Statistics Fundamentals](06_Mathematics_&_Statistics/01_Statistics_Fundamentals)
+- [x] [Descriptive Statistics](06_Mathematics_&_Statistics/02_Descriptive_Statistics)
+- [x] [Probability](06_Mathematics_&_Statistics/03_Probability)
+- [x] [Probability Distributions](06_Mathematics_&_Statistics/04_Probability_Distributions)
+- [x] [Inferential Statistics](06_Mathematics_&_Statistics/05_Inferential_Statistics)
+- [x] [Hypothesis Testing](06_Mathematics_&_Statistics/06_Hypothesis_Testing)
+- [x] [ANOVA](06_Mathematics_&_Statistics/07_ANOVA)
+- [x] [Chi-Square Test](06_Mathematics_&_Statistics/08_Chi_Square_Test)
+- [x] [Correlation](06_Mathematics_&_Statistics/09_Correlation)
+- [x] [Regression](06_Mathematics_&_Statistics/10_Regression)
+- [x] [Regression Model Evaluation](06_Mathematics_&_Statistics/11_Regression_Model_Evaluation)
+- [x] [Linear Algebra](06_Mathematics_&_Statistics/12_Linear_Algebra)
+- [x] [Calculus](06_Mathematics_&_Statistics/13_Calculus)
+- [x] [Bias and Variance](06_Mathematics_&_Statistics/14_Bias_and_Variance)
+- [x] [Statistics for Machine Learning](06_Mathematics_&_Statistics/15_Statistics_for_Machine_Learning)
 
 ### Machine Learning
 - Introduction to Machine Learning
