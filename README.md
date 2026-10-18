@@ -131,6 +131,23 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - Hyperparameter Tuning
 - Scikit-learn
 
+### Natural Language Processing (NLP)
+- Text Cleaning
+- Tokenization
+- Bag of Words
+- TF-IDF
+- N-Grams
+- Word2Vec
+- GloVe
+- Text Classification
+- Sentiment Analysis
+- Topic Modelling
+- Part-of-Speech Tagging
+- Dependency Parsing
+- Named Entity Recognition (NER)
+- NLTK
+- spaCy
+
 ### Power BI
 - Power BI Basics
 - Reports and Visualizations
@@ -158,23 +175,6 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - GRU
 - Transformers
 - Transfer Learning
-
-### Natural Language Processing (NLP)
-- Text Cleaning
-- Tokenization
-- Bag of Words
-- TF-IDF
-- N-Grams
-- Word2Vec
-- GloVe
-- Text Classification
-- Sentiment Analysis
-- Topic Modelling
-- Part-of-Speech Tagging
-- Dependency Parsing
-- Named Entity Recognition (NER)
-- NLTK
-- spaCy
 
 ### Computer Vision
 - Image Processing
