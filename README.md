@@ -132,21 +132,65 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - Scikit-learn
 
 ### Natural Language Processing (NLP)
-- Text Cleaning
-- Tokenization
-- Bag of Words
-- TF-IDF
-- N-Grams
-- Word2Vec
-- GloVe
-- Text Classification
-- Sentiment Analysis
-- Topic Modelling
-- Part-of-Speech Tagging
-- Dependency Parsing
-- Named Entity Recognition (NER)
-- NLTK
-- spaCy
+
+The NLP learning materials are organized in the following folder structure:
+
+```text
+08_Natural_Language_Processing/
+│
+├── README.md
+│
+├── 01_Text_Preprocessing/
+│   ├── 01_Introduction_to_NLP/
+│   ├── 02_Text_Cleaning/
+│   ├── 03_Text_Normalization/
+│   ├── 04_Tokenization/
+│   ├── 05_Stop_Word_Removal/
+│   ├── 06_Stemming/
+│   ├── 07_Lemmatization/
+│   ├── 08_Regular_Expressions/
+│   └── 09_Text_Preprocessing_Pipeline/
+│
+├── 02_Text_Representation/
+│   ├── 01_Bag_of_Words/
+│   ├── 02_N_Grams/
+│   ├── 03_TF_IDF/
+│   ├── 04_Word_Embeddings/
+│   ├── 05_Word2Vec/
+│   └── 06_GloVe/
+│
+├── 03_Linguistic_Analysis/
+│   ├── 01_POS_Tagging/
+│   ├── 02_Named_Entity_Recognition/
+│   ├── 03_Dependency_Parsing/
+│   └── 04_Chunking_and_Chinking/
+│
+├── 04_NLP_Applications/
+│   ├── 01_Text_Classification/
+│   ├── 02_Sentiment_Analysis/
+│   ├── 03_Topic_Modelling/
+│   ├── 04_Text_Similarity/
+│   └── 05_Text_Summarization/
+│
+├── 05_NLP_Libraries/
+│   ├── 01_NLTK/
+│   ├── 02_spaCy/
+│   ├── 03_Scikit_Learn/
+│   └── 04_Gensim/
+│
+├── 06_Advanced_NLP/
+│   ├── 01_Neural_Networks_for_NLP/
+│   ├── 02_RNN_and_LSTM/
+│   ├── 03_Attention_Mechanism/
+│   ├── 04_Transformers/
+│   └── 05_BERT/
+│
+└── 07_NLP_Projects/
+    ├── 01_Spam_Message_Classifier/
+    ├── 02_Sentiment_Analysis/
+    ├── 03_News_Topic_Classifier/
+    └── 04_Text_Summarization/
+```
 
 ### Power BI
 - Power BI Basics
