@@ -133,7 +133,7 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Natural Language Processing (NLP)
 
-The NLP learning materials are organized in the following folder structure:
+The NLP learning materials will use the following folder structure:
 
 ```text
 08_Natural_Language_Processing/
