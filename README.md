@@ -133,7 +133,7 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Natural Language Processing (NLP)
 
-#### 1. NLP Fundamentals and Preprocessing
+#### 1. Text Preprocessing
 - [ ] 01. NLP Fundamentals
 - [ ] 02. Text Cleaning and Normalization
 - [ ] 03. Tokenization
@@ -150,8 +150,8 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 #### 3. Linguistic Analysis
 - [ ] 01. Part-of-Speech (POS) Tagging
 - [ ] 02. Named Entity Recognition (NER)
-- [ ] 03. Chunking and Chinking
-- [ ] 04. Dependency Parsing
+- [ ] 03. Dependency Parsing
+- [ ] 04. Chunking and Chinking
 
 #### 4. NLP Applications
 - [ ] 01. Text Classification
