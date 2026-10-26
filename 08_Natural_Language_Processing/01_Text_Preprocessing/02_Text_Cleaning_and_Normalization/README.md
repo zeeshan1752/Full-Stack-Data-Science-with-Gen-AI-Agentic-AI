@@ -1,185 +1,245 @@
-# 02. Text Cleaning and Normalization
 
-Text cleaning and normalization prepare raw text for NLP by removing unwanted noise and applying consistent representations. The correct steps depend on the task: text for sentiment analysis, search, named-entity recognition, and a language model may need different preprocessing.
+# 02 Text Cleaning and Normalization
 
-## Learning objectives
+## 1. Introduction
 
-- Understand the difference between text cleaning and text normalization.
-- Clean whitespace, HTML, URLs, email addresses, and unwanted characters when appropriate.
-- Standardize case and Unicode text.
-- Decide how to handle punctuation, numbers, emojis, contractions, and repeated characters.
-- Build a reusable preprocessing function and inspect how each step changes the text.
+Text cleaning and normalization are important steps in Natural Language Processing (NLP). Raw text collected from websites, social media, documents, and user input often contains unwanted characters, HTML tags, extra spaces, inconsistent capitalization, and other noise.
 
-## 1. Text cleaning vs. text normalization
+Before giving text to an NLP model, we often clean and normalize it so that the text is consistent and suitable for the task.
 
-**Text cleaning** removes or fixes content that is not useful for the intended task, such as HTML markup, accidental extra spaces, or corrupted characters.
+**Example:**
 
-**Text normalization** converts different surface forms into a consistent representation. Examples include lowercasing text, standardizing Unicode characters, or expanding selected contractions.
+Raw text:
 
-| Operation | Example | Purpose |
+```text
+"  HELLO!!!   I am learning NLP &amp; Python.  "
+```
+
+After cleaning and normalization:
+
+```text
+hello!!! i am learning nlp & python.
+```
+
+The exact output depends on the cleaning rules we choose for our application.
+
+## 2. Text Cleaning vs Text Normalization
+
+| Text Cleaning | Text Normalization |
+|---|---|
+| Removes unwanted content or noise. | Converts text into a consistent form. |
+| Removes HTML tags, unnecessary spaces, or unwanted URLs. | Converts text to lowercase or standardizes Unicode characters. |
+| Focuses on removing irrelevant information. | Focuses on consistency in how text is represented. |
+| Example: Removing `<p>` from HTML text. | Example: Converting `PYTHON` to `python`. |
+
+Both processes are often performed together as part of text preprocessing.
+
+## 3. Learning Objectives
+
+After studying this topic, you should understand how to:
+
+- Remove HTML tags and decode HTML entities.
+- Handle URLs, email addresses, and extra whitespace.
+- Normalize uppercase and lowercase text.
+- Use Unicode normalization.
+- Decide how to handle punctuation, numbers, emojis, and contractions.
+- Build a reusable text-cleaning function in Python.
+
+## 4. Common Text Cleaning Operations
+
+| Operation | Before | After |
 |---|---|---|
-| Remove HTML tags | \`<p>Hello</p>\` → \`Hello\` | Remove markup while preserving visible text |
-| Normalize whitespace | \`"hello   world"\` → \`"hello world"\` | Make spacing consistent |
-| Lowercase | \`"Machine Learning"\` → \`"machine learning"\` | Treat case variants as the same form |
-| Normalize Unicode | Convert equivalent Unicode forms to a consistent form | Reduce representation differences |
-| Replace URLs | \`"Read https://example.com"\` → \`"Read URL"\` | Retain a signal that a link was present |
-| Handle punctuation | Task-specific | Preserve or remove punctuation based on its meaning |
-| Handle numbers | Keep, remove, or replace numbers | Match the needs of the task |
+| Lowercasing | `HELLO WORLD` | `hello world` |
+| Removing extra spaces | `Hello    World` | `Hello World` |
+| Removing HTML tags | `<p>Hello</p>` | `Hello` |
+| Decoding HTML entities | `Tom &amp; Jerry` | `Tom & Jerry` |
+| Removing URLs | `Visit https://example.com` | `Visit` |
+| Removing email addresses | `Contact abc@example.com` | `Contact` |
+| Removing unwanted punctuation | `Hello!!!` | `Hello` |
+| Unicode normalization | Equivalent Unicode forms | Consistent Unicode representation |
 
-These operations are not universally required. For example, punctuation and capitalization may carry useful information for sentiment, intent, named-entity recognition, and language modeling.
+These operations are optional. Apply only the operations that suit your NLP task.
 
-## 2. A typical preprocessing pipeline
+## 5. Typical Text Cleaning Pipeline
 
 A basic pipeline may follow this order:
 
-1. Receive the raw text.
-2. Normalize Unicode representation.
-3. Remove HTML markup if the source contains HTML.
-4. Replace or remove URLs and email addresses if appropriate.
-5. Normalize whitespace.
-6. Apply task-specific case and punctuation handling.
-7. Inspect the result before tokenization or vectorization.
+1. Receive raw text.
+2. Decode HTML entities.
+3. Remove HTML tags.
+4. Replace or remove URLs and email addresses.
+5. Normalize Unicode characters.
+6. Convert text to lowercase, if appropriate.
+7. Remove unwanted characters, if required.
+8. Normalize whitespace.
+9. Return the cleaned text.
 
-This is a starting point, not a fixed rule. For example, if a task detects web addresses, do not remove URLs. If a model's tokenizer expects natural casing, do not lowercase text automatically.
+The order can change depending on the data and the problem being solved.
 
-## 3. Practical example with Python
+## 6. Practical Python Implementation
 
-The following example uses only Python's standard library. It removes simple HTML tags, replaces URLs and email addresses with descriptive placeholders, normalizes Unicode, and collapses repeated whitespace.
+The following example demonstrates several text-cleaning operations using Python's built-in libraries.
 
-\`\`\`python
+```python
 import re
 import unicodedata
 from html import unescape
 
 
 def clean_text(text):
-    # Decode HTML entities such as &amp; and &quot;.
+    # Decode HTML entities
     text = unescape(text)
 
-    # Normalize equivalent Unicode representations.
+    # Normalize Unicode characters
     text = unicodedata.normalize("NFKC", text)
 
-    # Remove simple HTML tags.
+    # Remove HTML tags
     text = re.sub(r"<[^>]+>", " ", text)
 
-    # Replace URLs and email addresses with placeholders.
-    text = re.sub(r"https?://\\S+|www\\.\\S+", " URL ", text)
+    # Replace URLs with a space
+    text = re.sub(r"https?://\S+|www\.\S+", " ", text)
+
+    # Replace email addresses with a space
     text = re.sub(
-        r"\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b",
-        " EMAIL ",
-        text,
+        r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b",
+        " ",
+        text
     )
 
-    # Collapse repeated spaces, tabs, and line breaks.
-    text = re.sub(r"\\s+", " ", text).strip()
+    # Convert text to lowercase
+    text = text.lower()
+
+    # Normalize whitespace
+    text = re.sub(r"\s+", " ", text).strip()
 
     return text
 
 
 raw_text = """
-    <p>Machine   Learning is useful!</p>
-    Visit https://example.com or email hello@example.com.
+    <p>HELLO!!! Visit https://example.com
+    or email abc@example.com &amp; learn NLP.</p>
 """
 
 cleaned_text = clean_text(raw_text)
 
-print("Original text:")
+print("Original Text:")
 print(raw_text)
-print("\\nCleaned text:")
+
+print("\nCleaned Text:")
 print(cleaned_text)
-\`\`\`
+```
 
-Expected cleaned output:
+### Output
 
-\`\`\`text
-Machine Learning is useful! Visit URL or email EMAIL.
-\`\`\`
+```text
+Original Text:
 
-This is an introductory demonstration, not a complete HTML parser. For complex or malformed HTML, use a dedicated parser such as Beautiful Soup. Regex-based URL and email detection is also approximate; production applications may need more robust validation.
+    <p>HELLO!!! Visit https://example.com
+    or email abc@example.com &amp; learn NLP.</p>
 
-## 4. Lowercasing and case preservation
 
-Lowercasing is common for traditional Bag of Words and TF-IDF workflows because it reduces vocabulary duplication:
+Cleaned Text:
+hello!!! visit or email learn nlp.
+```
 
-- \`"Python"\`
-- \`"PYTHON"\`
-- \`"python"\`
+**Note:** This is a basic educational example. Regular expressions are not a complete HTML parser, and URL or email patterns may not cover every possible format.
 
-After lowercasing, these forms become \`"python"\`.
+## 7. Lowercase Conversion
 
-However, case can contain meaning. For example, \`"US"\` can refer to the United States, while \`"us"\` is a pronoun. Named-entity recognition and some classification tasks may benefit from preserving case.
+Lowercasing converts uppercase letters into lowercase letters.
 
-To lowercase text only when appropriate:
+```python
+text = "Machine Learning Is Interesting"
 
-\`\`\`python
-text = "Natural Language Processing"
-lowercase_text = text.lower()
+normalized_text = text.lower()
 
-print(lowercase_text)
-\`\`\`
+print(normalized_text)
+```
 
 Output:
 
-\`\`\`text
-natural language processing
-\`\`\`
+```text
+machine learning is interesting
+```
 
-## 5. Unicode normalization
+Lowercasing can help treat words such as `Python` and `python` as the same token.
 
-Text can contain visually identical characters represented by different Unicode sequences. Unicode normalization can make equivalent forms more consistent.
+However, it may remove useful distinctions in some applications. Case-sensitive information can matter when identifying names, acronyms, or programming-language identifiers.
 
-Python provides \`unicodedata.normalize()\`:
+## 8. Unicode Normalization
 
-\`\`\`python
+Unicode allows some characters to be represented using different underlying sequences. Unicode normalization helps standardize these representations.
+
+Python provides Unicode normalization through the `unicodedata` module.
+
+```python
 import unicodedata
 
 text = "café"
-normalized = unicodedata.normalize("NFC", text)
 
-print(normalized)
-\`\`\`
+normalized_text = unicodedata.normalize("NFC", text)
 
-- **NFC** combines characters into a canonical composed form when possible.
-- **NFD** decomposes characters into canonical components.
-- **NFKC** applies compatibility normalization as well as canonical normalization.
+print(normalized_text)
+```
 
-NFKC can be useful for standardizing some full-width and compatibility characters, but it may change distinctions that matter in specialized text. Choose a normalization form based on the data and task.
+Output:
 
-## 6. Punctuation, numbers, emojis, and contractions
+```text
+café
+```
 
-These elements should be handled intentionally rather than deleted automatically.
+Common Unicode normalization forms include:
 
-- **Punctuation:** punctuation can affect meaning and sentiment. \`"Great!"\` and \`"Great?"\` express different tones.
-- **Numbers:** keep them for tasks such as financial text, dates, addresses, and product identification. Replace them with placeholders only when that supports the task.
-- **Emojis:** emojis often convey sentiment or intent. Preserve them or map them deliberately if the task depends on their meaning.
-- **Contractions:** expanding \`"can't"\` to \`"cannot"\` can standardize some corpora, but contractions may be meaningful features. Use a language-aware method when expansion is required.
-- **Repeated characters:** reducing \`"soooo good"\` to \`"soo good"\` may help in some informal text, but aggressive normalization can remove emphasis.
+- **NFC:** Combines characters into a canonical composed form where possible.
+- **NFD:** Decomposes characters into their canonical components.
+- **NFKC:** Applies compatibility normalization and can convert some equivalent forms.
+- **NFKD:** Applies compatibility decomposition.
 
-## 7. How cleaning connects to later NLP steps
+NFKC can be useful for standardization, but it may change distinctions that matter in certain languages or specialized text. Choose the normalization form based on your data.
 
-| Next step | How cleaning helps |
-|---|---|
-| Tokenization | Removes irrelevant markup and makes whitespace more consistent |
-| Stop-word filtering | Produces text in a more predictable form before selecting tokens |
-| Stemming and lemmatization | Gives the normalizer cleaner token input |
-| Bag of Words and TF-IDF | Can reduce accidental vocabulary variants |
-| Word embeddings | Provides more consistent training text when normalization is appropriate |
-| Transformers | Must follow the selected model's tokenizer and preprocessing expectations |
+## 9. Handling Punctuation, Numbers, Emojis, and Contractions
 
-Modern pretrained Transformer models usually provide their own tokenizer. Do not aggressively remove punctuation, lowercase text, or strip special characters before using one unless the model or task specifically requires it.
+Not every NLP task requires the same cleaning rules.
 
-## 8. Related topics in this repository
+| Text Element | Example | Recommended Consideration |
+|---|---|---|
+| Punctuation | `Hello!!!` | Preserve or simplify according to the task. |
+| Numbers | `I scored 95 marks.` | Keep them when numerical information matters. |
+| Emojis | `This is great 😊` | Preserve them for sentiment analysis when useful. |
+| Contractions | `don't`, `I'm` | Expand only when it benefits the task. |
+| Hashtags | `#MachineLearning` | Preserve or extract the hashtag text. |
+| Special characters | `C++`, `#AI` | Avoid removing meaningful symbols blindly. |
 
-- [Text Cleaning](01_Text_Cleaning/README.md)
-- [Text Normalization](02_Text_Normalization/README.md)
-- [Tokenization](../03_Tokenization/README.md)
-- [Stop Words, Stemming, and Lemmatization](../04_Stop_Words_Stemming_and_Lemmatization/README.md)
-- [Text Preprocessing overview](../README.md)
+For example, removing all punctuation from `C++` could change the meaning of the programming-language name.
 
-## Key takeaways
+Similarly, removing emojis from social-media comments may discard useful sentiment information.
 
-- Cleaning removes unwanted noise; normalization standardizes selected text forms.
-- Preprocessing should be guided by the NLP task, not applied as a universal checklist.
-- Keep the original text when possible so that preprocessing decisions can be reviewed.
-- Use Python's \`re\`, \`html\`, and \`unicodedata\` modules for simple examples; use dedicated parsers for complex formats.
-- Check the cleaned output on representative samples before applying it to a full dataset.
+## 10. Text Cleaning in an NLP Workflow
+
+Text cleaning is usually one part of a larger NLP pipeline.
+
+1. **Raw Text:** Original documents, reviews, or messages.
+2. **Text Cleaning and Normalization:** Remove unwanted content and standardize text.
+3. **Tokenization:** Split text into tokens.
+4. **Text Representation:** Convert text into numerical representations using methods such as Bag of Words, TF-IDF, or Word2Vec.
+5. **NLP Model:** Apply tasks such as classification or sentiment analysis.
+
+This is a common workflow, not a mandatory sequence for every model. Modern transformer models may use their own tokenizer and expect specific preprocessing rules.
+
+## 11. Key Takeaways
+
+- Text cleaning removes unwanted or irrelevant content.
+- Text normalization makes text more consistent.
+- Python's `re` module is useful for pattern-based cleaning.
+- `unicodedata` supports Unicode normalization.
+- `html.unescape()` converts HTML entities into their corresponding characters.
+- Lowercasing, punctuation removal, and URL removal should depend on the NLP task.
+- Avoid deleting information that could be useful to the model.
+- Keep preprocessing consistent between training and inference.
+
+## 12. References
+
+- [Python `re` documentation](https://docs.python.org/3/library/re.html)
+- [Python `unicodedata` documentation](https://docs.python.org/3/library/unicodedata.html)
+- [Python `html` documentation](https://docs.python.org/3/library/html.html)
+- [NLTK documentation](https://www.nltk.org/)
