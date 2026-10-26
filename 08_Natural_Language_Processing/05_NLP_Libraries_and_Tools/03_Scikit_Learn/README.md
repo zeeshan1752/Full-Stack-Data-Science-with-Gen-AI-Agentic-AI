@@ -1,6 +1,6 @@
 # scikit-learn for Text
 
-This guide links the core text-representation notes to scikit-learn's APIs. Detailed theory and introductory examples stay in their canonical topic folders.
+This guide links the core text-representation notes to scikit-learn's APIs. Detailed theory and introductory examples stay in their canonical topic folders. The subfolders below are intentionally retained for future study.
 
 ## Start with the concepts
 
@@ -21,4 +21,11 @@ Install the library with:
 python -m pip install -U scikit-learn
 ```
 
-The former CountVectorizer, TfidfVectorizer, classification, and evaluation subfolders contained only placeholder READMEs. They have been removed; add a separate subfolder only when it contains a distinct practical lesson or runnable implementation.
+## Future lessons
+
+- [CountVectorizer](01_CountVectorizer/README.md)
+- [TfidfVectorizer](02_TfidfVectorizer/README.md)
+- [Text classification](03_Text_Classification/README.md)
+- [Evaluation](04_Evaluation/README.md)
+
+These folders are kept as learning checkpoints. When filling them, focus on scikit-learn-specific parameters, pipelines, API usage, and practical outputs; link to the concept notes above instead of copying them.
