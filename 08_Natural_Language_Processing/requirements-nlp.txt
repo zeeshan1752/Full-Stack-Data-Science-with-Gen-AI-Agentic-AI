@@ -1,9 +1,0 @@
-# Install in the Python environment used for NLP practice.
-nltk
-scikit-learn
-gensim
-wordcloud
-
-# Optional pretrained-model demos (especially GPT-2 / Hugging Face):
-# transformers
-# torch
