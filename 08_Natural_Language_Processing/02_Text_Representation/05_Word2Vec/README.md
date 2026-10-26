@@ -4,62 +4,35 @@
 
 **Word2Vec** is a word embedding technique that learns dense numerical vector representations of words from their surrounding context in a text corpus.
 
-Traditional text representation techniques, such as Bag of Words and TF-IDF, represent words using counts or weights. Word2Vec instead learns vectors that can capture patterns in how words are used.
+Traditional text representation techniques, such as Bag of Words (BoW) and TF-IDF, represent words using counts or weights. Word2Vec learns vectors that can capture patterns in how words are used.
 
-The main idea is that words appearing in similar contexts may have similar vector representations.
+The main idea is that words appearing in similar contexts may develop similar vector representations.
 
-For example, words such as `king`, `queen`, `prince`, and `princess` may exhibit related patterns in a suitable training corpus.
-
-Word2Vec was introduced by researchers at Google and is commonly associated with two architectures:
+Word2Vec is commonly associated with two architectures:
 
 - **CBOW (Continuous Bag of Words):** Predicts a target word from its surrounding context words.
 - **Skip-gram:** Predicts surrounding context words from a target word.
 
-Word2Vec is a foundational technique in Natural Language Processing (NLP) and helps explain how text can be represented as numerical vectors.
-
 ## 2. Why Do We Need Word2Vec?
 
-Computers work with numerical data, so words need to be represented numerically before many machine learning algorithms can process them.
+Computers work with numerical data, so text often needs to be converted into numerical representations before machine learning models can process it.
 
-Consider these words:
+Bag of Words and TF-IDF represent terms as document features. They do not inherently learn that words such as `cat` and `dog` may be related. Word2Vec learns word vectors from usage patterns in a corpus.
 
-- `cat`
-- `dog`
-- `car`
-- `vehicle`
-
-A simple Bag of Words model represents terms as separate vocabulary features. TF-IDF assigns weights based on term frequency and document frequency. Neither technique inherently learns that `cat` and `dog` are semantically related.
-
-Word2Vec learns vector representations from word usage patterns. When words occur in similar contexts, their vectors may become similar.
-
-For example:
-
-- `cat` and `dog` may occur near words such as `pet`, `food`, and `animal`.
-- `car` and `vehicle` may occur near words such as `road`, `drive`, and `engine`.
-
-The learned vectors can reflect these contextual relationships, depending on the training corpus and model settings.
+For example, `cat` and `dog` might occur near words such as `pet`, `food`, and `animal`, while `car` and `vehicle` might occur near `road`, `drive`, and `engine`. The vectors may reflect these relationships if the training corpus provides enough useful examples.
 
 ## 3. What Is a Word Embedding?
 
 A **word embedding** is a numerical vector representing a word.
 
-For example, a hypothetical embedding might represent `cat` as:
+A hypothetical example:
 
-\[
-\text{cat}=[0.21,-0.45,0.78,0.12]
-\]
-
-And `dog` as:
-
-\[
-\text{dog}=[0.19,-0.39,0.74,0.16]
-\]
+- `cat` = `[0.21, -0.45, 0.78, 0.12]`
+- `dog` = `[0.19, -0.39, 0.74, 0.16]`
 
 These values are illustrative, not actual trained Word2Vec vectors.
 
-Each number is a learned component of the representation. The individual dimensions generally do not have simple, human-readable meanings.
-
-In practice, embeddings often contain tens, hundreds, or more dimensions. Their size depends on the model configuration.
+Each number is a learned component of the representation. Individual dimensions usually do not have simple, human-readable meanings. Embeddings may contain tens, hundreds, or more dimensions, depending on the model configuration.
 
 ### Important characteristics
 
@@ -67,23 +40,15 @@ In practice, embeddings often contain tens, hundreds, or more dimensions. Their 
 - Vector values are learned from a training corpus.
 - Words used in similar contexts can have similar vectors.
 - Embeddings can be used as features for downstream NLP tasks.
-- Word2Vec generally produces one learned vector per vocabulary word, rather than a different contextual vector for each occurrence.
+- Standard Word2Vec generally learns one vector per vocabulary word rather than a different vector for each occurrence.
 
 ## 4. How Does Word2Vec Work?
 
-Word2Vec learns by examining the relationships between words in a text corpus.
-
-Consider this sentence:
+Consider the sentence:
 
 `The cat sits on the mat.`
 
-A training process examines words and their surrounding context according to a selected window size.
-
-For example, with a context window of two, the context around `sits` may include:
-
-`The`, `cat`, `on`, `the`
-
-The model uses training examples derived from such relationships to learn word representations.
+A training process examines words and their surrounding context according to a selected window size. For example, with a context window of two, the context around `sits` may include `The`, `cat`, `on`, and `the`, depending on the token positions and window convention.
 
 A simplified workflow is:
 
@@ -93,77 +58,45 @@ A simplified workflow is:
 4. Generate training examples from word contexts.
 5. Train a CBOW or Skip-gram model.
 6. Extract the learned word vectors.
-7. Use the vectors in similarity analysis or downstream NLP tasks.
+7. Use the vectors for similarity analysis or downstream NLP tasks.
 
-The resulting vectors are influenced by the corpus, tokenization, context window, vector dimension, and training parameters.
+The vectors are influenced by the corpus, tokenization, context window, vector dimension, and training parameters.
 
 ## 5. The Two Word2Vec Architectures
 
 ### 5.1 CBOW (Continuous Bag of Words)
 
-CBOW predicts a target word using the surrounding context words.
+CBOW predicts a target word using surrounding context words.
 
 Example sentence:
 
 `The cat drinks milk`
 
-Suppose the target word is `drinks`.
+If `drinks` is the target word, the surrounding words can be used as context:
 
-Context words:
-
-`The`, `cat`, `milk`
-
-Target word:
-
-`drinks`
-
-The model learns to predict the target word from the context.
+- Context: `The`, `cat`, `milk`
+- Target: `drinks`
 
 Simplified representation:
 
-\[
-\text{Context Words}\rightarrow\text{Target Word}
-\]
+**Context words → Target word**
 
-CBOW combines information from the context to predict the missing target word.
-
-**Characteristics:**
-
-- Predicts a target word from surrounding words.
-- Often trains efficiently on suitable datasets.
-- Uses context information without treating context order as the central prediction objective.
-- Can work well for learning representations of frequent words.
+CBOW combines context information to predict the target word. It is often computationally efficient on suitable datasets.
 
 ### 5.2 Skip-gram
 
 Skip-gram predicts surrounding context words using a target word.
 
-Using the same sentence:
+For the same sentence:
 
-`The cat drinks milk`
-
-Target word:
-
-`drinks`
-
-Possible context words:
-
-`The`, `cat`, `milk`
+- Target: `drinks`
+- Possible context words: `The`, `cat`, `milk`
 
 Simplified representation:
 
-\[
-\text{Target Word}\rightarrow\text{Context Words}
-\]
+**Target word → Context words**
 
-The model learns which words are likely to appear near the target word.
-
-**Characteristics:**
-
-- Predicts context words from a target word.
-- Generates training examples from target-context relationships.
-- Can be useful for learning representations of less frequent words, given a suitable corpus and training configuration.
-- May require more training examples than CBOW.
+Skip-gram creates target-context training examples and can learn useful representations for less frequent words when the corpus and training settings support it.
 
 ### 5.3 CBOW vs. Skip-gram
 
@@ -172,20 +105,18 @@ The model learns which words are likely to appear near the target word.
 | Input | Context words | Target word |
 | Prediction | Target word | Context words |
 | Training objective | Predict a word from context | Predict context from a word |
-| Common advantage | Often computationally efficient | Can learn useful representations for less frequent words |
+| Common characteristic | Often computationally efficient | Can be useful for less frequent words |
 | Example | `cat`, `milk` → `drinks` | `drinks` → `cat`, `milk` |
 
-Both approaches learn word vectors from context. Their effectiveness depends on the corpus, model settings, and intended task.
+Both approaches learn word vectors from context. Their effectiveness depends on the corpus, model settings, and task.
 
 ## 6. Important Word2Vec Parameters
-
-Several parameters influence the learned embeddings.
 
 | Parameter | Meaning |
 |---|---|
 | `vector_size` | Number of dimensions in each word vector |
-| `window` | Maximum context distance used when generating training examples |
-| `min_count` | Minimum frequency required for a word to be included in the vocabulary |
+| `window` | Maximum context distance used to generate training examples |
+| `min_count` | Minimum frequency required for a word to be included |
 | `sg` | Selects Skip-gram (`1`) or CBOW (`0`) |
 | `epochs` | Number of training passes over the corpus |
 | `workers` | Number of worker threads used for training |
@@ -196,7 +127,7 @@ For Gensim's `Word2Vec`, `sg=0` selects CBOW and `sg=1` selects Skip-gram.
 
 ## 7. Word2Vec Using Python and Gensim
 
-Gensim provides an implementation of Word2Vec.
+Gensim provides a Python implementation of Word2Vec.
 
 ### Installation
 
@@ -206,7 +137,7 @@ Install Gensim using:
 python -m pip install --upgrade gensim
 ```
 
-### Example 1: Train a Basic Word2Vec Model
+### Example 1: Train a Basic Skip-gram Model
 
 ```python
 from gensim.models import Word2Vec
@@ -237,21 +168,36 @@ print(model.wv.index_to_key)
 print("\nVector for 'cats':")
 print(model.wv["cats"])
 
-print("\nVector Dimensions:")
+print("\nVector dimensions:")
 print(model.wv["cats"].shape)
 ```
+
+**Example output:** The exact vocabulary order and vector values may vary.
+
+```text
+Vocabulary:
+['cats', 'dogs', 'and', 'pets', 'chase', 'small', 'mice', 'like', 'playing', 'outside', 'are', 'need', 'food', 'care', 'spaces']
+
+Vector for 'cats':
+[... 50 floating-point values ...]
+
+Vector dimensions:
+(50,)
+```
+
+The vector is abbreviated above to keep the README readable. Running the code prints all 50 values. The vocabulary ordering shown is illustrative.
 
 ### Explanation
 
 - `sentences` contains tokenized training sentences.
-- `vector_size=50` creates vectors with 50 dimensions.
+- `vector_size=50` creates 50-dimensional vectors.
 - `window=3` sets the context window.
 - `min_count=1` includes words that appear at least once.
 - `sg=1` selects Skip-gram.
 - `epochs=100` specifies the number of training passes.
 - `model.wv["cats"]` retrieves the learned vector for `cats`.
 
-**Important:** This corpus is intentionally tiny for demonstration. It is not large or varied enough to produce reliable, general-purpose word embeddings. A real application generally requires a substantially larger corpus.
+**Important:** This corpus is intentionally tiny for demonstration. It is not large or varied enough to produce reliable, general-purpose word embeddings.
 
 ### Example 2: Train a CBOW Model
 
@@ -283,17 +229,28 @@ print(model.wv.index_to_key)
 print("\nVector for 'learning':")
 print(model.wv["learning"])
 
-print("\nVector Dimensions:")
+print("\nVector dimensions:")
 print(model.wv["learning"].shape)
 ```
 
-In this example, `sg=0` selects CBOW. The model learns vectors using context words to predict target words.
+**Example output:** Vector values and vocabulary order may vary.
+
+```text
+Vocabulary:
+['learning', 'data', 'machine', 'uses', 'science', 'deep', 'neural', 'networks', 'python', 'is', 'useful', 'for', 'statistics', 'can', 'analyze', 'text']
+
+Vector for 'learning':
+[... 50 floating-point values ...]
+
+Vector dimensions:
+(50,)
+```
+
+Here, `sg=0` selects CBOW. The model learns vectors by using context words to predict target words.
 
 ## 8. Finding Similar Words
 
-One use of Word2Vec is to find vocabulary items whose learned vectors are similar.
-
-Gensim provides `most_similar()` for this purpose.
+Gensim's `most_similar()` method returns words with vectors closest to a query word under cosine similarity.
 
 ```python
 from gensim.models import Word2Vec
@@ -318,37 +275,37 @@ model = Word2Vec(
     seed=42
 )
 
-print("Words Most Similar to 'cat':")
+print("Words most similar to 'cat':")
 print(model.wv.most_similar("cat", topn=3))
 ```
 
-The output depends on the training data and random initialization. Because the corpus is small, the results should be treated as a demonstration rather than a reliable measure of real-world semantic similarity.
+**Example output format:**
+
+```text
+Words most similar to 'cat':
+[('dog', 0.XX), ('pet', 0.XX), ('milk', 0.XX)]
+```
+
+The `0.XX` values are placeholders, not measured scores. Run the code to obtain actual values in your environment. Because the corpus is small, results are only a demonstration.
 
 ## 9. Calculating Word Similarity
 
-Word2Vec vectors can be compared using cosine similarity.
+Word2Vec vectors can be compared using cosine similarity. For two nonzero vectors, cosine similarity is:
 
-Cosine similarity measures the cosine of the angle between two vectors.
-
-\[
-\text{cosine similarity}(A,B)=
-\frac{A\cdot B}{\|A\|\|B\|}
-\]
+**Cosine similarity(A, B) = (A · B) / (||A|| × ||B||)**
 
 Where:
 
-- \(A\) and \(B\) are word vectors.
-- \(A\cdot B\) is their dot product.
-- \(\|A\|\) and \(\|B\|\) are their vector magnitudes.
+- `A` and `B` are word vectors.
+- `A · B` is their dot product.
+- `||A||` and `||B||` are their magnitudes.
 
-For nonzero vectors, cosine similarity ranges from \(-1\) to \(1\). In many embedding applications, larger values indicate greater directional similarity.
+Cosine similarity ranges from `-1` to `1`. In many embedding applications, a larger value indicates greater directional similarity.
 
-Example:
+### Python Example
 
 ```python
 from gensim.models import Word2Vec
-from numpy import dot
-from numpy.linalg import norm
 
 sentences = [
     ["cats", "are", "pets"],
@@ -370,41 +327,40 @@ model = Word2Vec(
     seed=42
 )
 
-vector1 = model.wv["cats"]
-vector2 = model.wv["dogs"]
-
-similarity = dot(vector1, vector2) / (
-    norm(vector1) * norm(vector2)
-)
-
-print("Cosine Similarity:", round(float(similarity), 4))
+similarity = model.wv.similarity("cats", "dogs")
+print("Cosine similarity:", round(float(similarity), 4))
 ```
 
-The resulting value is learned from this particular training run and corpus. It should not be interpreted as a universal measure of how similar two words are.
+**Example output:**
+
+```text
+Cosine similarity: <a numeric value between -1 and 1>
+```
+
+The exact value is learned from this training run and corpus. The placeholder is descriptive; run the code to see the numeric result. Do not interpret the score as a universal measure of how similar two words are.
 
 ## 10. Word2Vec Vocabulary and Unknown Words
 
-Word2Vec generally learns vectors only for words included in its training vocabulary.
-
-For example, if the corpus contains:
-
-`["cats", "chase", "mice"]`
-
-The model will learn vectors for the vocabulary it retains. A word that never appears in that vocabulary cannot be retrieved as a normal trained word vector.
-
-With Gensim, you can check whether a word is present:
+Standard Word2Vec generally learns vectors only for words retained in its training vocabulary. A word can be absent because it never appeared in the corpus or because it was removed by the `min_count` threshold.
 
 ```python
 if "cats" in model.wv:
     print("The word is present in the vocabulary.")
-    print(model.wv["cats"])
+    print("Vector dimensions:", model.wv["cats"].shape)
 else:
     print("The word is not present in the vocabulary.")
 ```
 
-A word may be absent because it never appeared in the training data or because it was removed by the `min_count` threshold.
+**Example output when `cats` is present:**
 
-Word2Vec is a static word embedding method: the same vocabulary word normally has one learned vector, even when it appears in different contexts. Contextual models such as BERT can generate different representations for a word depending on its surrounding text.
+```text
+The word is present in the vocabulary.
+Vector dimensions: (30,)
+```
+
+The shape depends on the `vector_size` used when training the model.
+
+Standard Word2Vec is a static embedding method: a vocabulary word normally has one learned vector even when it appears in different contexts. Contextual models such as BERT can generate representations influenced by surrounding text.
 
 ## 11. Word2Vec vs. Bag of Words vs. TF-IDF
 
@@ -412,19 +368,17 @@ Word2Vec is a static word embedding method: the same vocabulary word normally ha
 |---|---|---|---|
 | Representation | Sparse count vectors | Sparse weighted vectors | Dense word vectors |
 | Main purpose | Count vocabulary terms | Weight terms by document distribution | Learn word representations from context |
-| Learns word-context relationships | No, in the standard model | No, in the standard model | Yes |
+| Learns word-context relationships | No, not in the standard method | No, not in the standard method | Yes |
 | Captures semantic patterns | Not inherently | Not inherently | Can capture patterns in usage |
-| Representation unit | Usually document | Usually document | Word |
-| Depends on a training corpus | Learns vocabulary from documents | Learns vocabulary and IDF from documents | Learns word vectors from a corpus |
+| Typical representation unit | Document | Document | Word |
+| Training data | Learns vocabulary from documents | Learns vocabulary and IDF from documents | Learns word vectors from a corpus |
 | Common applications | Text classification | Search and document retrieval | Similarity features and downstream NLP |
 
-These techniques solve different problems. Word2Vec learns word-level representations, whereas Bag of Words and TF-IDF are commonly used to represent documents.
+These methods solve different problems. Word2Vec learns word-level representations, whereas Bag of Words and TF-IDF are commonly used to represent documents.
 
 ## 12. Word2Vec vs. Contextual Embeddings
 
-Word2Vec is a **static embedding** technique.
-
-A word normally receives one vector after training. The vector does not automatically change based on the sentence in which the word appears.
+Word2Vec is a **static embedding** technique. A word normally receives one vector after training, regardless of the sentence in which it appears.
 
 Consider:
 
@@ -433,13 +387,13 @@ Consider:
 
 Word2Vec does not normally produce separate context-dependent vectors for these two occurrences of `bank`.
 
-Contextual embedding models, such as BERT, generate representations influenced by surrounding words. They are better suited to tasks where the meaning of a word depends strongly on context.
+Contextual models such as BERT generate representations influenced by surrounding words.
 
 | Feature | Word2Vec | Contextual Embeddings |
 |---|---|---|
 | Vector depends on sentence context | No, not for the standard word vector | Yes |
 | Representation | Static word vector | Context-dependent token representation |
-| Typical architecture | Shallow neural network | Often a transformer |
+| Typical architecture | Shallow neural network | Often a Transformer |
 | Computational requirements | Often relatively modest | Often higher |
 | Example use | Word similarity | Context-sensitive language understanding |
 
@@ -447,72 +401,65 @@ Contextual embedding models, such as BERT, generate representations influenced b
 
 ### Word Similarity
 
-Identify words with similar learned vector representations.
+Find words with similar learned vector representations.
 
 ### Recommendation Systems
 
-Word embeddings can help represent items or terms that occur in similar contexts, depending on how the model is trained and applied.
+Represent terms or items that occur in similar contexts, depending on how the model is trained and applied.
 
 ### Text Classification
 
-Word vectors can be used as features for tasks such as sentiment classification or topic classification.
+Use word vectors as features for sentiment classification, topic classification, or other text tasks.
 
 ### Document Representation
 
-Word vectors can be combined or aggregated to produce document-level features. More advanced approaches can use additional weighting or neural architectures.
+Combine word vectors into document-level features. More advanced approaches can use weighting or neural architectures.
 
 ### Information Retrieval
 
-Embeddings can help represent query terms and document vocabulary for similarity-based retrieval systems.
+Represent query terms and document vocabulary for similarity-based retrieval systems.
 
 ### Semantic Analysis
 
-Word2Vec can reveal patterns of word usage in a corpus, although it does not provide dictionary definitions or guarantee that words with similar vectors are interchangeable.
+Explore patterns of word usage in a corpus. Similarity does not guarantee that words are interchangeable.
 
 ## 14. Limitations of Word2Vec
 
-1. **Requires training data.** Useful vectors depend on having a suitable corpus.
-2. **Static representations.** A word normally has the same vector in different contexts.
-3. **Out-of-vocabulary words.** Standard Word2Vec cannot directly return learned vectors for words absent from its vocabulary.
-4. **Corpus dependence.** The learned relationships reflect the data used for training.
-5. **Bias.** Embeddings can reproduce social and other biases present in the training corpus.
-6. **Limited understanding of meaning.** Similarity between vectors is not the same as true language understanding.
-7. **Rare-word limitations.** Infrequent words may have unreliable vectors.
-8. **Small-corpus limitations.** A tiny corpus generally cannot provide robust general-purpose embeddings.
+1. **Requires suitable training data:** Useful vectors depend on the corpus.
+2. **Static representations:** A word normally has the same vector in different contexts.
+3. **Out-of-vocabulary words:** Standard Word2Vec cannot directly return learned vectors for words absent from its vocabulary.
+4. **Corpus dependence:** Learned relationships reflect the training data.
+5. **Bias:** Embeddings can reproduce biases present in the corpus.
+6. **Limited understanding:** Vector similarity is not the same as human language understanding.
+7. **Rare-word limitations:** Infrequent words may have unreliable vectors.
+8. **Small-corpus limitations:** A tiny corpus is useful for learning the API but not for producing robust general-purpose embeddings.
 
 ## 15. Common Mistakes
 
 - Confusing CBOW with Skip-gram.
-- Assuming the individual dimensions of a word vector have obvious meanings.
-- Assuming that a higher similarity score proves two words have identical meanings.
-- Training a model on too little data and expecting useful general-purpose results.
-- Trying to retrieve vectors for words missing from the vocabulary.
+- Assuming embedding dimensions have obvious human-readable meanings.
+- Assuming a high similarity score proves two words have identical meanings.
+- Training on too little data and expecting reliable general-purpose results.
+- Trying to retrieve a vector for a word missing from the vocabulary.
 - Assuming Word2Vec generates a different vector for every occurrence of a word.
-- Treating Word2Vec as a complete language model that can generate coherent text.
-- Comparing vector results from independently trained models without considering their different learned spaces.
-
+- Treating Word2Vec as a text-generation model.
+- Comparing scores from separately trained models without considering their different vector spaces.
 
 ## 16. Points to Remember
 
 - Word2Vec learns dense word vectors from word-context relationships.
-- CBOW predicts a target word from its surrounding context.
+- CBOW predicts a target word from surrounding context.
 - Skip-gram predicts context words from a target word.
 - `vector_size` determines the number of vector dimensions.
 - Gensim provides a convenient Python implementation.
-- `most_similar()` can retrieve words with similar learned vectors.
-- Word2Vec's vectors depend on the training corpus and configuration.
-- Standard Word2Vec produces static word vectors rather than context-dependent representations.
-- A tiny training corpus is useful for learning the code but not for producing reliable general-purpose embeddings.
+- `most_similar()` retrieves words with similar learned vectors.
+- Vectors depend on the corpus and training configuration.
+- Standard Word2Vec produces static word vectors, not context-dependent representations.
+- A tiny corpus is useful for practicing code but not for reliable general-purpose embeddings.
 
-## 18. References
+## 17. References
 
 - [Gensim Word2Vec Documentation](https://radimrehurek.com/gensim/models/word2vec.html)
 - [Gensim Documentation](https://radimrehurek.com/gensim/)
 - [Original Word2Vec Paper: Efficient Estimation of Word Representations in Vector Space](https://arxiv.org/abs/1301.3781)
 - [Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1310.4546)
-
----
-
-## 17. Trainer CBOW and Skip-gram comparison
-
-The trainer's small-corpus comparison has been added to [Word2Vec.ipynb](Word2Vec.ipynb). It trains both objectives with the same corpus and settings. The local examples use Gensim's current vocabulary access pattern, model.wv.index_to_key; the older trainer script uses model.wv.vocab.
