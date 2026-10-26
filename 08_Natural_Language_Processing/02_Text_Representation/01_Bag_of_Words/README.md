@@ -424,10 +424,10 @@ Print the vocabulary and count matrix, then explain the meaning of each row and 
 
 ## 12. Related Topics
 
-- [Text Cleaning](../../01_Text_Preprocessing/02_Text_Cleaning/README.md) — Preparing raw text for further processing.
-- [Tokenization](../../01_Text_Preprocessing/04_Tokenization/README.md) — Splitting text into tokens.
+- [Text Cleaning](../../01_Text_Preprocessing/02_Text_Cleaning_and_Normalization/01_Text_Cleaning/README.md) — Preparing raw text for further processing.
+- [Tokenization](../../01_Text_Preprocessing/03_Tokenization/README.md) — Splitting text into tokens.
 - [N-Grams](../02_N_Grams/README.md) — Representing sequences of adjacent words.
 - [TF-IDF](../03_TF_IDF/README.md) — Weighting terms according to their frequency and document rarity.
-- [Word2Vec](../06_Word2Vec/README.md) — Learning dense word representations from context.
+- [Word2Vec](../05_Word2Vec/README.md) — Learning dense word representations from context.
 
 **Final takeaway:** Bag of Words is a foundational NLP technique that transforms documents into numerical word-count vectors. It is an excellent starting point for understanding how text becomes machine-learning input, while its limitations motivate more advanced representation techniques.

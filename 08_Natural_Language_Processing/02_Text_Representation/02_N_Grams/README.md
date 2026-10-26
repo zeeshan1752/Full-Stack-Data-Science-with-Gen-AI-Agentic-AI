@@ -507,8 +507,8 @@ Use a sentence containing eight tokens. Generate N-grams for `n = 1, 2, 3, 4, 5`
 
 - [Bag of Words](../01_Bag_of_Words/README.md) — Representing documents using word counts.
 - [TF-IDF](../03_TF_IDF/README.md) — Weighting words according to their frequency and document rarity.
-- [Word2Vec](../06_Word2Vec/README.md) — Learning word representations from contextual patterns.
-- [Tokenization](../../01_Text_Preprocessing/04_Tokenization/README.md) — Splitting text into tokens.
+- [Word2Vec](../05_Word2Vec/README.md) — Learning word representations from contextual patterns.
+- [Tokenization](../../01_Text_Preprocessing/03_Tokenization/README.md) — Splitting text into tokens.
 
 ## 13. Points to Remember
 

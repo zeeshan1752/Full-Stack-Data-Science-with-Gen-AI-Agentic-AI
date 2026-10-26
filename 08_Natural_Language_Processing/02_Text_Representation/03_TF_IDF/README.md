@@ -372,8 +372,8 @@ Generate TF-IDF vectors for two similar sentences and one unrelated sentence. Us
 
 - [Bag of Words](../01_Bag_of_Words/README.md)
 - [N-Grams](../02_N_Grams/README.md)
-- [Text Tokenization](../../01_Text_Preprocessing/04_Tokenization/README.md)
-- [scikit-learn Notes](../../05_NLP_Libraries/03_Scikit_Learn/README.md)
+- [Text Tokenization](../../01_Text_Preprocessing/03_Tokenization/README.md)
+- [scikit-learn Notes](../../05_NLP_Libraries_and_Tools/03_Scikit_Learn/README.md)
 
 ## 15. References
 
