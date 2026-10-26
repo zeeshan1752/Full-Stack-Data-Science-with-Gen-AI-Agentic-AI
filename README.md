@@ -133,34 +133,78 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Natural Language Processing (NLP)
 
-The NLP syllabus is organized into focused main topics. Important concepts have separate entries, while smaller related concepts are grouped together.
+#### 1. NLP Fundamentals and Preprocessing
+- [ ] 01. NLP Fundamentals
+- [ ] 02. Text Cleaning and Normalization
+- [ ] 03. Tokenization
+- [ ] 04. Stop Words, Stemming and Lemmatization
 
-- [ ] NLP Fundamentals
-- [ ] Text Cleaning and Normalization
-- [ ] Tokenization
-- [ ] Stop Words, Stemming and Lemmatization
-- [ ] Bag of Words
-- [ ] N-Grams
-- [ ] TF-IDF
-- [ ] Word Embeddings
-- [ ] Word2Vec
-- [ ] GloVe
-- [ ] Part-of-Speech (POS) Tagging
-- [ ] Named Entity Recognition (NER)
-- [ ] Chunking and Chinking
-- [ ] Dependency Parsing
-- [ ] Text Classification
-- [ ] Sentiment Analysis
-- [ ] Text Similarity
-- [ ] Topic Modeling
-- [ ] Text Summarization
-- [ ] NLP Libraries and Tools (NLTK, spaCy, Scikit-learn, Gensim)
-- [ ] Neural Networks for NLP
-- [ ] RNN and LSTM
-- [ ] Attention Mechanism
-- [ ] Transformers
-- [ ] BERT
-- [ ] NLP Projects
+#### 2. Text Representation
+- [ ] 01. Bag of Words
+- [ ] 02. N-Grams
+- [ ] 03. TF-IDF
+- [ ] 04. Word Embeddings
+- [ ] 05. Word2Vec
+- [ ] 06. GloVe
+
+#### 3. Linguistic Analysis
+- [ ] 01. Part-of-Speech (POS) Tagging
+- [ ] 02. Named Entity Recognition (NER)
+- [ ] 03. Chunking and Chinking
+- [ ] 04. Dependency Parsing
+
+#### 4. NLP Applications
+- [ ] 01. Text Classification
+- [ ] 02. Sentiment Analysis
+- [ ] 03. Text Similarity
+- [ ] 04. Topic Modeling
+- [ ] 05. Text Summarization
+
+#### 5. NLP Libraries and Tools
+- [ ] 01. NLTK
+- [ ] 02. spaCy
+- [ ] 03. Scikit-learn
+- [ ] 04. Gensim
+
+#### 6. Neural Networks for NLP
+- [ ] 01. Neural Network Fundamentals for NLP
+- [ ] 02. Word Embeddings in Neural Networks
+- [ ] 03. Neural Text Classification
+
+#### 7. Sequential Models
+- [ ] 01. Recurrent Neural Networks (RNN)
+- [ ] 02. Long Short-Term Memory (LSTM)
+- [ ] 03. Gated Recurrent Units (GRU)
+
+#### 8. Attention Mechanism
+- [ ] 01. Introduction to Attention
+- [ ] 02. Query, Key and Value
+- [ ] 03. Scaled Dot-Product Attention
+- [ ] 04. Self-Attention and Cross-Attention
+- [ ] 05. Multi-Head Attention
+
+#### 9. Transformers
+- [ ] 01. Transformer Architecture
+- [ ] 02. Encoder and Decoder
+- [ ] 03. Positional Encoding
+- [ ] 04. Feed-Forward Networks
+- [ ] 05. Residual Connections and Layer Normalization
+- [ ] 06. Masking and Parallel Processing
+
+#### 10. BERT
+- [ ] 01. BERT Architecture
+- [ ] 02. Bidirectional Contextual Representations
+- [ ] 03. WordPiece Tokenization
+- [ ] 04. Masked Language Modeling
+- [ ] 05. Pretraining and Fine-Tuning
+- [ ] 06. BERT for Text Classification and NER
+- [ ] 07. Hugging Face Transformers
+
+#### 11. NLP Projects
+- [ ] 01. Spam Message Classifier
+- [ ] 02. Sentiment Analysis on Reviews
+- [ ] 03. News Topic Classifier
+- [ ] 04. Text Summarization Application
 
 ### Power BI
 - Power BI Basics
