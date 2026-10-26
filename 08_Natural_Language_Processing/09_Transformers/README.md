@@ -18,6 +18,7 @@ The Transformer is a neural architecture built around attention rather than recu
 - [Residual Connections and Layer Normalization](05_Residual_Connections_and_Layer_Normalization/README.md)
 - [Masking and Parallel Processing](06_Masking_and_Parallel_Processing/README.md)
 - [GPT-2 Chunking and Hugging Face Demos](07_GPT2_Chunking_and_HF_Demos/README.md) (supplementary trainer material)
+- [Transformer paper resources](Resources/README.md) — reading guide and official paper/PDF links.
 
 ## What happens in a Transformer block?
 
@@ -43,4 +44,4 @@ Continue to [BERT](../10_BERT/README.md). Optional packages are listed in [requi
 
 ## Trainer paper reference
 
-The supplied PDF is the original Transformer paper, *Attention Is All You Need* (Vaswani et al., 2017). Its encoder-decoder architecture, attention, positional encoding, feed-forward layers, residual connections, normalization, and masking are reflected in the topic notes. See [the paper](https://arxiv.org/abs/1706.03762).
+The trainer archive contains the original Transformer paper, *Attention Is All You Need* (Vaswani et al., 2017). Its encoder-decoder architecture, attention, positional encoding, feed-forward layers, residual connections, normalization, and masking are reflected in the topic notes. See the [paper resource guide](Resources/README.md) for the official PDF link and recommended reading order.
