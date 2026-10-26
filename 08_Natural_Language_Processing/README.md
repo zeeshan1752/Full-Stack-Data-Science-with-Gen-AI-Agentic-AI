@@ -18,11 +18,11 @@ This folder follows the 11-unit NLP sequence in the repository syllabus. Each mo
 
 ## Current material and limitations
 
-Practice files cover text cleaning, tokenization, stop words, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, and WordCloud visualization. Small Word2Vec corpora demonstrate the API only; they are not general-purpose pretrained embeddings.
+Practice files cover text cleaning, tokenization, stop words, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, WordCloud visualization, and text-to-speech. Small Word2Vec corpora demonstrate the API only; they are not general-purpose pretrained embeddings.
 
 The missing-argument error in the NLTK practical notebook's N-gram cell has been corrected by passing an explicit value for `n`. The notebook's saved output was updated for that cell, but the notebook has not been executed end-to-end in a clean environment as part of this review. Optional language stop-word resources may also be unavailable in a given NLTK installation. NLTK data packages are separate from the Python package; see the [NLTK data guide](https://www.nltk.org/data.html). Some tagging and NER examples also need model data, depending on the installed NLTK version.
 
-The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transformers/07_GPT2_Chunking_and_HF_Demos/README.md) are preserved trainer material. They demonstrate text continuation and token chunking, not a complete summarization or retrieval system. Colab-specific cells may need adaptation for a local machine. Notebooks and scripts have not all been executed end-to-end, so saved outputs should not be treated as a passing test suite.
+The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transformers/07_GPT2_Chunking_and_HF_Demos/README.md) are preserved trainer material. The GPT-2 token-chunking example has been updated to reserve generation space and use the model's tokenizer. The original Transformer paper is referenced in the [paper resource guide](09_Transformers/Resources/README.md). They demonstrate text continuation and token chunking, not a complete summarization or retrieval system. Colab-specific cells may need adaptation for a local machine. Notebooks and scripts have not all been executed end-to-end, so saved outputs should not be treated as a passing test suite.
 
 ## Course modules
 
