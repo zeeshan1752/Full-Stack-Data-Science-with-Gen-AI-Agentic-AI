@@ -1,6 +1,6 @@
 # spaCy
 
-This folder is reserved for spaCy-specific practical work. The former topic-by-topic subfolders contained only placeholder files, so they have been removed until real examples are added.
+This folder contains the spaCy library guide. The topic subfolders are intentionally preserved as future-learning placeholders; they link to the core concept notes so the same theory does not need to be written twice.
 
 ## Read first
 
@@ -10,4 +10,12 @@ This folder is reserved for spaCy-specific practical work. The former topic-by-t
 - [Dependency parsing](../../03_Linguistic_Analysis/03_Dependency_Parsing/README.md)
 - [Chunking and chinking](../../03_Linguistic_Analysis/04_Chunking_and_Chinking/README.md)
 
-When adding spaCy practice, focus on its pipeline, model installation, API usage, and differences from NLTK rather than repeating these concept explanations.
+## Future lessons
+
+- [Pipelines](01_Pipelines/README.md)
+- [Tokenization](02_Tokenization/README.md)
+- [POS tagging](03_POS_Tagging/README.md)
+- [Named entity recognition](04_Named_Entity_Recognition/README.md)
+- [Dependency parsing](05_Dependency_Parsing/README.md)
+
+When developing these lessons, focus on spaCy's pipeline, model installation, API usage, and differences from NLTK rather than repeating the core concept explanations.
