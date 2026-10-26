@@ -133,76 +133,34 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Natural Language Processing (NLP)
 
-The NLP section is organized topic-wise. Important and lengthy concepts get their own main folders, while small, closely related concepts are grouped together.
+The NLP syllabus is organized into focused main topics. Important concepts have separate entries, while smaller related concepts are grouped together.
 
-```text
-08_Natural_Language_Processing/
-│
-├── README.md
-│
-├── 01_NLP_Fundamentals/
-│   ├── Introduction_to_NLP
-│   ├── NLP_Pipeline
-│   └── NLP_Applications_Overview
-│
-├── 02_Text_Cleaning_and_Normalization/
-│   ├── Text_Cleaning
-│   ├── Text_Normalization
-│   └── Regular_Expressions_for_Text
-│
-├── 03_Tokenization/
-│   ├── Sentence_Tokenization
-│   ├── Word_Tokenization
-│   └── Subword_Tokenization
-│
-├── 04_Stop_Words_Stemming_and_Lemmatization/
-│   ├── Stop_Word_Removal
-│   ├── Stemming
-│   └── Lemmatization
-│
-├── 05_Bag_of_Words/
-├── 06_N_Grams/
-├── 07_TF_IDF/
-├── 08_Word_Embeddings/
-├── 09_Word2Vec/
-├── 10_GloVe/
-│
-├── 11_Part_of_Speech_Tagging/
-├── 12_Named_Entity_Recognition/
-├── 13_Chunking_and_Chinking/
-├── 14_Dependency_Parsing/
-│
-├── 15_Text_Classification/
-├── 16_Sentiment_Analysis/
-├── 17_Text_Similarity/
-├── 18_Topic_Modeling/
-├── 19_Text_Summarization/
-│
-├── 20_NLP_Libraries_and_Tools/
-│   ├── NLTK
-│   ├── spaCy
-│   ├── Scikit_Learn
-│   └── Gensim
-│
-├── 21_Neural_Networks_for_NLP/
-├── 22_RNN_and_LSTM/
-├── 23_Attention_Mechanism/
-├── 24_Transformers/
-├── 25_BERT/
-│
-└── 26_NLP_Projects/
-    ├── Spam_Message_Classifier
-    ├── Sentiment_Analysis
-    ├── News_Topic_Classifier
-    └── Text_Summarization
-```
-
-**Folder organization notes:**
-- **Separate main folders:** Bag of Words, N-Grams, TF-IDF, Word Embeddings, Word2Vec, GloVe, POS Tagging, NER, Chunking, Dependency Parsing, core NLP applications, RNN/LSTM, Attention, Transformers, and BERT are distinct topics worth studying and documenting independently.
-- **Grouped topics:** Text cleaning, normalization, and text-related regular expressions fit together. Stop-word removal, stemming, and lemmatization can share a folder because they are smaller preprocessing techniques. Tokenization stays separate because it is a core topic with several methods.
-- **Libraries:** NLTK, spaCy, Scikit-learn, and Gensim are tools, so they sit under one tools folder rather than being treated as NLP concepts.
-- **Projects:** Keep complete, practical projects together in the projects folder. Each project can contain its own README, notebook, and Python script.
-- **Folder convention:** Create a topic folder when you begin studying it; add `README.md`, a practice `.py` file, and a notebook `.ipynb` when useful.
+- [ ] NLP Fundamentals
+- [ ] Text Cleaning and Normalization
+- [ ] Tokenization
+- [ ] Stop Words, Stemming and Lemmatization
+- [ ] Bag of Words
+- [ ] N-Grams
+- [ ] TF-IDF
+- [ ] Word Embeddings
+- [ ] Word2Vec
+- [ ] GloVe
+- [ ] Part-of-Speech (POS) Tagging
+- [ ] Named Entity Recognition (NER)
+- [ ] Chunking and Chinking
+- [ ] Dependency Parsing
+- [ ] Text Classification
+- [ ] Sentiment Analysis
+- [ ] Text Similarity
+- [ ] Topic Modeling
+- [ ] Text Summarization
+- [ ] NLP Libraries and Tools (NLTK, spaCy, Scikit-learn, Gensim)
+- [ ] Neural Networks for NLP
+- [ ] RNN and LSTM
+- [ ] Attention Mechanism
+- [ ] Transformers
+- [ ] BERT
+- [ ] NLP Projects
 
 ### Power BI
 - Power BI Basics
