@@ -1,14 +1,28 @@
 # Natural Language Processing
 
-This folder follows the 11-unit NLP sequence in the repository syllabus. The folders keep concept notes, library examples, trainer material, and projects in separate places.
+This folder follows the 11-unit NLP sequence in the repository syllabus. Each module separates core concepts from library demonstrations, trainer material, and projects.
 
-## Learning status
+## Learning path
 
-Practice and saved outputs are present for text cleaning, tokenization, stop-word removal, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, and WordCloud visualization. The Word2Vec examples use small teaching corpora; they demonstrate the API and do not produce general-purpose embeddings.
+1. **Text Preprocessing** — clean text, tokenize it, normalize word forms, and prepare consistent input.
+2. **Text Representation** — convert words and documents into numerical features using Bag of Words, N-grams, TF-IDF, and embeddings.
+3. **Linguistic Analysis** — explore parts of speech, named entities, and phrase structure.
+4. **NLP Applications** — connect the foundations to common text-processing tasks.
+5. **NLP Libraries and Tools** — practise with NLTK, scikit-learn, and other Python tools.
+6. **Neural Networks for NLP** — learn embeddings and neural text classification.
+7. **Sequential Models** — understand RNNs, LSTMs, and GRUs.
+8. **Attention Mechanism** — learn queries, keys, values, and attention weights.
+9. **Transformers** — study encoder/decoder blocks, positional information, masking, and modern pretrained models.
+10. **BERT** — understand bidirectional pretraining and downstream fine-tuning.
+11. **NLP Projects** — combine concepts in small, clearly scoped applications.
 
-The preserved NLTK notebook has a saved N-gram error because one call omits n, and some non-English stop-word lookups fail when their NLTK data files are not installed. Notebook outputs are preserved as received. This reorganization did not execute scripts or notebooks.
+## Current material and limitations
 
-The two GPT-2 chunking notebooks in 09_Transformers/07_GPT2_Chunking_and_HF_Demos/ are copies from the trainer archive. Their saved outputs are also preserved; they have not been rerun here. They demonstrate GPT-2 text continuation and token chunking, not a complete summarization or retrieval system.
+Practice files cover text cleaning, tokenization, stop words, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, and WordCloud visualization. Small Word2Vec corpora demonstrate the API only; they are not general-purpose pretrained embeddings.
+
+The NLTK practical notebook is being repaired where a required N-gram argument is missing and optional language stop-word resources may not be installed. NLTK data packages are separate from the Python package; see the [NLTK data guide](https://www.nltk.org/data.html). Some tagging and NER examples also need model data, depending on the installed NLTK version.
+
+The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transformers/07_GPT2_Chunking_and_HF_Demos/README.md) are preserved trainer material. They demonstrate text continuation and token chunking, not a complete summarization or retrieval system. Colab-specific cells may need adaptation for a local machine. Notebooks and scripts have not all been executed end-to-end, so saved outputs should not be treated as a passing test suite.
 
 ## Course modules
 
@@ -24,9 +38,9 @@ The two GPT-2 chunking notebooks in 09_Transformers/07_GPT2_Chunking_and_HF_Demo
 10. [BERT](10_BERT/README.md)
 11. [NLP Projects](11_NLP_Projects/README.md)
 
-## Notes
+## Organization notes
 
-- Existing source notebooks, scripts, and their outputs were preserved while folders were reorganized.
-- Planned folders contain a short README so Git can track them and show their purpose.
-- Extra material such as constituency parsing, clustering, text generation, WordClouds, and the rule-based chatbot remains available after the core syllabus topics.
+- The 11 modules above remain the core syllabus and keep their approved order.
+- Supplementary material such as constituency parsing, clustering, text generation, WordClouds, and the rule-based chatbot remains available outside the core sequence.
+- Trainer notebooks and existing learning material are retained rather than silently removed.
 - PCA material from the trainer archive is not part of this NLP folder.
