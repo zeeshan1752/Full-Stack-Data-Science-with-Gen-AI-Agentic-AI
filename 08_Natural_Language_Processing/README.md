@@ -20,7 +20,7 @@ This folder follows the 11-unit NLP sequence in the repository syllabus. Each mo
 
 Practice files cover text cleaning, tokenization, stop words, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, and WordCloud visualization. Small Word2Vec corpora demonstrate the API only; they are not general-purpose pretrained embeddings.
 
-The NLTK practical notebook is being repaired where a required N-gram argument is missing and optional language stop-word resources may not be installed. NLTK data packages are separate from the Python package; see the [NLTK data guide](https://www.nltk.org/data.html). Some tagging and NER examples also need model data, depending on the installed NLTK version.
+The NLTK practical notebook still has a known saved N-gram error where a required argument is missing. Optional language stop-word resources may also be unavailable in a given NLTK installation; the notebook change could not be committed in this batch. NLTK data packages are separate from the Python package; see the [NLTK data guide](https://www.nltk.org/data.html). Some tagging and NER examples also need model data, depending on the installed NLTK version.
 
 The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transformers/07_GPT2_Chunking_and_HF_Demos/README.md) are preserved trainer material. They demonstrate text continuation and token chunking, not a complete summarization or retrieval system. Colab-specific cells may need adaptation for a local machine. Notebooks and scripts have not all been executed end-to-end, so saved outputs should not be treated as a passing test suite.
 
@@ -37,6 +37,10 @@ The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transfo
 9. [Transformers](09_Transformers/README.md)
 10. [BERT](10_BERT/README.md)
 11. [NLP Projects](11_NLP_Projects/README.md)
+
+## Environment setup
+
+Install the NLP-specific packages from the repository root with `python -m pip install -r 08_Natural_Language_Processing/requirements-nlp.txt`. The Hugging Face and PyTorch dependencies are optional and are listed as comments in that file. NLTK may also require separate corpus/model downloads; see the [NLTK setup notes](05_NLP_Libraries_and_Tools/01_NLTK/README.md).
 
 ## Organization notes
 
