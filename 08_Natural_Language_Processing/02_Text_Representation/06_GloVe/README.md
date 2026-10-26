@@ -53,7 +53,7 @@ The key idea is that GloVe uses corpus-wide co-occurrence information rather tha
 
 ## 5. The GloVe Objective
 
-Let (X_{ij}) be the number of times word (j) appears in the context of word (i). GloVe learns word vectors (w_i), context vectors ~{w}_j, and bias terms (b_i) and ~{b}_j.
+Let `X_ij` be the number of times word `j` appears in the context of word `i`. GloVe learns word vectors `w_i`, context vectors `w̃_j`, and bias terms `b_i` and `b̃_j`.
 
 Its core relationship is commonly written as:
 
@@ -63,7 +63,7 @@ A weighted least-squares objective is used to fit these relationships:
 
 `J = \sum_{i,j} f(X_{ij}) (w_i^T \tilde{w}_j + b_i + \tilde{b}_j - \log X_{ij})^2`
 
-Here, (f(X_{ij})) is a weighting function that limits the influence of extremely frequent co-occurrences and reduces the effect of very rare counts. Implementations handle zero counts without taking the logarithm of zero.
+Here, `f(X_ij)` is a weighting function that limits the influence of extremely frequent co-occurrences and reduces the effect of very rare counts. Implementations handle zero counts without taking the logarithm of zero.
 
 You do not need to memorize the objective first. Understand the sequence: **co-occurrence counts → weighted objective → learned vectors**.
 
