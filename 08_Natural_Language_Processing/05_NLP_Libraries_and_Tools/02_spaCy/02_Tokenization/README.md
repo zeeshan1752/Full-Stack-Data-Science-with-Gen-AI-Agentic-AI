@@ -1,5 +1,5 @@
-# 02 Tokenization
+# spaCy Tokenization
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 02 Tokenization examples for the corresponding library in this folder.
+Start with the core [Tokenization notes](../../../01_Text_Preprocessing/03_Tokenization/README.md). Add spaCy-specific tokenizer behavior, customization, and practical examples here.

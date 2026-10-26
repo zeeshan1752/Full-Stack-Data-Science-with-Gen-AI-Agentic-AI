@@ -1,5 +1,5 @@
-# 03 POS Tagging
+# spaCy POS Tagging
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 03 POS Tagging examples for the corresponding library in this folder.
+Read [POS Tagging](../../../03_Linguistic_Analysis/01_POS_Tagging/README.md) for the core concept. Use this folder for spaCy-specific pipeline usage and tag interpretation.

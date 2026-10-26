@@ -1,5 +1,5 @@
-# 03 Text Classification
+# scikit-learn Text Classification
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 03 Text Classification examples for the corresponding library in this folder.
+Start with [Text Classification](../../../04_NLP_Applications/01_Text_Classification/README.md). Add scikit-learn pipelines, train/test splitting, and model implementation here.

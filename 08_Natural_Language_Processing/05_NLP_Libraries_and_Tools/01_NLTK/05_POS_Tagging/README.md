@@ -1,5 +1,5 @@
-# 05 POS Tagging
+# NLTK POS Tagging
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 05 POS Tagging examples for the corresponding library in this folder.
+Read the core [POS Tagging notes](../../../03_Linguistic_Analysis/01_POS_Tagging/README.md). Use this folder for NLTK-specific API practice, model data requirements, and output interpretation.

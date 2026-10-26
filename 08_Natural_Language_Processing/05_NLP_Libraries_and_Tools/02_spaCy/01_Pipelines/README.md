@@ -1,5 +1,5 @@
-# 01 Pipelines
+# spaCy Pipelines
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 01 Pipelines examples for the corresponding library in this folder.
+Use the core [Linguistic Analysis](../../../03_Linguistic_Analysis/README.md) notes for concepts. This folder is reserved for spaCy pipeline setup, model loading, components, and practical outputs.

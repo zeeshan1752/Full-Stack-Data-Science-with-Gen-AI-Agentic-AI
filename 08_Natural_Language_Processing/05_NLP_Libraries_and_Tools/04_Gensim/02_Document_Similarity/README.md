@@ -1,5 +1,5 @@
-# 02 Document Similarity
+# Gensim Document Similarity
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 02 Document Similarity examples for the corresponding library in this folder.
+Reserved for future practical work on document vectors, similarity measures, and Gensim APIs. Link back to the relevant [Word Embeddings notes](../../../02_Text_Representation/04_Word_Embeddings/README.md) rather than repeating vector fundamentals.

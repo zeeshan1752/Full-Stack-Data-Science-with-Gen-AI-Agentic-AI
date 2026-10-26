@@ -1,5 +1,5 @@
-# 05 Dependency Parsing
+# spaCy Dependency Parsing
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 05 Dependency Parsing examples for the corresponding library in this folder.
+Read the core [Dependency Parsing notes](../../../03_Linguistic_Analysis/03_Dependency_Parsing/README.md). This folder is reserved for spaCy dependency labels, token relationships, and practical visualizations.

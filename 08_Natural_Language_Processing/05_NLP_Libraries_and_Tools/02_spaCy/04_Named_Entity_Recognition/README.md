@@ -1,5 +1,5 @@
-# 04 Named Entity Recognition
+# spaCy Named Entity Recognition
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 04 Named Entity Recognition examples for the corresponding library in this folder.
+The core concept is covered in [Named Entity Recognition](../../../03_Linguistic_Analysis/02_Named_Entity_Recognition/README.md). Add spaCy-specific entity labels, model usage, and examples here.

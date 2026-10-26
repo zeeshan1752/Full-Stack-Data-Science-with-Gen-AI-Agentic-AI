@@ -1,5 +1,5 @@
-# 06 Named Entity Recognition
+# NLTK Named Entity Recognition
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 06 Named Entity Recognition examples for the corresponding library in this folder.
+The core concept is documented in [Named Entity Recognition](../../../03_Linguistic_Analysis/02_Named_Entity_Recognition/README.md). Add NLTK-specific chunking examples and resource setup here when studied.

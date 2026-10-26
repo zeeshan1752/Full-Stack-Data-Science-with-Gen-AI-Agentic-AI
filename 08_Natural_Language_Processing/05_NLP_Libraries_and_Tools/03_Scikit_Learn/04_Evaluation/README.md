@@ -1,5 +1,5 @@
-# 04 Evaluation
+# scikit-learn Evaluation
 
-Status: Planned.
+**Status: Planned — keep this folder for future study.**
 
-Keep 04 Evaluation examples for the corresponding library in this folder.
+Read [Evaluation Metrics](../../../04_NLP_Applications/09_Evaluation_Metrics/README.md) for the concepts. Add scikit-learn metric functions, confusion matrices, and practical evaluation here.
