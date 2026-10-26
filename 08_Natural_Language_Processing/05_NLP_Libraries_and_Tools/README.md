@@ -4,10 +4,10 @@ This module contains library-specific implementations, not a second copy of the 
 
 ## Library guides
 
-- [NLTK](01_NLTK/README.md) — one cross-topic practical notebook, data downloads, and key APIs.
+- [NLTK](01_NLTK/README.md) — cross-topic practical notebook, data downloads, and links to focused future lessons.
 - [spaCy](02_spaCy/README.md) — planned library practice; core linguistic concepts are linked below.
 - [Scikit-learn](03_Scikit_Learn/README.md) — vectorizers and classical text-model workflow.
-- [Gensim](04_Gensim/README.md) — Word2Vec implementation and links to related concepts.
+- [Gensim](04_Gensim/README.md) — Word2Vec implementation and future topics.
 
 ## Canonical concept notes
 
@@ -22,4 +22,4 @@ Use these as the single source for detailed explanations:
 - [Named entity recognition](../03_Linguistic_Analysis/02_Named_Entity_Recognition/README.md)
 - [Dependency parsing](../03_Linguistic_Analysis/03_Dependency_Parsing/README.md)
 
-The old library subfolders that contained only “planned” placeholder READMEs have been removed. When adding new practical work, create a subfolder only if it contains a meaningful notebook, script, dataset, or distinct lesson.
+**Future-learning folders are intentionally preserved.** Their READMEs link to the canonical concept notes and state what library-specific material belongs there. Keep these folders as you progress through the course; avoid copying full theory into each library folder.
