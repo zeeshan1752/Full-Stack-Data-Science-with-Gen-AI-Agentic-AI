@@ -1,75 +1,34 @@
+"""A small rule-based chatbot demo using NLTK's pattern matcher."""
+
 from nltk.chat.util import Chat, reflections
 
+
 pairs = [
-    [
-        r"(.*)my name is (.*)",
-        ["Hello %2, How are you today ?",]
-    ],
-    [
-        r"(.*)help(.*) ",
-        ["I can help you ",]
-    ],
-     [
-        r"(.*) your name ?",
-        ["My name is thecleverprogrammer, but you can just call me robot and I'm a chatbot .",]
-    ],
-    [
-        r"how are you (.*) ?",
-        ["I'm doing very well", "i am great !"]
-    ],
-    [
-        r"sorry (.*)",
-        ["Its alright","Its OK, never mind that",]
-    ],
-    [
-        r"i'm (.*) (good|well|okay|ok)",
-        ["Nice to hear that","Alright, great !",]
-    ],
-    [
-        r"(hi|hey|hello|hola|holla)(.*)",
-        ["Hello", "Hey there",]
-    ],
-    [
-        r"what (.*) want ?",
-        ["Make me an offer I can't refuse",]
-       
-    ],
-    [
-        r"(.*)created(.*)",
-        ["prakash created me using Python's NLTK library ","top secret ;)",]
-    ],
-    [
-        r"(.*) (location|city) ?",
-        ['hyderabad, India',]
-    ],
-    [
-        r"(.*)raining in (.*)",
-        ["No rain in the past 4 days here in %2","In %2 there is a 50% chance of rain",]
-    ],
-    [
-        r"how (.*) health (.*)",
-        ["Health is very important, but I am a computer, so I don't need to worry about my health ",]
-    ],
-    [
-        r"(.*)(sports|game|sport)(.*)",
-        ["I'm a very big fan of Cricket",]
-    ],
-    [
-        r"who (.*) (Cricketer|Batsman)?",
-        ["Virat Kohli"]
-    ],
-    [
-        r"quit",
-        ["Bye for now. See you soon :) ","It was nice talking to you. See you soon :)"]
-    ],
-    [
-        r"(.*)",
-        ['our customer service will reach you']
-    ],
- ]
+    (r".*my name is (.*)", ["Hello %1! How are you today?"]),
+    (r".*\\bhelp\\b.*", ["I can respond to greetings, names, and a few simple topics."]),
+    (r".*your name\\??", ["I'm a simple rule-based chatbot built with Python and NLTK."]),
+    (r"how are you.*", ["I'm working as expected. Thanks for asking!"]),
+    (r"sorry.*", ["That's alright.", "No worries."]),
+    (r"i'm (.*) (good|well|okay|ok)", ["Nice to hear that.", "Great!"]),
+    (r"(hi|hey|hello|hola).*", ["Hello!", "Hey there!"]),
+    (r".*created.*", ["This is a small demonstration of NLTK's chat utilities."]),
+    (r".*\\b(location|city)\\b.*", ["I don't have live location access."]),
+    (r".*raining in (.*)", ["I can't check live weather for %1, but a weather service can."]),
+    (r"how .* health .*", ["I'm software, so I don't have physical health."]),
+    (r".*\\b(sports|game|sport)\\b.*", ["I can chat about sports, but my knowledge is limited."]),
+    (r"who .* (cricketer|batsman).*", ["You could ask me about a particular player."]),
+    (r"quit", ["Bye for now. See you soon!"]),
+    (r".*", ["I didn't understand that. Try typing 'help'."]),
+]
 
-print("Hi, I'm thecleverprogrammer and I like to chat\nPlease type lowercase English language to start a conversation.")
 
-chat = Chat(pairs, reflections)
+def main():
+    print(
+        "Hi! I'm a simple rule-based chatbot.\\n"
+        "Type a message in English. Enter 'quit' to exit."
+    )
+    Chat(pairs, reflections).converse()
 
-chat.converse()
+
+if __name__ == "__main__":
+    main()
