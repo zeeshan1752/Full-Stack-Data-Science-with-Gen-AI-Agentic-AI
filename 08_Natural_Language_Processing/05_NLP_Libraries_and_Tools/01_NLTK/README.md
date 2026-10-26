@@ -8,6 +8,35 @@ NLTK is a Python toolkit for learning and experimenting with natural-language pr
 - Treat the notebook as a teaching example, not a complete test suite. Some language resources and tagging models require separate NLTK data downloads.
 - Read the canonical notes for [text preprocessing](../../01_Text_Preprocessing/README.md), [N-grams](../../02_Text_Representation/02_N_Grams/README.md), [POS tagging](../../03_Linguistic_Analysis/01_POS_Tagging/README.md), and [NER](../../03_Linguistic_Analysis/02_Named_Entity_Recognition/README.md).
 
+
+## Exploring NLTK corpora
+
+A **corpus** is a collection of text used for language study or NLP experiments. NLTK provides interfaces to several sample corpora, including Brown and Gutenberg. The corpus data is downloaded separately from the NLTK Python package.
+
+Example:
+
+```python
+import nltk
+from nltk.corpus import brown, gutenberg
+
+# Run these downloads once in the environment you use for practice.
+nltk.download("brown")
+nltk.download("gutenberg")
+
+print("Brown corpus file IDs:", brown.fileids()[:5])
+print("First Brown words:", brown.words()[:20])
+print("Gutenberg file IDs:", gutenberg.fileids()[:5])
+print("Gutenberg word count in first file:", len(gutenberg.words(gutenberg.fileids()[0])))
+```
+
+Corpus data can be large, so inspect a small slice first. Use `fileids()` to discover available documents, `words()` to inspect tokens, and `sents()` to inspect sentence sequences. If a corpus is missing, download only the package named in the error or follow the official [NLTK data guide](https://www.nltk.org/data.html).
+
+## Tokenizer and N-gram practical notes
+
+The trainer notebook demonstrates sentence, word, blank-line, whitespace, and punctuation-aware tokenization, then generates unigrams, bigrams, trigrams, and arbitrary N-grams. The canonical explanations remain in [Tokenization](../../01_Text_Preprocessing/03_Tokenization/README.md) and [N-Grams](../../02_Text_Representation/02_N_Grams/README.md); use this folder for NLTK-specific APIs and corpus setup.
+
+For `nltk.ngrams(tokens, n)`, always provide `n`. For example, `nltk.ngrams(tokens, 3)` creates trigrams. The number of adjacent N-grams is `max(0, len(tokens) - n + 1)`.
+
 ## Install and download data
 
 Install the Python package in the same environment used by your notebook:
