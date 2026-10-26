@@ -46,3 +46,7 @@ Attention weights can help inspect model behavior, but they are not automaticall
 ## Next
 
 Continue to [Transformers](../09_Transformers/README.md).
+
+## Trainer paper reference
+
+The supplied PDF is the original Transformer paper, *Attention Is All You Need* (Vaswani et al., 2017). Its attention equations and examples inform the notes in this module. See [the paper](https://arxiv.org/abs/1706.03762).

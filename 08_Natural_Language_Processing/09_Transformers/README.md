@@ -40,3 +40,7 @@ The GPT-2 demo notebooks are retained as supplementary material. Some cells are 
 ## Next
 
 Continue to [BERT](../10_BERT/README.md). Optional packages are listed in [requirements-nlp.txt](../requirements-nlp.txt).
+
+## Trainer paper reference
+
+The supplied PDF is the original Transformer paper, *Attention Is All You Need* (Vaswani et al., 2017). Its encoder-decoder architecture, attention, positional encoding, feed-forward layers, residual connections, normalization, and masking are reflected in the topic notes. See [the paper](https://arxiv.org/abs/1706.03762).

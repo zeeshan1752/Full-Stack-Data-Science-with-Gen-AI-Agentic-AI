@@ -48,3 +48,11 @@ Install the NLP-specific packages from the repository root with `python -m pip i
 - Supplementary material such as constituency parsing, clustering, text generation, WordClouds, and the rule-based chatbot remains available outside the core sequence.
 - Trainer notebooks and existing learning material are retained rather than silently removed.
 - PCA material from the trainer archive is not part of this NLP folder.
+## Trainer material applied
+
+- The trainer's NLTK lesson supplied extra tokenizer examples and the chunking/chinking lab.
+- The trainer's Word2Vec lesson supplied the CBOW versus Skip-gram comparison added to the existing Gensim notebook.
+- The trainer's Restaurant Reviews notebook was adapted into a project notebook. Its dataset was not included in the archive; the project README explains the required TSV file.
+- The trainer's Transformer paper supplied the attention and Transformer notes. The two GPT-2 notebooks remain included as trainer demonstrations; they have not been rerun.
+- Existing Bag of Words, TF-IDF, stemming, lemmatization, POS/NER, and chatbot examples already cover the overlapping trainer material, so those local files were retained instead of replaced.
+- Duplicate screenshots and PCA material were not copied into the course tree. The trainer Streamlit demo was reviewed but not copied as-is because its media path and Windows-specific audio playback need repair.

@@ -504,7 +504,7 @@ Word2Vec can reveal patterns of word usage in a corpus, although it does not pro
 - Standard Word2Vec produces static word vectors rather than context-dependent representations.
 - A tiny training corpus is useful for learning the code but not for producing reliable general-purpose embeddings.
 
-## 17. References
+## 18. References
 
 - [Gensim Word2Vec Documentation](https://radimrehurek.com/gensim/models/word2vec.html)
 - [Gensim Documentation](https://radimrehurek.com/gensim/)
@@ -512,3 +512,7 @@ Word2Vec can reveal patterns of word usage in a corpus, although it does not pro
 - [Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1310.4546)
 
 ---
+
+## 17. Trainer CBOW and Skip-gram comparison
+
+The trainer's small-corpus comparison has been added to [Word2Vec.ipynb](Word2Vec.ipynb). It trains both objectives with the same corpus and settings. The local examples use Gensim's current vocabulary access pattern, model.wv.index_to_key; the older trainer script uses model.wv.vocab.
