@@ -1,5 +1,5 @@
 # Word2Vec
-import re
+# This is a tiny teaching corpus. Similarity scores are illustrative only;\n# use a much larger, representative corpus for meaningful embeddings.\nimport re
 from gensim.models import Word2Vec
 
 # Create a collection of sentences
