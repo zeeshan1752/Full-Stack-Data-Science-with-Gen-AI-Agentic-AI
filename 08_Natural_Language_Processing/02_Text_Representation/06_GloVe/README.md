@@ -57,11 +57,11 @@ Let `X_ij` be the number of times word `j` appears in the context of word `i`. G
 
 Its core relationship is commonly written as:
 
-`w_i^T ~{w}_j + b_i + ~{b}_j \approx \log(X_{ij})`
+`dot(w_i, w̃_j) + b_i + b̃_j ≈ ln(X_ij)`
 
 A weighted least-squares objective is used to fit these relationships:
 
-`J = \sum_{i,j} f(X_{ij}) (w_i^T \tilde{w}_j + b_i + \tilde{b}_j - \log X_{ij})^2`
+`J = sum over i,j of f(X_ij) * (dot(w_i, w̃_j) + b_i + b̃_j - ln(X_ij))^2`
 
 Here, `f(X_ij)` is a weighting function that limits the influence of extremely frequent co-occurrences and reduces the effect of very rare counts. Implementations handle zero counts without taking the logarithm of zero.
 
