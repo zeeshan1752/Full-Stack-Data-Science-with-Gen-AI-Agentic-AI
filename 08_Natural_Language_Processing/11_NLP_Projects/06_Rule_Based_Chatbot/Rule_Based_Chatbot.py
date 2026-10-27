@@ -1,28 +1,32 @@
-"""A small rule-based chatbot demo using NLTK's pattern matcher."""
+"""Rule-based chatbot implemented with NLTK's chat utilities."""
 
 from nltk.chat.util import Chat, reflections
 
 
+# Patterns are checked in order; keep the fallback rule last.
 pairs = [
-    (r".*my name is (.*)", ["Hello %1! How are you today?"]),
+    (r".*\bmy name is\s+(.+)", ["Hello %1! How are you today?"]),
     (r".*\bhelp\b.*", ["I can respond to greetings, names, and a few simple topics."]),
-    (r".*your name\??", ["I'm a simple rule-based chatbot built with Python and NLTK."]),
-    (r"how are you.*", ["I'm working as expected. Thanks for asking!"]),
-    (r"sorry.*", ["That's alright.", "No worries."]),
-    (r"i'm (.*) (good|well|okay|ok)", ["Nice to hear that.", "Great!"]),
-    (r"(hi|hey|hello|hola).*", ["Hello!", "Hey there!"]),
-    (r".*created.*", ["This is a small demonstration of NLTK's chat utilities."]),
-    (r".*\b(location|city)\b.*", ["I don't have live location access."]),
-    (r".*raining in (.*)", ["I can't check live weather for %1, but a weather service can."]),
-    (r"how .* health .*", ["I'm software, so I don't have physical health."]),
-    (r".*\b(sports|game|sport)\b.*", ["I can chat about sports, but my knowledge is limited."]),
-    (r"who .* (cricketer|batsman).*", ["You could ask me about a particular player."]),
-    (r"quit", ["Bye for now. See you soon!"]),
+    (r".*\bwhat is your name\??", ["I'm a simple rule-based chatbot built with Python and NLTK."]),
+    (r".*\bhow are you\b.*", ["I'm working as expected. Thanks for asking!", "I'm doing well. Thanks!"]),
+    (r".*\bsorry\b.*", ["That's alright.", "No worries."]),
+    (r".*\bi am (good|well|okay|ok)\b.*", ["Nice to hear that.", "Great!"]),
+    (r".*\bi'm (good|well|okay|ok)\b.*", ["Nice to hear that.", "Great!"]),
+    (r"\b(hi|hey|hello|hola|holla)\b.*", ["Hello!", "Hey there!"]),
+    (r".*\bwho created you\??", ["I'm a demonstration chatbot built with Python and NLTK."]),
+    (r".*\b(created|made) you\??", ["I'm a demonstration chatbot built with Python and NLTK."]),
+    (r".*\b(location|city)\b.*", ["I don't have access to live location information."]),
+    (r".*\braining in (.+)", ["I can't check live weather for %1. Please use a weather service for current conditions."]),
+    (r".*\bhealth\b.*", ["I'm software, so I don't have physical health."]),
+    (r".*\b(sports|game|sport|cricket)\b.*", ["I can chat about sports, but my responses are limited to predefined rules."]),
+    (r".*\b(who is|name)\b.*\b(cricketer|batsman)\b.*", ["You could ask me about a particular cricket player."]),
+    (r"\b(quit|exit|bye|goodbye)\b", ["Bye for now. See you soon!"]),
     (r".*", ["I didn't understand that. Try typing 'help'."]),
 ]
 
 
-def main():
+def main() -> None:
+    """Run the chatbot in the terminal."""
     print(
         "Hi! I'm a simple rule-based chatbot.\n"
         "Type a message in English. Enter 'quit' to exit."
