@@ -1,58 +1,58 @@
 # Natural Language Processing
 
-This folder follows the 11-unit NLP sequence in the repository syllabus. Each module separates core concepts from library demonstrations, trainer material, and projects.
+Roadmap and checklist for the NLP learning folder. All topic folders are kept ready for future material, including topics that are currently empty. Check items as you complete them.
 
-## Learning path
+## 01_Preprocessing
+- [ ] [01_Basics_and_Cleaning](01_Preprocessing/01_Basics_and_Cleaning/)
+- [ ] [02_Tokenization](01_Preprocessing/02_Tokenization/)
+- [ ] [03_Stopwords_Stemming_Lemmatization](01_Preprocessing/03_Stopwords_Stemming_Lemmatization/)
+- [ ] [04_Regex_and_Pipelines](01_Preprocessing/04_Regex_and_Pipelines/)
 
-1. **Text Preprocessing** — clean text, tokenize it, normalize word forms, and prepare consistent input.
-2. **Text Representation** — convert words and documents into numerical features using Bag of Words, N-grams, TF-IDF, and embeddings.
-3. **Linguistic Analysis** — explore parts of speech, named entities, and phrase structure.
-4. **NLP Applications** — connect the foundations to common text-processing tasks.
-5. **NLP Libraries and Tools** — practise with NLTK, scikit-learn, and other Python tools.
-6. **Neural Networks for NLP** — learn embeddings and neural text classification.
-7. **Sequential Models** — understand RNNs, LSTMs, and GRUs.
-8. **Attention Mechanism** — learn queries, keys, values, and attention weights.
-9. **Transformers** — study encoder/decoder blocks, positional information, masking, and modern pretrained models.
-10. **BERT** — understand bidirectional pretraining and downstream fine-tuning.
-11. **NLP Projects** — combine concepts in small, clearly scoped applications.
+## 02_Text_Representation
+- [ ] [01_Bag_of_Words_and_NGrams](02_Text_Representation/01_Bag_of_Words_and_NGrams/)
+- [ ] [02_TF_IDF](02_Text_Representation/02_TF_IDF/)
+- [ ] [03_Word_Embeddings](02_Text_Representation/03_Word_Embeddings/)
 
-## Current material and limitations
+## 03_Linguistic_Analysis
+- [ ] [01_POS_Tagging](03_Linguistic_Analysis/01_POS_Tagging/)
+- [ ] [02_NER](03_Linguistic_Analysis/02_NER/)
+- [ ] [03_Parsing](03_Linguistic_Analysis/03_Parsing/)
+- [ ] [04_Chunking](03_Linguistic_Analysis/04_Chunking/)
 
-Practice files cover text cleaning, tokenization, stop words, stemming, lemmatization, Bag of Words, N-grams, TF-IDF, Word2Vec, POS tagging, NER, chunking, WordCloud visualization, and text-to-speech. Small Word2Vec corpora demonstrate the API only; they are not general-purpose pretrained embeddings.
+## 04_Applications
+- [ ] [01_Text_Classification](04_Applications/01_Text_Classification/)
+- [ ] [02_Sentiment_Analysis](04_Applications/02_Sentiment_Analysis/)
+- [ ] [03_Similarity_and_Clustering](04_Applications/03_Similarity_and_Clustering/)
+- [ ] [04_Topic_Modeling](04_Applications/04_Topic_Modeling/)
+- [ ] [05_Summarization_and_Generation](04_Applications/05_Summarization_and_Generation/)
+- [ ] [06_Evaluation_Metrics](04_Applications/06_Evaluation_Metrics/)
+- [ ] [07_Visualization_and_Speech](04_Applications/07_Visualization_and_Speech/)
 
-The missing-argument error in the NLTK practical notebook's N-gram cell has been corrected by passing an explicit value for `n`. The notebook's saved output was updated for that cell, but the notebook has not been executed end-to-end in a clean environment as part of this review. Optional language stop-word resources may also be unavailable in a given NLTK installation. NLTK data packages are separate from the Python package; see the [NLTK data guide](https://www.nltk.org/data.html). Some tagging and NER examples also need model data, depending on the installed NLTK version.
+## 05_Neural_Models
+- [ ] [01_NN_Fundamentals_and_Embeddings](05_Neural_Models/01_NN_Fundamentals_and_Embeddings/)
+- [ ] [02_RNN_LSTM_GRU](05_Neural_Models/02_RNN_LSTM_GRU/)
+- [ ] [03_Neural_Text_Classification](05_Neural_Models/03_Neural_Text_Classification/)
 
-The two GPT-2 notebooks under [GPT-2 Chunking and Hugging Face Demos](09_Transformers/07_GPT2_Chunking_and_HF_Demos/README.md) are preserved trainer material. The GPT-2 token-chunking example has been updated to reserve generation space and use the model's tokenizer. The original Transformer paper is referenced in the [paper resource guide](09_Transformers/Resources/README.md). They demonstrate text continuation and token chunking, not a complete summarization or retrieval system. Colab-specific cells may need adaptation for a local machine. Notebooks and scripts have not all been executed end-to-end, so saved outputs should not be treated as a passing test suite.
+## 06_Attention_and_Transformers
+- [ ] [01_Attention](06_Attention_and_Transformers/01_Attention/)
+- [ ] [02_Transformer_Architecture](06_Attention_and_Transformers/02_Transformer_Architecture/)
+- [ ] [03_GPT2_and_HF_Demos](06_Attention_and_Transformers/03_GPT2_and_HF_Demos/)
 
-## Course modules
+## 07_BERT
+- [ ] [01_BERT_Architecture_and_Tokenization](07_BERT/01_BERT_Architecture_and_Tokenization/)
+- [ ] [02_Pretraining_and_Fine_Tuning](07_BERT/02_Pretraining_and_Fine_Tuning/)
+- [ ] [03_BERT_Applications](07_BERT/03_BERT_Applications/)
 
-1. [Text Preprocessing](01_Text_Preprocessing/README.md)
-2. [Text Representation](02_Text_Representation/README.md)
-3. [Linguistic Analysis](03_Linguistic_Analysis/README.md)
-4. [NLP Applications](04_NLP_Applications/README.md)
-5. [NLP Libraries and Tools](05_NLP_Libraries_and_Tools/README.md)
-6. [Neural Networks for NLP](06_Neural_Networks_for_NLP/README.md)
-7. [Sequential Models](07_Sequential_Models/README.md)
-8. [Attention Mechanism](08_Attention_Mechanism/README.md)
-9. [Transformers](09_Transformers/README.md)
-10. [BERT](10_BERT/README.md)
-11. [NLP Projects](11_NLP_Projects/README.md)
+## 08_Projects
+- [ ] [01_Spam_Message_Classifier](08_Projects/01_Spam_Message_Classifier/)
+- [ ] [02_Sentiment_Analysis_on_Reviews](08_Projects/02_Sentiment_Analysis_on_Reviews/)
+- [ ] [03_News_Topic_Classifier](08_Projects/03_News_Topic_Classifier/)
+- [ ] [04_Text_Summarization_Application](08_Projects/04_Text_Summarization_Application/)
+- [ ] [05_Named_Entity_Extraction](08_Projects/05_Named_Entity_Extraction/)
+- [ ] [06_Rule_Based_Chatbot](08_Projects/06_Rule_Based_Chatbot/)
 
-## Environment setup
+## Shared data
 
-Install the NLP-specific packages from the repository root with `python -m pip install -r 08_Natural_Language_Processing/requirements-nlp.txt`. The Hugging Face and PyTorch dependencies are optional and are listed as comments in that file. NLTK may also require separate corpus/model downloads; see the [NLTK setup notes](05_NLP_Libraries_and_Tools/01_NLTK/README.md).
-
-## Organization notes
-
-- The 11 modules above remain the core syllabus and keep their approved order.
-- Supplementary material such as constituency parsing, clustering, text generation, WordClouds, and the rule-based chatbot remains available outside the core sequence.
-- Trainer notebooks and existing learning material are retained rather than silently removed.
-- PCA material from the trainer archive is not part of this NLP folder.
-## Trainer material applied
-
-- The trainer's NLTK lesson supplied extra tokenizer examples and the chunking/chinking lab.
-- The trainer's Word2Vec lesson supplied the CBOW versus Skip-gram comparison added to the existing Gensim notebook.
-- The trainer's Restaurant Reviews notebook was adapted into a project notebook. Its dataset was not included in the archive; the project README explains the required TSV file.
-- The trainer's Transformer paper supplied the attention and Transformer notes. The two GPT-2 notebooks remain included as trainer demonstrations; they have not been rerun.
-- Existing Bag of Words, TF-IDF, stemming, lemmatization, POS/NER, and chatbot examples already cover the overlapping trainer material, so those local files were retained instead of replaced.
-- Duplicate screenshots and PCA material were not copied into the course tree. The trainer Streamlit demo was reviewed but not copied as-is because its media path and Windows-specific audio playback need repair.
+- [Data folder notes](data/README.md)
+- [Sample texts](data/sample_texts.txt)
+- [Synthetic restaurant reviews dataset](data/restaurant_reviews.tsv)

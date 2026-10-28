@@ -1,0 +1,7 @@
+Natural language processing helps computers work with human language.
+The quick brown fox jumps over the lazy dog.
+OpenAI builds tools that help people solve problems with artificial intelligence.
+Paris is the capital of France, and the Seine flows through the city.
+I enjoyed the friendly service, but the meal arrived late.
+
+Ada Lovelace worked in London and wrote about the Analytical Engine.
