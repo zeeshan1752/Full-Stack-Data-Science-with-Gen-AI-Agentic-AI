@@ -1,8 +1,8 @@
 # Natural Language Processing Syllabus and Checklist
 
-This is the main NLP syllabus and progress checklist. Topic notes are consolidated into each folder’s `README.md` for direct browsing on GitHub. All topic folders are kept ready for future material, including topics that are currently empty.
+This is the main NLP syllabus and progress checklist. Topic notes are consolidated into each folder’s `README.md` for direct browsing on GitHub. The checklist shows which topics already contain runnable code and which ones still need examples.
 
-`[x]` means runnable example or project code is present; empty and notes-only topics remain unchecked.
+[x] means runnable example or project code is present; notes-only topics remain unchecked.
 
 ## Learning path
 
