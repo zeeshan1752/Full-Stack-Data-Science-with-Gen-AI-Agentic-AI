@@ -11,11 +11,11 @@ Attention lets a model assign different weights to different parts of an input w
 
 ## Learning sequence
 
-- [Introduction to Attention](introduction_to_attention_notes.md)
-- [Query, Key and Value](query_key_and_value_notes.md)
-- [Scaled Dot-Product Attention](scaled_dot_product_attention_notes.md)
-- [Self-Attention and Cross-Attention](self_attention_and_cross_attention_notes.md)
-- [Multi-Head Attention](multi_head_attention_notes.md)
+- [Introduction to Attention](README.md#introduction-to-attention)
+- [Query, Key and Value](README.md#query-key-and-value-2)
+- [Scaled Dot-Product Attention](README.md#scaled-dot-product-attention)
+- [Self-Attention and Cross-Attention](README.md#self-attention-and-cross-attention)
+- [Multi-Head Attention](README.md#multi-head-attention)
 
 ## Query, key, and value
 
@@ -51,3 +51,71 @@ Continue to [Transformers](../02_Transformer_Architecture/README.md).
 
 The supplied PDF is the original Transformer paper, *Attention Is All You Need* (Vaswani et al., 2017). Its attention equations and examples inform the notes in this module. See [the paper](https://arxiv.org/abs/1706.03762).
 
+---
+
+## Introduction to Attention
+
+Attention maps a query and a set of key-value pairs to an output. A compatibility score compares the query with each key; a softmax turns the scores into weights; the output is a weighted sum of the values.
+
+Attention lets a position gather information from other positions in a sequence. In self-attention, the query, key, and value vectors come from the same sequence representation.
+
+The original Transformer paper replaces recurrence with attention layers so sequence positions can be processed in parallel within a layer. See [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
+
+---
+
+## Multi-Head Attention
+
+Multi-head attention runs several attention operations on learned projections of Q, K, and V. Their outputs are concatenated and projected to the model dimension.
+
+~~~text
+head_i = Attention(Q W_i^Q, K W_i^K, V W_i^V)
+MultiHead(Q, K, V) = Concat(head_1, ..., head_h) W^O
+~~~
+
+Different heads can represent different relationships or positions. In the original paper's base model, h=8 and each head uses key and value dimensions of 64. These are paper settings, not universal requirements.
+
+Reference: [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
+
+---
+
+## Query, Key and Value
+
+For each token representation, learned projections produce a query (Q), key (K), and value (V).
+
+- A query represents what a position is looking for.
+- A key represents what a position offers for matching.
+- A value contains the information that can be passed to other positions.
+
+Attention scores compare queries against keys. The normalized scores weight the corresponding values. The query, key, and value analogy is only an intuition; the computation uses learned vectors and matrix operations.
+
+The original Transformer packs queries, keys, and values into matrices Q, K, and V. Reference: [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
+
+---
+
+## Scaled Dot-Product Attention
+
+The original Transformer computes:
+
+~~~text
+Attention(Q, K, V) = softmax(Q K^T / sqrt(d_k)) V
+~~~
+
+QK^T scores the compatibility of each query with every key. Dividing by sqrt(d_k) controls score scale before softmax. Softmax converts the scores to weights, and multiplying by V forms weighted value summaries.
+
+A mask can set disallowed scores to negative infinity before softmax. This is used in a decoder to prevent a position from reading future target tokens.
+
+Reference: [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).
+
+---
+
+## Self-Attention and Cross-Attention
+
+### Self-attention
+
+Queries, keys, and values come from the same sequence. Each position can use information from other allowed positions in that sequence. Encoder self-attention can attend across the input; decoder self-attention uses a causal mask so each position cannot see future output tokens.
+
+### Cross-attention
+
+Queries come from the decoder, while keys and values come from the encoder output. This lets each decoder position select information from the input sequence.
+
+These are the three attention uses described for the original Transformer: encoder self-attention, masked decoder self-attention, and encoder-decoder attention. Reference: [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762).

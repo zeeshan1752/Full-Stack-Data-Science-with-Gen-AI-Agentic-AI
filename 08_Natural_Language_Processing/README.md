@@ -1,6 +1,6 @@
 # Natural Language Processing
 
-Roadmap and checklist for the NLP learning folder. All topic folders are kept ready for future material, including topics that are currently empty. Check items as you complete them.
+Roadmap and checklist for the NLP learning folder. All topic folders are kept ready for future material, including topics that are currently empty. Check items as you complete them. Topic notes are consolidated into each folder’s `README.md` for direct browsing on GitHub.
 
 `[x]` means runnable example or project code is present; empty and notes-only topics remain unchecked.
 

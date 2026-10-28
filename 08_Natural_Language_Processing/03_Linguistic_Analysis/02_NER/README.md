@@ -10,7 +10,7 @@ The preserved [NLTK practice notebook](../../01_Preprocessing/02_Tokenization/nl
 
 Install NLTK with python -m pip install nltk. Follow the official [NLTK data guide](https://www.nltk.org/data.html) for any missing tokenizer, tagger, or named-entity resources. NLTK's chunker commonly expects POS-tagged tokens as input.
 
-NER output is an automated prediction and may miss entities or assign an incorrect type. See [POS tagging](../01_POS_Tagging/README.md) and [NLTK notes](../../01_Preprocessing/02_Tokenization/nltk_notes.md).
+NER output is an automated prediction and may miss entities or assign an incorrect type. See [POS tagging](../01_POS_Tagging/README.md) and [NLTK notes](../../01_Preprocessing/02_Tokenization/README.md#nltk).
 
 
 ## Examples
