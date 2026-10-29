@@ -133,6 +133,8 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ### Natural Language Processing (NLP)
 
+The organized NLP notes, runnable scripts, datasets, and projects are in the [NLP learning materials](08_Natural_Language_Processing/README.md).
+
 #### 1. Text Preprocessing
 - [ ] 01. NLP Fundamentals
 - [ ] 02. Text Cleaning and Normalization
@@ -349,16 +351,30 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 
 ## Repository Structure
 
-This repository is organized by learning topic:
+The repository is organized by course topic. The NLP section is arranged as follows:
 
 ```text
 .
+├── .vscode/
 ├── 01_Python/
 ├── 02_Advanced_Python/
 ├── 03_Data_Analysis/
-├── README.md
+├── 04_Web_Application_Development/
+├── 06_Mathematics_&_Statistics/
+├── 08_Natural_Language_Processing/
+│   ├── 01_Preprocessing/
+│   ├── 02_Linguistic_Analysis/
+│   ├── 03_Text_Representation/
+│   ├── 04_Neural_Models/
+│   ├── 05_Attention_and_Transformers/
+│   ├── 06_BERT/
+│   ├── 07_Applications/
+│   ├── 08_Projects/
+│   └── README.md
+├── 13_LLMs/
+├── .gitignore
 ├── NOTEBOOK_GUIDE.md
-└── .gitignore
+└── README.md
 ```
 
 ## Setup and Run Notebooks
