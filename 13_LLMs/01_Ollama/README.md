@@ -22,7 +22,6 @@ By the end of this topic, you should be able to:
 01_Ollama/
 ├── README.md
 ├── ollama.ipynb
-├── requirements.txt
 └── images/
     ├── ollama_commands.png
     └── ollama_workflow.png
@@ -32,7 +31,6 @@ By the end of this topic, you should be able to:
 |---|---|
 | `README.md` | Detailed notes, installation guide, commands, and troubleshooting. |
 | `ollama.ipynb` | Step-by-step notebook with explanations and optional Python integration. |
-| `requirements.txt` | Python dependency needed for the notebook's API examples. |
 | `images/` | Quick-reference diagrams for the workflow and CLI commands. |
 
 The separate `ollama.py` script is intentionally not included: the Python example is kept in the notebook so that the notes and runnable practice stay together.
@@ -196,10 +194,10 @@ The terminal commands are enough for the basic class activity. Python integratio
 From this folder, run:
 
 ```bash
-python -m pip install -r requirements.txt
+python -m pip install 'ollama>=0.4.0'
 ```
 
-The `requirements.txt` file contains the official `ollama` Python client package. Installing this package does **not** install the Ollama desktop application or download an LLM; those are separate steps.
+This installs the official `ollama` Python client package. It does **not** install the Ollama desktop application or download an LLM; those are separate steps.
 
 ### Step 3 — Call the model from the notebook
 
@@ -222,7 +220,7 @@ The Python package communicates with the Ollama service. If the service is not r
 | Model name not found | Copy the exact name and tag from `ollama ls` or the model library. |
 | Model is slow | Try a smaller model, close unnecessary apps, and check memory and hardware requirements. |
 | Out-of-memory error | Stop other resource-heavy applications and use a model that fits your computer. |
-| Python reports `ModuleNotFoundError: No module named 'ollama'` | Install the requirements into the same Python environment used by the notebook. |
+| Python reports `ModuleNotFoundError: No module named 'ollama'` | Install the `ollama` package into the same Python environment used by the notebook. |
 | Python cannot connect to Ollama | Confirm Ollama is installed and running, and that the selected model is available. |
 | Download fails | Check the internet connection, available disk space, model tag, and any network restrictions. |
 

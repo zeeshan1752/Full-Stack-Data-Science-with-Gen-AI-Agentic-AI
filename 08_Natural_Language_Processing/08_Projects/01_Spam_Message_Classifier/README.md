@@ -12,7 +12,7 @@ Download the SMS Spam Collection from the [UCI Machine Learning Repository](http
 
     08_Natural_Language_Processing/data/sms_spam.tsv
 
-The dataset is licensed CC BY 4.0. Keep the source attribution in SOURCES.md if you redistribute it; this repository does not include the dataset file.
+The dataset is licensed CC BY 4.0. If you redistribute it, include attribution to Almeida and Hidalgo's UCI SMS Spam Collection. This repository does not include the dataset file.
 
 ## Run
 

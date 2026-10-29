@@ -358,8 +358,6 @@ This repository is organized by learning topic:
 ├── 03_Data_Analysis/
 ├── README.md
 ├── NOTEBOOK_GUIDE.md
-├── SOURCES.md
-├── requirements.txt
 └── .gitignore
 ```
 
@@ -375,7 +373,7 @@ Activate the environment, then install the pinned dependencies:
 
 ```powershell
 .venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
+python -m pip install numpy==2.5.3 pandas==3.0.6 matplotlib==3.11.2 openpyxl==3.1.5 Pillow==12.3.0 jupyterlab==4.6.3 ipykernel==7.4.0
 jupyter lab
 ```
 
