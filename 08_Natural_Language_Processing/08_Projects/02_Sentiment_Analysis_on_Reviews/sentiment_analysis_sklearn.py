@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 dataset = pd.read_csv(
-    Path(__file__).resolve().parents[2] / "data" / "restaurant_reviews.tsv",
+    Path(__file__).resolve().parents[2] / "04_Neural_Models" / "restaurant_reviews.tsv",
     delimiter='\t',
     quoting=3
 )

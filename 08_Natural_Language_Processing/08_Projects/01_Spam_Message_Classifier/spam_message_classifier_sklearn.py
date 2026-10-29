@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
 
-DATA_FILE = Path(__file__).resolve().parents[2] / "data" / "sms_spam.tsv"
+DATA_FILE = Path(__file__).resolve().parent / "sms_spam.tsv"
 
 
 def load_messages():

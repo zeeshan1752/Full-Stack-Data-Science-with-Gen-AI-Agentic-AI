@@ -322,68 +322,7 @@ It can help normalize user messages before further language processing.
 
 Lemmatization can improve matching between queries and documents containing different grammatical forms of a word.
 
-### 10. Exercises
-
-#### Exercise 1: Basic Lemmatization
-
-Use `WordNetLemmatizer` on the following words:
-
-```python
-words = ["cars", "dogs", "studies", "playing"]
-```
-
-Observe the output using the default noun setting.
-
-#### Exercise 2: Verb Lemmatization
-
-Use `pos="v"` on:
-
-```python
-words = ["playing", "played", "running", "studies"]
-```
-
-Compare the results with the default setting.
-
-#### Exercise 3: Adjective Lemmatization
-
-Test the following words:
-
-```python
-words = ["better", "best", "faster"]
-```
-
-Try adjective and adverb parts of speech and compare the results.
-
-#### Exercise 4: Sentence Processing
-
-Input:
-
-```text
-The children are playing, running, and studying.
-```
-
-Tasks:
-
-1. Tokenize the sentence.
-2. Remove stop words if appropriate.
-3. Lemmatize the remaining tokens.
-4. Compare the original words with their lemmas.
-
-#### Exercise 5: Stemming vs. Lemmatization
-
-Compare both techniques on:
-
-```python
-words = ["studies", "running", "happiness", "cars"]
-```
-
-Identify which technique produces more recognizable dictionary forms.
-
-#### Exercise 6: Part-of-Speech Experiment
-
-Use the word `meeting` as a noun and as a verb. Investigate how the part of speech affects lemmatization.
-
-### 11. Installing and Configuring NLTK
+### 10. Installing and Configuring NLTK
 
 Install NLTK using the following command:
 
@@ -410,14 +349,14 @@ nltk.download("stopwords")
 
 Download only the resources needed by your program. If NLTK reports a missing resource, follow the resource name given in the error message.
 
-### 12. Related Topics
+### 11. Related Topics
 
 - [Stemming](stemming_comparison_nltk.py) — Reducing words through rule-based transformations.
 - [Stop-Word Removal](stopword_removal_nltk.py) — Removing selected common words when appropriate.
 - [Tokenization](../02_Tokenization/) — Splitting text into sentences or smaller units.
-- [Bag of Words](../../02_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
 
-### 13. Points to Remember
+### 12. Points to Remember
 
 - Lemmatization maps a word to its dictionary base form.
 - The resulting form is called a lemma.
@@ -720,66 +659,6 @@ Choose stemming when simple reduction is sufficient. Consider lemmatization when
 - **Ignoring language support:** A stemmer must be appropriate for the language being processed.
 - **Assuming stemming always improves accuracy:** Evaluate the resulting NLP model rather than assuming preprocessing is beneficial.
 
-### 9. Exercises
-
-#### Exercise 1: Basic Stemming
-
-Use the Porter Stemmer on these words:
-
-```python
-words = ["playing", "played", "plays", "player"]
-```
-
-Print each original word and its stem.
-
-#### Exercise 2: Compare Three Algorithms
-
-Use the Porter, Lancaster, and Snowball stemmers on:
-
-```python
-words = ["connect", "connected", "connecting", "connection"]
-```
-
-Compare the results and identify any differences.
-
-#### Exercise 3: Longer Words
-
-Test the following words:
-
-```python
-words = ["studies", "studying", "happiness", "relational", "easily"]
-```
-
-Observe whether the resulting stems are valid English words.
-
-#### Exercise 4: Stemming a Sentence
-
-Input:
-
-```text
-The students are studying, studying hard, and studied yesterday.
-```
-
-Tasks:
-
-1. Tokenize the sentence.
-2. Apply the Porter Stemmer to each token.
-3. Compare the original tokens with the stemmed tokens.
-
-#### Exercise 5: Stemming vs. Lemmatization
-
-Compare the results of stemming and lemmatization for:
-
-```python
-words = ["studies", "running", "better", "cars"]
-```
-
-Explain why the two techniques may produce different outputs.
-
-#### Exercise 6: Evaluate the Results
-
-Choose a short paragraph and compare its vocabulary before and after stemming. Identify which word distinctions are preserved and which are lost.
-
 ### 10. Practical Applications
 
 #### Search Engines
@@ -803,7 +682,7 @@ Stemming can improve matching between a user's query and documents containing re
 - [Stop-Word Removal](stopword_removal_nltk.py) — Removing selected common words before further processing.
 - [Lemmatization](lemmatization_nltk.ipynb) — Reducing words to their dictionary forms using linguistic information.
 - [Tokenization](../02_Tokenization/) — Splitting text into smaller units.
-- [Bag of Words](../../02_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
 
 ### 12. Points to Remember
 

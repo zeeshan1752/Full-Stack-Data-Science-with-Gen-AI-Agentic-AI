@@ -366,77 +366,17 @@ Modern language models generally process token IDs produced by their own tokeniz
 - **Forgetting NLTK data resources:** Installing NLTK does not necessarily install every tokenizer dataset.
 - **Assuming subword tokenization has a universal output:** Results depend on the tokenizer and its vocabulary.
 
-## 9. Exercises
+---
 
-Try these exercises yourself and compare the results from different tokenizers.
-
-### Exercise 1: Sentence Tokenization
-
-Input:
-
-```text
-Python is easy to learn. NLP is interesting! Are you ready?
-```
-
-Task: Use `sent_tokenize()` to split the paragraph into sentences.
-
-### Exercise 2: Word Tokenization
-
-Input:
-
-```text
-I love learning Python!
-```
-
-Task: Use `word_tokenize()` and identify which tokens represent punctuation.
-
-### Exercise 3: Compare Tokenizers
-
-Input:
-
-```text
-Hello, world! Welcome to NLP.
-```
-
-Task: Compare the outputs of:
-
-- `text.split()`
-- `word_tokenize(text)`
-- `wordpunct_tokenize(text)`
-
-Explain how the punctuation differs.
-
-### Exercise 4: Contractions
-
-Input:
-
-```text
-I don't know why it's happening.
-```
-
-Task: Apply the word tokenizers and observe how they handle apostrophes and contractions.
-
-### Exercise 5: Numbers and Abbreviations
-
-Input:
-
-```text
-Dr. Kumar scored 98.5 marks. He is happy!
-```
-
-Task: Apply sentence and word tokenization. Examine how the abbreviation and decimal number are handled.
-
-### Exercise 6: Practical Application
-
-Write a program that accepts a paragraph, tokenizes it into sentences, and then tokenizes each sentence into words.
-
-## 10. Related Topics
+## 9. Related Topics
 
 - [Text Cleaning](../01_Basics_and_Cleaning/) — Preparing raw text before tokenization.
 - [Stop-Word Removal](../03_Stopwords_Stemming_Lemmatization/) — Removing selected common words when appropriate.
-- [Bag of Words](../../02_Text_Representation/01_Bag_of_Words_and_NGrams/) — Representing text using word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Representing text using word-frequency features.
 
-## 11. Points to Remember
+---
+
+## 10. Points to Remember
 
 - Tokenization divides text into smaller units called tokens.
 - Sentence tokenization identifies sentence boundaries.
@@ -470,7 +410,7 @@ NLTK is a Python toolkit for teaching and experimenting with natural-language pr
 - Cached outputs were cleared before public upload because they contained personal and environment metadata. Run the cells locally to regenerate outputs; optional Hindi/Kannada stop-word resources may need to be downloaded.
 - The preserved practice notebook is available as [nltk_cross_topic_practice.ipynb](nltk_cross_topic_practice.ipynb).
 
-The notebook's coverage shows practice in these areas; it does not by itself establish that every item was fully completed in class. Focused conceptual notes live in [preprocessing overview](../README.md), [n-grams](../../02_Text_Representation/01_Bag_of_Words_and_NGrams/README.md#n-grams), [POS tagging](../../03_Linguistic_Analysis/01_POS_Tagging/README.md), and [NER](../../03_Linguistic_Analysis/02_NER/README.md).
+The notebook's coverage shows practice in these areas; it does not by itself establish that every item was fully completed in class. Focused conceptual notes live in [preprocessing overview](../README.md), [n-grams](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/README.md#n-grams), [POS tagging](../../02_Linguistic_Analysis/01_POS_Tagging/README.md), and [NER](../../02_Linguistic_Analysis/02_NER/README.md).
 
 ### Setup
 

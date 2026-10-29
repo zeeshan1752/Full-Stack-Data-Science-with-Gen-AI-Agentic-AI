@@ -5,7 +5,7 @@ from pathlib import Path
 import spacy
 
 
-DATA_FILE = Path(__file__).resolve().parents[2] / "data" / "sample_texts.txt"
+DATA_FILE = Path(__file__).resolve().parents[2] / "01_Preprocessing" / "sample_texts.txt"
 MODEL_NAME = "en_core_web_sm"
 
 

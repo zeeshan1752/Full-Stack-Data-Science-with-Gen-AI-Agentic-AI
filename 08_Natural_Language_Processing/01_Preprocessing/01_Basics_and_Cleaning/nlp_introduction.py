@@ -1,4 +1,3 @@
-
 # Introduction to NLP
 
 text = "Natural Language Processing is interesting and useful."
