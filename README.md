@@ -107,7 +107,7 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [x] [Regression Model Evaluation](06_Mathematics_And_Statistics/11_Regression_Model_Evaluation)
 - [x] [Linear Algebra](06_Mathematics_And_Statistics/12_Linear_Algebra)
 - [x] [Calculus](06_Mathematics_And_Statistics/13_Calculus)
-- [x] [Bias and Variance](06_Mathematics_And_Statistics/14_Bias_and_Variance)
+- [x] [Bias and Variance](06_Mathematics_And_Statistics/14_Bias_And_Variance)
 - [x] [Statistics for Machine Learning](06_Mathematics_And_Statistics/15_Statistics_for_Machine_Learning)
 
 ### Machine Learning
