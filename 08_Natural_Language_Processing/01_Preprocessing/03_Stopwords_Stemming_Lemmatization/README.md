@@ -354,7 +354,7 @@ Download only the resources needed by your program. If NLTK reports a missing re
 - [Stemming](stemming_comparison_nltk.py) — Reducing words through rule-based transformations.
 - [Stop-Word Removal](stopword_removal_nltk.py) — Removing selected common words when appropriate.
 - [Tokenization](../02_Tokenization/) — Splitting text into sentences or smaller units.
-- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_Of_Words_And_NGrams/) — Converting text into word-frequency features.
 
 ### 12. Points to Remember
 
@@ -682,7 +682,7 @@ Stemming can improve matching between a user's query and documents containing re
 - [Stop-Word Removal](stopword_removal_nltk.py) — Removing selected common words before further processing.
 - [Lemmatization](lemmatization_nltk.ipynb) — Reducing words to their dictionary forms using linguistic information.
 - [Tokenization](../02_Tokenization/) — Splitting text into smaller units.
-- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Converting text into word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_Of_Words_And_NGrams/) — Converting text into word-frequency features.
 
 ### 12. Points to Remember
 

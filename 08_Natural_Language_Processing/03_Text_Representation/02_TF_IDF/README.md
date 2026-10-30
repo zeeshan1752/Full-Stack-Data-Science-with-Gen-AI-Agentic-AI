@@ -342,8 +342,8 @@ TF-IDF can help represent documents for topic classification, clustering, and re
 
 ## 13. Related Topics
 
-- [Bag of Words](../01_Bag_of_Words_and_NGrams/README.md#bag-of-words-bow)
-- [N-Grams](../01_Bag_of_Words_and_NGrams/README.md#n-grams)
+- [Bag of Words](../01_Bag_Of_Words_And_NGrams/README.md#bag-of-words-bow)
+- [N-Grams](../01_Bag_Of_Words_And_NGrams/README.md#n-grams)
 - [Text Tokenization](../../01_Preprocessing/02_Tokenization/README.md)
 - [scikit-learn example](tfidf_sklearn.py)
 

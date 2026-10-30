@@ -6,10 +6,10 @@ This section covers the basic techniques used to prepare text for NLP applicatio
 
 ## Topics
 
-- [01 Basics and Cleaning](01_Basics_and_Cleaning/) — Introduction to NLP, text cleaning, and text normalization.
+- [01 Basics and Cleaning](01_Basics_And_Cleaning/) — Introduction to NLP, text cleaning, and text normalization.
 - [02 Tokenization](02_Tokenization/) — Splitting text into sentences, words, and tokens using NLTK and spaCy.
 - [03 Stopwords, Stemming and Lemmatization](03_Stopwords_Stemming_Lemmatization/) — Removing common words and reducing words to their stems or base forms.
-- [04 Regex and Pipelines](04_Regex_and_Pipelines/) — Cleaning text with regular expressions and combining text transformations using scikit-learn pipelines.
+- [04 Regex and Pipelines](04_Regex_And_Pipelines/) — Cleaning text with regular expressions and combining text transformations using scikit-learn pipelines.
 
 ## Learning Summary
 

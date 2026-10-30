@@ -15,12 +15,12 @@ In this folder, we build a **Sales & Profit Visual Explorer**. A user chooses a 
 │   ├── scatter_plot.png
 │   ├── histogram.png
 │   └── box_plot.png
-├── Gradio.ipynb
+├── gradio.ipynb
 ├── gradio_app.py
 └── README.md
 ```
 
-- `Gradio.ipynb` — learn the concepts step by step in Jupyter Notebook.
+- `gradio.ipynb` — learn the concepts step by step in Jupyter Notebook.
 - `gradio_app.py` — run the complete interactive app.
 - `images/` — saved output images for the six visualizations.
 - `README.md` — explanations, examples, setup, and outputs.

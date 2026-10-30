@@ -94,21 +94,21 @@ Artificial Intelligence, Generative AI, Agentic AI, and MLOps.
 - [ ] SQL vs NoSQL
 
 ### Mathematics & Statistics
-- [x] [Statistics Fundamentals](06_Mathematics_&_Statistics/01_Statistics_Fundamentals)
-- [x] [Descriptive Statistics](06_Mathematics_&_Statistics/02_Descriptive_Statistics)
-- [x] [Probability](06_Mathematics_&_Statistics/03_Probability)
-- [x] [Probability Distributions](06_Mathematics_&_Statistics/04_Probability_Distributions)
-- [x] [Inferential Statistics](06_Mathematics_&_Statistics/05_Inferential_Statistics)
-- [x] [Hypothesis Testing](06_Mathematics_&_Statistics/06_Hypothesis_Testing)
-- [x] [ANOVA](06_Mathematics_&_Statistics/07_ANOVA)
-- [x] [Chi-Square Test](06_Mathematics_&_Statistics/08_Chi_Square_Test)
-- [x] [Correlation](06_Mathematics_&_Statistics/09_Correlation)
-- [x] [Regression](06_Mathematics_&_Statistics/10_Regression)
-- [x] [Regression Model Evaluation](06_Mathematics_&_Statistics/11_Regression_Model_Evaluation)
-- [x] [Linear Algebra](06_Mathematics_&_Statistics/12_Linear_Algebra)
-- [x] [Calculus](06_Mathematics_&_Statistics/13_Calculus)
-- [x] [Bias and Variance](06_Mathematics_&_Statistics/14_Bias_and_Variance)
-- [x] [Statistics for Machine Learning](06_Mathematics_&_Statistics/15_Statistics_for_Machine_Learning)
+- [x] [Statistics Fundamentals](06_Mathematics_And_Statistics/01_Statistics_Fundamentals)
+- [x] [Descriptive Statistics](06_Mathematics_And_Statistics/02_Descriptive_Statistics)
+- [x] [Probability](06_Mathematics_And_Statistics/03_Probability)
+- [x] [Probability Distributions](06_Mathematics_And_Statistics/04_Probability_Distributions)
+- [x] [Inferential Statistics](06_Mathematics_And_Statistics/05_Inferential_Statistics)
+- [x] [Hypothesis Testing](06_Mathematics_And_Statistics/06_Hypothesis_Testing)
+- [x] [ANOVA](06_Mathematics_And_Statistics/07_ANOVA)
+- [x] [Chi-Square Test](06_Mathematics_And_Statistics/08_Chi_Square_Test)
+- [x] [Correlation](06_Mathematics_And_Statistics/09_Correlation)
+- [x] [Regression](06_Mathematics_And_Statistics/10_Regression)
+- [x] [Regression Model Evaluation](06_Mathematics_And_Statistics/11_Regression_Model_Evaluation)
+- [x] [Linear Algebra](06_Mathematics_And_Statistics/12_Linear_Algebra)
+- [x] [Calculus](06_Mathematics_And_Statistics/13_Calculus)
+- [x] [Bias and Variance](06_Mathematics_And_Statistics/14_Bias_and_Variance)
+- [x] [Statistics for Machine Learning](06_Mathematics_And_Statistics/15_Statistics_for_Machine_Learning)
 
 ### Machine Learning
 - Introduction to Machine Learning
@@ -360,20 +360,20 @@ The repository is organized by course topic. The NLP section is arranged as foll
 ├── 02_Advanced_Python/
 ├── 03_Data_Analysis/
 ├── 04_Web_Application_Development/
-├── 06_Mathematics_&_Statistics/
+├── 06_Mathematics_And_Statistics/
 ├── 08_Natural_Language_Processing/
 │   ├── 01_Preprocessing/
 │   ├── 02_Linguistic_Analysis/
 │   ├── 03_Text_Representation/
 │   ├── 04_Neural_Models/
-│   ├── 05_Attention_and_Transformers/
+│   ├── 05_Attention_And_Transformers/
 │   ├── 06_BERT/
 │   ├── 07_Applications/
 │   ├── 08_Projects/
 │   └── README.md
 ├── 13_LLMs/
 ├── .gitignore
-├── NOTEBOOK_GUIDE.md
+├── notebook_guide.md
 └── README.md
 ```
 
@@ -393,7 +393,7 @@ python -m pip install numpy==2.5.3 pandas==3.0.6 matplotlib==3.11.2 openpyxl==3.
 jupyter lab
 ```
 
-The notebooks use repository-relative paths and fixed sample input so they do not depend on one computer or pause for keyboard input. See [NOTEBOOK_GUIDE.md](NOTEBOOK_GUIDE.md) for run instructions and conventions.
+The notebooks use repository-relative paths and fixed sample input so they do not depend on one computer or pause for keyboard input. See [notebook_guide.md](notebook_guide.md) for run instructions and conventions.
 
 ## How I Use This Repository
 
@@ -415,8 +415,8 @@ If I am learning **Lists in Python**, I keep notes, notebooks, and scripts toget
 └── 12_Data_Structure/
     └── 01_List/
         ├── README.md
-        ├── List.ipynb
-        └── List_py.py
+        ├── list.ipynb
+        └── list_py.py
 ```
 
 The README contains concept notes, the notebook contains guided practice, and the Python file contains standalone examples.

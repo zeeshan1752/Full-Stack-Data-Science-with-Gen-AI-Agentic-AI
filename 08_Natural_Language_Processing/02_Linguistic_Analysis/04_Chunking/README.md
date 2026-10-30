@@ -184,7 +184,7 @@ Long-text chunking divides a large text into smaller pieces that fit within a mo
 
 It is used in workflows involving language models, document processing, and retrieval-augmented generation (RAG).
 
-The GPT-2 demonstration for long-text chunking is available in the [Transformer supplement](../../05_Attention_and_Transformers/03_GPT2_and_HF_Demos/README.md).
+The GPT-2 demonstration for long-text chunking is available in the [Transformer supplement](../../05_Attention_And_Transformers/03_GPT2_And_HF_Demos/README.md).
 
 These two meanings are related only through the general idea of dividing something into smaller units; their methods and goals are different.
 
@@ -232,7 +232,7 @@ For full sentence structure, study constituency parsing and dependency parsing.
 - [Part-of-Speech Tagging](../01_POS_Tagging/README.md)
 - [Named Entity Recognition](../02_NER/README.md)
 - [Parsing](../03_Parsing/README.md)
-- [Transformer Supplement: GPT-2 and Hugging Face Demos](../../05_Attention_and_Transformers/03_GPT2_and_HF_Demos/README.md)
+- [Transformer Supplement: GPT-2 and Hugging Face Demos](../../05_Attention_And_Transformers/03_GPT2_And_HF_Demos/README.md)
 
 ## 14. References
 

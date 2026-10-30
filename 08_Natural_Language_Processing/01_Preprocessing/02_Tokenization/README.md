@@ -370,9 +370,9 @@ Modern language models generally process token IDs produced by their own tokeniz
 
 ## 9. Related Topics
 
-- [Text Cleaning](../01_Basics_and_Cleaning/) — Preparing raw text before tokenization.
+- [Text Cleaning](../01_Basics_And_Cleaning/) — Preparing raw text before tokenization.
 - [Stop-Word Removal](../03_Stopwords_Stemming_Lemmatization/) — Removing selected common words when appropriate.
-- [Bag of Words](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/) — Representing text using word-frequency features.
+- [Bag of Words](../../03_Text_Representation/01_Bag_Of_Words_And_NGrams/) — Representing text using word-frequency features.
 
 ---
 
@@ -410,7 +410,7 @@ NLTK is a Python toolkit for teaching and experimenting with natural-language pr
 - Cached outputs were cleared before public upload because they contained personal and environment metadata. Run the cells locally to regenerate outputs; optional Hindi/Kannada stop-word resources may need to be downloaded.
 - The preserved practice notebook is available as [nltk_cross_topic_practice.ipynb](nltk_cross_topic_practice.ipynb).
 
-The notebook's coverage shows practice in these areas; it does not by itself establish that every item was fully completed in class. Focused conceptual notes live in [preprocessing overview](../README.md), [n-grams](../../03_Text_Representation/01_Bag_of_Words_and_NGrams/README.md#n-grams), [POS tagging](../../02_Linguistic_Analysis/01_POS_Tagging/README.md), and [NER](../../02_Linguistic_Analysis/02_NER/README.md).
+The notebook's coverage shows practice in these areas; it does not by itself establish that every item was fully completed in class. Focused conceptual notes live in [preprocessing overview](../README.md), [n-grams](../../03_Text_Representation/01_Bag_Of_Words_And_NGrams/README.md#n-grams), [POS tagging](../../02_Linguistic_Analysis/01_POS_Tagging/README.md), and [NER](../../02_Linguistic_Analysis/02_NER/README.md).
 
 ### Setup
 
